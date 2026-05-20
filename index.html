@@ -13,496 +13,155 @@
     --gold-bright: #e8c876;
     --coral: #d4603a;
     --sage: #6b8c6e;
+    --green: #4a9d5f;
     --cream: #faf6ee;
     --paper: #f7f1e3;
     --ink: #1a1a1a;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body {
-    font-family: 'Inter', sans-serif;
-    background: var(--navy);
-    color: var(--cream);
-    overflow-x: hidden;
-  }
-
-  /* HERO */
-  .hero {
-    min-height: 85vh;
-    background:
-      radial-gradient(circle at 20% 30%, rgba(201, 169, 97, 0.18) 0%, transparent 50%),
-      radial-gradient(circle at 80% 70%, rgba(212, 96, 58, 0.12) 0%, transparent 50%),
-      linear-gradient(135deg, #0a1929 0%, #14253d 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 4rem 2rem;
-    position: relative;
-    overflow: hidden;
-  }
-  .hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image:
-      radial-gradient(2px 2px at 20% 30%, rgba(255,255,255,0.3), transparent),
-      radial-gradient(1px 1px at 60% 70%, rgba(255,255,255,0.2), transparent),
-      radial-gradient(1.5px 1.5px at 80% 10%, rgba(255,255,255,0.25), transparent),
-      radial-gradient(1px 1px at 33% 80%, rgba(255,255,255,0.2), transparent),
-      radial-gradient(1.5px 1.5px at 90% 60%, rgba(255,255,255,0.2), transparent),
-      radial-gradient(1px 1px at 15% 65%, rgba(255,255,255,0.3), transparent);
-    opacity: 0.7;
-  }
-  .hero-content { text-align: center; z-index: 2; max-width: 900px; }
-  .hero-eyebrow {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.85rem;
-    color: var(--gold);
-    letter-spacing: 0.4em;
-    margin-bottom: 1.5rem;
-    text-transform: uppercase;
-  }
-  .hero-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2.5rem, 8vw, 5.5rem);
-    font-weight: 900;
-    line-height: 1;
-    margin-bottom: 1.5rem;
-    background: linear-gradient(135deg, #faf6ee 0%, #c9a961 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-  .hero-title em {
-    font-style: italic;
-    font-weight: 400;
-    display: block;
-    font-size: 0.5em;
-    margin-top: 0.5rem;
-    background: linear-gradient(135deg, #c9a961 0%, #faf6ee 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-  .hero-subtitle {
-    font-size: 1.1rem;
-    color: rgba(250, 246, 238, 0.75);
-    margin: 0 auto 3rem;
-    font-weight: 300;
-    max-width: 640px;
-    line-height: 1.6;
-  }
-  .hero-stats {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.5rem;
-    max-width: 700px;
-    margin: 0 auto;
-  }
-  .stat { text-align: center; }
-  .stat-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.5rem;
-    color: var(--gold);
-    font-weight: 700;
-    line-height: 1;
-  }
-  .stat-label {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.7rem;
-    color: rgba(250, 246, 238, 0.5);
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    margin-top: 0.4rem;
-  }
-  @media (max-width: 640px) {
-    .hero-stats { grid-template-columns: repeat(2, 1fr); }
-  }
-
-  /* MAP SECTION */
-  .map-section {
-    padding: 5rem 2rem;
-    background: linear-gradient(180deg, var(--navy-2) 0%, var(--navy) 100%);
-  }
-  .section-header {
-    max-width: 1300px;
-    margin: 0 auto 3rem;
-    text-align: center;
-  }
-  .section-eyebrow {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.75rem;
-    color: var(--gold);
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    margin-bottom: 1rem;
-  }
-  .section-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2rem, 5vw, 3.5rem);
-    font-weight: 700;
-    margin-bottom: 1rem;
-  }
-  .section-title em { font-style: italic; color: var(--gold); }
-  .section-desc {
-    color: rgba(250, 246, 238, 0.6);
-    font-size: 1rem;
-    max-width: 600px;
-    margin: 0 auto;
-  }
-  .map-wrapper {
-    max-width: 1300px;
-    margin: 0 auto;
-    background: rgba(0,0,0,0.35);
-    border: 1px solid rgba(201, 169, 97, 0.2);
-    border-radius: 16px;
-    overflow: hidden;
-    position: relative;
-    padding: 1rem;
-  }
-  svg.usmap {
-    width: 100%;
-    height: auto;
-    display: block;
-  }
-  .state {
-    fill: #1e3552;
-    stroke: rgba(201, 169, 97, 0.25);
-    stroke-width: 0.8;
-    transition: fill 0.3s;
-  }
-  .state.visited {
-    fill: #2a4d75;
-    stroke: rgba(201, 169, 97, 0.5);
-  }
-  .route-flight {
-    fill: none;
-    stroke: #c9a961;
-    stroke-width: 2.5;
-    stroke-dasharray: 8,6;
-    opacity: 0.85;
-  }
-  .route-road {
-    fill: none;
-    stroke: #d4603a;
-    stroke-width: 3;
-    opacity: 0.9;
-  }
-  .city-pulse {
-    fill: #c9a961;
-    opacity: 0.25;
-    animation: pulse 2.5s ease-in-out infinite;
-  }
-  @keyframes pulse {
-    0%, 100% { r: 12; opacity: 0.3; }
-    50% { r: 22; opacity: 0; }
-  }
-  .city-dot {
-    fill: #c9a961;
-    stroke: #faf6ee;
-    stroke-width: 2;
-    cursor: pointer;
-  }
-  .city-label {
-    font-family: 'Playfair Display', serif;
-    font-size: 16px;
-    font-weight: 700;
-    fill: #faf6ee;
-    pointer-events: none;
-  }
-  .city-dates {
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    fill: #c9a961;
-    letter-spacing: 0.1em;
-    pointer-events: none;
-  }
-  .map-legend {
-    position: absolute;
-    bottom: 1.5rem;
-    left: 1.5rem;
-    background: rgba(10, 25, 41, 0.95);
-    border: 1px solid rgba(201, 169, 97, 0.3);
-    border-radius: 10px;
-    padding: 1rem 1.25rem;
-    backdrop-filter: blur(8px);
-  }
-  .legend-title {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.65rem;
-    color: var(--gold);
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    margin-bottom: 0.6rem;
-  }
-  .legend-item {
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-    font-size: 0.78rem;
-    color: var(--cream);
-    margin-bottom: 0.35rem;
-  }
-  .legend-line { width: 30px; height: 2px; flex-shrink: 0; }
-
-  /* TIMELINE */
-  .timeline-section {
-    padding: 5rem 2rem;
-    background: var(--navy);
-  }
-  .timeline {
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-  .day-card {
-    background: linear-gradient(135deg, rgba(20, 37, 61, 0.7) 0%, rgba(10, 25, 41, 0.7) 100%);
-    border: 1px solid rgba(201, 169, 97, 0.18);
-    border-radius: 14px;
-    padding: 2rem;
-    margin-bottom: 1.5rem;
-    transition: all 0.3s ease;
-  }
-  .day-card:hover {
-    border-color: rgba(201, 169, 97, 0.4);
-    transform: translateY(-2px);
-  }
-  .day-card.partido {
-    border-color: rgba(212, 96, 58, 0.4);
-    background: linear-gradient(135deg, rgba(212, 96, 58, 0.08) 0%, rgba(20, 37, 61, 0.7) 100%);
-  }
-  .day-header {
-    display: flex;
-    align-items: baseline;
-    gap: 1.2rem;
-    flex-wrap: wrap;
-    margin-bottom: 1.5rem;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid rgba(201, 169, 97, 0.15);
-  }
-  .day-number {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.4rem;
-    color: var(--gold);
-    font-weight: 700;
-    line-height: 1;
-  }
-  .day-date {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.85rem;
-    color: rgba(250, 246, 238, 0.55);
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-  }
-  .day-location {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.3rem;
-    color: var(--cream);
-    font-style: italic;
-    margin-left: auto;
-  }
-  .day-badges {
-    display: flex;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-    margin-bottom: 1rem;
-  }
-  .badge {
-    display: inline-block;
-    font-family: 'DM Mono', monospace;
-    font-size: 0.65rem;
-    padding: 0.3rem 0.7rem;
-    border-radius: 4px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
-  .badge-hotel {
-    background: rgba(201, 169, 97, 0.15);
-    color: var(--gold);
-    border: 1px solid rgba(201, 169, 97, 0.3);
-  }
-  .badge-flight {
-    background: rgba(107, 140, 110, 0.2);
-    color: #a8c9ab;
-    border: 1px solid rgba(107, 140, 110, 0.4);
-  }
-  .badge-partido {
-    background: var(--coral);
-    color: var(--cream);
-    font-weight: 700;
-  }
-  .badge-partido.tbc {
-    background: rgba(212, 96, 58, 0.3);
-    color: var(--coral);
-    border: 1px solid var(--coral);
-  }
-  .daypart-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-  }
-  @media (max-width: 768px) {
-    .daypart-grid { grid-template-columns: 1fr; }
-  }
-  .daypart {
-    background: rgba(0, 0, 0, 0.25);
-    border-radius: 8px;
-    padding: 1rem 1.1rem;
-    border-left: 3px solid var(--gold);
-  }
-  .daypart-time {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.7rem;
-    color: var(--gold);
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    margin-bottom: 0.4rem;
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
-  }
-  .daypart-content {
-    font-size: 0.9rem;
-    line-height: 1.5;
-    color: rgba(250, 246, 238, 0.9);
-  }
-  .daypart-content strong {
-    color: var(--gold-bright);
-    font-weight: 600;
-  }
-  .daypart.partido { border-left-color: var(--coral); }
-  .daypart.partido .daypart-time { color: var(--coral); }
-
-  /* Section divider */
-  .section-divider {
-    text-align: center;
-    padding: 2rem 0 1rem;
-    margin: 2rem auto;
-    max-width: 1100px;
-    border-top: 1px dashed rgba(201, 169, 97, 0.25);
-  }
-  .section-divider-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.6rem;
-    color: var(--gold);
-    font-style: italic;
-    margin-top: 2rem;
-  }
-  .section-divider-sub {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.7rem;
-    color: rgba(250, 246, 238, 0.4);
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    margin-top: 0.4rem;
-  }
-
-  /* Footer */
-  .footer {
-    padding: 4rem 2rem;
-    text-align: center;
-    background: linear-gradient(180deg, var(--navy) 0%, #050d18 100%);
-    border-top: 1px solid rgba(201, 169, 97, 0.15);
-  }
-  .footer-title {
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-    font-size: 2rem;
-    color: var(--gold);
-    margin-bottom: 1rem;
-  }
-  .footer-text {
-    color: rgba(250, 246, 238, 0.6);
-    max-width: 640px;
-    margin: 0 auto;
-    font-size: 1rem;
-    line-height: 1.7;
-  }
+  body { font-family: 'Inter', sans-serif; background: var(--navy); color: var(--cream); overflow-x: hidden; }
 
   /* PASSWORD GATE */
   #password-gate {
-    position: fixed;
-    inset: 0;
-    background:
-      radial-gradient(circle at 20% 30%, rgba(201, 169, 97, 0.18) 0%, transparent 50%),
-      radial-gradient(circle at 80% 70%, rgba(212, 96, 58, 0.12) 0%, transparent 50%),
-      linear-gradient(135deg, #0a1929 0%, #14253d 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 9999;
-    padding: 2rem;
+    position: fixed; inset: 0;
+    background: radial-gradient(circle at 20% 30%, rgba(201, 169, 97, 0.18) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(212, 96, 58, 0.12) 0%, transparent 50%),
+                linear-gradient(135deg, #0a1929 0%, #14253d 100%);
+    display: flex; align-items: center; justify-content: center;
+    z-index: 9999; padding: 2rem;
   }
   #password-gate.hidden { display: none; }
   .gate-card {
     background: rgba(20, 37, 61, 0.6);
     border: 1px solid rgba(201, 169, 97, 0.3);
-    border-radius: 16px;
-    padding: 3rem 2.5rem;
-    max-width: 420px;
-    width: 100%;
-    text-align: center;
+    border-radius: 16px; padding: 3rem 2.5rem;
+    max-width: 420px; width: 100%; text-align: center;
     backdrop-filter: blur(8px);
   }
-  .gate-eyebrow {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.75rem;
-    color: #c9a961;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    margin-bottom: 1.2rem;
-  }
-  .gate-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.8rem;
-    color: #faf6ee;
-    margin-bottom: 0.6rem;
-    line-height: 1.2;
-  }
+  .gate-eyebrow { font-family: 'DM Mono', monospace; font-size: 0.75rem; color: #c9a961; letter-spacing: 0.3em; text-transform: uppercase; margin-bottom: 1.2rem; }
+  .gate-title { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: #faf6ee; margin-bottom: 0.6rem; line-height: 1.2; }
   .gate-title em { font-style: italic; color: #c9a961; }
-  .gate-subtitle {
-    color: rgba(250, 246, 238, 0.6);
-    font-size: 0.95rem;
-    margin-bottom: 2rem;
-  }
-  #gate-input {
-    width: 100%;
-    background: rgba(0,0,0,0.3);
-    border: 1px solid rgba(201, 169, 97, 0.3);
-    border-radius: 8px;
-    padding: 0.9rem 1.1rem;
-    font-family: 'DM Mono', monospace;
-    font-size: 1.1rem;
-    color: #faf6ee;
-    letter-spacing: 0.2em;
-    text-align: center;
-    margin-bottom: 1rem;
-    outline: none;
-    transition: border-color 0.2s;
-  }
+  .gate-subtitle { color: rgba(250, 246, 238, 0.6); font-size: 0.95rem; margin-bottom: 2rem; }
+  #gate-input { width: 100%; background: rgba(0,0,0,0.3); border: 1px solid rgba(201, 169, 97, 0.3); border-radius: 8px; padding: 0.9rem 1.1rem; font-family: 'DM Mono', monospace; font-size: 1.1rem; color: #faf6ee; letter-spacing: 0.2em; text-align: center; margin-bottom: 1rem; outline: none; transition: border-color 0.2s; }
   #gate-input:focus { border-color: #c9a961; }
-  #gate-button {
-    width: 100%;
-    background: linear-gradient(135deg, #c9a961 0%, #b89048 100%);
-    color: #0a1929;
-    border: none;
-    border-radius: 8px;
-    padding: 0.9rem;
-    font-family: 'Inter', sans-serif;
-    font-weight: 700;
-    font-size: 0.95rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: transform 0.2s;
-  }
+  #gate-button { width: 100%; background: linear-gradient(135deg, #c9a961 0%, #b89048 100%); color: #0a1929; border: none; border-radius: 8px; padding: 0.9rem; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 0.95rem; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; transition: transform 0.2s; }
   #gate-button:hover { transform: translateY(-2px); }
-  #gate-error {
-    color: #d4603a;
-    font-size: 0.85rem;
-    margin-top: 1rem;
-    min-height: 1.2rem;
-    font-family: 'DM Mono', monospace;
-  }
+  #gate-error { color: #d4603a; font-size: 0.85rem; margin-top: 1rem; min-height: 1.2rem; font-family: 'DM Mono', monospace; }
 
+  /* HERO */
+  .hero { min-height: 85vh; background: radial-gradient(circle at 20% 30%, rgba(201, 169, 97, 0.18) 0%, transparent 50%), radial-gradient(circle at 80% 70%, rgba(212, 96, 58, 0.12) 0%, transparent 50%), linear-gradient(135deg, #0a1929 0%, #14253d 100%); display: flex; align-items: center; justify-content: center; padding: 4rem 2rem; position: relative; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; inset: 0; background-image: radial-gradient(2px 2px at 20% 30%, rgba(255,255,255,0.3), transparent), radial-gradient(1px 1px at 60% 70%, rgba(255,255,255,0.2), transparent), radial-gradient(1.5px 1.5px at 80% 10%, rgba(255,255,255,0.25), transparent), radial-gradient(1px 1px at 33% 80%, rgba(255,255,255,0.2), transparent), radial-gradient(1.5px 1.5px at 90% 60%, rgba(255,255,255,0.2), transparent), radial-gradient(1px 1px at 15% 65%, rgba(255,255,255,0.3), transparent); opacity: 0.7; }
+  .hero-content { text-align: center; z-index: 2; max-width: 900px; }
+  .hero-eyebrow { font-family: 'DM Mono', monospace; font-size: 0.85rem; color: var(--gold); letter-spacing: 0.4em; margin-bottom: 1.5rem; text-transform: uppercase; }
+  .hero-title { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 8vw, 5.5rem); font-weight: 900; line-height: 1; margin-bottom: 1.5rem; background: linear-gradient(135deg, #faf6ee 0%, #c9a961 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+  .hero-title em { font-style: italic; font-weight: 400; display: block; font-size: 0.5em; margin-top: 0.5rem; background: linear-gradient(135deg, #c9a961 0%, #faf6ee 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+  .hero-subtitle { font-size: 1.1rem; color: rgba(250, 246, 238, 0.75); margin: 0 auto 3rem; font-weight: 300; max-width: 640px; line-height: 1.6; }
+  .hero-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; max-width: 700px; margin: 0 auto; }
+  .stat { text-align: center; }
+  .stat-num { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--gold); font-weight: 700; line-height: 1; }
+  .stat-label { font-family: 'DM Mono', monospace; font-size: 0.7rem; color: rgba(250, 246, 238, 0.5); letter-spacing: 0.15em; text-transform: uppercase; margin-top: 0.4rem; }
+  @media (max-width: 640px) { .hero-stats { grid-template-columns: repeat(2, 1fr); } }
+
+  /* NAV TABS */
+  .nav-tabs { position: sticky; top: 0; z-index: 100; background: rgba(10, 25, 41, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(201, 169, 97, 0.2); }
+  .nav-inner { max-width: 1300px; margin: 0 auto; padding: 1rem 2rem; display: flex; gap: 2rem; overflow-x: auto; }
+  .nav-tab { font-family: 'DM Mono', monospace; font-size: 0.75rem; color: rgba(250, 246, 238, 0.55); letter-spacing: 0.15em; text-transform: uppercase; cursor: pointer; padding: 0.5rem 0; border-bottom: 2px solid transparent; transition: all 0.2s; white-space: nowrap; text-decoration: none; }
+  .nav-tab:hover, .nav-tab.active { color: var(--gold); border-bottom-color: var(--gold); }
+
+  /* SECTIONS */
+  section { padding: 5rem 2rem; }
+  .map-section { background: linear-gradient(180deg, var(--navy-2) 0%, var(--navy) 100%); }
+  .reservations-section { background: var(--navy-2); }
+  .timeline-section { background: var(--navy); }
+
+  .section-header { max-width: 1300px; margin: 0 auto 3rem; text-align: center; }
+  .section-eyebrow { font-family: 'DM Mono', monospace; font-size: 0.75rem; color: var(--gold); letter-spacing: 0.3em; text-transform: uppercase; margin-bottom: 1rem; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 700; margin-bottom: 1rem; }
+  .section-title em { font-style: italic; color: var(--gold); }
+  .section-desc { color: rgba(250, 246, 238, 0.6); font-size: 1rem; max-width: 600px; margin: 0 auto; }
+
+  /* MAP */
+  .map-wrapper { max-width: 1300px; margin: 0 auto; background: rgba(0,0,0,0.35); border: 1px solid rgba(201, 169, 97, 0.2); border-radius: 16px; overflow: hidden; position: relative; padding: 1rem; }
+  svg.usmap { width: 100%; height: auto; display: block; }
+  .state { fill: #1e3552; stroke: rgba(201, 169, 97, 0.25); stroke-width: 0.8; }
+  .route-flight { fill: none; stroke: #c9a961; stroke-width: 2.5; stroke-dasharray: 8,6; opacity: 0.85; }
+  .route-road { fill: none; stroke: #d4603a; stroke-width: 3; opacity: 0.9; }
+  .city-pulse { fill: #c9a961; opacity: 0.25; animation: pulse 2.5s ease-in-out infinite; }
+  @keyframes pulse { 0%, 100% { r: 12; opacity: 0.3; } 50% { r: 22; opacity: 0; } }
+  .city-dot { fill: #c9a961; stroke: #faf6ee; stroke-width: 2; cursor: pointer; }
+  .city-label { font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 700; fill: #faf6ee; pointer-events: none; }
+  .city-dates { font-family: 'DM Mono', monospace; font-size: 10px; fill: #c9a961; letter-spacing: 0.1em; pointer-events: none; }
+  .map-legend { position: absolute; bottom: 1.5rem; left: 1.5rem; background: rgba(10, 25, 41, 0.95); border: 1px solid rgba(201, 169, 97, 0.3); border-radius: 10px; padding: 1rem 1.25rem; backdrop-filter: blur(8px); }
+  .legend-title { font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--gold); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 0.6rem; }
+  .legend-item { display: flex; align-items: center; gap: 0.6rem; font-size: 0.78rem; color: var(--cream); margin-bottom: 0.35rem; }
+  .legend-line { width: 30px; height: 2px; flex-shrink: 0; }
+
+  /* RESERVATIONS GRID */
+  .res-grid { max-width: 1200px; margin: 0 auto; display: grid; gap: 1.5rem; }
+  .res-section-title { font-family: 'Playfair Display', serif; font-size: 1.6rem; color: var(--gold); margin: 2rem 0 1rem; font-style: italic; }
+  .res-section-title:first-child { margin-top: 0; }
+  .res-card { background: linear-gradient(135deg, rgba(20, 37, 61, 0.7) 0%, rgba(10, 25, 41, 0.7) 100%); border: 1px solid rgba(201, 169, 97, 0.2); border-radius: 12px; overflow: hidden; transition: all 0.3s; }
+  .res-card:hover { border-color: rgba(201, 169, 97, 0.4); }
+  .res-header { padding: 1.5rem 1.8rem; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+  .res-header-left { display: flex; align-items: center; gap: 1rem; flex: 1; min-width: 0; }
+  .res-icon { font-size: 1.8rem; flex-shrink: 0; }
+  .res-info { flex: 1; min-width: 0; }
+  .res-title { font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: 700; color: var(--cream); margin-bottom: 0.2rem; }
+  .res-subtitle { font-size: 0.85rem; color: rgba(250, 246, 238, 0.55); font-family: 'DM Mono', monospace; letter-spacing: 0.05em; }
+  .res-status { display: flex; align-items: center; gap: 0.6rem; flex-shrink: 0; }
+  .status-badge { font-family: 'DM Mono', monospace; font-size: 0.7rem; padding: 0.3rem 0.7rem; border-radius: 4px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; }
+  .status-badge.confirmed { background: rgba(74, 157, 95, 0.15); color: var(--green); border: 1px solid rgba(74, 157, 95, 0.4); }
+  .status-badge.pending { background: rgba(212, 96, 58, 0.15); color: var(--coral); border: 1px solid rgba(212, 96, 58, 0.4); }
+  .status-badge.partial { background: rgba(201, 169, 97, 0.15); color: var(--gold); border: 1px solid rgba(201, 169, 97, 0.4); }
+  .res-toggle { color: rgba(250, 246, 238, 0.4); transition: transform 0.3s; font-size: 1.2rem; }
+  .res-card.open .res-toggle { transform: rotate(180deg); }
+  .res-body { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.4s ease; }
+  .res-card.open .res-body { max-height: 2500px; padding: 0 1.8rem 1.8rem; }
+  .res-body-inner { padding-top: 1rem; border-top: 1px solid rgba(201, 169, 97, 0.15); }
+  .data-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem 1.5rem; margin-bottom: 1rem; }
+  .data-item { }
+  .data-label { font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--gold); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.3rem; }
+  .data-value { font-size: 0.92rem; color: var(--cream); line-height: 1.5; }
+  .data-value.mono { font-family: 'DM Mono', monospace; font-size: 0.85rem; color: var(--gold-bright); }
+  .data-value a { color: var(--gold); text-decoration: none; border-bottom: 1px dotted var(--gold); }
+  .data-value a:hover { color: var(--gold-bright); }
+  .data-note { background: rgba(212, 96, 58, 0.1); border-left: 3px solid var(--coral); padding: 0.7rem 1rem; margin-top: 1rem; border-radius: 4px; font-size: 0.85rem; color: rgba(250, 246, 238, 0.85); line-height: 1.5; }
+  .data-note strong { color: var(--coral); }
+  .data-pending-list { background: rgba(212, 96, 58, 0.06); border: 1px dashed rgba(212, 96, 58, 0.3); border-radius: 6px; padding: 0.9rem 1.2rem; margin-top: 0.5rem; }
+  .data-pending-list-title { font-family: 'DM Mono', monospace; font-size: 0.7rem; color: var(--coral); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.5rem; }
+  .data-pending-list ul { margin: 0; padding-left: 1.2rem; }
+  .data-pending-list li { font-size: 0.85rem; color: rgba(250, 246, 238, 0.7); line-height: 1.6; }
+
+  /* TIMELINE */
+  .timeline { max-width: 1100px; margin: 0 auto; }
+  .day-card { background: linear-gradient(135deg, rgba(20, 37, 61, 0.7) 0%, rgba(10, 25, 41, 0.7) 100%); border: 1px solid rgba(201, 169, 97, 0.18); border-radius: 14px; padding: 2rem; margin-bottom: 1.5rem; }
+  .day-card.partido { border-color: rgba(212, 96, 58, 0.4); background: linear-gradient(135deg, rgba(212, 96, 58, 0.08) 0%, rgba(20, 37, 61, 0.7) 100%); }
+  .day-header { display: flex; align-items: baseline; gap: 1.2rem; flex-wrap: wrap; margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid rgba(201, 169, 97, 0.15); }
+  .day-number { font-family: 'Playfair Display', serif; font-size: 2.4rem; color: var(--gold); font-weight: 700; line-height: 1; }
+  .day-date { font-family: 'DM Mono', monospace; font-size: 0.85rem; color: rgba(250, 246, 238, 0.55); letter-spacing: 0.15em; text-transform: uppercase; }
+  .day-location { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--cream); font-style: italic; margin-left: auto; }
+  .day-badges { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1rem; }
+  .badge { display: inline-block; font-family: 'DM Mono', monospace; font-size: 0.65rem; padding: 0.3rem 0.7rem; border-radius: 4px; letter-spacing: 0.08em; text-transform: uppercase; }
+  .badge-hotel { background: rgba(201, 169, 97, 0.15); color: var(--gold); border: 1px solid rgba(201, 169, 97, 0.3); }
+  .badge-flight { background: rgba(107, 140, 110, 0.2); color: #a8c9ab; border: 1px solid rgba(107, 140, 110, 0.4); }
+  .badge-partido { background: var(--coral); color: var(--cream); font-weight: 700; }
+  .badge-partido.tbc { background: rgba(212, 96, 58, 0.3); color: var(--coral); border: 1px solid var(--coral); }
+  .daypart-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+  @media (max-width: 768px) { .daypart-grid { grid-template-columns: 1fr; } }
+  .daypart { background: rgba(0, 0, 0, 0.25); border-radius: 8px; padding: 1rem 1.1rem; border-left: 3px solid var(--gold); }
+  .daypart-time { font-family: 'DM Mono', monospace; font-size: 0.7rem; color: var(--gold); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.4rem; }
+  .daypart-content { font-size: 0.9rem; line-height: 1.5; color: rgba(250, 246, 238, 0.9); }
+  .daypart-content strong { color: var(--gold-bright); font-weight: 600; }
+  .daypart.partido { border-left-color: var(--coral); }
+  .daypart.partido .daypart-time { color: var(--coral); }
+  .section-divider { text-align: center; padding: 2rem 0 1rem; margin: 2rem auto; max-width: 1100px; border-top: 1px dashed rgba(201, 169, 97, 0.25); }
+  .section-divider-title { font-family: 'Playfair Display', serif; font-size: 1.6rem; color: var(--gold); font-style: italic; margin-top: 2rem; }
+  .section-divider-sub { font-family: 'DM Mono', monospace; font-size: 0.7rem; color: rgba(250, 246, 238, 0.4); letter-spacing: 0.2em; text-transform: uppercase; margin-top: 0.4rem; }
+
+  /* FOOTER */
+  .footer { padding: 4rem 2rem; text-align: center; background: linear-gradient(180deg, var(--navy) 0%, #050d18 100%); border-top: 1px solid rgba(201, 169, 97, 0.15); }
+  .footer-title { font-family: 'Playfair Display', serif; font-style: italic; font-size: 2rem; color: var(--gold); margin-bottom: 1rem; }
+  .footer-text { color: rgba(250, 246, 238, 0.6); max-width: 640px; margin: 0 auto; font-size: 1rem; line-height: 1.7; }
 </style>
 </head>
 <body>
@@ -513,13 +172,7 @@
     <div class="gate-eyebrow">✦ Acceso privado ✦</div>
     <h1 class="gate-title">Familia Schulte<br><em>Mundial 2026</em></h1>
     <p class="gate-subtitle">Ingresá el código para ver el itinerario completo</p>
-    <input
-      type="password"
-      id="gate-input"
-      placeholder="• • • • • • • •"
-      autocomplete="off"
-      maxlength="20"
-    />
+    <input type="password" id="gate-input" placeholder="• • • • • • • •" autocomplete="off" maxlength="20" />
     <button id="gate-button" onclick="checkPassword()">Acceder</button>
     <div id="gate-error"></div>
   </div>
@@ -527,7 +180,6 @@
 
 <script>
   const ACCESS_CODE = "19021981";
-
   function checkPassword() {
     const input = document.getElementById("gate-input").value.trim();
     const errorEl = document.getElementById("gate-error");
@@ -540,13 +192,9 @@
       setTimeout(() => { errorEl.textContent = ""; }, 2500);
     }
   }
-
-  // Allow Enter key
   document.getElementById("gate-input").addEventListener("keypress", function(e) {
     if (e.key === "Enter") checkPassword();
   });
-
-  // Skip gate if already authenticated this session
   try {
     if (sessionStorage.getItem("schulte_access") === "ok") {
       document.getElementById("password-gate").classList.add("hidden");
@@ -558,20 +206,12 @@
   }
 </script>
 
-
 <!-- HERO -->
 <section class="hero">
   <div class="hero-content">
     <div class="hero-eyebrow">✦ Mundial FIFA 2026 ✦</div>
-    <h1 class="hero-title">
-      Familia Schulte
-      <em>en Estados Unidos</em>
-    </h1>
-    <p class="hero-subtitle">
-      Diecinueve días siguiendo a la Selección, manejando el Cybertruck por Texas,
-      descansando frente al Atlántico, buscando grizzlies en Yellowstone
-      y cerrando con BBQ en Kansas City.
-    </p>
+    <h1 class="hero-title">Familia Schulte<em>en Estados Unidos</em></h1>
+    <p class="hero-subtitle">Diecinueve días siguiendo a la Selección, manejando el Cybertruck por Texas, descansando frente al Atlántico, buscando grizzlies en Yellowstone y cerrando con BBQ en Kansas City.</p>
     <div class="hero-stats">
       <div class="stat"><div class="stat-num">19</div><div class="stat-label">Días</div></div>
       <div class="stat"><div class="stat-num">6</div><div class="stat-label">Destinos</div></div>
@@ -581,16 +221,22 @@
   </div>
 </section>
 
+<!-- NAV -->
+<nav class="nav-tabs">
+  <div class="nav-inner">
+    <a href="#mapa" class="nav-tab">🗺 Mapa</a>
+    <a href="#reservas" class="nav-tab">📋 Reservas</a>
+    <a href="#itinerario" class="nav-tab">📅 Día por día</a>
+  </div>
+</nav>
+
 <!-- MAP -->
-<section class="map-section">
+<section class="map-section" id="mapa">
   <div class="section-header">
     <div class="section-eyebrow">Itinerario completo</div>
     <h2 class="section-title">El recorrido por <em>Estados Unidos</em></h2>
-    <p class="section-desc">
-      Mapa real del recorrido: del Atlántico al noroeste salvaje, atravesando 5 estados
-    </p>
+    <p class="section-desc">Mapa real del recorrido: del Atlántico al noroeste salvaje, atravesando 5 estados</p>
   </div>
-
   <div class="map-wrapper">
     <svg class="usmap" viewBox="0 0 1200 821" xmlns="http://www.w3.org/2000/svg">
       <defs>
@@ -606,10 +252,7 @@
           <polygon points="0 0, 10 3.5, 0 7" fill="#c9a961" opacity="0.85"/>
         </marker>
       </defs>
-
       <rect width="1200" height="821" fill="url(#bgGlow)"/>
-
-      <!-- ALL US STATES (real shapes) -->
       <g class="states">
 <path class="state" d="M 123.07 484.88 L 125.51 484.92 L 127.46 487.51 L 128.89 489.42 L 127.74 490.56 L 126.81 489.77 L 124.92 489.15 L 124.83 487.94 L 123.51 485.88 L 123.07 484.88 Z M 120.38 495.93 L 121.19 497.62 L 122.66 500.29 L 124.20 502.65 L 122.53 502.82 L 121.47 501.38 L 120.00 498.66 L 119.25 496.16 L 120.38 495.93 Z M 100.98 484.53 L 102.61 484.17 L 104.12 485.67 L 103.82 486.62 L 102.99 486.76 L 101.39 485.87 L 100.98 484.53 Z M 98.96 462.79 L 100.28 462.77 L 102.61 463.97 L 106.26 464.78 L 108.28 465.28 L 108.87 465.42 L 110.50 465.92 L 110.20 467.21 L 109.56 467.22 L 107.55 466.66 L 106.16 466.27 L 103.80 466.00 L 102.40 466.36 L 100.85 465.87 L 99.34 465.01 L 99.55 463.89 L 98.96 462.79 Z M 89.60 459.87 L 92.11 461.05 L 94.13 462.42 L 95.91 462.56 L 97.04 464.32 L 96.99 465.44 L 95.20 465.74 L 93.56 465.83 L 92.58 464.69 L 92.33 463.84 L 89.10 462.05 L 87.47 460.63 L 89.60 459.87 Z M 56.00 273.54 L 58.83 270.12 L 62.61 266.19 L 64.84 262.85 L 65.16 261.31 L 64.91 260.16 L 65.13 258.80 L 66.31 257.75 L 67.63 255.45 L 69.35 251.77 L 69.46 251.11 L 69.83 248.93 L 69.82 246.68 L 69.93 244.50 L 69.88 243.94 L 69.25 243.55 L 68.67 241.82 L 69.57 240.60 L 70.60 238.30 L 70.89 236.80 L 74.79 238.05 L 78.12 239.07 L 81.19 240.01 L 83.79 240.67 L 85.38 241.08 L 86.99 241.62 L 89.21 242.11 L 90.83 242.47 L 92.66 243.18 L 97.24 244.48 L 102.86 245.98 L 106.81 247.12 L 106.82 247.13 L 110.31 248.17 L 115.07 249.58 L 118.26 250.54 L 122.51 251.79 L 122.66 251.84 L 126.20 252.79 L 130.23 253.99 L 133.14 254.77 L 136.67 255.71 L 140.27 256.66 L 146.28 258.21 L 149.72 259.10 L 148.93 262.16 L 147.25 268.72 L 144.35 279.84 L 142.25 287.99 L 141.33 291.70 L 138.71 301.95 L 137.40 306.94 L 136.27 311.29 L 134.67 317.27 L 133.42 321.97 L 132.78 324.37 L 131.89 327.65 L 131.72 328.30 L 130.92 331.53 L 130.58 332.89 L 130.30 334.05 L 129.87 335.79 L 131.33 337.98 L 136.14 345.18 L 136.17 345.23 L 140.06 351.06 L 140.85 352.23 L 142.74 355.06 L 145.92 359.78 L 152.86 370.19 L 153.99 371.90 L 160.34 381.40 L 163.30 385.84 L 165.72 389.43 L 172.63 399.79 L 173.89 401.68 L 176.53 405.62 L 184.78 417.98 L 186.60 420.72 L 191.19 427.58 L 194.47 432.49 L 195.24 433.64 L 198.50 438.49 L 198.50 438.49 L 202.51 444.51 L 204.18 447.00 L 206.57 450.56 L 208.51 453.44 L 212.51 459.44 L 215.38 463.72 L 215.16 465.26 L 214.70 467.06 L 215.62 468.79 L 216.96 471.49 L 217.33 472.47 L 217.67 475.51 L 218.27 477.36 L 217.92 479.07 L 218.84 479.26 L 220.10 480.81 L 221.75 482.65 L 222.23 483.79 L 222.22 483.87 L 222.04 485.00 L 221.11 485.35 L 219.75 486.51 L 218.31 486.78 L 216.97 487.38 L 215.63 487.74 L 215.06 488.13 L 214.95 488.48 L 214.65 489.40 L 214.08 490.14 L 212.64 491.30 L 211.95 491.94 L 212.37 492.77 L 212.25 493.72 L 211.74 494.61 L 211.73 496.41 L 211.70 497.52 L 211.38 498.16 L 210.79 498.89 L 210.42 500.29 L 210.24 501.72 L 208.37 503.01 L 207.40 504.35 L 207.21 504.60 L 206.36 504.55 L 205.19 504.68 L 205.43 505.49 L 205.14 506.86 L 204.63 507.71 L 205.51 508.76 L 205.30 509.40 L 204.91 511.22 L 204.05 512.51 L 204.47 514.40 L 205.35 514.76 L 206.52 514.85 L 207.70 515.40 L 207.83 515.45 L 208.21 516.91 L 208.07 518.18 L 208.25 518.80 L 207.83 520.24 L 206.16 521.60 L 205.14 522.34 L 204.09 522.30 L 202.98 522.26 L 202.19 521.91 L 201.77 522.44 L 195.60 521.71 L 185.40 520.50 L 172.61 518.98 L 171.30 518.83 L 161.73 517.69 L 159.83 517.48 L 154.76 516.86 L 148.86 516.17 L 149.00 514.81 L 149.10 513.94 L 148.71 512.41 L 148.56 512.24 L 148.21 511.84 L 147.04 512.10 L 147.02 511.27 L 147.54 509.04 L 147.18 508.00 L 147.26 507.55 L 147.51 507.29 L 147.73 507.40 L 147.93 507.17 L 147.94 507.16 L 148.21 506.13 L 148.27 504.11 L 148.30 503.12 L 148.04 500.87 L 147.47 498.71 L 146.29 495.73 L 144.69 492.74 L 143.79 491.96 L 143.78 491.95 L 143.05 490.33 L 141.69 489.47 L 141.59 488.83 L 141.49 488.69 L 140.14 486.63 L 139.71 485.95 L 138.06 484.70 L 136.80 483.08 L 135.39 480.70 L 134.92 480.21 L 134.60 479.88 L 133.42 480.06 L 132.27 480.36 L 131.63 480.52 L 130.45 479.99 L 130.16 479.69 L 129.78 479.30 L 128.91 478.99 L 128.48 477.84 L 129.38 477.25 L 129.48 475.12 L 129.00 472.69 L 128.12 470.89 L 126.42 470.17 L 124.79 469.93 L 123.40 469.62 L 121.94 470.10 L 121.11 469.00 L 119.30 468.22 L 119.09 468.13 L 116.93 466.45 L 116.12 466.13 L 114.07 463.80 L 113.79 462.32 L 113.77 461.24 L 113.65 461.12 L 113.02 460.43 L 111.99 458.94 L 110.55 457.14 L 110.23 456.92 L 109.10 456.19 L 107.60 455.11 L 106.10 455.08 L 105.50 455.28 L 104.03 454.34 L 102.99 454.08 L 102.14 454.05 L 100.33 452.61 L 98.80 451.75 L 96.99 450.96 L 93.77 450.20 L 90.35 449.95 L 89.61 447.68 L 88.94 446.96 L 88.39 446.43 L 87.51 446.28 L 87.21 445.46 L 88.87 442.86 L 88.86 441.81 L 88.68 441.56 L 89.82 438.58 L 88.88 437.07 L 89.79 435.37 L 90.53 433.98 L 90.92 432.85 L 91.10 431.65 L 90.48 430.69 L 89.83 429.89 L 88.86 430.06 L 87.29 428.44 L 86.56 427.05 L 87.23 425.96 L 88.04 424.36 L 88.05 422.46 L 86.75 421.47 L 85.83 421.03 L 84.32 417.58 L 83.68 415.67 L 81.74 414.28 L 81.20 412.86 L 81.32 410.98 L 81.10 410.59 L 80.23 408.99 L 79.38 407.64 L 79.49 405.34 L 78.87 403.97 L 78.08 403.45 L 77.64 401.29 L 76.92 399.27 L 75.33 397.14 L 74.49 396.51 L 73.67 394.61 L 74.02 392.21 L 73.90 389.65 L 74.01 387.01 L 75.32 385.96 L 76.43 386.91 L 77.87 385.34 L 78.90 383.03 L 79.27 382.10 L 79.09 381.09 L 78.67 378.73 L 78.05 377.53 L 77.16 377.22 L 75.50 377.31 L 74.71 377.02 L 73.95 376.74 L 72.36 374.70 L 71.70 372.90 L 71.42 372.02 L 71.25 371.88 L 70.76 371.45 L 70.54 370.60 L 69.79 369.20 L 69.81 367.52 L 70.55 365.90 L 70.80 365.37 L 70.91 364.36 L 70.67 362.61 L 70.81 361.94 L 70.08 360.89 L 69.84 360.02 L 70.21 358.62 L 70.90 357.82 L 71.44 355.93 L 71.52 355.36 L 71.62 354.63 L 71.76 353.69 L 72.90 353.20 L 74.27 353.46 L 74.41 353.91 L 74.21 355.29 L 74.53 355.63 L 74.33 355.97 L 73.72 355.98 L 73.65 355.98 L 73.47 359.10 L 75.53 360.62 L 76.65 362.43 L 77.55 362.21 L 77.95 362.11 L 77.69 360.58 L 77.94 359.03 L 77.94 358.30 L 77.94 358.29 L 77.15 357.22 L 76.63 356.31 L 76.79 355.56 L 75.75 354.66 L 75.57 353.71 L 76.31 353.36 L 76.28 351.60 L 76.27 351.19 L 75.37 351.03 L 74.82 349.48 L 76.12 349.24 L 76.31 348.47 L 76.84 348.58 L 77.26 348.68 L 78.73 347.96 L 78.66 347.70 L 78.34 346.37 L 76.81 344.88 L 76.72 344.90 L 74.69 345.22 L 74.62 345.23 L 73.91 347.12 L 74.57 348.30 L 73.65 348.85 L 73.36 350.00 L 73.91 350.94 L 74.20 352.14 L 72.73 352.44 L 71.69 352.04 L 70.75 350.54 L 69.45 349.30 L 68.88 349.48 L 68.16 348.13 L 67.61 346.84 L 66.74 345.48 L 65.21 344.62 L 64.24 345.42 L 63.58 344.93 L 65.40 342.44 L 66.00 340.88 L 65.80 339.12 L 66.08 338.22 L 65.92 337.55 L 65.91 337.51 L 64.96 337.17 L 64.93 336.17 L 65.01 334.67 L 64.05 332.06 L 62.69 330.66 L 61.49 328.80 L 61.38 327.91 L 60.35 324.76 L 59.25 323.27 L 58.93 322.46 L 58.56 321.51 L 57.60 319.96 L 57.41 319.11 L 56.73 317.78 L 56.62 316.60 L 57.94 315.16 L 58.14 312.34 L 57.80 310.35 L 57.75 308.19 L 57.92 305.77 L 58.78 303.66 L 60.53 301.25 L 60.74 299.42 L 61.02 297.77 L 60.61 296.57 L 61.02 293.68 L 60.18 292.57 L 59.73 290.79 L 58.99 288.39 L 58.88 288.02 L 58.31 287.63 L 58.40 286.07 L 57.69 284.81 L 56.88 284.17 L 55.95 282.40 L 54.80 280.39 L 54.55 279.84 L 55.29 278.12 L 55.40 276.95 L 55.05 275.09 L 56.00 273.54 Z " />
 <path class="state" d="M 779.04 219.40 L 780.78 218.47 L 781.43 219.39 L 780.44 221.07 L 779.99 222.64 L 778.81 221.25 L 779.04 219.40 Z M 705.85 182.81 L 706.49 182.46 L 708.08 181.89 L 709.72 182.26 L 710.04 182.75 L 710.73 184.18 L 710.54 184.86 L 710.12 185.42 L 708.54 185.74 L 707.71 184.49 L 707.08 183.76 L 706.04 183.37 L 705.85 182.81 Z M 668.97 220.60 L 669.23 218.73 L 669.75 218.33 L 670.01 218.14 L 670.87 216.71 L 671.15 215.51 L 671.81 214.21 L 672.96 213.11 L 674.33 212.49 L 674.95 211.84 L 676.28 211.71 L 676.68 210.93 L 677.70 210.44 L 678.46 210.51 L 678.67 209.55 L 679.45 208.93 L 679.37 206.76 L 679.29 204.49 L 679.13 199.96 L 679.05 197.91 L 678.89 193.52 L 680.46 193.42 L 680.83 192.61 L 681.51 191.63 L 682.29 191.52 L 683.21 192.11 L 683.86 192.19 L 684.86 192.78 L 686.21 192.52 L 687.42 192.47 L 690.53 191.16 L 691.79 190.51 L 692.21 190.49 L 692.94 190.45 L 694.70 189.53 L 695.61 189.26 L 696.40 188.47 L 697.44 188.15 L 698.22 187.33 L 699.04 187.87 L 699.68 187.17 L 700.45 186.89 L 701.37 186.22 L 702.24 185.59 L 702.08 184.11 L 703.23 183.54 L 704.57 184.49 L 705.44 185.07 L 706.61 186.17 L 705.74 188.08 L 704.70 189.64 L 704.38 190.33 L 704.94 191.36 L 703.87 192.50 L 703.61 193.59 L 703.23 194.26 L 703.78 194.36 L 704.28 194.45 L 705.49 193.52 L 706.10 193.25 L 706.78 192.66 L 707.04 191.44 L 708.45 192.59 L 710.32 194.07 L 710.62 194.01 L 711.39 193.88 L 712.68 194.54 L 713.02 194.40 L 713.63 195.22 L 714.61 194.64 L 715.50 195.49 L 716.82 195.91 L 717.97 197.92 L 718.80 200.07 L 722.34 200.81 L 727.74 201.93 L 737.90 203.99 L 739.82 204.95 L 740.93 205.51 L 743.24 206.66 L 744.54 206.41 L 745.61 206.67 L 745.68 206.69 L 746.12 207.29 L 746.94 207.19 L 747.24 206.53 L 748.46 206.28 L 750.68 207.19 L 751.20 206.83 L 752.56 207.57 L 753.70 207.38 L 754.99 207.69 L 756.16 208.23 L 756.19 208.25 L 757.05 209.40 L 756.05 210.90 L 756.64 211.46 L 757.56 211.75 L 757.72 211.80 L 758.65 211.38 L 759.25 212.15 L 760.87 212.26 L 761.80 213.02 L 762.36 213.48 L 762.87 214.22 L 762.11 214.83 L 763.08 215.90 L 762.98 216.82 L 762.78 218.16 L 762.87 219.51 L 762.17 220.33 L 762.11 221.68 L 762.07 222.74 L 763.24 222.62 L 764.15 222.51 L 764.90 221.68 L 765.84 222.00 L 765.78 223.38 L 765.13 225.32 L 764.68 226.63 L 765.65 227.77 L 766.62 228.85 L 767.72 229.04 L 767.17 230.41 L 767.25 232.21 L 766.02 232.38 L 764.82 232.79 L 763.91 233.10 L 763.41 233.93 L 763.62 235.24 L 763.35 235.69 L 762.51 236.79 L 761.97 238.49 L 761.26 239.50 L 761.09 240.63 L 761.04 241.00 L 761.22 242.43 L 760.51 243.46 L 761.25 244.27 L 762.43 244.43 L 763.17 243.19 L 763.69 242.24 L 765.33 241.28 L 765.55 240.88 L 765.76 240.51 L 765.94 240.24 L 766.24 239.78 L 766.14 238.96 L 767.36 236.90 L 768.45 235.40 L 769.37 235.17 L 769.63 234.83 L 770.87 234.28 L 771.74 232.93 L 772.61 230.76 L 773.77 228.86 L 774.06 226.57 L 775.21 226.31 L 776.11 225.26 L 776.23 224.00 L 777.09 222.97 L 777.82 222.74 L 778.57 222.89 L 778.71 224.55 L 777.60 225.72 L 777.70 227.08 L 777.51 228.57 L 776.26 230.45 L 775.51 232.22 L 775.33 233.88 L 774.16 235.38 L 773.51 237.07 L 772.69 239.67 L 772.31 240.88 L 771.57 242.13 L 770.90 245.51 L 770.38 249.07 L 770.36 249.24 L 770.94 250.81 L 771.33 252.07 L 770.84 253.47 L 769.76 254.31 L 768.85 255.70 L 768.30 258.82 L 767.91 260.80 L 767.81 261.30 L 768.14 262.94 L 768.73 264.03 L 768.68 265.21 L 768.82 266.34 L 767.50 269.54 L 767.52 270.07 L 767.60 271.39 L 766.86 273.36 L 766.19 276.41 L 766.31 279.33 L 766.31 279.46 L 766.39 281.20 L 767.10 282.77 L 766.72 284.09 L 767.90 285.89 L 768.25 288.17 L 768.41 288.37 L 768.54 288.53 L 769.72 289.95 L 769.56 292.19 L 769.31 293.07 L 769.12 293.73 L 769.29 295.43 L 769.74 297.71 L 767.86 297.84 L 762.05 298.25 L 761.72 298.28 L 760.03 298.42 L 756.13 298.75 L 752.28 299.09 L 752.28 299.09 L 750.94 299.18 L 747.79 299.38 L 746.78 299.44 L 745.81 299.50 L 739.58 299.85 L 738.90 299.89 L 737.13 299.98 L 730.49 300.33 L 728.77 300.42 L 728.77 300.42 L 723.05 300.72 L 719.14 300.97 L 718.93 300.99 L 714.96 301.18 L 714.28 299.42 L 713.67 298.13 L 712.82 297.67 L 710.70 297.28 L 709.83 297.08 L 708.96 296.87 L 707.45 296.01 L 706.35 294.59 L 705.68 292.27 L 704.88 291.27 L 704.45 289.39 L 704.36 289.09 L 704.00 287.75 L 703.94 286.66 L 703.86 285.23 L 704.59 284.14 L 705.42 282.84 L 705.94 281.97 L 704.91 280.45 L 703.98 279.93 L 702.92 278.96 L 703.04 278.18 L 702.80 277.76 L 702.35 276.95 L 702.56 275.63 L 702.19 273.95 L 701.76 273.04 L 701.29 271.31 L 701.52 269.74 L 701.70 268.48 L 700.78 266.58 L 700.71 266.43 L 699.37 264.80 L 698.03 263.09 L 697.69 262.66 L 695.42 262.16 L 695.15 262.11 L 693.70 261.19 L 692.28 259.55 L 690.39 258.70 L 689.65 257.87 L 688.89 257.01 L 688.35 254.74 L 687.41 253.62 L 685.10 252.60 L 684.59 252.37 L 682.28 251.63 L 682.03 251.41 L 681.14 250.62 L 680.65 249.26 L 680.60 249.23 L 679.74 248.74 L 679.04 248.79 L 676.21 248.38 L 674.89 247.50 L 673.35 245.54 L 672.67 244.90 L 671.50 243.78 L 671.25 243.54 L 671.86 241.26 L 671.88 241.07 L 671.88 241.05 L 672.11 238.95 L 671.83 236.84 L 671.03 235.73 L 672.15 234.43 L 672.08 234.17 L 671.58 232.31 L 671.58 231.91 L 671.60 229.94 L 671.84 229.64 L 672.71 228.55 L 673.41 226.96 L 673.59 225.86 L 672.81 224.98 L 672.00 223.61 L 671.44 222.79 L 670.62 222.68 L 669.14 222.45 L 668.96 220.73 L 668.97 220.60 Z " />
@@ -661,632 +304,549 @@
 <path class="state" d="M 199.39 525.33 L 199.30 524.68 L 200.43 524.04 L 201.77 522.44 L 202.19 521.91 L 202.98 522.26 L 204.09 522.30 L 205.14 522.34 L 206.16 521.60 L 207.83 520.24 L 208.25 518.80 L 208.07 518.18 L 208.21 516.91 L 207.83 515.45 L 207.70 515.40 L 206.52 514.85 L 205.35 514.76 L 204.47 514.40 L 204.05 512.51 L 204.91 511.22 L 205.30 509.40 L 205.51 508.76 L 204.63 507.71 L 205.14 506.86 L 205.43 505.49 L 205.19 504.68 L 206.36 504.55 L 207.21 504.60 L 207.40 504.35 L 208.37 503.01 L 210.24 501.72 L 210.42 500.29 L 210.79 498.89 L 211.38 498.16 L 211.70 497.52 L 211.73 496.41 L 211.74 494.61 L 212.25 493.72 L 212.37 492.77 L 211.95 491.94 L 212.64 491.30 L 214.08 490.14 L 214.65 489.40 L 214.95 488.48 L 215.06 488.13 L 215.63 487.74 L 216.97 487.38 L 218.31 486.78 L 219.75 486.51 L 221.11 485.35 L 222.04 485.00 L 222.22 483.87 L 222.23 483.79 L 221.75 482.65 L 220.10 480.81 L 218.84 479.26 L 217.92 479.07 L 218.27 477.36 L 217.67 475.51 L 217.33 472.47 L 216.96 471.49 L 215.62 468.79 L 214.70 467.06 L 215.16 465.26 L 215.38 463.72 L 215.90 462.03 L 216.28 460.67 L 216.71 460.77 L 217.36 460.43 L 217.69 457.16 L 217.61 453.18 L 217.04 451.99 L 217.46 450.05 L 218.10 447.85 L 217.56 446.65 L 217.83 444.48 L 218.11 442.36 L 219.08 441.19 L 218.63 440.11 L 218.21 438.89 L 218.31 437.13 L 218.59 435.68 L 218.62 435.56 L 218.94 434.71 L 220.45 434.66 L 221.37 434.21 L 222.58 434.16 L 223.82 434.42 L 224.22 435.08 L 225.00 435.32 L 225.76 434.94 L 226.67 435.19 L 227.21 436.25 L 227.42 437.50 L 228.23 438.39 L 229.31 439.14 L 230.64 439.16 L 231.06 438.47 L 232.20 436.84 L 233.66 435.17 L 234.00 433.23 L 234.30 431.76 L 235.65 424.51 L 236.83 418.30 L 237.61 414.21 L 239.34 414.55 L 259.82 418.35 L 261.20 418.60 L 262.63 418.85 L 268.47 419.88 L 268.61 419.90 L 272.32 420.54 L 291.74 423.80 L 291.89 423.82 L 294.51 424.28 L 298.87 424.93 L 305.38 425.94 L 311.13 426.97 L 320.81 428.43 L 331.24 429.91 L 340.53 431.22 L 340.07 434.48 L 337.32 454.33 L 336.90 457.33 L 336.46 460.54 L 335.49 467.50 L 334.57 474.06 L 333.90 478.99 L 333.13 484.63 L 333.13 484.64 L 331.74 494.59 L 331.54 496.08 L 329.19 513.01 L 328.83 515.56 L 327.49 525.16 L 326.77 530.41 L 326.77 530.41 L 325.21 541.67 L 325.21 541.67 L 323.93 550.83 L 322.68 559.76 L 321.63 567.25 L 319.94 579.33 L 302.64 576.83 L 288.67 574.76 L 275.04 572.65 L 268.97 569.21 L 248.35 557.30 L 228.51 545.76 L 220.03 540.73 L 198.57 527.83 L 198.77 527.10 L 199.26 526.45 L 198.93 526.01 L 199.39 525.33 Z " />
 <path class="state" d="M 640.58 462.84 L 645.96 462.75 L 651.92 462.65 L 654.40 462.61 L 656.34 462.56 L 659.83 462.47 L 662.26 462.42 L 665.56 462.34 L 667.90 462.28 L 668.37 462.27 L 671.88 462.18 L 677.58 462.00 L 677.90 461.98 L 679.29 461.94 L 683.66 461.78 L 684.39 461.75 L 688.14 461.62 L 692.34 461.45 L 692.96 461.42 L 695.78 461.30 L 702.35 460.99 L 702.98 460.96 L 707.02 460.82 L 707.92 460.78 L 707.96 460.78 L 713.79 460.47 L 716.07 460.35 L 720.97 460.08 L 721.36 460.05 L 725.32 459.83 L 727.03 459.74 L 732.77 459.46 L 734.18 459.39 L 734.49 460.31 L 734.78 461.48 L 736.19 462.16 L 736.30 462.93 L 736.38 464.35 L 735.37 465.40 L 734.59 466.82 L 733.92 467.26 L 733.28 467.68 L 733.04 468.89 L 731.84 469.67 L 731.00 471.46 L 730.46 472.85 L 732.14 472.73 L 736.04 472.45 L 739.08 472.24 L 740.31 472.15 L 743.85 471.89 L 744.92 473.22 L 745.69 473.86 L 745.79 474.30 L 745.85 474.55 L 744.29 475.22 L 744.19 475.92 L 744.39 476.92 L 742.88 477.73 L 741.53 478.74 L 740.42 478.62 L 739.65 480.24 L 740.95 481.34 L 741.46 481.95 L 740.31 482.52 L 740.13 483.79 L 739.87 484.30 L 738.18 484.18 L 738.09 485.61 L 738.66 486.61 L 738.24 487.75 L 737.69 487.58 L 736.82 487.98 L 737.42 489.18 L 736.79 490.78 L 735.89 491.63 L 737.39 492.18 L 737.57 493.41 L 737.49 494.44 L 737.77 495.65 L 736.27 495.46 L 735.87 496.48 L 735.60 497.57 L 734.16 497.93 L 733.43 498.28 L 733.30 499.17 L 734.77 500.62 L 734.70 501.42 L 733.44 502.41 L 733.40 502.44 L 731.57 503.51 L 731.44 503.52 L 730.24 503.60 L 730.11 504.83 L 729.46 505.51 L 728.68 507.21 L 728.65 508.23 L 728.17 509.10 L 727.93 509.53 L 728.82 510.74 L 728.45 511.91 L 728.45 511.92 L 728.24 513.67 L 728.49 514.81 L 727.11 515.71 L 726.77 517.01 L 725.25 516.34 L 724.51 516.95 L 724.85 518.34 L 723.57 518.67 L 723.05 519.85 L 721.89 520.22 L 722.20 521.26 L 721.98 521.89 L 721.05 522.26 L 720.96 523.03 L 720.95 523.12 L 720.93 523.31 L 721.93 523.65 L 722.53 524.21 L 722.21 525.42 L 721.14 525.71 L 720.36 526.23 L 719.85 526.87 L 718.89 526.70 L 718.05 527.37 L 719.22 527.78 L 719.48 528.71 L 718.76 529.55 L 719.02 530.95 L 719.64 531.40 L 719.67 532.51 L 718.38 532.24 L 717.81 532.32 L 717.16 533.08 L 718.68 533.87 L 718.20 535.31 L 716.53 535.65 L 717.61 536.65 L 716.40 537.63 L 716.06 538.46 L 715.88 538.90 L 715.88 538.90 L 716.50 539.83 L 716.92 540.61 L 717.50 541.51 L 718.28 542.37 L 717.72 543.57 L 718.18 545.36 L 719.05 545.49 L 719.48 546.54 L 719.21 547.93 L 718.84 549.25 L 717.77 549.21 L 717.21 550.21 L 718.60 551.30 L 717.80 552.48 L 717.66 552.67 L 715.50 552.77 L 711.74 552.92 L 711.21 552.94 L 710.58 552.97 L 702.11 553.31 L 697.86 553.47 L 697.86 553.47 L 694.48 553.59 L 688.37 553.74 L 683.49 553.86 L 683.46 553.86 L 678.06 553.97 L 677.67 553.98 L 673.09 554.10 L 672.19 554.12 L 669.15 554.20 L 666.66 554.26 L 665.99 554.27 L 661.55 554.37 L 659.71 554.41 L 659.55 554.42 L 654.54 554.53 L 654.46 550.81 L 654.40 547.89 L 654.36 546.32 L 654.31 543.55 L 654.24 540.50 L 653.59 539.96 L 652.05 539.85 L 651.16 539.48 L 650.52 540.07 L 649.96 539.92 L 648.56 540.26 L 647.80 540.21 L 647.46 540.50 L 646.72 540.27 L 646.04 539.97 L 644.55 538.40 L 644.58 534.41 L 644.61 530.40 L 644.63 528.32 L 644.66 523.82 L 644.69 519.34 L 644.72 515.44 L 644.74 512.07 L 644.77 509.59 L 644.82 505.31 L 644.83 504.16 L 644.87 500.77 L 644.94 495.13 L 644.98 492.65 L 644.92 492.18 L 644.90 492.04 L 644.54 489.30 L 643.98 485.56 L 643.51 482.37 L 643.47 482.13 L 642.59 476.34 L 642.12 473.33 L 641.88 471.75 L 641.32 468.10 L 640.58 462.84 Z " />
       </g>
-
-      <!-- ROUTES -->
-      <!-- Flight DFW → FLL -->
       <path class="route-flight" d="M 594.0 561.3 Q 769.7 691.8 988.2 704.0" marker-end="url(#arrow)"/>
-      <!-- Flight FLL → JAC -->
       <path class="route-flight" d="M 988.2 704.0 Q 547.1 638.6 334.8 246.5" marker-end="url(#arrow)"/>
-      <!-- Road trip JAC → Yellowstone → Bozeman -->
       <path class="route-road" d="M 334.8 246.5 L 351.6 221.9 L 335.5 198.8"/>
-      <!-- Flight BZN → MCI -->
       <path class="route-flight" d="M 335.5 198.8 Q 458.7 342.1 640.4 394.0" marker-end="url(#arrow)"/>
-
-      <!-- Route labels -->
       <text x="800" y="615" font-family="DM Mono, monospace" font-size="14" fill="#c9a961" opacity="0.85">✈ 29 jun</text>
       <text x="640" y="430" font-family="DM Mono, monospace" font-size="14" fill="#c9a961" opacity="0.85">✈ 4 jul</text>
       <text x="370" y="225" font-family="DM Mono, monospace" font-size="13" fill="#d4603a" opacity="0.95">🚙 road trip</text>
       <text x="450" y="280" font-family="DM Mono, monospace" font-size="14" fill="#c9a961" opacity="0.85">✈ 10 jul</text>
 
-      <!-- CITY MARKERS -->
-
-      <g class="city">
-        <circle class="city-pulse" cx="594" cy="561" r="12"/>
-        <circle class="city-dot" cx="594" cy="561" r="7" filter="url(#cityGlow)"/>
-        <text x="594" y="547" text-anchor="middle" class="city-label">Dallas, TX</text>
-        <text x="594" y="589" text-anchor="middle" class="city-dates">25–29 JUN</text>
-      </g>
-      <g class="city">
-        <circle class="city-pulse" cx="988" cy="704" r="12"/>
-        <circle class="city-dot" cx="988" cy="704" r="7" filter="url(#cityGlow)"/>
-        <text x="988" y="696" text-anchor="end" class="city-label">Fort Lauderdale</text>
-        <text x="988" y="722" text-anchor="end" class="city-dates">29 JUN–4 JUL</text>
-      </g>
-      <g class="city">
-        <circle class="city-pulse" cx="335" cy="247" r="12"/>
-        <circle class="city-dot" cx="335" cy="247" r="7" filter="url(#cityGlow)"/>
-        <text x="323" y="251" text-anchor="end" class="city-label">Grand Teton</text>
-        <text x="323" y="263" text-anchor="end" class="city-dates">4–7 JUL</text>
-      </g>
-      <g class="city">
-        <circle class="city-pulse" cx="352" cy="222" r="12"/>
-        <circle class="city-dot" cx="352" cy="222" r="7" filter="url(#cityGlow)"/>
-        <text x="370" y="218" text-anchor="start" class="city-label">Yellowstone</text>
-        <text x="370" y="234" text-anchor="start" class="city-dates">7–10 JUL</text>
-      </g>
-      <g class="city">
-        <circle class="city-pulse" cx="640" cy="394" r="12"/>
-        <circle class="city-dot" cx="640" cy="394" r="7" filter="url(#cityGlow)"/>
-        <text x="640" y="358" text-anchor="middle" class="city-label">Kansas City</text>
-        <text x="640" y="372" text-anchor="middle" class="city-dates">10–12 JUL</text>
-      </g>
-      <g opacity="0.7">
-        <circle cx="335.5" cy="198.8" r="4" fill="#c9a961"/>
-        <text x="324" y="195" text-anchor="end" font-family="DM Mono, monospace" font-size="11" fill="#c9a961">Bozeman</text>
-      </g>
-
-      <!-- Title -->
+      <g><circle class="city-pulse" cx="594" cy="561" r="12"/><circle class="city-dot" cx="594" cy="561" r="7" filter="url(#cityGlow)"/><text x="594" y="547" text-anchor="middle" class="city-label">Dallas, TX</text><text x="594" y="589" text-anchor="middle" class="city-dates">25–29 JUN</text></g>
+      <g><circle class="city-pulse" cx="988" cy="704" r="12"/><circle class="city-dot" cx="988" cy="704" r="7" filter="url(#cityGlow)"/><text x="976" y="696" text-anchor="end" class="city-label">Fort Lauderdale</text><text x="976" y="722" text-anchor="end" class="city-dates">29 JUN–4 JUL</text></g>
+      <g><circle class="city-pulse" cx="335" cy="247" r="12"/><circle class="city-dot" cx="335" cy="247" r="7" filter="url(#cityGlow)"/><text x="323" y="251" text-anchor="end" class="city-label">Grand Teton</text><text x="323" y="263" text-anchor="end" class="city-dates">4–7 JUL</text></g>
+      <g><circle class="city-pulse" cx="352" cy="222" r="12"/><circle class="city-dot" cx="352" cy="222" r="7" filter="url(#cityGlow)"/><text x="370" y="218" text-anchor="start" class="city-label">Yellowstone</text><text x="370" y="234" text-anchor="start" class="city-dates">7–10 JUL</text></g>
+      <g><circle class="city-pulse" cx="640" cy="394" r="12"/><circle class="city-dot" cx="640" cy="394" r="7" filter="url(#cityGlow)"/><text x="640" y="358" text-anchor="middle" class="city-label">Kansas City</text><text x="640" y="372" text-anchor="middle" class="city-dates">10–12 JUL</text></g>
+      <g opacity="0.7"><circle cx="335.5" cy="198.8" r="4" fill="#c9a961"/><text x="324" y="195" text-anchor="end" font-family="DM Mono, monospace" font-size="11" fill="#c9a961">Bozeman</text></g>
       <text x="40" y="50" font-family="Playfair Display, serif" font-style="italic" font-size="18" fill="rgba(201,169,97,0.5)">Estados Unidos · 2026</text>
-
-      <!-- Compass -->
-      <g transform="translate(1140, 80)" opacity="0.5">
-        <circle cx="0" cy="0" r="22" fill="none" stroke="#c9a961" stroke-width="1"/>
-        <text x="0" y="-8" text-anchor="middle" font-family="DM Mono, monospace" font-size="11" fill="#c9a961" font-weight="bold">N</text>
-        <line x1="0" y1="-5" x2="0" y2="10" stroke="#c9a961" stroke-width="1.5"/>
-        <line x1="-9" y1="0" x2="9" y2="0" stroke="#c9a961" stroke-width="0.8"/>
-      </g>
+      <g transform="translate(1140, 80)" opacity="0.5"><circle cx="0" cy="0" r="22" fill="none" stroke="#c9a961" stroke-width="1"/><text x="0" y="-8" text-anchor="middle" font-family="DM Mono, monospace" font-size="11" fill="#c9a961" font-weight="bold">N</text><line x1="0" y1="-5" x2="0" y2="10" stroke="#c9a961" stroke-width="1.5"/><line x1="-9" y1="0" x2="9" y2="0" stroke="#c9a961" stroke-width="0.8"/></g>
     </svg>
-
     <div class="map-legend">
       <div class="legend-title">Referencias</div>
-      <div class="legend-item">
-        <div class="legend-line" style="background:repeating-linear-gradient(90deg,#c9a961 0,#c9a961 7px,transparent 7px,transparent 12px);"></div>
-        Vuelo
-      </div>
-      <div class="legend-item">
-        <div class="legend-line" style="background:#d4603a;"></div>
-        Road trip en auto
-      </div>
-      <div class="legend-item">
-        <span style="font-size:13px;">●</span> Ciudad / parada
-      </div>
+      <div class="legend-item"><div class="legend-line" style="background:repeating-linear-gradient(90deg,#c9a961 0,#c9a961 7px,transparent 7px,transparent 12px);"></div>Vuelo</div>
+      <div class="legend-item"><div class="legend-line" style="background:#d4603a;"></div>Road trip en auto</div>
+      <div class="legend-item"><span style="font-size:13px;">●</span> Ciudad / parada</div>
     </div>
   </div>
 </section>
 
+<!-- RESERVAS -->
+<section class="reservations-section" id="reservas">
+  <div class="section-header">
+    <div class="section-eyebrow">Datos de cada reserva</div>
+    <h2 class="section-title">Todas las <em>reservas</em></h2>
+    <p class="section-desc">Click en cada tarjeta para ver los detalles completos</p>
+  </div>
+
+  <div class="res-grid">
+
+    <div class="res-section-title">✈ Vuelos</div>
+
+    <div class="res-card" onclick="toggleCard(this, event)">
+      <div class="res-header">
+        <div class="res-header-left">
+          <div class="res-icon">✈</div>
+          <div class="res-info">
+            <div class="res-title">Vuelo internacional · Ida</div>
+            <div class="res-subtitle">Buenos Aires → Dallas · 25 Jun</div>
+          </div>
+        </div>
+        <div class="res-status">
+          <span class="status-badge confirmed">Reservado</span>
+          <span class="res-toggle">▾</span>
+        </div>
+      </div>
+      <div class="res-body">
+        <div class="res-body-inner">
+          <div class="data-grid"><div class="data-item"><div class="data-label">Aerolínea</div><div class="data-value">Delta (operado por LATAM Perú)</div></div>
+<div class="data-item"><div class="data-label">Código reserva</div><div class="data-value mono">GAVRYT</div></div>
+<div class="data-item"><div class="data-label">Código aerolínea</div><div class="data-value mono">H4X379 (DL)</div></div>
+<div class="data-item"><div class="data-label">Tramo 1</div><div class="data-value">DL 6306 · EZE → LIM · 07:45 → 10:40</div></div>
+<div class="data-item"><div class="data-label">Tramo 2</div><div class="data-value">DL 6077 · LIM → ATL · 12:00 → 20:30</div></div>
+<div class="data-item"><div class="data-label">Tramo 3</div><div class="data-value">DL 0818 · ATL → DFW · 22:45 → 00:09 (+1)</div></div>
+<div class="data-item"><div class="data-label">Pasajeros</div><div class="data-value">5 (Guillermo, Mercedes, Joaquín, Emilia, Justina)</div></div>
+<div class="data-item"><div class="data-label">Clase</div><div class="data-value">Turista</div></div>
+<div class="data-item"><div class="data-label">Equipaje cabina</div><div class="data-value">1 pieza de 12kg por pasajero</div></div>
+<div class="data-item"><div class="data-label">Agencia</div><div class="data-value">Cheaptotrip.com · 0810 345 0707</div></div>
+</div>
+          <div class="data-note"><strong>Importante</strong>: equipaje facturado dice 0 piezas. Verificar con la agencia si es correcto o si fue un error de la reserva.</div>
+
+          
+        </div>
+      </div>
+    </div>
+
+    <div class="res-card" onclick="toggleCard(this, event)">
+      <div class="res-header">
+        <div class="res-header-left">
+          <div class="res-icon">✈</div>
+          <div class="res-info">
+            <div class="res-title">Vuelo DFW → FLL</div>
+            <div class="res-subtitle">Dallas → Fort Lauderdale · 29 Jun</div>
+          </div>
+        </div>
+        <div class="res-status">
+          <span class="status-badge pending">Pendiente</span>
+          <span class="res-toggle">▾</span>
+        </div>
+      </div>
+      <div class="res-body">
+        <div class="res-body-inner">
+          <div class="data-grid"><div class="data-item"><div class="data-label">Ruta</div><div class="data-value">DFW → FLL (directo)</div></div>
+<div class="data-item"><div class="data-label">Fecha</div><div class="data-value">lun 29 jun 2026</div></div>
+<div class="data-item"><div class="data-label">Pasajeros</div><div class="data-value">5</div></div>
+<div class="data-item"><div class="data-label">Opciones sugeridas</div><div class="data-value">American Airlines · JetBlue</div></div>
+</div>
+          
+          <div class="data-pending-list"><div class="data-pending-list-title">⚠ Pendientes</div><ul><li>Reservar el vuelo con la agencia o directo en aerolínea</li><li>Confirmar horario (preferentemente al mediodía para tener mañana libre)</li><li>Coordinar con devolución del Cybertruck a las 18hs del 29 jun</li></ul></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="res-card" onclick="toggleCard(this, event)">
+      <div class="res-header">
+        <div class="res-header-left">
+          <div class="res-icon">✈</div>
+          <div class="res-info">
+            <div class="res-title">Vuelo FLL → JAC</div>
+            <div class="res-subtitle">Fort Lauderdale → Jackson Hole · 4 Jul</div>
+          </div>
+        </div>
+        <div class="res-status">
+          <span class="status-badge pending">Pendiente</span>
+          <span class="res-toggle">▾</span>
+        </div>
+      </div>
+      <div class="res-body">
+        <div class="res-body-inner">
+          <div class="data-grid"><div class="data-item"><div class="data-label">Ruta</div><div class="data-value">FLL → JAC (con escala)</div></div>
+<div class="data-item"><div class="data-label">Fecha</div><div class="data-value">sáb 4 jul 2026</div></div>
+<div class="data-item"><div class="data-label">Pasajeros</div><div class="data-value">5</div></div>
+<div class="data-item"><div class="data-label">Opciones</div><div class="data-value">United vía Denver · Delta vía Atlanta/Salt Lake</div></div>
+<div class="data-item"><div class="data-label">Recomendación</div><div class="data-value">Delta (alinear con vuelo internacional)</div></div>
+</div>
+          <div class="data-note"><strong>Urgente</strong>: es el vuelo más caro del viaje y el que menos opciones tiene. Reservar cuanto antes.</div>
+
+          <div class="data-pending-list"><div class="data-pending-list-title">⚠ Pendientes</div><ul><li>Reservar con la agencia</li><li>Confirmar horario (idealmente llegar antes de las 18hs)</li></ul></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="res-card" onclick="toggleCard(this, event)">
+      <div class="res-header">
+        <div class="res-header-left">
+          <div class="res-icon">✈</div>
+          <div class="res-info">
+            <div class="res-title">Vuelo BZN → MCI · Southwest</div>
+            <div class="res-subtitle">Bozeman → Kansas City · 10 Jul</div>
+          </div>
+        </div>
+        <div class="res-status">
+          <span class="status-badge confirmed">Reservado</span>
+          <span class="res-toggle">▾</span>
+        </div>
+      </div>
+      <div class="res-body">
+        <div class="res-body-inner">
+          <div class="data-grid"><div class="data-item"><div class="data-label">Aerolínea</div><div class="data-value">Southwest Airlines</div></div>
+<div class="data-item"><div class="data-label">Código reserva</div><div class="data-value mono">BPIZAF</div></div>
+<div class="data-item"><div class="data-label">Pasajeros</div><div class="data-value">5</div></div>
+<div class="data-item"><div class="data-label">Costo total</div><div class="data-value">$1.821,00 USD</div></div>
+<div class="data-item"><div class="data-label">Tramo 1</div><div class="data-value">SW 1132 · BZN → DEN · 14:50 → 16:35 · Boeing 737-800</div></div>
+<div class="data-item"><div class="data-label">Tramo 2</div><div class="data-value">SW 4305 · DEN → MCI · 17:55 → 20:45 · Boeing 737 MAX8</div></div>
+<div class="data-item"><div class="data-label">Duración total</div><div class="data-value">5h 55min con escala</div></div>
+</div>
+          
+          
+        </div>
+      </div>
+    </div>
+
+    <div class="res-card" onclick="toggleCard(this, event)">
+      <div class="res-header">
+        <div class="res-header-left">
+          <div class="res-icon">✈</div>
+          <div class="res-info">
+            <div class="res-title">Vuelo internacional · Vuelta</div>
+            <div class="res-subtitle">Kansas City → Buenos Aires · 12-13 Jul</div>
+          </div>
+        </div>
+        <div class="res-status">
+          <span class="status-badge confirmed">Reservado</span>
+          <span class="res-toggle">▾</span>
+        </div>
+      </div>
+      <div class="res-body">
+        <div class="res-body-inner">
+          <div class="data-grid"><div class="data-item"><div class="data-label">Aerolínea</div><div class="data-value">Delta (último tramo LATAM Ecuador)</div></div>
+<div class="data-item"><div class="data-label">Código reserva</div><div class="data-value mono">GAVRYT</div></div>
+<div class="data-item"><div class="data-label">Tramo 1</div><div class="data-value">DL 1204 · MCI → ATL · 05:40 → 08:49</div></div>
+<div class="data-item"><div class="data-label">Tramo 2</div><div class="data-value">DL 0151 · ATL → LIM · 15:45 → 21:10</div></div>
+<div class="data-item"><div class="data-label">Tramo 3</div><div class="data-value">DL 6300 · LIM → EZE · 23:45 → 06:10 (+1)</div></div>
+<div class="data-item"><div class="data-label">Llegada a EZE</div><div class="data-value">lun 13 jul 06:10am</div></div>
+</div>
+          
+          
+        </div>
+      </div>
+    </div>
+
+    <div class="res-section-title">🏨 Alojamientos</div>
+
+    <div class="res-card" onclick="toggleCard(this, event)">
+      <div class="res-header">
+        <div class="res-header-left">
+          <div class="res-icon">🏨</div>
+          <div class="res-info">
+            <div class="res-title">Airbnb Euless · Dallas</div>
+            <div class="res-subtitle">25-29 Jun · 4 noches · Anfitriona: Andrea</div>
+          </div>
+        </div>
+        <div class="res-status">
+          <span class="status-badge partial">Reservado · faltan datos</span>
+          <span class="res-toggle">▾</span>
+        </div>
+      </div>
+      <div class="res-body">
+        <div class="res-body-inner">
+          <div class="data-grid"><div class="data-item"><div class="data-label">Nombre</div><div class="data-value">DFW getaway w/ pool & game room</div></div>
+<div class="data-item"><div class="data-label">Dirección</div><div class="data-value">1703 Mary Drive, Euless, TX</div></div>
+<div class="data-item"><div class="data-label">Anfitriona</div><div class="data-value">Andrea</div></div>
+<div class="data-item"><div class="data-label">Check-in</div><div class="data-value">jue 25 jun · 16:00</div></div>
+<div class="data-item"><div class="data-label">Check-out</div><div class="data-value">lun 29 jun · 11:00</div></div>
+<div class="data-item"><div class="data-label">Plataforma</div><div class="data-value">Airbnb</div></div>
+</div>
+          
+          <div class="data-pending-list"><div class="data-pending-list-title">⚠ Pendientes</div><ul><li>Código de reserva Airbnb</li><li>Precio total</li><li>Teléfono / WhatsApp del anfitrión</li><li>Instrucciones de check-in (código de puerta, lockbox, etc.)</li></ul></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="res-card" onclick="toggleCard(this, event)">
+      <div class="res-header">
+        <div class="res-header-left">
+          <div class="res-icon">🏖</div>
+          <div class="res-info">
+            <div class="res-title">Airbnb Fort Lauderdale</div>
+            <div class="res-subtitle">29 Jun - 6 Jul · Anfitrión: At Mine Hospitality</div>
+          </div>
+        </div>
+        <div class="res-status">
+          <span class="status-badge partial">Reservado · faltan datos</span>
+          <span class="res-toggle">▾</span>
+        </div>
+      </div>
+      <div class="res-body">
+        <div class="res-body-inner">
+          <div class="data-grid"><div class="data-item"><div class="data-label">Nombre</div><div class="data-value">At Mine | Beach Apartment in Fort Lauderdale</div></div>
+<div class="data-item"><div class="data-label">Dirección</div><div class="data-value">350 North Birch Road, Fort Lauderdale, FL</div></div>
+<div class="data-item"><div class="data-label">Anfitrión</div><div class="data-value">At Mine Hospitality - Elita - Fortuna Hotels</div></div>
+<div class="data-item"><div class="data-label">Check-in</div><div class="data-value">lun 29 jun · 16:00</div></div>
+<div class="data-item"><div class="data-label">Check-out</div><div class="data-value">lun 6 jul · 11:00</div></div>
+<div class="data-item"><div class="data-label">Plataforma</div><div class="data-value">Airbnb</div></div>
+</div>
+          <div class="data-note"><strong>Nota</strong>: nos vamos el 4 jul a Wyoming, perdiendo 2 noches (5 y 6 jul) que ya están pagadas.</div>
+
+          <div class="data-pending-list"><div class="data-pending-list-title">⚠ Pendientes</div><ul><li>Código de reserva Airbnb</li><li>Precio total</li><li>Teléfono del anfitrión</li><li>Instrucciones de check-in</li></ul></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="res-card" onclick="toggleCard(this, event)">
+      <div class="res-header">
+        <div class="res-header-left">
+          <div class="res-icon">🏔</div>
+          <div class="res-info">
+            <div class="res-title">Jackson Lake Lodge · Grand Teton</div>
+            <div class="res-subtitle">4-7 Jul · 3 noches · Grand Teton Lodge Company</div>
+          </div>
+        </div>
+        <div class="res-status">
+          <span class="status-badge confirmed">Reservado</span>
+          <span class="res-toggle">▾</span>
+        </div>
+      </div>
+      <div class="res-body">
+        <div class="res-body-inner">
+          <div class="data-grid"><div class="data-item"><div class="data-label">Confirmación</div><div class="data-value mono">R3366173</div></div>
+<div class="data-item"><div class="data-label">Tipo de habitación</div><div class="data-value">Classic Cottage · 2 Queens</div></div>
+<div class="data-item"><div class="data-label">Plan</div><div class="data-value">Standard Rate</div></div>
+<div class="data-item"><div class="data-label">Pasajeros</div><div class="data-value">4 adultos + 1 niño</div></div>
+<div class="data-item"><div class="data-label">Check-in</div><div class="data-value">sáb 4 jul</div></div>
+<div class="data-item"><div class="data-label">Check-out</div><div class="data-value">mar 7 jul</div></div>
+<div class="data-item"><div class="data-label">Precio noche 1 (4 jul)</div><div class="data-value">$539,00</div></div>
+<div class="data-item"><div class="data-label">Precio noche 2 (5 jul)</div><div class="data-value">$539,00</div></div>
+<div class="data-item"><div class="data-label">Precio noche 3 (6 jul)</div><div class="data-value">$500,00</div></div>
+<div class="data-item"><div class="data-label">Habitación total</div><div class="data-value">$1.578,00</div></div>
+<div class="data-item"><div class="data-label">Impuestos</div><div class="data-value">$198,20</div></div>
+<div class="data-item"><div class="data-label">Total</div><div class="data-value">$1.776,20</div></div>
+<div class="data-item"><div class="data-label">Teléfono</div><div class="data-value">+1 (307) 543-2811</div></div>
+<div class="data-item"><div class="data-label">Web</div><div class="data-value"><a href="https://yellowstonenationalparklodges.com" target="_blank">yellowstonenationalparklodges.com</a></div></div>
+</div>
+          <div class="data-note"><strong>Importante</strong>: la reserva dice 'Children (0-3): 1' pero Justina tiene 11 años. Llamar al lodge para confirmar que la habitación admite a los 3 chicos (Joaquín 16, Emi 14, Justina 11) sin problemas.</div>
+
+          
+        </div>
+      </div>
+    </div>
+
+    <div class="res-card" onclick="toggleCard(this, event)">
+      <div class="res-header">
+        <div class="res-header-left">
+          <div class="res-icon">🐻</div>
+          <div class="res-info">
+            <div class="res-title">Amphitheater House · Silver Gate</div>
+            <div class="res-subtitle">7-10 Jul · 3 noches · Silver Gate Lodging</div>
+          </div>
+        </div>
+        <div class="res-status">
+          <span class="status-badge confirmed">Reservado</span>
+          <span class="res-toggle">▾</span>
+        </div>
+      </div>
+      <div class="res-body">
+        <div class="res-body-inner">
+          <div class="data-grid"><div class="data-item"><div class="data-label">Confirmación</div><div class="data-value mono">#114100</div></div>
+<div class="data-item"><div class="data-label">Tipo</div><div class="data-value">Casa completa para 5 personas</div></div>
+<div class="data-item"><div class="data-label">Dirección</div><div class="data-value">109 US Hwy 212, Silver Gate, MT 59081</div></div>
+<div class="data-item"><div class="data-label">Check-in</div><div class="data-value">mar 7 jul</div></div>
+<div class="data-item"><div class="data-label">Check-out</div><div class="data-value">vie 10 jul</div></div>
+<div class="data-item"><div class="data-label">Costo total</div><div class="data-value">$2.016,00</div></div>
+<div class="data-item"><div class="data-label">Depósito pagado</div><div class="data-value">$616,00 (cobrado a la VISA)</div></div>
+<div class="data-item"><div class="data-label">Saldo al llegar</div><div class="data-value">$1.400,00</div></div>
+<div class="data-item"><div class="data-label">Teléfono</div><div class="data-value">+1 (406) 838-2371</div></div>
+<div class="data-item"><div class="data-label">Email</div><div class="data-value"><a href="mailto:reservations@silvergatelodging.com">reservations@silvergatelodging.com</a></div></div>
+<div class="data-item"><div class="data-label">Instagram</div><div class="data-value">@silvergatelodging</div></div>
+</div>
+          <div class="data-note"><strong>Recordatorio</strong>: llevar misma tarjeta VISA del depósito para pagar saldo al check-in.</div>
+
+          
+        </div>
+      </div>
+    </div>
+
+    <div class="res-card" onclick="toggleCard(this, event)">
+      <div class="res-header">
+        <div class="res-header-left">
+          <div class="res-icon">🍖</div>
+          <div class="res-info">
+            <div class="res-title">Hotel Kansas City</div>
+            <div class="res-subtitle">10-11 Jul · 1 noche</div>
+          </div>
+        </div>
+        <div class="res-status">
+          <span class="status-badge pending">Pendiente</span>
+          <span class="res-toggle">▾</span>
+        </div>
+      </div>
+      <div class="res-body">
+        <div class="res-body-inner">
+          <div class="data-grid"><div class="data-item"><div class="data-label">Fecha</div><div class="data-value">vie 10 jul - sáb 11 jul</div></div>
+<div class="data-item"><div class="data-label">Ubicación sugerida</div><div class="data-value">Cerca del aeropuerto MCI</div></div>
+<div class="data-item"><div class="data-label">Pasajeros</div><div class="data-value">5</div></div>
+</div>
+          
+          <div class="data-pending-list"><div class="data-pending-list-title">⚠ Pendientes</div><ul><li>Reservar hotel cerca del aeropuerto MCI</li><li>Considerar 1 noche o 2 (si Argentina juega cuartos el 11 jul a las 21hs en Arrowhead Stadium)</li><li>Booking.com / Expedia / cadena de confianza</li></ul></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="res-section-title">🚙 Autos</div>
+
+    <div class="res-card" onclick="toggleCard(this, event)">
+      <div class="res-header">
+        <div class="res-header-left">
+          <div class="res-icon">🚙</div>
+          <div class="res-info">
+            <div class="res-title">Tesla Cybertruck 2025 · Dallas</div>
+            <div class="res-subtitle">26-29 Jun · Turo · Host: Tuan</div>
+          </div>
+        </div>
+        <div class="res-status">
+          <span class="status-badge partial">Reservado · faltan datos</span>
+          <span class="res-toggle">▾</span>
+        </div>
+      </div>
+      <div class="res-body">
+        <div class="res-body-inner">
+          <div class="data-grid"><div class="data-item"><div class="data-label">Vehículo</div><div class="data-value">Tesla Cybertruck 2025</div></div>
+<div class="data-item"><div class="data-label">Placa</div><div class="data-value mono">XLL7221</div></div>
+<div class="data-item"><div class="data-label">Reserva Turo</div><div class="data-value mono">#52589856</div></div>
+<div class="data-item"><div class="data-label">Host</div><div class="data-value">Tuan (4.9★ · 1.124 viajes)</div></div>
+<div class="data-item"><div class="data-label">Teléfono host</div><div class="data-value">+1 817-909-7827</div></div>
+<div class="data-item"><div class="data-label">Retiro</div><div class="data-value">vie 26 jun · 00:30 · DFW Airport</div></div>
+<div class="data-item"><div class="data-label">Devolución</div><div class="data-value">lun 29 jun · 18:00 · DFW Airport</div></div>
+<div class="data-item"><div class="data-label">Costo total</div><div class="data-value">$635,02</div></div>
+<div class="data-item"><div class="data-label">Millas incluidas</div><div class="data-value">800 (excedente: $0,52 / milla)</div></div>
+<div class="data-item"><div class="data-label">Protección</div><div class="data-value">Minimum protection plan · máx out-of-pocket $3.000</div></div>
+<div class="data-item"><div class="data-label">Seguro</div><div class="data-value">Travelers</div></div>
+<div class="data-item"><div class="data-label">Política</div><div class="data-value">Viaje no reembolsable</div></div>
+<div class="data-item"><div class="data-label">Check-in</div><div class="data-value">Lockbox (auto-servicio)</div></div>
+<div class="data-item"><div class="data-label">Carga</div><div class="data-value">Cualquier EV station o Tolltag adjunto · factura al final</div></div>
+</div>
+          <div class="data-note"><strong>Atención</strong>: llegás a DFW a las 00:09 del 26 jun y el retiro del Cybertruck es a las 00:30. Solo 21 minutos. Considerar contactar al host para extender margen por si hay demoras.</div>
+
+          <div class="data-pending-list"><div class="data-pending-list-title">⚠ Pendientes</div><ul><li>Confirmar dirección exacta de pickup en DFW</li><li>Coordinar plan B con el host por si llegamos tarde</li></ul></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="res-card" onclick="toggleCard(this, event)">
+      <div class="res-header">
+        <div class="res-header-left">
+          <div class="res-icon">🏔</div>
+          <div class="res-info">
+            <div class="res-title">Auto rentado · JAC → BZN</div>
+            <div class="res-subtitle">4-10 Jul · 6 días</div>
+          </div>
+        </div>
+        <div class="res-status">
+          <span class="status-badge pending">Pendiente</span>
+          <span class="res-toggle">▾</span>
+        </div>
+      </div>
+      <div class="res-body">
+        <div class="res-body-inner">
+          <div class="data-grid"><div class="data-item"><div class="data-label">Retiro</div><div class="data-value">Jackson Hole Airport (JAC) · 4 jul</div></div>
+<div class="data-item"><div class="data-label">Devolución</div><div class="data-value">Bozeman Airport (BZN) · 10 jul</div></div>
+<div class="data-item"><div class="data-label">Vehículo necesario</div><div class="data-value">SUV para 5 personas + equipaje</div></div>
+<div class="data-item"><div class="data-label">Costo estimado</div><div class="data-value">$1.000-1.200 incluido one-way fee</div></div>
+<div class="data-item"><div class="data-label">Rentadoras</div><div class="data-value">Avis · Budget · Hertz · Enterprise</div></div>
+</div>
+          
+          <div class="data-pending-list"><div class="data-pending-list-title">⚠ Pendientes</div><ul><li>Reservar SUV o minivan para 5 pasajeros</li><li>Confirmar cargo por devolución en ciudad diferente (one-way fee)</li><li>Verificar política de millaje sin límite</li></ul></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="res-section-title">⚽ Partidos</div>
+
+    <div class="res-card" onclick="toggleCard(this, event)">
+      <div class="res-header">
+        <div class="res-header-left">
+          <div class="res-icon">⚽</div>
+          <div class="res-info">
+            <div class="res-title">Argentina vs Jordan</div>
+            <div class="res-subtitle">27 Jun · 22hs · AT&T Stadium, Arlington</div>
+          </div>
+        </div>
+        <div class="res-status">
+          <span class="status-badge partial">Pagado · faltan recibir</span>
+          <span class="res-toggle">▾</span>
+        </div>
+      </div>
+      <div class="res-body">
+        <div class="res-body-inner">
+          <div class="data-grid"><div class="data-item"><div class="data-label">Partido</div><div class="data-value">Grupo J - Fase de grupos</div></div>
+<div class="data-item"><div class="data-label">Estadio</div><div class="data-value">AT&T Stadium · Arlington, TX</div></div>
+<div class="data-item"><div class="data-label">Fecha</div><div class="data-value">sáb 27 jun · 22:00 hs</div></div>
+<div class="data-item"><div class="data-label">Entradas</div><div class="data-value">5 entradas (pagadas)</div></div>
+<div class="data-item"><div class="data-label">Estado</div><div class="data-value">Pagadas, pendientes de recibir</div></div>
+<div class="data-item"><div class="data-label">Distribuidor</div><div class="data-value">FIFA / proveedor oficial</div></div>
+</div>
+          <div class="data-note"><strong>Importante</strong>: las entradas están pagadas pero todavía no fueron recibidas. Hacer seguimiento con FIFA cerca de la fecha del torneo.</div>
+
+          <div class="data-pending-list"><div class="data-pending-list-title">⚠ Pendientes</div><ul><li>Recibir entradas físicas / digitales</li><li>Confirmar ubicación de asientos</li></ul></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="res-card" onclick="toggleCard(this, event)">
+      <div class="res-header">
+        <div class="res-header-left">
+          <div class="res-icon">⚽</div>
+          <div class="res-info">
+            <div class="res-title">Argentina · Round of 32 · TBC</div>
+            <div class="res-subtitle">3 Jul · 18hs · Hard Rock Stadium, Miami</div>
+          </div>
+        </div>
+        <div class="res-status">
+          <span class="status-badge pending">Pendiente (TBC)</span>
+          <span class="res-toggle">▾</span>
+        </div>
+      </div>
+      <div class="res-body">
+        <div class="res-body-inner">
+          <div class="data-grid"><div class="data-item"><div class="data-label">Match</div><div class="data-value">Match 86 · Round of 32</div></div>
+<div class="data-item"><div class="data-label">Estadio</div><div class="data-value">Hard Rock Stadium · Miami, FL</div></div>
+<div class="data-item"><div class="data-label">Fecha</div><div class="data-value">vie 3 jul · 18:00 hs</div></div>
+<div class="data-item"><div class="data-label">Condición</div><div class="data-value">Si Argentina clasifica 1° del Grupo J</div></div>
+<div class="data-item"><div class="data-label">Distancia desde depto</div><div class="data-value">40 min en auto</div></div>
+</div>
+          
+          <div class="data-pending-list"><div class="data-pending-list-title">⚠ Pendientes</div><ul><li>Confirmar clasificación de Argentina como 1° del grupo</li><li>Comprar entradas en FIFA / StubHub</li></ul></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="res-card" onclick="toggleCard(this, event)">
+      <div class="res-header">
+        <div class="res-header-left">
+          <div class="res-icon">⚽</div>
+          <div class="res-info">
+            <div class="res-title">Argentina · Cuartos de Final · TBC</div>
+            <div class="res-subtitle">11 Jul · 21hs · Arrowhead Stadium, Kansas City</div>
+          </div>
+        </div>
+        <div class="res-status">
+          <span class="status-badge pending">Pendiente (TBC)</span>
+          <span class="res-toggle">▾</span>
+        </div>
+      </div>
+      <div class="res-body">
+        <div class="res-body-inner">
+          <div class="data-grid"><div class="data-item"><div class="data-label">Match</div><div class="data-value">Match 100 · Cuartos de final</div></div>
+<div class="data-item"><div class="data-label">Estadio</div><div class="data-value">Arrowhead Stadium · Kansas City, MO</div></div>
+<div class="data-item"><div class="data-label">Fecha</div><div class="data-value">sáb 11 jul · 21:00 hs</div></div>
+<div class="data-item"><div class="data-label">Condición</div><div class="data-value">Si Argentina avanza Round of 32 + Round of 16</div></div>
+</div>
+          
+          <div class="data-pending-list"><div class="data-pending-list-title">⚠ Pendientes</div><ul><li>Seguir avance de Argentina en el torneo</li><li>Comprar entradas cuando se confirme la clasificación a cuartos</li></ul></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+  function toggleCard(card, e) {
+    card.classList.toggle('open');
+  }
+</script>
+
 <!-- TIMELINE -->
-<section class="timeline-section">
+<section class="timeline-section" id="itinerario">
   <div class="section-header">
     <div class="section-eyebrow">Día por día</div>
     <h2 class="section-title">El viaje en <em>detalle</em></h2>
-    <p class="section-desc">
-      Mañana, tarde y noche de cada uno de los 19 días
-    </p>
+    <p class="section-desc">Mañana, tarde y noche de cada uno de los 19 días</p>
   </div>
-
   <div class="timeline">
-
-    <div class="section-divider">
-      <div class="section-divider-sub">✦ Capítulo ✦</div>
-      <div class="section-divider-title">Dallas / Fort Worth</div>
-      <div class="section-divider-sub">Texas · Mundial 2026</div>
-    </div>
-
-    <div class="day-card">
-      <div class="day-header">
-        <div class="day-number">01</div>
-        <div>
-          <div class="day-date">Jue 25 Jun</div>
-        </div>
-        <div class="day-location">Dallas, TX</div>
-      </div>
-      <div class="day-badges">
-        <span class="badge badge-hotel">🏨 Airbnb Euless</span>
-      </div>
-      <div class="daypart-grid">
-        <div class="daypart">
-          <div class="daypart-time">☀ Mañana</div>
-          <div class="daypart-content"><strong>Vuelo desde Buenos Aires</strong>. Despegue 7:45hs.</div>
-        </div>
-        <div class="daypart">
-          <div class="daypart-time">⛱ Tarde</div>
-          <div class="daypart-content">En tránsito por Lima y Atlanta.</div>
-        </div>
-        <div class="daypart">
-          <div class="daypart-time">🌙 Noche</div>
-          <div class="daypart-content">Llegada a Dallas a las 00:09 del 26. Directo al Airbnb a descansar.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="day-card">
-      <div class="day-header">
-        <div class="day-number">02</div>
-        <div>
-          <div class="day-date">Vie 26 Jun</div>
-        </div>
-        <div class="day-location">Dallas, TX</div>
-      </div>
-      <div class="day-badges">
-        <span class="badge badge-hotel">🏨 Airbnb Euless</span>
-      </div>
-      <div class="daypart-grid">
-        <div class="daypart">
-          <div class="daypart-time">☀ Mañana</div>
-          <div class="daypart-content">Mañana tranquila recuperando el jet lag. Desayuno largo en algún diner clásico texano.</div>
-        </div>
-        <div class="daypart">
-          <div class="daypart-time">⛱ Tarde</div>
-          <div class="daypart-content"><strong>Klyde Warren Park</strong>: parque urbano construido sobre una autopista, con food trucks y música en vivo.</div>
-        </div>
-        <div class="daypart">
-          <div class="daypart-time">🌙 Noche</div>
-          <div class="daypart-content">Cena en <strong>Deep Ellum</strong>, el barrio más cool de Dallas con murales callejeros.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="day-card partido">
-      <div class="day-header">
-        <div class="day-number">03</div>
-        <div>
-          <div class="day-date">Sáb 27 Jun</div>
-        </div>
-        <div class="day-location">Dallas, TX</div>
-      </div>
-      <div class="day-badges">
-        <span class="badge badge-hotel">🏨 Airbnb Euless</span>
-        <span class="badge badge-partido">⚽ Argentina vs Jordan</span>
-      </div>
-      <div class="daypart-grid">
-        <div class="daypart">
-          <div class="daypart-time">☀ Mañana</div>
-          <div class="daypart-content"><strong>Perot Museum of Nature and Science</strong>: simulador de terremoto, esqueleto del Alamosaurus y carrera virtual contra un guepardo.</div>
-        </div>
-        <div class="daypart">
-          <div class="daypart-time">⛱ Tarde</div>
-          <div class="daypart-content">Vuelta al Airbnb, descanso y preparación. Cena temprana antes del partido.</div>
-        </div>
-        <div class="daypart partido">
-          <div class="daypart-time">🌙 Noche</div>
-          <div class="daypart-content">⚽ <strong>Argentina vs Jordan · 22hs · AT&T Stadium, Arlington</strong></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="day-card">
-      <div class="day-header">
-        <div class="day-number">04</div>
-        <div>
-          <div class="day-date">Dom 28 Jun</div>
-        </div>
-        <div class="day-location">Dallas / Fort Worth, TX</div>
-      </div>
-      <div class="day-badges">
-        <span class="badge badge-hotel">🏨 Airbnb Euless</span>
-      </div>
-      <div class="daypart-grid">
-        <div class="daypart">
-          <div class="daypart-time">☀ Mañana</div>
-          <div class="daypart-content">Mañana de descanso post-partido.</div>
-        </div>
-        <div class="daypart">
-          <div class="daypart-time">⛱ Tarde</div>
-          <div class="daypart-content"><strong>Fort Worth Stockyards</strong>: a las 16hs el desfile diario de longhorns por la calle principal del barrio histórico.</div>
-        </div>
-        <div class="daypart">
-          <div class="daypart-time">🌙 Noche</div>
-          <div class="daypart-content">Cena de steak texano en <strong>Cattlemen's Steakhouse</strong>, histórico desde 1947.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="section-divider">
-      <div class="section-divider-sub">✦ Capítulo ✦</div>
-      <div class="section-divider-title">Fort Lauderdale + Miami</div>
-      <div class="section-divider-sub">Florida · Costa Atlántica</div>
-    </div>
-
-    <div class="day-card">
-      <div class="day-header">
-        <div class="day-number">05</div>
-        <div>
-          <div class="day-date">Lun 29 Jun</div>
-        </div>
-        <div class="day-location">Dallas → Fort Lauderdale</div>
-      </div>
-      <div class="day-badges">
-        <span class="badge badge-flight">✈ DFW → FLL</span>
-        <span class="badge badge-hotel">🏨 Airbnb 350 N Birch</span>
-      </div>
-      <div class="daypart-grid">
-        <div class="daypart">
-          <div class="daypart-time">☀ Mañana</div>
-          <div class="daypart-content">Cierre del Airbnb. Devolución del Cybertruck en DFW.</div>
-        </div>
-        <div class="daypart">
-          <div class="daypart-time">⛱ Tarde</div>
-          <div class="daypart-content"><strong>Vuelo DFW → FLL</strong> (~3hs). Llegada a Fort Lauderdale.</div>
-        </div>
-        <div class="daypart">
-          <div class="daypart-time">🌙 Noche</div>
-          <div class="daypart-content">🏖️ <strong>Primera noche en la playa</strong>: check-in en el depto, caminata por la arena al atardecer, cena frente al mar en Las Olas.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="day-card">
-      <div class="day-header">
-        <div class="day-number">06</div>
-        <div>
-          <div class="day-date">Mar 30 Jun</div>
-        </div>
-        <div class="day-location">Fort Lauderdale, FL</div>
-      </div>
-      <div class="day-badges">
-        <span class="badge badge-hotel">🏨 Airbnb 350 N Birch</span>
-      </div>
-      <div class="daypart-grid">
-        <div class="daypart">
-          <div class="daypart-time">☀ Mañana</div>
-          <div class="daypart-content">🏖️ <strong>Mañana de playa</strong>: amanecer en la arena, mar caliente, café y desayuno con vista al océano.</div>
-        </div>
-        <div class="daypart">
-          <div class="daypart-time">⛱ Tarde</div>
-          <div class="daypart-content">🏖️ <strong>Tarde de playa</strong>: sombrillas, libros, descanso real. Sin agenda.</div>
-        </div>
-        <div class="daypart">
-          <div class="daypart-time">🌙 Noche</div>
-          <div class="daypart-content">Cena en <strong>Las Olas Boulevard</strong>, paseo nocturno por la calle peatonal.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="day-card">
-      <div class="day-header">
-        <div class="day-number">07</div>
-        <div>
-          <div class="day-date">Mié 1 Jul</div>
-        </div>
-        <div class="day-location">Fort Lauderdale + Miami, FL</div>
-      </div>
-      <div class="day-badges">
-        <span class="badge badge-hotel">🏨 Airbnb 350 N Birch</span>
-      </div>
-      <div class="daypart-grid">
-        <div class="daypart">
-          <div class="daypart-time">☀ Mañana</div>
-          <div class="daypart-content">🏖️ <strong>Mañana de playa</strong>: nado, snorkel cerca de la orilla, ceviche en algún chiringuito.</div>
-        </div>
-        <div class="daypart">
-          <div class="daypart-time">⛱ Tarde</div>
-          <div class="daypart-content">Excursión a <strong>Miami</strong>: Wynwood Walls (el barrio de street art más famoso de USA) y un café cubano en Little Havana.</div>
-        </div>
-        <div class="daypart">
-          <div class="daypart-time">🌙 Noche</div>
-          <div class="daypart-content"><strong>South Beach</strong> al atardecer: Ocean Drive iluminado, edificios Art Deco y cena en algún restaurante con vista al mar.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="day-card">
-      <div class="day-header">
-        <div class="day-number">08</div>
-        <div>
-          <div class="day-date">Jue 2 Jul</div>
-        </div>
-        <div class="day-location">Fort Lauderdale, FL</div>
-      </div>
-      <div class="day-badges">
-        <span class="badge badge-hotel">🏨 Airbnb 350 N Birch</span>
-      </div>
-      <div class="daypart-grid">
-        <div class="daypart">
-          <div class="daypart-time">☀ Mañana</div>
-          <div class="daypart-content">🏖️ <strong>Última mañana de playa relajada</strong>: amanecer, mar, fotos familiares con los Tetons del Atlántico de fondo.</div>
-        </div>
-        <div class="daypart">
-          <div class="daypart-time">⛱ Tarde</div>
-          <div class="daypart-content"><strong>Sawgrass Mills</strong>: el mall más grande de Florida, outlets de todas las marcas. Tarde completa de shopping.</div>
-        </div>
-        <div class="daypart">
-          <div class="daypart-time">🌙 Noche</div>
-          <div class="daypart-content">Cena tranquila cerca del depto, prep de equipaje para el partido del día siguiente.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="day-card partido">
-      <div class="day-header">
-        <div class="day-number">09</div>
-        <div>
-          <div class="day-date">Vie 3 Jul</div>
-        </div>
-        <div class="day-location">Fort Lauderdale + Miami, FL</div>
-      </div>
-      <div class="day-badges">
-        <span class="badge badge-hotel">🏨 Airbnb 350 N Birch</span>
-        <span class="badge badge-partido tbc">⚽ Argentina (Round of 32) · TBC</span>
-      </div>
-      <div class="daypart-grid">
-        <div class="daypart">
-          <div class="daypart-time">☀ Mañana</div>
-          <div class="daypart-content">🏖️ <strong>Mañana de playa</strong>: agua transparente, palmeras, snorkel.</div>
-        </div>
-        <div class="daypart">
-          <div class="daypart-time">⛱ Tarde</div>
-          <div class="daypart-content">Salida hacia Miami (40 min) con tiempo para llegar al Hard Rock Stadium.</div>
-        </div>
-        <div class="daypart partido">
-          <div class="daypart-time">🌙 Noche</div>
-          <div class="daypart-content">⚽ <strong>Argentina vs TBC · 18hs · Hard Rock Stadium, Miami</strong> (si Argentina clasifica primero del grupo).</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="section-divider">
-      <div class="section-divider-sub">✦ Capítulo ✦</div>
-      <div class="section-divider-title">Grand Teton + Yellowstone</div>
-      <div class="section-divider-sub">Wyoming · Montana · Naturaleza salvaje</div>
-    </div>
-
-    <div class="day-card">
-      <div class="day-header">
-        <div class="day-number">10</div>
-        <div>
-          <div class="day-date">Sáb 4 Jul</div>
-        </div>
-        <div class="day-location">Fort Lauderdale → Grand Teton</div>
-      </div>
-      <div class="day-badges">
-        <span class="badge badge-flight">✈ FLL → JAC</span>
-        <span class="badge badge-hotel">🏨 Jackson Lake Lodge</span>
-      </div>
-      <div class="daypart-grid">
-        <div class="daypart">
-          <div class="daypart-time">☀ Mañana</div>
-          <div class="daypart-content">🏖️ <strong>Última mañana en la playa</strong>: despedida del mar, foto de los 5 con el Atlántico de fondo.</div>
-        </div>
-        <div class="daypart">
-          <div class="daypart-time">⛱ Tarde</div>
-          <div class="daypart-content"><strong>Vuelo FLL → Jackson Hole</strong> con escala (~7hs total). Llegada a Wyoming a la noche.</div>
-        </div>
-        <div class="daypart">
-          <div class="daypart-time">🌙 Noche</div>
-          <div class="daypart-content">Retiro del auto rentado en JAC. Manejo de 35 minutos hasta <strong>Jackson Lake Lodge</strong>. Check-in en la Mountain View Cottage con vista a los Tetons.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="day-card">
-      <div class="day-header">
-        <div class="day-number">11</div>
-        <div>
-          <div class="day-date">Dom 5 Jul</div>
-        </div>
-        <div class="day-location">Grand Teton NP, WY</div>
-      </div>
-      <div class="day-badges">
-        <span class="badge badge-hotel">🏨 Jackson Lake Lodge</span>
-      </div>
-      <div class="daypart-grid">
-        <div class="daypart">
-          <div class="daypart-time">☀ Mañana</div>
-          <div class="daypart-content"><strong>5:30am</strong>: amanecer en <strong>Oxbow Bend</strong> con los Tetons reflejados en el río Snake. Grizzlies, alces y águilas calvas.</div>
-        </div>
-        <div class="daypart">
-          <div class="daypart-time">⛱ Tarde</div>
-          <div class="daypart-content"><strong>Jenny Lake</strong>: ferry de 10 minutos al otro lado del lago, caminata llana hasta Hidden Falls.</div>
-        </div>
-        <div class="daypart">
-          <div class="daypart-time">🌙 Noche</div>
-          <div class="daypart-content">Cena en el restaurante del lodge con los ventanales de 18 metros frente a los picos nevados.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="day-card">
-      <div class="day-header">
-        <div class="day-number">12</div>
-        <div>
-          <div class="day-date">Lun 6 Jul</div>
-        </div>
-        <div class="day-location">Grand Teton NP, WY</div>
-      </div>
-      <div class="day-badges">
-        <span class="badge badge-hotel">🏨 Jackson Lake Lodge</span>
-      </div>
-      <div class="daypart-grid">
-        <div class="daypart">
-          <div class="daypart-time">☀ Mañana</div>
-          <div class="daypart-content"><strong>5:30am</strong>: <strong>Antelope Flats Road</strong>, ruta de tierra donde aparecen bisontes en manada al amanecer.</div>
-        </div>
-        <div class="daypart">
-          <div class="daypart-time">⛱ Tarde</div>
-          <div class="daypart-content"><strong>Snake River Overlook</strong> (la foto de Ansel Adams) y caminata corta llana en Willow Flats.</div>
-        </div>
-        <div class="daypart">
-          <div class="daypart-time">🌙 Noche</div>
-          <div class="daypart-content">Atardecer en <strong>Mormon Row</strong>: granjas históricas con los Tetons de fondo. Cena en Jackson town con búfalo burger.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="day-card">
-      <div class="day-header">
-        <div class="day-number">13</div>
-        <div>
-          <div class="day-date">Mar 7 Jul</div>
-        </div>
-        <div class="day-location">Grand Teton → Yellowstone</div>
-      </div>
-      <div class="day-badges">
-        <span class="badge badge-hotel">🏨 Amphitheater House, Silver Gate</span>
-      </div>
-      <div class="daypart-grid">
-        <div class="daypart">
-          <div class="daypart-time">☀ Mañana</div>
-          <div class="daypart-content">Desayuno en Jackson Lake Lodge. Salida a las 8am hacia Yellowstone. Parada en <strong>West Thumb Geyser Basin</strong>: géiseres al borde del lago.</div>
-        </div>
-        <div class="daypart">
-          <div class="daypart-time">⛱ Tarde</div>
-          <div class="daypart-content">Cruce de Yellowstone por el interior con parada en <strong>Hayden Valley</strong>: primer avistamiento de bisontes en manadas masivas.</div>
-        </div>
-        <div class="daypart">
-          <div class="daypart-time">🌙 Noche</div>
-          <div class="daypart-content">Llegada a <strong>Silver Gate, Montana</strong> (entrada noreste). Check-in en la cabaña Amphitheater House. Cena cocinada en la cabaña.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="day-card">
-      <div class="day-header">
-        <div class="day-number">14</div>
-        <div>
-          <div class="day-date">Mié 8 Jul</div>
-        </div>
-        <div class="day-location">Yellowstone NP, MT/WY</div>
-      </div>
-      <div class="day-badges">
-        <span class="badge badge-hotel">🏨 Amphitheater House, Silver Gate</span>
-      </div>
-      <div class="daypart-grid">
-        <div class="daypart">
-          <div class="daypart-time">☀ Mañana</div>
-          <div class="daypart-content"><strong>5:30am</strong>: <strong>Hayden Valley</strong> al amanecer con niebla sobre el río y manadas de bisontes en el agua.</div>
-        </div>
-        <div class="daypart">
-          <div class="daypart-time">⛱ Tarde</div>
-          <div class="daypart-content"><strong>Grand Prismatic Spring</strong> (los colores imposibles desde el mirador elevado) y <strong>Old Faithful</strong> en erupción.</div>
-        </div>
-        <div class="daypart">
-          <div class="daypart-time">🌙 Noche</div>
-          <div class="daypart-content">Vuelta a la cabaña, cena casera, descanso antes del día más madrugador del viaje.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="day-card">
-      <div class="day-header">
-        <div class="day-number">15</div>
-        <div>
-          <div class="day-date">Jue 9 Jul</div>
-        </div>
-        <div class="day-location">Yellowstone NP — Lamar Valley</div>
-      </div>
-      <div class="day-badges">
-        <span class="badge badge-hotel">🏨 Amphitheater House, Silver Gate</span>
-      </div>
-      <div class="daypart-grid">
-        <div class="daypart">
-          <div class="daypart-time">☀ Mañana</div>
-          <div class="daypart-content"><strong>4:30am</strong>: salida con guía de wildlife hacia <strong>Lamar Valley</strong>. El Serengeti de Norteamérica al amanecer: grizzlies, lobos, alces y miles de bisontes.</div>
-        </div>
-        <div class="daypart">
-          <div class="daypart-time">⛱ Tarde</div>
-          <div class="daypart-content">Almuerzo en Cooke City (pueblo auténtico, sin turismo masivo) y <strong>Mammoth Hot Springs</strong>: terrazas de travertino blanco.</div>
-        </div>
-        <div class="daypart">
-          <div class="daypart-time">🌙 Noche</div>
-          <div class="daypart-content">Segundo recorrido por Lamar al atardecer (los lobos son más activos a esta hora). Cena en la cabaña.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="section-divider">
-      <div class="section-divider-sub">✦ Capítulo ✦</div>
-      <div class="section-divider-title">Kansas City</div>
-      <div class="section-divider-sub">Missouri · Cierre del viaje</div>
-    </div>
-
-    <div class="day-card">
-      <div class="day-header">
-        <div class="day-number">16</div>
-        <div>
-          <div class="day-date">Vie 10 Jul</div>
-        </div>
-        <div class="day-location">Yellowstone → Kansas City</div>
-      </div>
-      <div class="day-badges">
-        <span class="badge badge-flight">✈ BZN → MCI</span>
-        <span class="badge badge-hotel">🏨 Hotel cerca de MCI</span>
-      </div>
-      <div class="daypart-grid">
-        <div class="daypart">
-          <div class="daypart-time">☀ Mañana</div>
-          <div class="daypart-content">Última mañana en la cabaña. Salida temprano hacia Bozeman (2hs por la entrada norte de Yellowstone).</div>
-        </div>
-        <div class="daypart">
-          <div class="daypart-time">⛱ Tarde</div>
-          <div class="daypart-content"><strong>Vuelo BZN → MCI</strong>. Llegada a Kansas City. Hotel cerca del aeropuerto.</div>
-        </div>
-        <div class="daypart">
-          <div class="daypart-time">🌙 Noche</div>
-          <div class="daypart-content">Cena de <strong>Kansas City BBQ</strong>: ahumados legendarios en algún clásico como Joe's KC o Q39.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="day-card partido">
-      <div class="day-header">
-        <div class="day-number">17</div>
-        <div>
-          <div class="day-date">Sáb 11 Jul</div>
-        </div>
-        <div class="day-location">Kansas City, MO</div>
-      </div>
-      <div class="day-badges">
-        <span class="badge badge-hotel">🏨 Hotel cerca de MCI</span>
-        <span class="badge badge-partido tbc">⚽ Argentina (Cuartos de final) · TBC</span>
-      </div>
-      <div class="daypart-grid">
-        <div class="daypart">
-          <div class="daypart-time">☀ Mañana</div>
-          <div class="daypart-content"><strong>Country Club Plaza</strong>: el primer shopping center al aire libre del mundo (1922), con arquitectura española y fuentes.</div>
-        </div>
-        <div class="daypart">
-          <div class="daypart-time">⛱ Tarde</div>
-          <div class="daypart-content"><strong>National WWI Museum</strong>: considerado uno de los mejores museos de la Primera Guerra Mundial del mundo.</div>
-        </div>
-        <div class="daypart partido">
-          <div class="daypart-time">🌙 Noche</div>
-          <div class="daypart-content">⚽ <strong>Argentina vs TBC · 21hs · Arrowhead Stadium, Kansas City</strong> (cuartos de final si Argentina avanza).</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="day-card">
-      <div class="day-header">
-        <div class="day-number">18</div>
-        <div>
-          <div class="day-date">Dom 12 Jul</div>
-        </div>
-        <div class="day-location">Kansas City → Buenos Aires</div>
-      </div>
-      <div class="day-badges">
-        <span class="badge badge-flight">✈ MCI → ATL → LIM → EZE</span>
-      </div>
-      <div class="daypart-grid">
-        <div class="daypart">
-          <div class="daypart-time">☀ Mañana</div>
-          <div class="daypart-content"><strong>5:40am</strong>: vuelo MCI → Atlanta. Conexión a Lima.</div>
-        </div>
-        <div class="daypart">
-          <div class="daypart-time">⛱ Tarde</div>
-          <div class="daypart-content">En tránsito Lima → Buenos Aires.</div>
-        </div>
-        <div class="daypart">
-          <div class="daypart-time">🌙 Noche</div>
-          <div class="daypart-content">Vuelo nocturno cruzando Sudamérica de regreso a casa.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="day-card">
-      <div class="day-header">
-        <div class="day-number">19</div>
-        <div>
-          <div class="day-date">Lun 13 Jul</div>
-        </div>
-        <div class="day-location">Buenos Aires</div>
-      </div>
-      <div class="daypart-grid">
-        <div class="daypart">
-          <div class="daypart-time">☀ Mañana</div>
-          <div class="daypart-content"><strong>6:10am</strong>: llegada a EZE. Fin del viaje 🇦🇷</div>
-        </div>
-      </div>
-    </div>
+<div class="section-divider"><div class="section-divider-sub">✦ Capítulo ✦</div><div class="section-divider-title">Dallas / Fort Worth</div><div class="section-divider-sub">Texas · Mundial 2026</div></div>
+<div class="day-card"><div class="day-header"><div class="day-number">01</div><div><div class="day-date">Jue 25 Jun</div></div><div class="day-location">Dallas, TX</div></div><div class="day-badges"><span class="badge badge-hotel">🏨 Airbnb Euless</span></div><div class="daypart-grid"><div class="daypart"><div class="daypart-time">☀ Mañana</div><div class="daypart-content"><strong>Vuelo desde Buenos Aires</strong>. Despegue 7:45hs.</div></div><div class="daypart"><div class="daypart-time">⛱ Tarde</div><div class="daypart-content">En tránsito por Lima y Atlanta.</div></div><div class="daypart"><div class="daypart-time">🌙 Noche</div><div class="daypart-content">Llegada a Dallas a las 00:09 del 26. Directo al Airbnb a descansar.</div></div></div></div>
+<div class="day-card"><div class="day-header"><div class="day-number">02</div><div><div class="day-date">Vie 26 Jun</div></div><div class="day-location">Dallas, TX</div></div><div class="day-badges"><span class="badge badge-hotel">🏨 Airbnb Euless</span></div><div class="daypart-grid"><div class="daypart"><div class="daypart-time">☀ Mañana</div><div class="daypart-content">Mañana tranquila recuperando el jet lag. Desayuno largo en algún diner clásico texano.</div></div><div class="daypart"><div class="daypart-time">⛱ Tarde</div><div class="daypart-content"><strong>Klyde Warren Park</strong>: parque urbano construido sobre una autopista, con food trucks y música en vivo.</div></div><div class="daypart"><div class="daypart-time">🌙 Noche</div><div class="daypart-content">Cena en <strong>Deep Ellum</strong>, el barrio más cool de Dallas con murales callejeros.</div></div></div></div>
+<div class="day-card partido"><div class="day-header"><div class="day-number">03</div><div><div class="day-date">Sáb 27 Jun</div></div><div class="day-location">Dallas, TX</div></div><div class="day-badges"><span class="badge badge-hotel">🏨 Airbnb Euless</span><span class="badge badge-partido">⚽ Argentina vs Jordan</span></div><div class="daypart-grid"><div class="daypart"><div class="daypart-time">☀ Mañana</div><div class="daypart-content"><strong>Perot Museum of Nature and Science</strong>: simulador de terremoto, esqueleto del Alamosaurus y carrera virtual contra un guepardo.</div></div><div class="daypart"><div class="daypart-time">⛱ Tarde</div><div class="daypart-content">Vuelta al Airbnb, descanso y preparación. Cena temprana antes del partido.</div></div><div class="daypart partido"><div class="daypart-time">🌙 Noche</div><div class="daypart-content">⚽ <strong>Argentina vs Jordan · 22hs · AT&T Stadium, Arlington</strong></div></div></div></div>
+<div class="day-card"><div class="day-header"><div class="day-number">04</div><div><div class="day-date">Dom 28 Jun</div></div><div class="day-location">Dallas / Fort Worth, TX</div></div><div class="day-badges"><span class="badge badge-hotel">🏨 Airbnb Euless</span></div><div class="daypart-grid"><div class="daypart"><div class="daypart-time">☀ Mañana</div><div class="daypart-content">Mañana de descanso post-partido.</div></div><div class="daypart"><div class="daypart-time">⛱ Tarde</div><div class="daypart-content"><strong>Fort Worth Stockyards</strong>: a las 16hs el desfile diario de longhorns por la calle principal del barrio histórico.</div></div><div class="daypart"><div class="daypart-time">🌙 Noche</div><div class="daypart-content">Cena de steak texano en <strong>Cattlemen's Steakhouse</strong>, histórico desde 1947.</div></div></div></div>
+<div class="section-divider"><div class="section-divider-sub">✦ Capítulo ✦</div><div class="section-divider-title">Fort Lauderdale + Miami</div><div class="section-divider-sub">Florida · Costa Atlántica</div></div>
+<div class="day-card"><div class="day-header"><div class="day-number">05</div><div><div class="day-date">Lun 29 Jun</div></div><div class="day-location">Dallas → Fort Lauderdale</div></div><div class="day-badges"><span class="badge badge-flight">✈ DFW → FLL</span><span class="badge badge-hotel">🏨 Airbnb 350 N Birch</span></div><div class="daypart-grid"><div class="daypart"><div class="daypart-time">☀ Mañana</div><div class="daypart-content">Cierre del Airbnb. Devolución del Cybertruck en DFW (18hs).</div></div><div class="daypart"><div class="daypart-time">⛱ Tarde</div><div class="daypart-content"><strong>Vuelo DFW → FLL</strong> (~3hs). Llegada a Fort Lauderdale.</div></div><div class="daypart"><div class="daypart-time">🌙 Noche</div><div class="daypart-content">🏖️ <strong>Primera noche en la playa</strong>: check-in en el depto, caminata por la arena al atardecer, cena frente al mar en Las Olas.</div></div></div></div>
+<div class="day-card"><div class="day-header"><div class="day-number">06</div><div><div class="day-date">Mar 30 Jun</div></div><div class="day-location">Fort Lauderdale, FL</div></div><div class="day-badges"><span class="badge badge-hotel">🏨 Airbnb 350 N Birch</span></div><div class="daypart-grid"><div class="daypart"><div class="daypart-time">☀ Mañana</div><div class="daypart-content">🏖️ <strong>Mañana de playa</strong>: amanecer en la arena, mar caliente, café y desayuno con vista al océano.</div></div><div class="daypart"><div class="daypart-time">⛱ Tarde</div><div class="daypart-content">🏖️ <strong>Tarde de playa</strong>: sombrillas, libros, descanso real. Sin agenda.</div></div><div class="daypart"><div class="daypart-time">🌙 Noche</div><div class="daypart-content">Cena en <strong>Las Olas Boulevard</strong>, paseo nocturno por la calle peatonal.</div></div></div></div>
+<div class="day-card"><div class="day-header"><div class="day-number">07</div><div><div class="day-date">Mié 1 Jul</div></div><div class="day-location">Fort Lauderdale + Miami, FL</div></div><div class="day-badges"><span class="badge badge-hotel">🏨 Airbnb 350 N Birch</span></div><div class="daypart-grid"><div class="daypart"><div class="daypart-time">☀ Mañana</div><div class="daypart-content">🏖️ <strong>Mañana de playa</strong>: nado, snorkel cerca de la orilla, ceviche en algún chiringuito.</div></div><div class="daypart"><div class="daypart-time">⛱ Tarde</div><div class="daypart-content">Excursión a <strong>Miami</strong>: Wynwood Walls (el barrio de street art más famoso de USA) y un café cubano en Little Havana.</div></div><div class="daypart"><div class="daypart-time">🌙 Noche</div><div class="daypart-content"><strong>South Beach</strong> al atardecer: Ocean Drive iluminado, edificios Art Deco y cena en algún restaurante con vista al mar.</div></div></div></div>
+<div class="day-card"><div class="day-header"><div class="day-number">08</div><div><div class="day-date">Jue 2 Jul</div></div><div class="day-location">Fort Lauderdale, FL</div></div><div class="day-badges"><span class="badge badge-hotel">🏨 Airbnb 350 N Birch</span></div><div class="daypart-grid"><div class="daypart"><div class="daypart-time">☀ Mañana</div><div class="daypart-content">🏖️ <strong>Última mañana de playa relajada</strong>: amanecer, mar, fotos familiares.</div></div><div class="daypart"><div class="daypart-time">⛱ Tarde</div><div class="daypart-content"><strong>Sawgrass Mills</strong>: el mall más grande de Florida, outlets de todas las marcas. Tarde completa de shopping.</div></div><div class="daypart"><div class="daypart-time">🌙 Noche</div><div class="daypart-content">Cena tranquila cerca del depto, prep de equipaje para el partido del día siguiente.</div></div></div></div>
+<div class="day-card partido"><div class="day-header"><div class="day-number">09</div><div><div class="day-date">Vie 3 Jul</div></div><div class="day-location">Fort Lauderdale + Miami, FL</div></div><div class="day-badges"><span class="badge badge-hotel">🏨 Airbnb 350 N Birch</span><span class="badge badge-partido tbc">⚽ Argentina (Round of 32) · TBC</span></div><div class="daypart-grid"><div class="daypart"><div class="daypart-time">☀ Mañana</div><div class="daypart-content">🏖️ <strong>Mañana de playa</strong>: agua transparente, palmeras, snorkel.</div></div><div class="daypart"><div class="daypart-time">⛱ Tarde</div><div class="daypart-content">Salida hacia Miami (40 min) con tiempo para llegar al Hard Rock Stadium.</div></div><div class="daypart partido"><div class="daypart-time">🌙 Noche</div><div class="daypart-content">⚽ <strong>Argentina vs TBC · 18hs · Hard Rock Stadium, Miami</strong> (si Argentina clasifica primero del grupo).</div></div></div></div>
+<div class="section-divider"><div class="section-divider-sub">✦ Capítulo ✦</div><div class="section-divider-title">Grand Teton + Yellowstone</div><div class="section-divider-sub">Wyoming · Montana · Naturaleza salvaje</div></div>
+<div class="day-card"><div class="day-header"><div class="day-number">10</div><div><div class="day-date">Sáb 4 Jul</div></div><div class="day-location">Fort Lauderdale → Grand Teton</div></div><div class="day-badges"><span class="badge badge-flight">✈ FLL → JAC</span><span class="badge badge-hotel">🏨 Jackson Lake Lodge</span></div><div class="daypart-grid"><div class="daypart"><div class="daypart-time">☀ Mañana</div><div class="daypart-content">🏖️ <strong>Última mañana en la playa</strong>: despedida del mar, foto de los 5 con el Atlántico de fondo.</div></div><div class="daypart"><div class="daypart-time">⛱ Tarde</div><div class="daypart-content"><strong>Vuelo FLL → Jackson Hole</strong> con escala (~7hs total). Llegada a Wyoming a la noche.</div></div><div class="daypart"><div class="daypart-time">🌙 Noche</div><div class="daypart-content">Retiro del auto rentado en JAC. Manejo de 35 minutos hasta <strong>Jackson Lake Lodge</strong>. Check-in en la Classic Cottage.</div></div></div></div>
+<div class="day-card"><div class="day-header"><div class="day-number">11</div><div><div class="day-date">Dom 5 Jul</div></div><div class="day-location">Grand Teton NP, WY</div></div><div class="day-badges"><span class="badge badge-hotel">🏨 Jackson Lake Lodge</span></div><div class="daypart-grid"><div class="daypart"><div class="daypart-time">☀ Mañana</div><div class="daypart-content"><strong>5:30am</strong>: amanecer en <strong>Oxbow Bend</strong> con los Tetons reflejados en el río Snake. Grizzlies, alces y águilas calvas.</div></div><div class="daypart"><div class="daypart-time">⛱ Tarde</div><div class="daypart-content"><strong>Jenny Lake</strong>: ferry de 10 minutos al otro lado del lago, caminata llana hasta Hidden Falls.</div></div><div class="daypart"><div class="daypart-time">🌙 Noche</div><div class="daypart-content">Cena en el restaurante del lodge con los ventanales de 18 metros frente a los picos nevados.</div></div></div></div>
+<div class="day-card"><div class="day-header"><div class="day-number">12</div><div><div class="day-date">Lun 6 Jul</div></div><div class="day-location">Grand Teton NP, WY</div></div><div class="day-badges"><span class="badge badge-hotel">🏨 Jackson Lake Lodge</span></div><div class="daypart-grid"><div class="daypart"><div class="daypart-time">☀ Mañana</div><div class="daypart-content"><strong>5:30am</strong>: <strong>Antelope Flats Road</strong>, ruta de tierra donde aparecen bisontes en manada al amanecer.</div></div><div class="daypart"><div class="daypart-time">⛱ Tarde</div><div class="daypart-content"><strong>Snake River Overlook</strong> (la foto de Ansel Adams) y caminata corta llana en Willow Flats.</div></div><div class="daypart"><div class="daypart-time">🌙 Noche</div><div class="daypart-content">Atardecer en <strong>Mormon Row</strong>: granjas históricas con los Tetons de fondo. Cena en Jackson town con búfalo burger.</div></div></div></div>
+<div class="day-card"><div class="day-header"><div class="day-number">13</div><div><div class="day-date">Mar 7 Jul</div></div><div class="day-location">Grand Teton → Yellowstone</div></div><div class="day-badges"><span class="badge badge-hotel">🏨 Amphitheater House, Silver Gate</span></div><div class="daypart-grid"><div class="daypart"><div class="daypart-time">☀ Mañana</div><div class="daypart-content">Desayuno en Jackson Lake Lodge. Salida a las 8am hacia Yellowstone. Parada en <strong>West Thumb Geyser Basin</strong>: géiseres al borde del lago.</div></div><div class="daypart"><div class="daypart-time">⛱ Tarde</div><div class="daypart-content">Cruce de Yellowstone por el interior con parada en <strong>Hayden Valley</strong>: primer avistamiento de bisontes en manadas masivas.</div></div><div class="daypart"><div class="daypart-time">🌙 Noche</div><div class="daypart-content">Llegada a <strong>Silver Gate, Montana</strong> (entrada noreste). Check-in en la cabaña Amphitheater House. Cena cocinada en la cabaña.</div></div></div></div>
+<div class="day-card"><div class="day-header"><div class="day-number">14</div><div><div class="day-date">Mié 8 Jul</div></div><div class="day-location">Yellowstone NP, MT/WY</div></div><div class="day-badges"><span class="badge badge-hotel">🏨 Amphitheater House, Silver Gate</span></div><div class="daypart-grid"><div class="daypart"><div class="daypart-time">☀ Mañana</div><div class="daypart-content"><strong>5:30am</strong>: <strong>Hayden Valley</strong> al amanecer con niebla sobre el río y manadas de bisontes en el agua.</div></div><div class="daypart"><div class="daypart-time">⛱ Tarde</div><div class="daypart-content"><strong>Grand Prismatic Spring</strong> (los colores imposibles desde el mirador elevado) y <strong>Old Faithful</strong> en erupción.</div></div><div class="daypart"><div class="daypart-time">🌙 Noche</div><div class="daypart-content">Vuelta a la cabaña, cena casera, descanso antes del día más madrugador del viaje.</div></div></div></div>
+<div class="day-card"><div class="day-header"><div class="day-number">15</div><div><div class="day-date">Jue 9 Jul</div></div><div class="day-location">Yellowstone NP — Lamar Valley</div></div><div class="day-badges"><span class="badge badge-hotel">🏨 Amphitheater House, Silver Gate</span></div><div class="daypart-grid"><div class="daypart"><div class="daypart-time">☀ Mañana</div><div class="daypart-content"><strong>4:30am</strong>: salida con guía de wildlife hacia <strong>Lamar Valley</strong>. El Serengeti de Norteamérica al amanecer: grizzlies, lobos, alces y miles de bisontes.</div></div><div class="daypart"><div class="daypart-time">⛱ Tarde</div><div class="daypart-content">Almuerzo en Cooke City (pueblo auténtico, sin turismo masivo) y <strong>Mammoth Hot Springs</strong>: terrazas de travertino blanco.</div></div><div class="daypart"><div class="daypart-time">🌙 Noche</div><div class="daypart-content">Segundo recorrido por Lamar al atardecer (los lobos son más activos a esta hora). Cena en la cabaña.</div></div></div></div>
+<div class="section-divider"><div class="section-divider-sub">✦ Capítulo ✦</div><div class="section-divider-title">Kansas City</div><div class="section-divider-sub">Missouri · Cierre del viaje</div></div>
+<div class="day-card"><div class="day-header"><div class="day-number">16</div><div><div class="day-date">Vie 10 Jul</div></div><div class="day-location">Yellowstone → Kansas City</div></div><div class="day-badges"><span class="badge badge-flight">✈ Southwest BZN→DEN→MCI</span><span class="badge badge-hotel">🏨 Hotel cerca de MCI</span></div><div class="daypart-grid"><div class="daypart"><div class="daypart-time">☀ Mañana</div><div class="daypart-content">Mañana en la cabaña, último intento de wildlife en Lamar.</div></div><div class="daypart"><div class="daypart-time">⛱ Tarde</div><div class="daypart-content">Salida hacia Bozeman (2hs). Devolución de auto. Vuelo <strong>SW 1132 BZN→DEN a las 14:50</strong>.</div></div><div class="daypart"><div class="daypart-time">🌙 Noche</div><div class="daypart-content">Conexión en Denver: <strong>SW 4305 DEN→MCI sale 17:55, llega 20:45</strong>. Cena de <strong>BBQ de Kansas City</strong>: Joe's KC o Q39.</div></div></div></div>
+<div class="day-card partido"><div class="day-header"><div class="day-number">17</div><div><div class="day-date">Sáb 11 Jul</div></div><div class="day-location">Kansas City, MO</div></div><div class="day-badges"><span class="badge badge-hotel">🏨 Hotel cerca de MCI</span><span class="badge badge-partido tbc">⚽ Argentina (Cuartos de final) · TBC</span></div><div class="daypart-grid"><div class="daypart"><div class="daypart-time">☀ Mañana</div><div class="daypart-content"><strong>Country Club Plaza</strong>: el primer shopping center al aire libre del mundo (1922), con arquitectura española y fuentes.</div></div><div class="daypart"><div class="daypart-time">⛱ Tarde</div><div class="daypart-content"><strong>National WWI Museum</strong>: considerado uno de los mejores museos de la Primera Guerra Mundial del mundo.</div></div><div class="daypart partido"><div class="daypart-time">🌙 Noche</div><div class="daypart-content">⚽ <strong>Argentina vs TBC · 21hs · Arrowhead Stadium, Kansas City</strong> (cuartos de final si Argentina avanza).</div></div></div></div>
+<div class="day-card"><div class="day-header"><div class="day-number">18</div><div><div class="day-date">Dom 12 Jul</div></div><div class="day-location">Kansas City → Buenos Aires</div></div><div class="day-badges"><span class="badge badge-flight">✈ MCI → ATL → LIM → EZE</span></div><div class="daypart-grid"><div class="daypart"><div class="daypart-time">☀ Mañana</div><div class="daypart-content"><strong>5:40am</strong>: vuelo MCI → Atlanta. Conexión a Lima.</div></div><div class="daypart"><div class="daypart-time">⛱ Tarde</div><div class="daypart-content">En tránsito Lima → Buenos Aires.</div></div><div class="daypart"><div class="daypart-time">🌙 Noche</div><div class="daypart-content">Vuelo nocturno cruzando Sudamérica de regreso a casa.</div></div></div></div>
+<div class="day-card"><div class="day-header"><div class="day-number">19</div><div><div class="day-date">Lun 13 Jul</div></div><div class="day-location">Buenos Aires</div></div><div class="daypart-grid"><div class="daypart"><div class="daypart-time">☀ Mañana</div><div class="daypart-content"><strong>6:10am</strong>: llegada a EZE. Fin del viaje 🇦🇷</div></div></div></div>
 
   </div>
 </section>
@@ -1294,11 +854,7 @@
 <!-- FOOTER -->
 <section class="footer">
   <div class="footer-title">El viaje de una vida</div>
-  <p class="footer-text">
-    Diecinueve días, cinco aeropuertos, dos parques nacionales, una playa de Florida,
-    los géiseres más espectaculares del mundo, manadas de bisontes en libertad,
-    y la posibilidad real de ver a la Selección Argentina jugar tres veces en suelo americano.
-  </p>
+  <p class="footer-text">Diecinueve días, cinco aeropuertos, dos parques nacionales, una playa de Florida, los géiseres más espectaculares del mundo, manadas de bisontes en libertad, y la posibilidad real de ver a la Selección Argentina jugar tres veces en suelo americano.</p>
 </section>
 
 </body>
