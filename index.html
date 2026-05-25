@@ -396,6 +396,7 @@
 <nav class="nav-tabs">
   <div class="nav-inner">
     <a href="#mapa" class="nav-tab">🗺 Mapa</a>
+    <a href="#pendientes" class="nav-tab">✓ Pendientes</a>
     <a href="#reservas" class="nav-tab">📋 Reservas</a>
     <a href="#itinerario" class="nav-tab">📅 Día por día</a>
   </div>
@@ -499,6 +500,452 @@
       <div class="legend-item"><div class="legend-line" style="background:#d4603a;"></div>Road trip en auto</div>
       <div class="legend-item"><span style="font-size:13px;">●</span> Ciudad / parada</div>
     </div>
+  </div>
+</section>
+
+
+
+<!-- PENDIENTES -->
+<section class="reservations-section" id="pendientes" style="background: var(--navy);">
+  <div class="section-header">
+    <div class="section-eyebrow">Tareas por hacer</div>
+    <h2 class="section-title">Checklist de <em>pendientes</em></h2>
+    <p class="section-desc">Todo lo que falta reservar, confirmar o comprar para que el viaje esté completo</p>
+  </div>
+
+  <div class="res-grid" style="max-width: 1100px;">
+
+    <div class="res-section-title">🔴 Urgentes — reservar ya</div>
+
+    <div class="res-card" onclick="toggleCard(this, event)">
+      <div class="res-header">
+        <div class="res-header-left">
+          <div class="res-icon">✈</div>
+          <div class="res-info">
+            <div class="res-title">Vuelo FLL → JAC</div>
+            <div class="res-subtitle">4 jul · el más urgente del viaje</div>
+          </div>
+        </div>
+        <div class="res-status">
+          <span class="status-badge pending">Pendiente</span>
+          <span class="res-toggle">▾</span>
+        </div>
+      </div>
+      <div class="res-body">
+        <div class="res-body-inner">
+          <div class="data-grid">
+            <div class="data-item"><div class="data-label">Ruta</div><div class="data-value">FLL → JAC (con escala)</div></div>
+            <div class="data-item"><div class="data-label">Fecha</div><div class="data-value">sáb 4 jul 2026</div></div>
+            <div class="data-item"><div class="data-label">Llegada deseada</div><div class="data-value">Antes de 18:00 (pickup Hertz 15:00, ahora flexible)</div></div>
+            <div class="data-item"><div class="data-label">Opciones</div><div class="data-value">Delta vía ATL o SLC · United vía DEN</div></div>
+            <div class="data-item"><div class="data-label">Recomendación</div><div class="data-value">Delta (alineado con vuelo internacional)</div></div>
+          </div>
+          <div class="data-note"><strong>Urgente</strong>: julio en Jackson Hole es temporada alta. Cuanto antes reserves, mejor precio.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="res-card" onclick="toggleCard(this, event)">
+      <div class="res-header">
+        <div class="res-header-left">
+          <div class="res-icon">✈</div>
+          <div class="res-info">
+            <div class="res-title">Vuelo DFW → FLL</div>
+            <div class="res-subtitle">29 jun · directo</div>
+          </div>
+        </div>
+        <div class="res-status">
+          <span class="status-badge pending">Pendiente</span>
+          <span class="res-toggle">▾</span>
+        </div>
+      </div>
+      <div class="res-body">
+        <div class="res-body-inner">
+          <div class="data-grid">
+            <div class="data-item"><div class="data-label">Ruta</div><div class="data-value">DFW → FLL (directo)</div></div>
+            <div class="data-item"><div class="data-label">Fecha</div><div class="data-value">lun 29 jun 2026</div></div>
+            <div class="data-item"><div class="data-label">Coordinación clave</div><div class="data-value">Devolución Cybertruck a las 18:00 del 29</div></div>
+            <div class="data-item"><div class="data-label">Opciones</div><div class="data-value">American Airlines · JetBlue</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="res-card" onclick="toggleCard(this, event)">
+      <div class="res-header">
+        <div class="res-header-left">
+          <div class="res-icon">🏨</div>
+          <div class="res-info">
+            <div class="res-title">Hotel Kansas City</div>
+            <div class="res-subtitle">10-11 jul · 1 o 2 noches</div>
+          </div>
+        </div>
+        <div class="res-status">
+          <span class="status-badge pending">Pendiente</span>
+          <span class="res-toggle">▾</span>
+        </div>
+      </div>
+      <div class="res-body">
+        <div class="res-body-inner">
+          <div class="data-grid">
+            <div class="data-item"><div class="data-label">Ubicación</div><div class="data-value">Cerca de MCI Airport</div></div>
+            <div class="data-item"><div class="data-label">Llegada</div><div class="data-value">vie 10 jul · 20:45 (vuelo Southwest)</div></div>
+            <div class="data-item"><div class="data-label">Salida</div><div class="data-value">dom 12 jul · 5:40am</div></div>
+            <div class="data-item"><div class="data-label">Plataformas</div><div class="data-value">Booking · Expedia · marcas conocidas</div></div>
+          </div>
+          <div class="data-note">Si Argentina avanza a cuartos, considerar 2 noches (partido sáb 11 jul 21hs en Arrowhead Stadium).</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="res-section-title">🟡 Actividades en Yellowstone — reservar pronto</div>
+
+    <div class="res-card" onclick="toggleCard(this, event)">
+      <div class="res-header">
+        <div class="res-header-left">
+          <div class="res-icon">🚣</div>
+          <div class="res-info">
+            <div class="res-title">Rafting Snake River</div>
+            <div class="res-subtitle">Lun 6 jul · medio día · sale del lodge</div>
+          </div>
+        </div>
+        <div class="res-status">
+          <span class="status-badge pending">Pendiente</span>
+          <span class="res-toggle">▾</span>
+        </div>
+      </div>
+      <div class="res-body">
+        <div class="res-body-inner">
+          <div class="data-grid">
+            <div class="data-item"><div class="data-label">Tipo</div><div class="data-value">Scenic float (aguas planas, seguro para Emi)</div></div>
+            <div class="data-item"><div class="data-label">Duración</div><div class="data-value">3-4 horas con transporte</div></div>
+            <div class="data-item"><div class="data-label">Salida desde</div><div class="data-value">Jackson Lake Lodge (lower lobby)</div></div>
+            <div class="data-item"><div class="data-label">Opción A</div><div class="data-value"><a href="https://www.gtlc.com/activities/rafting-the-snake-river" target="_blank">Grand Teton Lodge Company</a> (gtlc.com)</div></div>
+            <div class="data-item"><div class="data-label">Opción B</div><div class="data-value"><a href="https://barkerewing.com" target="_blank">Barker-Ewing Float Trips</a></div></div>
+            <div class="data-item"><div class="data-label">Opción C</div><div class="data-value"><a href="https://grand-teton-scenic-floats.com" target="_blank">Solitude Float Trips</a> (familiar, pequeño)</div></div>
+          </div>
+          <div class="data-note">Reservar con 2-3 meses de anticipación. Los float trips de mañana se llenan primero.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="res-card" onclick="toggleCard(this, event)">
+      <div class="res-header">
+        <div class="res-header-left">
+          <div class="res-icon">🐻</div>
+          <div class="res-info">
+            <div class="res-title">Tour wildlife · Hayden Valley</div>
+            <div class="res-subtitle">Mié 8 jul · medio día · enfoque osos</div>
+          </div>
+        </div>
+        <div class="res-status">
+          <span class="status-badge pending">Pendiente</span>
+          <span class="res-toggle">▾</span>
+        </div>
+      </div>
+      <div class="res-body">
+        <div class="res-body-inner">
+          <div class="data-grid">
+            <div class="data-item"><div class="data-label">Objetivo</div><div class="data-value">Grizzlies y bisontes al amanecer en Hayden Valley</div></div>
+            <div class="data-item"><div class="data-label">Duración</div><div class="data-value">4-5 horas (sale antes del amanecer)</div></div>
+            <div class="data-item"><div class="data-label">Equipo guía</div><div class="data-value">Spotting scopes de alta potencia incluidos</div></div>
+            <div class="data-item"><div class="data-label">Opción A</div><div class="data-value"><a href="https://yellowstone.org/tours" target="_blank">Yellowstone Forever</a> (oficial del parque)</div></div>
+            <div class="data-item"><div class="data-label">Opción B</div><div class="data-value"><a href="https://yellowstonesafaricompany.com" target="_blank">Yellowstone Safari Company</a></div></div>
+            <div class="data-item"><div class="data-label">Opción C</div><div class="data-value">In Our Nature Guiding Services</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="res-card" onclick="toggleCard(this, event)">
+      <div class="res-header">
+        <div class="res-header-left">
+          <div class="res-icon">🐺</div>
+          <div class="res-info">
+            <div class="res-title">Tour wildlife · Lamar Valley</div>
+            <div class="res-subtitle">Jue 9 jul · día completo · enfoque lobos y grizzlies</div>
+          </div>
+        </div>
+        <div class="res-status">
+          <span class="status-badge pending">Pendiente</span>
+          <span class="res-toggle">▾</span>
+        </div>
+      </div>
+      <div class="res-body">
+        <div class="res-body-inner">
+          <div class="data-grid">
+            <div class="data-item"><div class="data-label">Objetivo</div><div class="data-value">Lobos, grizzlies, manadas de bisontes</div></div>
+            <div class="data-item"><div class="data-label">Duración</div><div class="data-value">7-8 horas (5am-1pm aprox)</div></div>
+            <div class="data-item"><div class="data-label">Por qué crítico</div><div class="data-value">Los lobos solo se ven con spotting scopes de 60-80x</div></div>
+            <div class="data-item"><div class="data-label">Probabilidad con guía</div><div class="data-value">Osos 95%+ · Lobos 70%+</div></div>
+            <div class="data-item"><div class="data-label">Recomendado</div><div class="data-value">Yellowstone Forever (mismo operador que el día anterior)</div></div>
+          </div>
+          <div class="data-note">Los tours de amanecer en Lamar se agotan primero. Reservar ya.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="res-card" onclick="toggleCard(this, event)">
+      <div class="res-header">
+        <div class="res-header-left">
+          <div class="res-icon">🥾</div>
+          <div class="res-info">
+            <div class="res-title">Trekking guiado (opcional)</div>
+            <div class="res-subtitle">Día a definir · medio día</div>
+          </div>
+        </div>
+        <div class="res-status">
+          <span class="status-badge pending">Opcional</span>
+          <span class="res-toggle">▾</span>
+        </div>
+      </div>
+      <div class="res-body">
+        <div class="res-body-inner">
+          <div class="data-grid">
+            <div class="data-item"><div class="data-label">Ruta sugerida</div><div class="data-value">Grand Prismatic Overlook + Fairy Falls · 8km llanos</div></div>
+            <div class="data-item"><div class="data-label">Duración</div><div class="data-value">4-5 horas</div></div>
+            <div class="data-item"><div class="data-label">Operador</div><div class="data-value"><a href="https://wildlandtrekking.com" target="_blank">Wildland Trekking</a></div></div>
+          </div>
+          <div class="data-note"><strong>Confirmar con cardiólogo de Emi</strong> antes de reservar. Caminata llana pero a 2.300m de altitud.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="res-section-title">🟢 Confirmaciones y llamados</div>
+
+    <div class="res-card" onclick="toggleCard(this, event)">
+      <div class="res-header">
+        <div class="res-header-left">
+          <div class="res-icon">📞</div>
+          <div class="res-info">
+            <div class="res-title">Llamar a Jackson Lake Lodge</div>
+            <div class="res-subtitle">Confirmar capacidad para 5 personas (3 chicos no son 0-3 años)</div>
+          </div>
+        </div>
+        <div class="res-status">
+          <span class="status-badge pending">Pendiente</span>
+          <span class="res-toggle">▾</span>
+        </div>
+      </div>
+      <div class="res-body">
+        <div class="res-body-inner">
+          <div class="data-grid">
+            <div class="data-item"><div class="data-label">Teléfono</div><div class="data-value mono">+1 (307) 543-2811</div></div>
+            <div class="data-item"><div class="data-label">Reserva</div><div class="data-value mono">R3366173</div></div>
+            <div class="data-item"><div class="data-label">Pregunta</div><div class="data-value">¿La Classic Cottage admite a Joaquín (16), Emi (14) y Justina (11)? La reserva dice "Children 0-3: 1" por error</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="res-card" onclick="toggleCard(this, event)">
+      <div class="res-header">
+        <div class="res-header-left">
+          <div class="res-icon">📞</div>
+          <div class="res-info">
+            <div class="res-title">Llamar al banco emisor de Visa</div>
+            <div class="res-subtitle">Confirmar cobertura CDW para auto rentado</div>
+          </div>
+        </div>
+        <div class="res-status">
+          <span class="status-badge pending">Pendiente</span>
+          <span class="res-toggle">▾</span>
+        </div>
+      </div>
+      <div class="res-body">
+        <div class="res-body-inner">
+          <div class="data-grid">
+            <div class="data-item"><div class="data-label">Por qué importa</div><div class="data-value">Permite declinar el LDW de Hertz ($222 USD ahorrados)</div></div>
+            <div class="data-item"><div class="data-label">Qué pedir</div><div class="data-value">Confirmación por escrito (mail) de cobertura primaria CDW en USA</div></div>
+            <div class="data-item"><div class="data-label">Vehículo</div><div class="data-value">Ford Edge AWD (Standard SUV) · confirmar que está cubierto</div></div>
+            <div class="data-item"><div class="data-label">Duración cubierta</div><div class="data-value">6 días · dentro de límites típicos (15-45 días)</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="res-card" onclick="toggleCard(this, event)">
+      <div class="res-header">
+        <div class="res-header-left">
+          <div class="res-icon">📞</div>
+          <div class="res-info">
+            <div class="res-title">Llamar a Cheaptotrip (agencia)</div>
+            <div class="res-subtitle">Confirmar equipaje facturado en vuelos Delta</div>
+          </div>
+        </div>
+        <div class="res-status">
+          <span class="status-badge pending">Pendiente</span>
+          <span class="res-toggle">▾</span>
+        </div>
+      </div>
+      <div class="res-body">
+        <div class="res-body-inner">
+          <div class="data-grid">
+            <div class="data-item"><div class="data-label">Teléfono</div><div class="data-value mono">0810 345 0707</div></div>
+            <div class="data-item"><div class="data-label">Código reserva</div><div class="data-value mono">GAVRYT / H4X379</div></div>
+            <div class="data-item"><div class="data-label">Problema</div><div class="data-value">El PDF de la reserva dice "0 piezas de equipaje facturado" para todos los pasajeros</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="res-card" onclick="toggleCard(this, event)">
+      <div class="res-header">
+        <div class="res-header-left">
+          <div class="res-icon">💬</div>
+          <div class="res-info">
+            <div class="res-title">Contactar a Tuan (host Cybertruck)</div>
+            <div class="res-subtitle">Coordinar plan B por si llegamos tarde</div>
+          </div>
+        </div>
+        <div class="res-status">
+          <span class="status-badge pending">Pendiente</span>
+          <span class="res-toggle">▾</span>
+        </div>
+      </div>
+      <div class="res-body">
+        <div class="res-body-inner">
+          <div class="data-grid">
+            <div class="data-item"><div class="data-label">Teléfono</div><div class="data-value mono">+1 817-909-7827</div></div>
+            <div class="data-item"><div class="data-label">Reserva Turo</div><div class="data-value mono">#52589856</div></div>
+            <div class="data-item"><div class="data-label">Issue</div><div class="data-value">Vuelo llega 00:09 / retiro programado 00:30 (solo 21 min)</div></div>
+            <div class="data-item"><div class="data-label">Solicitar</div><div class="data-value">Margen extra por si hay demoras de inmigración</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="res-section-title">🛒 Lista de compras — Albertsons en Jackson</div>
+
+    <div class="res-card" onclick="toggleCard(this, event)">
+      <div class="res-header">
+        <div class="res-header-left">
+          <div class="res-icon">🛒</div>
+          <div class="res-info">
+            <div class="res-title">Supermercado Jackson</div>
+            <div class="res-subtitle">Domingo 5 jul tarde · Albertsons o Jackson Whole Grocer</div>
+          </div>
+        </div>
+        <div class="res-status">
+          <span class="status-badge pending">Comprar el 5 jul</span>
+          <span class="res-toggle">▾</span>
+        </div>
+      </div>
+      <div class="res-body">
+        <div class="res-body-inner">
+          <div class="data-grid">
+            <div class="data-item"><div class="data-label">Dónde</div><div class="data-value"><strong>Albertsons</strong>, 105 Buffalo Way, Jackson WY · abre 6am-11pm</div></div>
+            <div class="data-item"><div class="data-label">Cuándo</div><div class="data-value">Domingo 5 jul · después del rafting / a la tarde</div></div>
+            <div class="data-item cost-hidden"><div class="data-label">Presupuesto estimado</div><div class="data-value">$300-400 USD para 5 personas</div></div>
+            <div class="data-item"><div class="data-label">Para qué</div><div class="data-value">3 cenas + desayunos + almuerzos + snacks · cabaña Silver Gate</div></div>
+          </div>
+
+          <div class="data-note"><strong>Importante</strong>: Cooke City es muy pequeño, solo tiene una general store. Carga toda la comida principal en Jackson.</div>
+
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-top: 1rem;">
+            <div>
+              <div class="data-label">🍳 Desayunos (3 días)</div>
+              <ul style="font-size: 0.85rem; color: rgba(250,246,238,0.85); padding-left: 1.2rem; line-height: 1.6;">
+                <li>Huevos (2 docenas)</li>
+                <li>Tocino o jamón cocido</li>
+                <li>Pan / bagels (2 paquetes)</li>
+                <li>Manteca, mermelada</li>
+                <li>Cereales o granola</li>
+                <li>Leche (2 cartones)</li>
+                <li>Yogur (10 unidades)</li>
+                <li>Café molido + filtros</li>
+                <li>Té</li>
+                <li>Bananas, manzanas, naranjas</li>
+              </ul>
+            </div>
+
+            <div>
+              <div class="data-label">🥪 Almuerzos (5 días)</div>
+              <ul style="font-size: 0.85rem; color: rgba(250,246,238,0.85); padding-left: 1.2rem; line-height: 1.6;">
+                <li>Pan baguette / ciabatta</li>
+                <li>Fiambres surtidos</li>
+                <li>Queso (cheddar, suizo)</li>
+                <li>Hummus</li>
+                <li>Lechuga, tomate, palta</li>
+                <li>Mostaza, mayonesa en sobre</li>
+              </ul>
+            </div>
+
+            <div>
+              <div class="data-label">🍝 Cenas (3 noches cabaña)</div>
+              <ul style="font-size: 0.85rem; color: rgba(250,246,238,0.85); padding-left: 1.2rem; line-height: 1.6;">
+                <li><strong>Pasta</strong>: pasta, salsa de tomate, queso parmesano, ajo</li>
+                <li><strong>Hamburguesas o steaks</strong>: carne, pan, queso, papas</li>
+                <li><strong>Pollo al horno</strong>: pollo, papas, zanahorias, cebolla, especias</li>
+              </ul>
+            </div>
+
+            <div>
+              <div class="data-label">🍫 Snacks y bebidas</div>
+              <ul style="font-size: 0.85rem; color: rgba(250,246,238,0.85); padding-left: 1.2rem; line-height: 1.6;">
+                <li>Trail mix / nueces / almendras</li>
+                <li>Barritas de granola (caja de 12)</li>
+                <li>Pretzels o chips</li>
+                <li>Galletas dulces, chocolates</li>
+                <li>Agua mineral (caja de 24)</li>
+                <li>Jugos</li>
+                <li>Cerveza local (Snake River Brewing)</li>
+                <li>Vino</li>
+              </ul>
+            </div>
+
+            <div>
+              <div class="data-label">🧴 Esenciales no comestibles</div>
+              <ul style="font-size: 0.85rem; color: rgba(250,246,238,0.85); padding-left: 1.2rem; line-height: 1.6;">
+                <li>Bolsas resealables grandes (Ziploc)</li>
+                <li>Papel aluminio</li>
+                <li>Toallas de papel</li>
+                <li>Bolsas de basura</li>
+                <li>Repelente de mosquitos</li>
+                <li>Protector solar</li>
+              </ul>
+            </div>
+
+            <div>
+              <div class="data-label">📦 Para Lamar al amanecer</div>
+              <ul style="font-size: 0.85rem; color: rgba(250,246,238,0.85); padding-left: 1.2rem; line-height: 1.6;">
+                <li>Termo grande con café</li>
+                <li>Sándwiches preparados la noche anterior</li>
+                <li>Agua, snacks</li>
+                <li>Linterna frontal por si oscuro</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="res-section-title">⚽ Entradas pendientes</div>
+
+    <div class="res-card" onclick="toggleCard(this, event)">
+      <div class="res-header">
+        <div class="res-header-left">
+          <div class="res-icon">⚽</div>
+          <div class="res-info">
+            <div class="res-title">Recibir entradas Argentina vs Jordan</div>
+            <div class="res-subtitle">27 jun · AT&T Stadium · ya pagadas</div>
+          </div>
+        </div>
+        <div class="res-status">
+          <span class="status-badge partial">Pagadas</span>
+          <span class="res-toggle">▾</span>
+        </div>
+      </div>
+      <div class="res-body">
+        <div class="res-body-inner">
+          <div class="data-grid">
+            <div class="data-item"><div class="data-label">Estado</div><div class="data-value">5 entradas pagadas, sin recibir aún</div></div>
+            <div class="data-item"><div class="data-label">Acción</div><div class="data-value">Hacer seguimiento con FIFA cerca de la fecha del torneo</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -868,10 +1315,35 @@
         <div class="res-header-left">
           <div class="res-icon">🏔</div>
           <div class="res-info">
-            <div class="res-title">Auto rentado · JAC → BZN</div>
-            <div class="res-subtitle">4-10 Jul · 6 días</div>
+            <div class="res-title">Hertz · Ford Edge AWD</div>
+            <div class="res-subtitle">4-10 Jul · 6 días · Standard SUV</div>
           </div>
         </div>
+        <div class="res-status">
+          <span class="status-badge confirmed">Reservado</span>
+          <span class="res-toggle">▾</span>
+        </div>
+      </div>
+      <div class="res-body">
+        <div class="res-body-inner">
+          <div class="data-grid"><div class="data-item"><div class="data-label">Rentadora</div><div class="data-value">Hertz</div></div>
+<div class="data-item"><div class="data-label">Confirmación</div><div class="data-value mono">L5994246970</div></div>
+<div class="data-item"><div class="data-label">Vehículo</div><div class="data-value">Ford Edge o similar (Standard SUV AWD)</div></div>
+<div class="data-item"><div class="data-label">Capacidad</div><div class="data-value">5 pasajeros · 4 valijas grandes</div></div>
+<div class="data-item"><div class="data-label">Pickup</div><div class="data-value">Jackson Hole Airport (JAC) · sáb 4 jul · 15:00</div></div>
+<div class="data-item"><div class="data-label">Drop-off</div><div class="data-value">Bozeman Airport (BZN) · vie 10 jul · 12:00</div></div>
+<div class="data-item"><div class="data-label">Millas</div><div class="data-value">Unlimited ✓</div></div>
+<div class="data-item cost-hidden"><div class="data-label">Costo total</div><div class="data-value">$1.517,21 USD</div></div>
+<div class="data-item"><div class="data-label">Modalidad</div><div class="data-value">Pay Later · cancelación gratis hasta pickup</div></div>
+<div class="data-item"><div class="data-label">Email confirmación</div><div class="data-value">guillermoschulte@gmail.com</div></div>
+<div class="data-item"><div class="data-label">Seguros incluidos</div><div class="data-value">Liability básica estatal · sin CDW/LDW</div></div>
+</div>
+          <div class="data-note"><strong>Recordatorio</strong>: llamar al banco emisor de Visa para confirmar cobertura de CDW (Collision Damage Waiver) antes del viaje. Si no cubre, agregar al mostrador.</div>
+
+          <div class="data-pending-list"><div class="data-pending-list-title">⚠ Para el día del pickup</div><ul><li>Llevar confirmation number L5994246970</li><li>Licencia de conducir argentina + pasaporte</li><li>Tarjeta de crédito a nombre de Guillermo</li><li>Verificar que el vuelo FLL→JAC llega antes de 15:00</li></ul></div>
+        </div>
+      </div>
+    </div>
         <div class="res-status">
           <span class="status-badge pending">Pendiente</span>
           <span class="res-toggle">▾</span>
@@ -1008,11 +1480,11 @@
 <div class="day-card partido"><div class="day-header"><div class="day-number">09</div><div><div class="day-date">Vie 3 Jul</div></div><div class="day-location">Fort Lauderdale + Miami, FL</div></div><div class="day-badges"><span class="badge badge-hotel">🏨 Airbnb 350 N Birch</span><span class="badge badge-partido tbc">⚽ Argentina (Round of 32) · TBC</span></div><div class="daypart-grid"><div class="daypart"><div class="daypart-time">☀ Mañana</div><div class="daypart-content">🏖️ <strong>Mañana de playa</strong>: agua transparente, palmeras, snorkel.</div></div><div class="daypart"><div class="daypart-time">⛱ Tarde</div><div class="daypart-content">Salida hacia Miami (40 min) con tiempo para llegar al Hard Rock Stadium.</div></div><div class="daypart partido"><div class="daypart-time">🌙 Noche</div><div class="daypart-content">⚽ <strong>Argentina vs TBC · 18hs · Hard Rock Stadium, Miami</strong> (si Argentina clasifica primero del grupo).</div></div></div></div>
 <div class="section-divider"><div class="section-divider-sub">✦ Capítulo ✦</div><div class="section-divider-title">Grand Teton + Yellowstone</div><div class="section-divider-sub">Wyoming · Montana · Naturaleza salvaje</div><div class="restaurants-block"><div class="restaurants-title">🍽 Cena · 3 recomendaciones</div><div class="restaurant-item"><div class="restaurant-name">Sha Wynwood</div><div class="restaurant-meta">Mediterráneo/Asian · 4.7★ · Wynwood · A 20 min del Hard Rock Stadium · +1 305-204-0694</div></div><div class="restaurant-item"><div class="restaurant-name">A Family Wynwood</div><div class="restaurant-meta">Argentino · 4.9★ · Wynwood · Empanadas y café argentino, antes/después del partido · +1 786-510-3374</div></div><div class="restaurant-item"><div class="restaurant-name">Wilde on the Porch</div><div class="restaurant-meta">Americano · 4.6★ · Miami Beach · Cena más cerca del estadio · +1 786-400-1676</div></div></div></div>
 <div class="day-card"><div class="day-header"><div class="day-number">10</div><div><div class="day-date">Sáb 4 Jul</div></div><div class="day-location">Fort Lauderdale → Grand Teton</div></div><div class="day-badges"><span class="badge badge-flight">✈ FLL → JAC</span><span class="badge badge-hotel">🏨 Jackson Lake Lodge</span></div><div class="daypart-grid"><div class="daypart"><div class="daypart-time">☀ Mañana</div><div class="daypart-content">🏖️ <strong>Última mañana en la playa</strong>: despedida del mar, foto de los 5 con el Atlántico de fondo.</div></div><div class="daypart"><div class="daypart-time">⛱ Tarde</div><div class="daypart-content"><strong>Vuelo FLL → Jackson Hole</strong> con escala (~7hs total). Llegada a Wyoming a la noche.</div></div><div class="daypart"><div class="daypart-time">🌙 Noche</div><div class="daypart-content">Retiro del auto rentado en JAC. Manejo de 35 minutos hasta <strong>Jackson Lake Lodge</strong>. Check-in en la Classic Cottage.</div></div></div></div>
-<div class="day-card"><div class="day-header"><div class="day-number">11</div><div><div class="day-date">Dom 5 Jul</div></div><div class="day-location">Grand Teton NP, WY</div></div><div class="day-badges"><span class="badge badge-hotel">🏨 Jackson Lake Lodge</span></div><div class="daypart-grid"><div class="daypart"><div class="daypart-time">☀ Mañana</div><div class="daypart-content"><strong>5:30am</strong>: amanecer en <strong>Oxbow Bend</strong> con los Tetons reflejados en el río Snake. Grizzlies, alces y águilas calvas.</div></div><div class="daypart"><div class="daypart-time">⛱ Tarde</div><div class="daypart-content"><strong>Jenny Lake</strong>: ferry de 10 minutos al otro lado del lago, caminata llana hasta Hidden Falls.</div></div><div class="daypart"><div class="daypart-time">🌙 Noche</div><div class="daypart-content">Cena en el restaurante del lodge con los ventanales de 18 metros frente a los picos nevados.</div></div></div><div class="restaurants-block"><div class="restaurants-title">🍽 Cena · 3 recomendaciones</div><div class="restaurant-item"><div class="restaurant-name">Whistling Grizzly Restaurant</div><div class="restaurant-meta">Americano · 4.7★ · Jackson town · Elk tenderloin, ambiente mountain inn · +1 307-699-7227</div></div><div class="restaurant-item"><div class="restaurant-name">Gun Barrel Steak and Game House</div><div class="restaurant-meta">Steakhouse · 4.4★ · Jackson · Bison ribs, carne de caza, atmósfera western · +1 307-733-3287</div></div><div class="restaurant-item"><div class="restaurant-name">Jackson Lake Lodge Mural Room</div><div class="restaurant-meta">Americano fine dining · Dentro del lodge · Ventanales con vista a los Tetons · +1 307-543-2811</div></div></div></div>
-<div class="day-card"><div class="day-header"><div class="day-number">12</div><div><div class="day-date">Lun 6 Jul</div></div><div class="day-location">Grand Teton NP, WY</div></div><div class="day-badges"><span class="badge badge-hotel">🏨 Jackson Lake Lodge</span></div><div class="daypart-grid"><div class="daypart"><div class="daypart-time">☀ Mañana</div><div class="daypart-content"><strong>5:30am</strong>: <strong>Antelope Flats Road</strong>, ruta de tierra donde aparecen bisontes en manada al amanecer.</div></div><div class="daypart"><div class="daypart-time">⛱ Tarde</div><div class="daypart-content"><strong>Snake River Overlook</strong> (la foto de Ansel Adams) y caminata corta llana en Willow Flats.</div></div><div class="daypart"><div class="daypart-time">🌙 Noche</div><div class="daypart-content">Atardecer en <strong>Mormon Row</strong>: granjas históricas con los Tetons de fondo. Cena en Jackson town con búfalo burger.</div></div></div><div class="restaurants-block"><div class="restaurants-title">🍽 Cena · 3 recomendaciones</div><div class="restaurant-item"><div class="restaurant-name">Gun Barrel Steak and Game House</div><div class="restaurant-meta">Steakhouse · 4.4★ · Jackson · El clásico para bison burger y carne de caza · +1 307-733-3287</div></div><div class="restaurant-item"><div class="restaurant-name">Miazga's</div><div class="restaurant-meta">Polaco-americano · 4.6★ · Jackson · Pierogis y lobster roll, único en la zona · +1 307-733-2784</div></div><div class="restaurant-item"><div class="restaurant-name">Sidewinders American Grill</div><div class="restaurant-meta">Americano casual · 4.2★ · Jackson · Balcón, ambiente relajado familiar · +1 307-734-5766</div></div></div></div>
-<div class="day-card"><div class="day-header"><div class="day-number">13</div><div><div class="day-date">Mar 7 Jul</div></div><div class="day-location">Grand Teton → Yellowstone</div></div><div class="day-badges"><span class="badge badge-hotel">🏨 Amphitheater House, Silver Gate</span></div><div class="daypart-grid"><div class="daypart"><div class="daypart-time">☀ Mañana</div><div class="daypart-content">Desayuno en Jackson Lake Lodge. Salida a las 8am hacia Yellowstone. Parada en <strong>West Thumb Geyser Basin</strong>: géiseres al borde del lago.</div></div><div class="daypart"><div class="daypart-time">⛱ Tarde</div><div class="daypart-content">Cruce de Yellowstone por el interior con parada en <strong>Hayden Valley</strong>: primer avistamiento de bisontes en manadas masivas.</div></div><div class="daypart"><div class="daypart-time">🌙 Noche</div><div class="daypart-content">Llegada a <strong>Silver Gate, Montana</strong> (entrada noreste). Check-in en la cabaña Amphitheater House. Cena cocinada en la cabaña.</div></div></div><div class="restaurants-block"><div class="restaurants-title">🍽 Cena · 3 recomendaciones</div><div class="restaurant-item"><div class="restaurant-name">Cabaña Amphitheater House</div><div class="restaurant-meta">Cocina propia · Recomendado: comprar provisiones en Jackson antes de subir</div></div><div class="restaurant-item"><div class="restaurant-name">The Log Cabin Café</div><div class="restaurant-meta">Americano · 4.3★ · Silver Gate · A pasos de la cabaña, abierto noche vie/sáb/dom · +1 406-418-9392</div></div><div class="restaurant-item"><div class="restaurant-name">Miners Saloon</div><div class="restaurant-meta">Bar & grill · 4.3★ · Cooke City (5 min en auto) · Pizza, bison burger · +1 406-838-2214</div></div></div></div>
-<div class="day-card"><div class="day-header"><div class="day-number">14</div><div><div class="day-date">Mié 8 Jul</div></div><div class="day-location">Yellowstone NP, MT/WY</div></div><div class="day-badges"><span class="badge badge-hotel">🏨 Amphitheater House, Silver Gate</span></div><div class="daypart-grid"><div class="daypart"><div class="daypart-time">☀ Mañana</div><div class="daypart-content"><strong>5:30am</strong>: <strong>Hayden Valley</strong> al amanecer con niebla sobre el río y manadas de bisontes en el agua.</div></div><div class="daypart"><div class="daypart-time">⛱ Tarde</div><div class="daypart-content"><strong>Grand Prismatic Spring</strong> (los colores imposibles desde el mirador elevado) y <strong>Old Faithful</strong> en erupción.</div></div><div class="daypart"><div class="daypart-time">🌙 Noche</div><div class="daypart-content">Vuelta a la cabaña, cena casera, descanso antes del día más madrugador del viaje.</div></div></div><div class="restaurants-block"><div class="restaurants-title">🍽 Cena · 3 recomendaciones</div><div class="restaurant-item"><div class="restaurant-name">Cabaña Amphitheater House</div><div class="restaurant-meta">Cocina propia · Cena casera después del día intenso de géiseres</div></div><div class="restaurant-item"><div class="restaurant-name">Miners Saloon</div><div class="restaurant-meta">Bar & grill · 4.3★ · Cooke City · Pizza con char, ambiente local · +1 406-838-2214</div></div><div class="restaurant-item"><div class="restaurant-name">The Log Cabin Café</div><div class="restaurant-meta">Americano · 4.3★ · Silver Gate · Trout, burgers, ambiente cozy · +1 406-418-9392</div></div></div></div>
-<div class="day-card"><div class="day-header"><div class="day-number">15</div><div><div class="day-date">Jue 9 Jul</div></div><div class="day-location">Yellowstone NP — Lamar Valley</div></div><div class="day-badges"><span class="badge badge-hotel">🏨 Amphitheater House, Silver Gate</span></div><div class="daypart-grid"><div class="daypart"><div class="daypart-time">☀ Mañana</div><div class="daypart-content"><strong>4:30am</strong>: salida con guía de wildlife hacia <strong>Lamar Valley</strong>. El Serengeti de Norteamérica al amanecer: grizzlies, lobos, alces y miles de bisontes.</div></div><div class="daypart"><div class="daypart-time">⛱ Tarde</div><div class="daypart-content">Almuerzo en Cooke City (pueblo auténtico, sin turismo masivo) y <strong>Mammoth Hot Springs</strong>: terrazas de travertino blanco.</div></div><div class="daypart"><div class="daypart-time">🌙 Noche</div><div class="daypart-content">Segundo recorrido por Lamar al atardecer (los lobos son más activos a esta hora). Cena en la cabaña.</div></div></div></div>
+<div class="day-card"><div class="day-header"><div class="day-number">11</div><div><div class="day-date">Dom 5 Jul</div></div><div class="day-location">Grand Teton NP, WY</div></div><div class="day-badges"><span class="badge badge-hotel">🏨 Jackson Lake Lodge</span></div><div class="daypart-grid"><div class="daypart"><div class="daypart-time">☀ Mañana</div><div class="daypart-content"><strong>5:30am</strong>: amanecer en <strong>Oxbow Bend</strong> con los Tetons reflejados en el río Snake. Grizzlies, alces y águilas calvas.</div></div><div class="daypart"><div class="daypart-time">⛱ Tarde</div><div class="daypart-content"><strong>Jenny Lake</strong>: ferry al otro lado del lago, caminata llana de 800m a Hidden Falls. <strong>Después</strong>: <strong>Indians of the Greater Yellowstone Museum</strong> en Jackson, con artefactos de Shoshone, Crow y Blackfeet (1-1.5hs).</div></div><div class="daypart"><div class="daypart-time">🌙 Noche</div><div class="daypart-content">Cena en el restaurante del lodge con los ventanales de 18 metros frente a los picos nevados.</div></div></div><div class="restaurants-block"><div class="restaurants-title">🍽 Cena · 3 recomendaciones</div><div class="restaurant-item"><div class="restaurant-name">Whistling Grizzly Restaurant</div><div class="restaurant-meta">Americano · 4.7★ · Jackson town · Elk tenderloin, ambiente mountain inn · +1 307-699-7227</div></div><div class="restaurant-item"><div class="restaurant-name">Gun Barrel Steak and Game House</div><div class="restaurant-meta">Steakhouse · 4.4★ · Jackson · Bison ribs, carne de caza, atmósfera western · +1 307-733-3287</div></div><div class="restaurant-item"><div class="restaurant-name">Jackson Lake Lodge Mural Room</div><div class="restaurant-meta">Americano fine dining · Dentro del lodge · Ventanales con vista a los Tetons · +1 307-543-2811</div></div></div></div>
+<div class="day-card"><div class="day-header"><div class="day-number">12</div><div><div class="day-date">Lun 6 Jul</div></div><div class="day-location">Grand Teton NP, WY</div></div><div class="day-badges"><span class="badge badge-hotel">🏨 Jackson Lake Lodge</span></div><div class="daypart-grid"><div class="daypart"><div class="daypart-time">☀ Mañana</div><div class="daypart-content"><strong>9:00am</strong>: <strong>Rafting scenic Snake River</strong> (3-4hs, sale del lower lobby del lodge). Aguas planas, vistas espectaculares de los Tetons, avistamiento de águilas calvas, alces y bisontes. Operador: Grand Teton Lodge Company.</div></div><div class="daypart"><div class="daypart-time">⛱ Tarde</div><div class="daypart-content"><strong>Antelope Flats Road</strong>: bisontes en manada. <strong>Mormon Row</strong>: granjas históricas con los Tetons de fondo.</div></div><div class="daypart"><div class="daypart-time">🌙 Noche</div><div class="daypart-content">Atardecer en <strong>Mormon Row</strong>: granjas históricas con los Tetons de fondo. Cena en Jackson town con búfalo burger.</div></div></div><div class="restaurants-block"><div class="restaurants-title">🍽 Cena · 3 recomendaciones</div><div class="restaurant-item"><div class="restaurant-name">Gun Barrel Steak and Game House</div><div class="restaurant-meta">Steakhouse · 4.4★ · Jackson · El clásico para bison burger y carne de caza · +1 307-733-3287</div></div><div class="restaurant-item"><div class="restaurant-name">Miazga's</div><div class="restaurant-meta">Polaco-americano · 4.6★ · Jackson · Pierogis y lobster roll, único en la zona · +1 307-733-2784</div></div><div class="restaurant-item"><div class="restaurant-name">Sidewinders American Grill</div><div class="restaurant-meta">Americano casual · 4.2★ · Jackson · Balcón, ambiente relajado familiar · +1 307-734-5766</div></div></div></div>
+<div class="day-card"><div class="day-header"><div class="day-number">13</div><div><div class="day-date">Mar 7 Jul</div></div><div class="day-location">Grand Teton → Yellowstone</div></div><div class="day-badges"><span class="badge badge-hotel">🏨 Amphitheater House, Silver Gate</span></div><div class="daypart-grid"><div class="daypart"><div class="daypart-time">☀ Mañana</div><div class="daypart-content">Desayuno y checkout. <strong>9:00am</strong>: <strong>Craig Thomas Discovery and Visitor Center</strong>: exhibiciones interpretativas sobre tribus nativas (Shoshone, Crow, Blackfeet, Gros Ventre) y su conexión con los Tetons. Después: <strong>West Thumb Geyser Basin</strong>, géiseres al borde del lago.</div></div><div class="daypart"><div class="daypart-time">⛱ Tarde</div><div class="daypart-content">Cruce de Yellowstone por el interior con parada en <strong>Hayden Valley</strong>: primer avistamiento de bisontes en manadas masivas.</div></div><div class="daypart"><div class="daypart-time">🌙 Noche</div><div class="daypart-content">Llegada a <strong>Silver Gate, Montana</strong> (entrada noreste). Check-in en la cabaña Amphitheater House. Cena cocinada en la cabaña.</div></div></div><div class="restaurants-block"><div class="restaurants-title">🍽 Cena · 3 recomendaciones</div><div class="restaurant-item"><div class="restaurant-name">Cabaña Amphitheater House</div><div class="restaurant-meta">Cocina propia · Recomendado: comprar provisiones en Jackson antes de subir</div></div><div class="restaurant-item"><div class="restaurant-name">The Log Cabin Café</div><div class="restaurant-meta">Americano · 4.3★ · Silver Gate · A pasos de la cabaña, abierto noche vie/sáb/dom · +1 406-418-9392</div></div><div class="restaurant-item"><div class="restaurant-name">Miners Saloon</div><div class="restaurant-meta">Bar & grill · 4.3★ · Cooke City (5 min en auto) · Pizza, bison burger · +1 406-838-2214</div></div></div></div>
+<div class="day-card"><div class="day-header"><div class="day-number">14</div><div><div class="day-date">Mié 8 Jul</div></div><div class="day-location">Yellowstone NP, MT/WY</div></div><div class="day-badges"><span class="badge badge-hotel">🏨 Amphitheater House, Silver Gate</span></div><div class="daypart-grid"><div class="daypart"><div class="daypart-time">☀ Mañana</div><div class="daypart-content"><strong>5:30am</strong>: <strong>Tour guiado wildlife</strong> en Hayden Valley (con spotting scopes profesionales). Operador: Yellowstone Forever o Yellowstone Safari Company. Foco en grizzlies y bisontes.</div></div><div class="daypart"><div class="daypart-time">⛱ Tarde</div><div class="daypart-content"><strong>Grand Prismatic Spring</strong> (los colores imposibles desde el mirador elevado) y <strong>Old Faithful</strong> en erupción.</div></div><div class="daypart"><div class="daypart-time">🌙 Noche</div><div class="daypart-content">Vuelta a la cabaña, cena casera, descanso antes del día más madrugador del viaje.</div></div></div><div class="restaurants-block"><div class="restaurants-title">🍽 Cena · 3 recomendaciones</div><div class="restaurant-item"><div class="restaurant-name">Cabaña Amphitheater House</div><div class="restaurant-meta">Cocina propia · Cena casera después del día intenso de géiseres</div></div><div class="restaurant-item"><div class="restaurant-name">Miners Saloon</div><div class="restaurant-meta">Bar & grill · 4.3★ · Cooke City · Pizza con char, ambiente local · +1 406-838-2214</div></div><div class="restaurant-item"><div class="restaurant-name">The Log Cabin Café</div><div class="restaurant-meta">Americano · 4.3★ · Silver Gate · Trout, burgers, ambiente cozy · +1 406-418-9392</div></div></div></div>
+<div class="day-card"><div class="day-header"><div class="day-number">15</div><div><div class="day-date">Jue 9 Jul</div></div><div class="day-location">Yellowstone NP — Lamar Valley</div></div><div class="day-badges"><span class="badge badge-hotel">🏨 Amphitheater House, Silver Gate</span></div><div class="daypart-grid"><div class="daypart"><div class="daypart-time">☀ Mañana</div><div class="daypart-content"><strong>5:00am</strong>: <strong>Tour completo wildlife en Lamar Valley</strong> con guía profesional (7-8hs). El Serengeti de Norteamérica al amanecer. Probabilidades con guía: osos 95%+, lobos 70%+ con spotting scopes de 80x.</div></div><div class="daypart"><div class="daypart-time">⛱ Tarde</div><div class="daypart-content">Almuerzo en Cooke City. <strong>Mammoth Hot Springs</strong>: terrazas de travertino blanco + <strong>Albright Visitor Center</strong> en el histórico Fort Yellowstone (exhibiciones sobre los Tukudika, los Shoshone de las montañas). Pasada por <strong>Obsidian Cliff</strong>, sitio arqueológico nacional donde tribus nativas obtenían obsidiana para puntas de flecha.</div></div><div class="daypart"><div class="daypart-time">🌙 Noche</div><div class="daypart-content">Segundo recorrido por Lamar al atardecer (los lobos son más activos a esta hora). Cena en la cabaña.</div></div></div></div>
 <div class="section-divider"><div class="section-divider-sub">✦ Capítulo ✦</div><div class="section-divider-title">Kansas City</div><div class="section-divider-sub">Missouri · Cierre del viaje</div><div class="restaurants-block"><div class="restaurants-title">🍽 Cena · 3 recomendaciones</div><div class="restaurant-item"><div class="restaurant-name">Cabaña Amphitheater House</div><div class="restaurant-meta">Cocina propia · Cena temprano después del día más madrugador</div></div><div class="restaurant-item"><div class="restaurant-name">Miners Saloon</div><div class="restaurant-meta">Bar & grill · 4.3★ · Cooke City · Cerveza local Moose Drool, pizza · +1 406-838-2214</div></div><div class="restaurant-item"><div class="restaurant-name">The Bistro Cafe Restaurant</div><div class="restaurant-meta">Familiar · 3.8★ · Cooke City · Simple, abierto hasta tarde · +1 406-838-2160</div></div></div></div>
 <div class="day-card"><div class="day-header"><div class="day-number">16</div><div><div class="day-date">Vie 10 Jul</div></div><div class="day-location">Yellowstone → Kansas City</div></div><div class="day-badges"><span class="badge badge-flight">✈ Southwest BZN→DEN→MCI</span><span class="badge badge-hotel">🏨 Hotel cerca de MCI</span></div><div class="daypart-grid"><div class="daypart"><div class="daypart-time">☀ Mañana</div><div class="daypart-content">Mañana en la cabaña, último intento de wildlife en Lamar.</div></div><div class="daypart"><div class="daypart-time">⛱ Tarde</div><div class="daypart-content">Salida hacia Bozeman (2hs). Devolución de auto. Vuelo <strong>SW 1132 BZN→DEN a las 14:50</strong>.</div></div><div class="daypart"><div class="daypart-time">🌙 Noche</div><div class="daypart-content">Conexión en Denver: <strong>SW 4305 DEN→MCI sale 17:55, llega 20:45</strong>. Cena de <strong>BBQ de Kansas City</strong>: Joe's KC o Q39.</div></div></div><div class="restaurants-block"><div class="restaurants-title">🍽 Cena · 3 recomendaciones</div><div class="restaurant-item"><div class="restaurant-name">Q39 - Midtown</div><div class="restaurant-meta">BBQ · 4.7★ · Kansas City · Burnt ends y wings, reservar con anticipación · +1 816-255-3753</div></div><div class="restaurant-item"><div class="restaurant-name">Joe's KC BBQ</div><div class="restaurant-meta">BBQ · 4.8★ · Kansas City KS · Legendario, dentro de una estación de servicio · +1 913-722-3366</div></div><div class="restaurant-item"><div class="restaurant-name">Jack Stack Barbecue - Freight House</div><div class="restaurant-meta">BBQ · 4.6★ · Crossroads · Burnt ends y BBQ shrimp, ambiente beer garden · +1 816-472-7427</div></div></div></div>
 <div class="day-card partido"><div class="day-header"><div class="day-number">17</div><div><div class="day-date">Sáb 11 Jul</div></div><div class="day-location">Kansas City, MO</div></div><div class="day-badges"><span class="badge badge-hotel">🏨 Hotel cerca de MCI</span><span class="badge badge-partido tbc">⚽ Argentina (Cuartos de final) · TBC</span></div><div class="daypart-grid"><div class="daypart"><div class="daypart-time">☀ Mañana</div><div class="daypart-content"><strong>Country Club Plaza</strong>: el primer shopping center al aire libre del mundo (1922), con arquitectura española y fuentes.</div></div><div class="daypart"><div class="daypart-time">⛱ Tarde</div><div class="daypart-content"><strong>National WWI Museum</strong>: considerado uno de los mejores museos de la Primera Guerra Mundial del mundo.</div></div><div class="daypart partido"><div class="daypart-time">🌙 Noche</div><div class="daypart-content">⚽ <strong>Argentina vs TBC · 21hs · Arrowhead Stadium, Kansas City</strong> (cuartos de final si Argentina avanza).</div></div></div><div class="restaurants-block"><div class="restaurants-title">🍽 Cena · 3 recomendaciones</div><div class="restaurant-item"><div class="restaurant-name">Jack Stack Barbecue - Plaza</div><div class="restaurant-meta">BBQ · 4.5★ · Country Club Plaza · Cerca del centro, perfecto antes del partido · +1 816-531-7427</div></div><div class="restaurant-item"><div class="restaurant-name">Q39 - Midtown</div><div class="restaurant-meta">BBQ · 4.7★ · Midtown · Reservar con anticipación · +1 816-255-3753</div></div><div class="restaurant-item"><div class="restaurant-name">Joe's KC BBQ - Leawood</div><div class="restaurant-meta">BBQ · 4.7★ · Leawood · La sucursal más espaciosa y familiar · +1 913-338-5151</div></div></div></div>
