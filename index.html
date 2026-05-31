@@ -713,6 +713,103 @@
     .summary-table td { padding: 0.6rem 0.75rem; }
   }
 
+
+  /* ===== COSTS TABLE ===== */
+  .costs-section { background: linear-gradient(180deg, #0a1929 0%, #0d1f35 100%); }
+  .costs-wrapper { max-width: 1100px; margin: 0 auto; }
+  .costs-category {
+    margin-bottom: 2.5rem;
+  }
+  .costs-category-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: var(--gold);
+    font-style: italic;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(201,169,97,0.2);
+  }
+  .costs-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+  }
+  .costs-table th {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--gold);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.6rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid rgba(201,169,97,0.2);
+  }
+  .costs-table th:last-child { text-align: right; }
+  .costs-table td {
+    padding: 0.65rem 1rem;
+    border-bottom: 1px solid rgba(201,169,97,0.07);
+    color: rgba(250,246,238,0.85);
+    vertical-align: top;
+  }
+  .costs-table td:last-child {
+    text-align: right;
+    font-family: 'DM Mono', monospace;
+    color: var(--gold-bright);
+    white-space: nowrap;
+  }
+  .costs-table tr:hover td { background: rgba(201,169,97,0.04); }
+  .costs-table tr.confirmed td:first-child::before {
+    content: '✓ ';
+    color: var(--green);
+    font-size: 0.75rem;
+  }
+  .costs-table tr.pending td:first-child::before {
+    content: '○ ';
+    color: var(--coral);
+    font-size: 0.75rem;
+  }
+  .costs-table tr.conditional td:first-child::before {
+    content: '? ';
+    color: rgba(250,246,238,0.4);
+    font-size: 0.75rem;
+  }
+  .costs-table tr.subtotal td {
+    font-weight: 700;
+    border-top: 1px solid rgba(201,169,97,0.2);
+    color: var(--cream);
+    background: rgba(201,169,97,0.05);
+  }
+  .costs-table tr.subtotal td:last-child { color: var(--gold); }
+  .costs-table tr.grand-total td {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    border-top: 2px solid rgba(201,169,97,0.4);
+    color: var(--gold-bright);
+    background: rgba(201,169,97,0.08);
+    padding: 1rem;
+  }
+  .costs-note {
+    font-size: 0.78rem;
+    color: rgba(250,246,238,0.45);
+    margin-top: 0.4rem;
+    font-family: 'DM Mono', monospace;
+  }
+  .costs-legend {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+    font-size: 0.78rem;
+    font-family: 'DM Mono', monospace;
+    color: rgba(250,246,238,0.55);
+  }
+  .costs-legend span { display: flex; align-items: center; gap: 0.4rem; }
+  @media (max-width: 768px) {
+    .costs-table { font-size: 0.78rem; }
+    .costs-table td, .costs-table th { padding: 0.5rem 0.6rem; }
+  }
+
 </style>
 </head>
 <body>
@@ -778,6 +875,7 @@
 <!-- NAV -->
 <nav class="nav-tabs">
   <div class="nav-inner">
+    <a href="#costos" class="nav-tab cost-hidden">💰 Costos</a>
     <a href="#resumen" class="nav-tab">📊 Resumen</a>
     <a href="#equipaje" class="nav-tab">🎒 Equipaje</a>
     <a href="#mapa" class="nav-tab">🗺 Mapa USA</a>
@@ -1382,7 +1480,7 @@
 
   <div class="res-grid" style="max-width: 1100px;">
 
-    <div class="res-section-title">🔴 Urgentes — reservar ya</div>
+    <div class="res-section-title">🔴 Urgente — reservar ya</div>
 
     <div class="res-card" onclick="toggleCard(this, event)">
       <div class="res-header">
@@ -1521,7 +1619,7 @@
     </div>
 
     
-    <div class="res-section-title">🤠 Actividades en Dallas — reservar pronto</div>
+    <div class="res-section-title">🤠 Actividades en Dallas</div>
 
     <div class="res-card" onclick="toggleCard(this, event)">
       <div class="res-header">
@@ -2575,7 +2673,7 @@
 <div class="data-item"><div class="data-label">Confirmación</div><div class="data-value mono">L5994246970</div></div>
 <div class="data-item"><div class="data-label">Vehículo</div><div class="data-value">Ford Edge o similar (Standard SUV AWD)</div></div>
 <div class="data-item"><div class="data-label">Capacidad</div><div class="data-value">5 pasajeros · 4 valijas grandes</div></div>
-<div class="data-item"><div class="data-label">Pickup</div><div class="data-value">Jackson Hole Airport (JAC) · sáb 4 jul · ⚠️ Llamar para cambiar a 20:30</div></div>
+<div class="data-item"><div class="data-label">Pickup</div><div class="data-value">Jackson Hole Airport (JAC) · sáb 4 jul · 20:30 (⚠️ llamar a Hertz para confirmar cambio de horario)</div></div>
 <div class="data-item"><div class="data-label">Drop-off</div><div class="data-value">Bozeman Airport (BZN) · vie 10 jul · 12:00</div></div>
 <div class="data-item"><div class="data-label">Millas</div><div class="data-value">Unlimited ✓</div></div>
 <div class="data-item cost-hidden"><div class="data-label">Costo total</div><div class="data-value">$1.517,21 USD</div></div>
@@ -2705,6 +2803,147 @@
 </script>
 
 
+
+
+<!-- COSTS SECTION -->
+<section class="costs-section" id="costos">
+  <div class="section-header">
+    <div class="section-eyebrow">Solo visible con código de acceso</div>
+    <h2 class="section-title">Costos del <em>viaje</em></h2>
+    <p class="section-desc">Desglose completo de gastos confirmados y estimados · en USD</p>
+  </div>
+  <div class="costs-wrapper">
+    <div class="costs-legend">
+      <span>✓ Confirmado y pagado/reservado</span>
+      <span>○ Estimado o pendiente</span>
+      <span>? Condicional (depende del Mundial)</span>
+    </div>
+    
+    <div class="costs-category">
+      <div class="costs-category-title">✈ Vuelos</div>
+      <table class="costs-table">
+        <thead><tr><th>Concepto</th><th>USD</th></tr></thead>
+        <tbody><tr class="confirmed"><td>EZE → Lima → Atlanta → DFW (25 jun) · Delta/LATAM · GAVRYT<div class="costs-note">Incluido en paquete Cttargentina</div></td><td>—</td></tr>
+<tr class="confirmed"><td>DFW → FLL (29 jun) · AA 1862 · SFRBRC<div class="costs-note">Incluido en paquete Cttargentina</div></td><td>—</td></tr>
+<tr class="confirmed"><td>FLL → MSP → JAC (4 jul) · Delta · CRPVEX<div class="costs-note">Incluido en paquete Cttargentina</div></td><td>—</td></tr>
+<tr class="confirmed"><td>BZN → DEN → MCI (10 jul) · Southwest · BPIZAF<div class="costs-note">5 pasajeros</div></td><td>$1,821.00</td></tr>
+<tr class="confirmed"><td>MCI → Atlanta → Lima → EZE (12 jul) · Delta · GAVRYT<div class="costs-note">Incluido en paquete Cttargentina</div></td><td>—</td></tr>
+<tr class="confirmed"><td>Paquete vuelos internacionales Cttargentina (EZE↔DFW + FLL↔JAC + MCI↔EZE)<div class="costs-note">Ver planilla agencia</div></td><td>Ver agencia</td></tr>
+<tr class="subtotal"><td>Subtotal ✈ Vuelos</td><td>$1,821.00</td></tr>
+</tbody>
+      </table>
+    </div>
+
+    <div class="costs-category">
+      <div class="costs-category-title">🏨 Alojamientos</div>
+      <table class="costs-table">
+        <thead><tr><th>Concepto</th><th>USD</th></tr></thead>
+        <tbody><tr class="pending"><td>Airbnb Euless, Dallas · 4 noches (25-29 jun)<div class="costs-note">Pendiente confirmar precio</div></td><td>Ver agencia</td></tr>
+<tr class="pending"><td>Airbnb 350 N Birch, Fort Lauderdale · 5 noches (29 jun-4 jul)<div class="costs-note">Pendiente confirmar precio</div></td><td>Ver agencia</td></tr>
+<tr class="confirmed"><td>Jackson Lake Lodge, Grand Teton · 3 noches (4-7 jul)<div class="costs-note">Conf. R3366173</div></td><td>$1,776.20</td></tr>
+<tr class="confirmed"><td>Amphitheater House, Silver Gate · 3 noches (7-10 jul)<div class="costs-note">Conf. #114100 · $616 pagado</div></td><td>$2,016.00</td></tr>
+<tr class="pending"><td>Hotel Kansas City · 2 noches (10-12 jul)<div class="costs-note">Estimado · pendiente reservar</div></td><td>$400.00</td></tr>
+<tr class="subtotal"><td>Subtotal 🏨 Alojamientos</td><td>$4,192.20</td></tr>
+</tbody>
+      </table>
+    </div>
+
+    <div class="costs-category">
+      <div class="costs-category-title">🚗 Transporte terrestre</div>
+      <table class="costs-table">
+        <thead><tr><th>Concepto</th><th>USD</th></tr></thead>
+        <tbody><tr class="confirmed"><td>Tesla Cybertruck Turo · Dallas 4 días (26-29 jun)<div class="costs-note">Reserva #52589856 · Tuan</div></td><td>$635.02</td></tr>
+<tr class="confirmed"><td>Ford Edge AWD Hertz · JAC→BZN 6 días (4-10 jul)<div class="costs-note">Conf. L5994246970 · Pay Later</div></td><td>$1,517.21</td></tr>
+<tr class="subtotal"><td>Subtotal 🚗 Transporte terrestre</td><td>$2,152.23</td></tr>
+</tbody>
+      </table>
+    </div>
+
+    <div class="costs-category">
+      <div class="costs-category-title">⚽ Entradas fútbol</div>
+      <table class="costs-table">
+        <thead><tr><th>Concepto</th><th>USD</th></tr></thead>
+        <tbody><tr class="confirmed"><td>Argentina vs Jordan · 27 jun · AT&T Stadium · 5 entradas<div class="costs-note">Pagadas · pendiente recibir</div></td><td>Ver agencia</td></tr>
+<tr class="conditional"><td>Round of 32 Miami · 3 jul · Hard Rock Stadium (condicional)<div class="costs-note">Solo si Argentina 1° del grupo</div></td><td>Ver agencia</td></tr>
+<tr class="conditional"><td>Cuartos de Final KC · 11 jul · Arrowhead Stadium (condicional)<div class="costs-note">Solo si Argentina avanza</div></td><td>Ver agencia</td></tr>
+</tbody>
+      </table>
+    </div>
+
+    <div class="costs-category">
+      <div class="costs-category-title">🤠 Actividades Dallas</div>
+      <table class="costs-table">
+        <thead><tr><th>Concepto</th><th>USD</th></tr></thead>
+        <tbody><tr class="confirmed"><td>Stockyards Championship Rodeo · 28 jun · 5 entradas<div class="costs-note">Sec C Fila 1 · AXS</div></td><td>$289.98</td></tr>
+<tr class="confirmed"><td>Deep Ellum (murales, café)<div class="costs-note">Gratis · solo consumos</div></td><td>—</td></tr>
+<tr class="pending"><td>Perot Museum of Nature and Science · 5 entradas<div class="costs-note">Estimado ~$20/persona</div></td><td>$100.00</td></tr>
+<tr class="subtotal"><td>Subtotal 🤠 Actividades Dallas</td><td>$389.98</td></tr>
+</tbody>
+      </table>
+    </div>
+
+    <div class="costs-category">
+      <div class="costs-category-title">🏔 Actividades Grand Teton</div>
+      <table class="costs-table">
+        <thead><tr><th>Concepto</th><th>USD</th></tr></thead>
+        <tbody><tr class="pending"><td>Brushbuck Wildlife Tours · Tour privado Grand Teton · 6 jul<div class="costs-note">Cotizado · confirmar con Kim · +1 888-282-5868</div></td><td>$999.00</td></tr>
+<tr class="pending"><td>Rafting Snake River · 5 jul · 5 personas<div class="costs-note">Estimado · Solitude Float Trips</div></td><td>$500.00</td></tr>
+<tr class="confirmed"><td>Craig Thomas Discovery Center<div class="costs-note">Gratis</div></td><td>—</td></tr>
+<tr class="subtotal"><td>Subtotal 🏔 Actividades Grand Teton</td><td>$1,499.00</td></tr>
+</tbody>
+      </table>
+    </div>
+
+    <div class="costs-category">
+      <div class="costs-category-title">🐻 Actividades Yellowstone</div>
+      <table class="costs-table">
+        <thead><tr><th>Concepto</th><th>USD</th></tr></thead>
+        <tbody><tr class="pending"><td>Bear & Wolf Tour · Yellowstone Wild Tours · mié 8 jul<div class="costs-note">yellowstonewildtours.com · cotizado</div></td><td>$1,270.67</td></tr>
+<tr class="pending"><td>Sunrise Wolves & Wildlife · Yellowstone Wildlife Profiles · jue 9 jul<div class="costs-note">yellowstonewildlifeprofiles.com · cotizado</div></td><td>$859.39</td></tr>
+<tr class="confirmed"><td>West Thumb, Hayden Valley, Grand Canyon YS<div class="costs-note">Gratis (incluido en entrada al parque)</div></td><td>—</td></tr>
+<tr class="confirmed"><td>Grand Prismatic Spring, Old Faithful, Mammoth<div class="costs-note">Gratis (incluido en entrada al parque)</div></td><td>—</td></tr>
+<tr class="pending"><td>Entrada al parque Yellowstone (7 días) · por auto<div class="costs-note">~$35 por vehículo</div></td><td>$35.00</td></tr>
+<tr class="pending"><td>Entrada al parque Grand Teton (7 días) · por auto<div class="costs-note">~$35 por vehículo</div></td><td>$35.00</td></tr>
+<tr class="subtotal"><td>Subtotal 🐻 Actividades Yellowstone</td><td>$2,200.06</td></tr>
+</tbody>
+      </table>
+    </div>
+
+    <div class="costs-category">
+      <div class="costs-category-title">🛒 Provisiones y gastos en cabaña</div>
+      <table class="costs-table">
+        <thead><tr><th>Concepto</th><th>USD</th></tr></thead>
+        <tbody><tr class="pending"><td>Compras Albertsons Jackson · provisiones para Silver Gate<div class="costs-note">Estimado para 5 personas · 3 cenas + desayunos + almuerzos + snacks</div></td><td>$380.00</td></tr>
+<tr class="subtotal"><td>Subtotal 🛒 Provisiones y gastos en cabaña</td><td>$380.00</td></tr>
+</tbody>
+      </table>
+    </div>
+
+    <div class="costs-category">
+      <div class="costs-category-title">🍖 Kansas City</div>
+      <table class="costs-table">
+        <thead><tr><th>Concepto</th><th>USD</th></tr></thead>
+        <tbody><tr class="pending"><td>BBQ Kansas City (Q39, Joe's KC, Jack Stack)<div class="costs-note">Estimado 2 cenas para 5</div></td><td>$200.00</td></tr>
+<tr class="pending"><td>National WWI Museum · 5 entradas<div class="costs-note">Estimado ~$15/persona</div></td><td>$75.00</td></tr>
+<tr class="subtotal"><td>Subtotal 🍖 Kansas City</td><td>$275.00</td></tr>
+</tbody>
+      </table>
+    </div>
+
+    <table class="costs-table">
+      <tbody>
+        <tr class="subtotal"><td>Total confirmado</td><td>$8,055.41</td></tr>
+        <tr class="subtotal"><td>Total estimado pendiente</td><td>$4,854.06</td></tr>
+        <tr class="grand-total"><td>TOTAL ESTIMADO DEL VIAJE</td><td>$12,909.47</td></tr>
+      </tbody>
+    </table>
+    <div class="costs-note" style="margin-top:1.5rem;font-size:0.8rem;">
+      * No incluye: comidas diarias, combustible, propinas, souvenirs, compras personales, ni los vuelos internacionales del paquete Cttargentina (precio separado). <br>
+      * Los costos "pendiente" son estimaciones. Los precios reales pueden variar al reservar. <br>
+      * Entradas del Mundial condicionales no incluidas en el total.
+    </div>
+  </div>
+</section>
 
 <!-- TRIP SUMMARY -->
 <section class="timeline-section summary-section" id="resumen">
