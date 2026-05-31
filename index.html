@@ -625,6 +625,94 @@
     .wy-legend { flex-direction: column; }
   }
 
+
+  /* ===== TRIP SUMMARY TABLE ===== */
+  .summary-section {
+    background: linear-gradient(180deg, var(--navy-2) 0%, #0d1f35 100%);
+  }
+  .summary-scroll {
+    max-width: 1300px;
+    margin: 0 auto;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: 12px;
+    border: 1px solid rgba(201,169,97,0.2);
+  }
+  .summary-table {
+    width: 100%;
+    min-width: 900px;
+    border-collapse: collapse;
+    font-size: 0.82rem;
+  }
+  .summary-table th {
+    background: rgba(10,25,41,0.95);
+    color: var(--gold);
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.9rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid rgba(201,169,97,0.25);
+    white-space: nowrap;
+  }
+  .summary-table td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid rgba(201,169,97,0.08);
+    vertical-align: top;
+    color: rgba(250,246,238,0.85);
+    line-height: 1.4;
+  }
+  .summary-table tr:last-child td { border-bottom: none; }
+  .summary-table tr:hover td { background: rgba(201,169,97,0.05); }
+  .summary-table tr.partido-row td { background: rgba(212,96,58,0.06); }
+  .summary-table tr.partido-row:hover td { background: rgba(212,96,58,0.1); }
+  .sum-day {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: var(--gold);
+    font-weight: 700;
+    white-space: nowrap;
+    line-height: 1;
+  }
+  .sum-date {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    color: rgba(250,246,238,0.4);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-top: 0.2rem;
+    white-space: nowrap;
+  }
+  .sum-sleep {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--gold);
+    white-space: nowrap;
+  }
+  .city-pill {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    border-radius: 20px;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 0.3rem;
+    white-space: nowrap;
+  }
+  .pill-dallas    { background: rgba(201,169,97,0.15); color: #c9a961; border: 1px solid rgba(201,169,97,0.3); }
+  .pill-florida   { background: rgba(74,157,200,0.15); color: #7fc4e8; border: 1px solid rgba(74,157,200,0.3); }
+  .pill-teton     { background: rgba(74,157,95,0.15);  color: #88c99a; border: 1px solid rgba(74,157,95,0.3); }
+  .pill-yellow    { background: rgba(212,96,58,0.15);  color: #e89a7c; border: 1px solid rgba(212,96,58,0.3); }
+  .pill-kc        { background: rgba(180,100,200,0.15); color: #c894e0; border: 1px solid rgba(180,100,200,0.3); }
+  .pill-travel    { background: rgba(150,150,150,0.1); color: rgba(250,246,238,0.4); border: 1px solid rgba(150,150,150,0.2); }
+
+  @media (max-width: 768px) {
+    .summary-table { font-size: 0.78rem; min-width: 700px; }
+    .summary-table td { padding: 0.6rem 0.75rem; }
+  }
+
 </style>
 </head>
 <body>
@@ -690,6 +778,7 @@
 <!-- NAV -->
 <nav class="nav-tabs">
   <div class="nav-inner">
+    <a href="#resumen" class="nav-tab">📊 Resumen</a>
     <a href="#equipaje" class="nav-tab">🎒 Equipaje</a>
     <a href="#mapa" class="nav-tab">🗺 Mapa USA</a>
     <a href="#mapatetons" class="nav-tab">🏔 Mapa Yellowstone</a>
@@ -1431,15 +1520,65 @@
       </div>
     </div>
 
-    <div class="res-section-title">🟡 Actividades en Yellowstone — reservar pronto</div>
+    
+    <div class="res-section-title">🤠 Actividades en Dallas — reservar pronto</div>
+
+    <div class="res-card" onclick="toggleCard(this, event)">
+      <div class="res-header">
+        <div class="res-header-left">
+          <div class="res-icon">🌵</div>
+          <div class="res-info">
+            <div class="res-title">Beaumont Ranch — descartado</div>
+            <div class="res-subtitle">No aplica · ver alternativas para la tarde libre</div>
+          </div>
+        </div>
+        <div class="res-status"><span class="status-badge pending">Pendiente</span><span class="res-toggle">▾</span></div>
+      </div>
+      <div class="res-body"><div class="res-body-inner">
+        <div class="data-grid">
+          <div class="data-item"><div class="data-label">Dónde</div><div class="data-value">Grandview, TX · 35 min al sur de Fort Worth por I-35</div></div>
+          <div class="data-item"><div class="data-label">Cuándo</div><div class="data-value">Vie 26 jun · llegada 13:00 · tarde completa</div></div>
+          <div class="data-item"><div class="data-label">Actividades</div><div class="data-value">Trail ride con cowboys reales · clases de roping · tiro con arco · skeet shooting · ziplines · ATV tour</div></div>
+          <div class="data-item"><div class="data-label">Dato histórico</div><div class="data-value">El Chisholm Trail histórico pasa por el medio del rancho. 800 acres de longhorns y praderas abiertas.</div></div>
+          <div class="data-item"><div class="data-label">Preguntar al reservar</div><div class="data-value">Disponibilidad del chuckwagon dinner al atardecer</div></div>
+          <div class="data-item"><div class="data-label">Web</div><div class="data-value"><a href="https://beaumontranch.com" target="_blank">beaumontranch.com</a></div></div>
+        </div>
+      </div></div>
+    </div>
+
+    <div class="res-card" onclick="toggleCard(this, event)">
+      <div class="res-header">
+        <div class="res-header-left">
+          <div class="res-icon">🤠</div>
+          <div class="res-info">
+            <div class="res-title">Stockyards Championship Rodeo</div>
+            <div class="res-subtitle">Dom 28 jun · 19:30 · Cowtown Coliseum</div>
+          </div>
+        </div>
+        <div class="res-status"><span class="status-badge pending">Pendiente</span><span class="res-toggle">▾</span></div>
+      </div>
+      <div class="res-body"><div class="res-body-inner">
+        <div class="data-grid">
+          <div class="data-item"><div class="data-label">Dónde</div><div class="data-value">Cowtown Coliseum · 121 E. Exchange Ave., Fort Worth, TX</div></div>
+          <div class="data-item"><div class="data-label">Cuándo</div><div class="data-value">Dom 28 jun · puertas 18:00 · show 19:30</div></div>
+          <div class="data-item"><div class="data-label">Duración</div><div class="data-value">90 minutos a 2 horas</div></div>
+          <div class="data-item"><div class="data-label">Eventos</div><div class="data-value">Bull riding · bareback bronc · saddle bronc · barrel racing · tie-down roping · team roping</div></div>
+          <div class="data-item"><div class="data-label">Datos</div><div class="data-value">El único rodeo año redondo del mundo. Sede del primer rodeo indoor de EEUU (1918). 3.418 personas, todos los asientos son buenos.</div></div>
+          <div class="data-item"><div class="data-label">Comprar entradas</div><div class="data-value"><a href="https://www.axs.com/teams/1113902/stockyards-championship-rodeo-tickets" target="_blank">axs.com</a> · también en ticketmaster.com</div></div>
+        </div>
+        <div class="data-note">Comprá las entradas online en AXS para evitar la fila. El precio es el mismo que en taquilla.</div>
+      </div></div>
+    </div>
+
+<div class="res-section-title">🟡 Actividades en Yellowstone — reservar pronto</div>
 
     <div class="res-card" onclick="toggleCard(this, event)">
       <div class="res-header">
         <div class="res-header-left">
           <div class="res-icon">🦌</div>
           <div class="res-info">
-            <div class="res-title">Tour wildlife · Grand Teton</div>
-            <div class="res-subtitle">Lun 6 jul · amanecer · foco en alces, osos, bisontes</div>
+            <div class="res-title">Tour wildlife · Grand Teton · Brushbuck</div>
+            <div class="res-subtitle">Lun 6 jul · 6:00am · foco en alces, osos, bisontes · respuesta recibida</div>
           </div>
         </div>
         <div class="res-status">
@@ -1454,11 +1593,13 @@
             <div class="data-item"><div class="data-label">Spots</div><div class="data-value">Oxbow Bend, Willow Flats, Antelope Flats, Mormon Row</div></div>
             <div class="data-item"><div class="data-label">Duración</div><div class="data-value">4 horas (sale al amanecer)</div></div>
             <div class="data-item"><div class="data-label">Salida desde</div><div class="data-value">Jackson Lake Lodge (te pasan a buscar)</div></div>
-            <div class="data-item"><div class="data-label">⭐ Recomendado</div><div class="data-value"><a href="https://brushbucktours.com/tours/grand-teton-tours/" target="_blank">Brushbuck Wildlife Tours</a> — Dawn Tour de 4hs, especialistas en Grand Teton</div></div>
-            <div class="data-item"><div class="data-label">Opción B</div><div class="data-value"><a href="https://www.jhecotouradventures.com/Wildlife-Tours/full-day-grand-teton-tour" target="_blank">Eco Tour Adventures</a> — óptica Swarovski, picnic en Jackson Lake, muy completo</div></div>
-            <div class="data-item"><div class="data-label">Opción C</div><div class="data-value"><a href="https://www.getyourguide.com/jackson-wyoming-l891/jackson-grand-teton-national-park-guided-wildlife-tour-t26458/" target="_blank">GetYourGuide — Grand Teton Wildlife Tour</a> — privado para la familia, excelentes reviews</div></div>
+            <div class="data-item"><div class="data-label">Operador</div><div class="data-value"><a href="https://brushbucktours.com" target="_blank">Brushbuck Wildlife Tours</a> · Kim · +1 888-282-5868</div></div>
+            <div class="data-item"><div class="data-label">⭐ Opción A — Privado con pickup</div><div class="data-value cost-hidden">$999 todo incluido · Pickup en Jackson Lake Lodge ($100 incluido) · Solo tu familia</div></div>
+            <div class="data-item"><div class="data-label">Opción B — Tour público</div><div class="data-value cost-hidden">$795 · Punto de encuentro: 210 N Cache St, Jackson · Requiere manejar 35 min a las 5:20am</div></div>
+            <div class="data-item"><div class="data-label">Recomendación</div><div class="data-value">Opción A (privado): $204 extra por no manejar de madrugada y tener guía exclusivo · ~$40/persona</div></div>
+            <div class="data-item"><div class="data-label">Teléfono</div><div class="data-value mono">+1 888-282-5868</div></div>
           </div>
-          <div class="data-note">Este tour prepara el ojo para el resto de la semana. Lo que aprendes aquí te sirve para Hayden y Lamar.</div>
+          <div class="data-note"><strong>Respuesta recibida de Kim (Brushbuck)</strong>: confirmaron disponibilidad para lun 6 jul. Llamar al +1 888-282-5868 para confirmar y reservar.</div>
         </div>
       </div>
     </div>
@@ -2564,6 +2705,185 @@
 </script>
 
 
+
+<!-- TRIP SUMMARY -->
+<section class="timeline-section summary-section" id="resumen">
+  <div class="section-header">
+    <div class="section-eyebrow">Los 19 días de un vistazo</div>
+    <h2 class="section-title">Resumen del <em>viaje</em></h2>
+    <p class="section-desc">Mañana, tarde, noche y alojamiento de cada día</p>
+  </div>
+  <div class="summary-scroll">
+    <table class="summary-table">
+      <thead>
+        <tr>
+          <th>Día</th>
+          <th>Zona</th>
+          <th>☀ Mañana</th>
+          <th>⛱ Tarde</th>
+          <th>🌙 Noche</th>
+          <th>🛏 Durmiendo en</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+      <td><div class="sum-day">01</div><div class="sum-date">Jue 25 Jun</div></td>
+      <td><span class="city-pill pill-dallas">Texas</span></td>
+      <td>✈ En vuelo desde EZE</td>
+      <td>En tránsito Lima → Atlanta</td>
+      <td>Llegada DFW 00:09. Cybertruck. Airbnb Euless.</td>
+      <td><div class="sum-sleep">🏠 Airbnb Euless, Dallas</div></td>
+    </tr>
+<tr>
+      <td><div class="sum-day">02</div><div class="sum-date">Vie 26 Jun</div></td>
+      <td><span class="city-pill pill-dallas">Texas</span></td>
+      <td>Descanso, jet lag</td>
+      <td>🕐 Tarde libre · piscina Airbnb o Klyde Warren Park</td>
+      <td>🍽 Cena libre en Dallas</td>
+      <td><div class="sum-sleep">🏠 Airbnb Euless, Dallas</div></td>
+    </tr>
+<tr class="partido-row">
+      <td><div class="sum-day">03</div><div class="sum-date">Sáb 27 Jun</div></td>
+      <td><span class="city-pill pill-dallas">Texas</span></td>
+      <td>Perot Museum of Nature</td>
+      <td>🕐 Tarde libre · preparación partido</td>
+      <td>⚽ Argentina vs Jordan 22hs · AT&T Stadium</td>
+      <td><div class="sum-sleep">🏠 Airbnb Euless, Dallas</div></td>
+    </tr>
+<tr>
+      <td><div class="sum-day">04</div><div class="sum-date">Dom 28 Jun</div></td>
+      <td><span class="city-pill pill-dallas">Texas</span></td>
+      <td>🕐 Mañana libre · piscina Airbnb</td>
+      <td>🤠 Rodeo 13:30 · 🐂 Desfile longhorns 16hs · Stockyards</td>
+      <td>🍽 Cena Lonesome Dove · Vuelta a Euless</td>
+      <td><div class="sum-sleep">🏠 Airbnb Euless, Dallas</div></td>
+    </tr>
+<tr>
+      <td><div class="sum-day">05</div><div class="sum-date">Lun 29 Jun</div></td>
+      <td><span class="city-pill pill-florida">Florida</span></td>
+      <td>🚗 Salida 8:30 · Devolución Cybertruck · Aeropuerto</td>
+      <td>✈ Vuelo DFW→FLL 12:41 · Llegada 16:33</td>
+      <td>🏖 Primera noche en Fort Lauderdale</td>
+      <td><div class="sum-sleep">🏖 Airbnb 350 N Birch, Fort Lauderdale</div></td>
+    </tr>
+<tr>
+      <td><div class="sum-day">06</div><div class="sum-date">Mar 30 Jun</div></td>
+      <td><span class="city-pill pill-florida">Florida</span></td>
+      <td>🏖 Amanecer en la playa</td>
+      <td>🏖 Playa sin agenda</td>
+      <td>🍽 Cena en Las Olas Boulevard</td>
+      <td><div class="sum-sleep">🏖 Airbnb 350 N Birch, Fort Lauderdale</div></td>
+    </tr>
+<tr>
+      <td><div class="sum-day">07</div><div class="sum-date">Mié 1 Jul</div></td>
+      <td><span class="city-pill pill-florida">Florida</span></td>
+      <td>🏖 Snorkel y playa</td>
+      <td>🎨 Miami: Wynwood + Little Havana</td>
+      <td>🌃 South Beach · Ocean Drive</td>
+      <td><div class="sum-sleep">🏖 Airbnb 350 N Birch, Fort Lauderdale</div></td>
+    </tr>
+<tr>
+      <td><div class="sum-day">08</div><div class="sum-date">Jue 2 Jul</div></td>
+      <td><span class="city-pill pill-florida">Florida</span></td>
+      <td>🏖 Playa tranquila</td>
+      <td>🛍 Sawgrass Mills (outlets)</td>
+      <td>🍽 Cena frente al mar</td>
+      <td><div class="sum-sleep">🏖 Airbnb 350 N Birch, Fort Lauderdale</div></td>
+    </tr>
+<tr class="partido-row">
+      <td><div class="sum-day">09</div><div class="sum-date">Vie 3 Jul</div></td>
+      <td><span class="city-pill pill-florida">Florida</span></td>
+      <td>🏖 Última mañana en el Atlántico</td>
+      <td>⚽ TBC: Round of 32 Miami (si Argentina 1°)</td>
+      <td>⚽ Hard Rock Stadium · 18hs (condicional)</td>
+      <td><div class="sum-sleep">🏖 Airbnb 350 N Birch, Fort Lauderdale</div></td>
+    </tr>
+<tr>
+      <td><div class="sum-day">10</div><div class="sum-date">Sáb 4 Jul</div></td>
+      <td><span class="city-pill pill-teton">Grand Teton</span></td>
+      <td>🏖 Despedida del mar</td>
+      <td>✈ Vuelo FLL→JAC 14:50 · Escala Minneapolis</td>
+      <td>🛬 Llegada JAC 20:30 · Hertz · Drive al lodge</td>
+      <td><div class="sum-sleep">🏔 Jackson Lake Lodge, Grand Teton</div></td>
+    </tr>
+<tr>
+      <td><div class="sum-day">11</div><div class="sum-date">Dom 5 Jul</div></td>
+      <td><span class="city-pill pill-teton">Grand Teton</span></td>
+      <td>🌅 Oxbow Bend amanecer · Willows Flats</td>
+      <td>🏛 Craig Thomas Museum · 🚣 Rafting Snake River</td>
+      <td>🛒 Compras Albertsons Jackson · Cena Gun Barrel</td>
+      <td><div class="sum-sleep">🏔 Jackson Lake Lodge, Grand Teton</div></td>
+    </tr>
+<tr>
+      <td><div class="sum-day">12</div><div class="sum-date">Lun 6 Jul</div></td>
+      <td><span class="city-pill pill-teton">Grand Teton</span></td>
+      <td>🦌 Tour wildlife Grand Teton (amanecer)</td>
+      <td>😴 Descanso · 🏞 Jenny Lake</td>
+      <td>🌅 Mormon Row atardecer · Cena Whistling Grizzly</td>
+      <td><div class="sum-sleep">🏔 Jackson Lake Lodge, Grand Teton</div></td>
+    </tr>
+<tr>
+      <td><div class="sum-day">13</div><div class="sum-date">Mar 7 Jul</div></td>
+      <td><span class="city-pill pill-yellow">Yellowstone</span></td>
+      <td>🧳 Checkout · West Thumb géiseres</td>
+      <td>🦬 Hayden Valley · Grand Canyon Yellowstone</td>
+      <td>🏡 Llegada cabaña Silver Gate · Cena casera</td>
+      <td><div class="sum-sleep">🐻 Amphitheater House, Silver Gate</div></td>
+    </tr>
+<tr>
+      <td><div class="sum-day">14</div><div class="sum-date">Mié 8 Jul</div></td>
+      <td><span class="city-pill pill-yellow">Yellowstone</span></td>
+      <td>🐻 Tour guiado Hayden Valley (osos, 5am)</td>
+      <td>😴 Descanso · 🌈 Grand Prismatic Spring</td>
+      <td>⛲ Old Faithful atardecer · Cena steaks cabaña</td>
+      <td><div class="sum-sleep">🐻 Amphitheater House, Silver Gate</div></td>
+    </tr>
+<tr>
+      <td><div class="sum-day">15</div><div class="sum-date">Jue 9 Jul</div></td>
+      <td><span class="city-pill pill-yellow">Yellowstone</span></td>
+      <td>🐺 Tour guiado Lamar Valley (lobos, 5am)</td>
+      <td>🍕 Cooke City · 🌋 Mammoth Hot Springs · Obsidian Cliff</td>
+      <td>⛲ Old Faithful · Vuelta Silver Gate · Cena cabaña</td>
+      <td><div class="sum-sleep">🐻 Amphitheater House, Silver Gate</div></td>
+    </tr>
+<tr>
+      <td><div class="sum-day">16</div><div class="sum-date">Vie 10 Jul</div></td>
+      <td><span class="city-pill pill-kc">Kansas City</span></td>
+      <td>🌅 Último amanecer Lamar (opcional)</td>
+      <td>🚗 Drive a Bozeman (2hs) · Devolución Hertz BZN</td>
+      <td>✈ Vuelo SW BZN→DEN→MCI · Llegada KC 20:45</td>
+      <td><div class="sum-sleep">🍖 Hotel Kansas City</div></td>
+    </tr>
+<tr class="partido-row">
+      <td><div class="sum-day">17</div><div class="sum-date">Sáb 11 Jul</div></td>
+      <td><span class="city-pill pill-kc">Kansas City</span></td>
+      <td>🏛 Country Club Plaza</td>
+      <td>🏛 National WWI Museum</td>
+      <td>⚽ TBC: Cuartos de Final 21hs · Arrowhead Stadium</td>
+      <td><div class="sum-sleep">🍖 Hotel Kansas City</div></td>
+    </tr>
+<tr>
+      <td><div class="sum-day">18</div><div class="sum-date">Dom 12 Jul</div></td>
+      <td><span class="city-pill pill-travel">En tránsito</span></td>
+      <td>✈ Vuelo MCI→ATL 5:40am</td>
+      <td>En tránsito Atlanta → Lima</td>
+      <td>✈ Lima → Buenos Aires</td>
+      <td><div class="sum-sleep">✈ En el aire</div></td>
+    </tr>
+<tr>
+      <td><div class="sum-day">19</div><div class="sum-date">Lun 13 Jul</div></td>
+      <td><span class="city-pill pill-travel">En tránsito</span></td>
+      <td>🛬 Llegada EZE 6:10am</td>
+      <td></td>
+      <td></td>
+      <td><div class="sum-sleep">🏠 Buenos Aires</div></td>
+    </tr>
+
+      </tbody>
+    </table>
+  </div>
+</section>
+
 <!-- DETALLE COMPLETO DIA POR DIA -->
 <section class="timeline-section detail-section" id="itinerario">
   <div class="section-header">
@@ -2616,11 +2936,11 @@
           <div class="detail-km-label">📍 ~1.5hs distribuidas</div>
         </div>
       </div>
-      <div class="detail-why">Dallas sorprende. No es solo Texas estereotipado: el Klyde Warren Park es un parque construido sobre una autopista de 8 carriles, con food trucks, yoga y conciertos. El Perot Museum tiene el esqueleto de un dinosaurio enorme que Justina (11) va a adorar.</div>
+      <div class="detail-why">Deep Ellum de mañana es Dallas en su versión más auténtica: más de 100 murales de artistas callejeros en 10 cuadras, la historia del blues americano desde 1884 en cada pared, y el mejor café de la ciudad. La mañana es el mejor momento: luz perfecta para fotos, sin aglomeración, y fresco antes del calor brutal de la tarde texana (35-38°C en junio). El resto del día es libre para disfrutar la piscina del Airbnb o explorar lo que surja.</div>
       <div class="detail-body">
         <div class="detail-program">
           <div class="detail-section-title">🕐 Programa</div>
-          <div class="prog-item"><div class="prog-time">Mañana</div><div class="prog-desc">Descanso. Jet lag. Desayuno en algún diner texano clásico cerca del Airbnb.</div></div>
+          <div class="prog-item"><div class="prog-time">08:00</div><div class="prog-desc">Desayuno en el Airbnb. Café tranquilo.</div></div>
 <div class="prog-item"><div class="prog-time">Tarde</div><div class="prog-desc">Klyde Warren Park: parque urbano sobre autopista con food trucks y música en vivo. El barrio Arts District alrededor.</div></div>
 <div class="prog-item"><div class="prog-time">Noche</div><div class="prog-desc">Cena en Deep Ellum: el barrio más cool de Dallas con murales gigantes y restaurantes variados.</div></div>
 
@@ -2649,8 +2969,9 @@
         <div class="detail-program">
           <div class="detail-section-title">🕐 Programa</div>
           <div class="prog-item"><div class="prog-time">Mañana</div><div class="prog-desc">Perot Museum of Nature and Science: simulador de terremoto, esqueleto del Alamosaurus, carrera virtual contra un guepardo.</div></div>
-<div class="prog-item"><div class="prog-time">Tarde</div><div class="prog-desc">Descanso y preparación. Cena temprana antes del partido.</div></div>
-<div class="prog-item"><div class="prog-time">22:00</div><div class="prog-desc">⚽ Argentina vs Jordan · AT&T Stadium, Arlington · Confirmación #GAVRYT</div></div>
+<div class="prog-item"><div class="prog-time">13:00</div><div class="prog-desc">🕐 Tarde libre. Descanso en el Airbnb, preparación para el partido.</div></div>
+<div class="prog-item"><div class="prog-time">16:30</div><div class="prog-desc">Salida hacia Arlington. Llegada al AT&T Stadium ~18:00. Ambiente pre-partido.</div>
+<div class="prog-item"><div class="prog-time">22:00</div><div class="prog-desc">⚽ <strong>Argentina vs Jordan · AT&T Stadium, Arlington</strong> · 5 entradas pagadas</div></div></div>
 
         </div>
         <div class="detail-food"><div class="detail-section-title">🍽 Qué comen</div><div class="food-item"><span class="food-meal">Desayuno</span><span class="food-what">En el Airbnb</span></div>
@@ -2672,13 +2993,16 @@
           <div class="detail-km-label">📍 ~1hs</div>
         </div>
       </div>
-      <div class="detail-why">Fort Worth Stockyards: el único desfile de ganado longhorn que existe en el mundo, todos los días a las 16hs. Los cuernos de estos animales miden hasta 2 metros de punta a punta. Es el viejo oeste real, no una atracción de parque temático.</div>
+      <div class="detail-why">Deep Ellum de mañana es Dallas en su versión más auténtica: 100 murales de artistas callejeros en 10 cuadras, la historia del blues americano en cada pared, y el mejor café de la ciudad. Después Fort Worth Stockyards de tarde, cerrando con el Stockyards Championship Rodeo a las 19:30, el único rodeo año redondo del mundo. Bull riding de verdad, polvo real, cowboys que compiten en serio. Un día que no se olvida.</div>
       <div class="detail-body">
         <div class="detail-program">
           <div class="detail-section-title">🕐 Programa</div>
           <div class="prog-item"><div class="prog-time">Mañana</div><div class="prog-desc">Descanso post-partido. Desayuno largo.</div></div>
 <div class="prog-item"><div class="prog-time">16:00</div><div class="prog-desc">Fort Worth Stockyards: desfile de longhorns por Exchange Avenue. Llegá 30 minutos antes para agarrar lugar.</div></div>
-<div class="prog-item"><div class="prog-time">Noche</div><div class="prog-desc">Cena en el Stockyards y regreso a Euless.</div></div>
+<div class="prog-item"><div class="prog-time">15:30</div><div class="prog-desc">Rodeo termina. Recorrida por Exchange Ave: botas, sombreros, Billy Bob's Texas.</div>
+<div class="prog-item"><div class="prog-time">16:00</div><div class="prog-desc">🐂 <strong>Desfile de longhorns</strong> por Exchange Avenue. Llegá 15 min antes para agarrar lugar.</div></div>
+<div class="prog-item"><div class="prog-time">17:30</div><div class="prog-desc">🍽 Cena en <strong>Lonesome Dove Western Bistro</strong> (más gourmet) o <strong>Cattlemen's Steakhouse</strong> (más histórico, desde 1947).</div></div>
+<div class="prog-item"><div class="prog-time">19:00</div><div class="prog-desc">Vuelta a Euless. Descanso.</div></div></div>
 
         </div>
         <div class="detail-food"><div class="detail-section-title">🍽 Qué comen</div><div class="food-item"><span class="food-meal">Desayuno</span><span class="food-what">En el Airbnb</span></div>
@@ -2709,7 +3033,12 @@
       <div class="detail-body">
         <div class="detail-program">
           <div class="detail-section-title">🕐 Programa</div>
-          <div class="prog-item"><div class="prog-time">Mañana</div><div class="prog-desc">Cierre del Airbnb. Devolución del Cybertruck en DFW (18:00 máximo). Salida al aeropuerto ~11am.</div></div>
+          <div class="prog-item"><div class="prog-time">08:00</div><div class="prog-desc">Desayuno rapidísimo. Empaque final (30 min).</div>
+<div class="prog-item"><div class="prog-time">08:30</div><div class="prog-desc">🚪 Salida del Airbnb Euless. Check-out.</div></div>
+<div class="prog-item"><div class="prog-time">09:00</div><div class="prog-desc">🚗 Devolución Cybertruck en DFW Airport. Avisar a Tuan que la devolución es a las 9hs (pactada a las 18hs).</div></div>
+<div class="prog-item"><div class="prog-time">09:30</div><div class="prog-desc">Check-in American Airlines AA 1862.</div></div>
+<div class="prog-item"><div class="prog-time">10:00</div><div class="prog-desc">Control de seguridad. En la puerta.</div></div>
+<div class="prog-item"><div class="prog-time">12:00</div><div class="prog-desc">🛫 Embarque.</div></div></div>
 <div class="prog-item"><div class="prog-time">Tarde</div><div class="prog-desc">Vuelo AA 1862 DFW → FLL. Sale 12:41, llega 16:33 FLL Terminal 3. Check-in en depto 350 N Birch Road.</div></div>
 <div class="prog-item"><div class="prog-time">Noche</div><div class="prog-desc">🏖️ Primera noche: caminata por la playa al atardecer, cena frente al mar.</div></div>
 
