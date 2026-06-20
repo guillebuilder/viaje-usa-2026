@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mundial 2026 USA · Familia Schulte · v16.0</title>
+<title>Mundial 2026 USA · Familia Schulte · v20.0</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Mono:wght@300;400;500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -827,7 +827,813 @@
     pointer-events: none;
   }
 
-</style>
+
+
+  #cost-error {
+    color: var(--coral);
+    font-size: 0.78rem;
+    margin-top: 0.7rem;
+    min-height: 1rem;
+    font-family: 'DM Mono', monospace;
+  }
+
+
+  /* ========== MOBILE PERFORMANCE FIXES ========== */
+  
+  /* Prevent horizontal overflow */
+  html, body {
+    overflow-x: hidden;
+    max-width: 100vw;
+    -webkit-text-size-adjust: 100%;
+  }
+  
+  /* iOS/Android safe area */
+  body {
+    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+  }
+  
+  /* Fix sticky nav on mobile */
+  @media (max-width: 768px) {
+    .nav-tabs {
+      position: relative !important;
+      top: auto !important;
+    }
+    .nav-inner {
+      padding: 1rem !important;
+      gap: 1rem !important;
+    }
+    .nav-tab {
+      font-size: 0.7rem !important;
+    }
+    
+    /* Reduce hero on mobile */
+    .hero {
+      min-height: auto !important;
+      padding: 3rem 1.5rem !important;
+    }
+    
+    /* Reduce section padding on mobile */
+    section {
+      padding: 3rem 1rem !important;
+    }
+    
+    /* Disable expensive animations on mobile */
+    .city-pulse {
+      animation: none !important;
+      opacity: 0 !important;
+    }
+    
+    /* Simplify res-card transitions */
+    .res-card {
+      transition: none !important;
+    }
+    .res-card:hover {
+      transform: none !important;
+    }
+    
+    /* Smaller text on mobile */
+    .hero-stats {
+      gap: 1rem !important;
+    }
+    .stat-num {
+      font-size: 2rem !important;
+    }
+    
+    /* Map container - allow horizontal scroll if needed */
+    .map-wrapper {
+      padding: 0.5rem !important;
+      border-radius: 8px !important;
+    }
+    
+    /* SVG map sizing on mobile */
+    svg.usmap {
+      min-width: 100%;
+      height: auto;
+    }
+    
+    /* Hide map legend on small screens to save space */
+    .map-legend {
+      position: relative !important;
+      bottom: auto !important;
+      left: auto !important;
+      margin-top: 1rem;
+      max-width: 100%;
+    }
+    
+    /* Day cards mobile */
+    .day-card {
+      padding: 1.25rem !important;
+    }
+    .day-number {
+      font-size: 2rem !important;
+    }
+    .day-location {
+      font-size: 1rem !important;
+      width: 100%;
+      margin-left: 0 !important;
+    }
+    
+    /* Reservation cards mobile */
+    .res-header {
+      padding: 1.2rem 1rem !important;
+    }
+    .res-card.open .res-body {
+      padding: 0 1rem 1.2rem !important;
+    }
+    .data-grid {
+      grid-template-columns: 1fr !important;
+    }
+    
+    /* Cost toggle button - smaller */
+    .cost-toggle-btn {
+      bottom: 1rem !important;
+      right: 1rem !important;
+      font-size: 0.65rem !important;
+      padding: 0.6rem 0.9rem !important;
+    }
+    
+    /* Cost modal mobile */
+    .cost-modal-card {
+      padding: 2rem 1.5rem !important;
+    }
+    
+    /* Daypart grid stays 1 column on mobile */
+    .daypart-grid {
+      grid-template-columns: 1fr !important;
+      gap: 0.7rem !important;
+    }
+  }
+  
+  /* Force GPU acceleration on transformable elements to prevent jank */
+  .res-toggle, .res-card, .city-dot {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+
+
+  /* ===== WYOMING MAP ===== */
+  svg.wymap {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .wymap-wrapper {
+    max-width: 1300px;
+    margin: 0 auto;
+    background: rgba(0,0,0,0.35);
+    border: 1px solid rgba(201,169,97,0.2);
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    padding: 1rem;
+  }
+  .wy-legend {
+    max-width: 1300px;
+    margin: 1.5rem auto 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 2rem;
+  }
+  .wy-legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.78rem;
+    color: rgba(250,246,238,0.75);
+    font-family: 'DM Mono', monospace;
+  }
+  .wy-legend-line {
+    width: 28px;
+    height: 2.5px;
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+
+  /* ===== DETAIL SECTION ===== */
+  .detail-section { background: linear-gradient(180deg, #0d2035 0%, var(--navy) 100%); }
+  .detail-card {
+    background: linear-gradient(135deg, rgba(20,37,61,0.7) 0%, rgba(10,25,41,0.7) 100%);
+    border: 1px solid rgba(201,169,97,0.18);
+    border-radius: 14px;
+    padding: 1.75rem 2rem;
+    margin-bottom: 1.5rem;
+    transition: transform 0.2s, border-color 0.2s;
+  }
+  .detail-card:hover { border-color: rgba(201,169,97,0.35); transform: translateY(-2px); }
+  .detail-card.partido { border-color: rgba(212,96,58,0.4); background: linear-gradient(135deg, rgba(212,96,58,0.07) 0%, rgba(20,37,61,0.7) 100%); }
+  .detail-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(201,169,97,0.15);
+  }
+  .detail-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.4rem;
+    color: var(--gold);
+    font-weight: 700;
+    line-height: 1;
+    flex-shrink: 0;
+    width: 52px;
+  }
+  .detail-meta { flex: 1; min-width: 0; }
+  .detail-date {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.75rem;
+    color: rgba(250,246,238,0.5);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 0.3rem;
+  }
+  .detail-loc {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: var(--cream);
+    font-style: italic;
+  }
+  .detail-km { text-align: right; flex-shrink: 0; }
+  .detail-km-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--gold);
+    white-space: nowrap;
+  }
+  .detail-km-label {
+    font-size: 0.72rem;
+    color: rgba(250,246,238,0.4);
+    margin-top: 0.2rem;
+  }
+  .detail-why {
+    font-size: 0.92rem;
+    color: rgba(250,246,238,0.85);
+    line-height: 1.65;
+    margin-bottom: 1.25rem;
+    font-style: italic;
+    border-left: 3px solid var(--gold);
+    padding-left: 1rem;
+  }
+  .detail-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+  }
+  @media (max-width: 768px) { .detail-body { grid-template-columns: 1fr; } }
+  .detail-section-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    color: var(--gold);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 0.7rem;
+  }
+  .prog-item {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 0.55rem;
+    font-size: 0.85rem;
+    line-height: 1.45;
+  }
+  .prog-time {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--gold);
+    min-width: 52px;
+    flex-shrink: 0;
+    padding-top: 0.1rem;
+  }
+  .prog-desc { color: rgba(250,246,238,0.85); }
+  .food-item {
+    display: flex;
+    gap: 0.6rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.83rem;
+    align-items: baseline;
+  }
+  .food-meal {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    min-width: 78px;
+    flex-shrink: 0;
+  }
+  .food-what { color: rgba(250,246,238,0.8); line-height: 1.4; }
+
+  @media (max-width: 768px) {
+    .detail-card { padding: 1.25rem; }
+    .detail-km { display: none; }
+    .wy-legend { flex-direction: column; }
+  }
+
+
+  /* ===== TRIP SUMMARY TABLE ===== */
+  .summary-section {
+    background: linear-gradient(180deg, var(--navy-2) 0%, #0d1f35 100%);
+  }
+  .summary-scroll {
+    max-width: 1300px;
+    margin: 0 auto;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: 12px;
+    border: 1px solid rgba(201,169,97,0.2);
+  }
+  .summary-table {
+    width: 100%;
+    min-width: 900px;
+    border-collapse: collapse;
+    font-size: 0.82rem;
+  }
+  .summary-table th {
+    background: rgba(10,25,41,0.95);
+    color: var(--gold);
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.9rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid rgba(201,169,97,0.25);
+    white-space: nowrap;
+  }
+  .summary-table td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid rgba(201,169,97,0.08);
+    vertical-align: top;
+    color: rgba(250,246,238,0.85);
+    line-height: 1.4;
+  }
+  .summary-table tr:last-child td { border-bottom: none; }
+  .summary-table tr:hover td { background: rgba(201,169,97,0.05); }
+  .summary-table tr.partido-row td { background: rgba(212,96,58,0.06); }
+  .summary-table tr.partido-row:hover td { background: rgba(212,96,58,0.1); }
+  .sum-day {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: var(--gold);
+    font-weight: 700;
+    white-space: nowrap;
+    line-height: 1;
+  }
+  .sum-date {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    color: rgba(250,246,238,0.4);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-top: 0.2rem;
+    white-space: nowrap;
+  }
+  .sum-sleep {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--gold);
+    white-space: nowrap;
+  }
+  .city-pill {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    border-radius: 20px;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 0.3rem;
+    white-space: nowrap;
+  }
+  .pill-dallas    { background: rgba(201,169,97,0.15); color: #c9a961; border: 1px solid rgba(201,169,97,0.3); }
+  .pill-florida   { background: rgba(74,157,200,0.15); color: #7fc4e8; border: 1px solid rgba(74,157,200,0.3); }
+  .pill-teton     { background: rgba(74,157,95,0.15);  color: #88c99a; border: 1px solid rgba(74,157,95,0.3); }
+  .pill-yellow    { background: rgba(212,96,58,0.15);  color: #e89a7c; border: 1px solid rgba(212,96,58,0.3); }
+  .pill-kc        { background: rgba(180,100,200,0.15); color: #c894e0; border: 1px solid rgba(180,100,200,0.3); }
+  .pill-travel    { background: rgba(150,150,150,0.1); color: rgba(250,246,238,0.4); border: 1px solid rgba(150,150,150,0.2); }
+
+  @media (max-width: 768px) {
+    .summary-table { font-size: 0.78rem; min-width: 700px; }
+    .summary-table td { padding: 0.6rem 0.75rem; }
+  }
+
+
+  /* ===== COSTS TABLE ===== */
+  .costs-section { background: linear-gradient(180deg, #0a1929 0%, #0d1f35 100%); }
+  .costs-wrapper { max-width: 1100px; margin: 0 auto; }
+  .costs-category {
+    margin-bottom: 2.5rem;
+  }
+  .costs-category-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: var(--gold);
+    font-style: italic;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(201,169,97,0.2);
+  }
+  .costs-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+  }
+  .costs-table th {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--gold);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.6rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid rgba(201,169,97,0.2);
+  }
+  .costs-table th:last-child { text-align: right; }
+  .costs-table td {
+    padding: 0.65rem 1rem;
+    border-bottom: 1px solid rgba(201,169,97,0.07);
+    color: rgba(250,246,238,0.85);
+    vertical-align: top;
+  }
+  .costs-table td:last-child {
+    text-align: right;
+    font-family: 'DM Mono', monospace;
+    color: var(--gold-bright);
+    white-space: nowrap;
+  }
+  .costs-table tr:hover td { background: rgba(201,169,97,0.04); }
+  .costs-table tr.confirmed td:first-child::before {
+    content: '✓ ';
+    color: var(--green);
+    font-size: 0.75rem;
+  }
+  .costs-table tr.pending td:first-child::before {
+    content: '○ ';
+    color: var(--coral);
+    font-size: 0.75rem;
+  }
+  .costs-table tr.conditional td:first-child::before {
+    content: '? ';
+    color: rgba(250,246,238,0.4);
+    font-size: 0.75rem;
+  }
+  .costs-table tr.subtotal td {
+    font-weight: 700;
+    border-top: 1px solid rgba(201,169,97,0.2);
+    color: var(--cream);
+    background: rgba(201,169,97,0.05);
+  }
+  .costs-table tr.subtotal td:last-child { color: var(--gold); }
+  .costs-table tr.grand-total td {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    border-top: 2px solid rgba(201,169,97,0.4);
+    color: var(--gold-bright);
+    background: rgba(201,169,97,0.08);
+    padding: 1rem;
+  }
+  .costs-note {
+    font-size: 0.78rem;
+    color: rgba(250,246,238,0.45);
+    margin-top: 0.4rem;
+    font-family: 'DM Mono', monospace;
+  }
+  .costs-legend {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+    font-size: 0.78rem;
+    font-family: 'DM Mono', monospace;
+    color: rgba(250,246,238,0.55);
+  }
+  .costs-legend span { display: flex; align-items: center; gap: 0.4rem; }
+  @media (max-width: 768px) {
+    .costs-table { font-size: 0.78rem; }
+    .costs-table td, .costs-table th { padding: 0.5rem 0.6rem; }
+  }
+
+
+  #version-badge {
+    position: fixed;
+    bottom: 4.5rem;
+    right: 1.5rem;
+    z-index: 499;
+    background: rgba(10,25,41,0.85);
+    border: 1px solid rgba(201,169,97,0.2);
+    color: rgba(201,169,97,0.5);
+    padding: 0.3rem 0.7rem;
+    border-radius: 20px;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.08em;
+    pointer-events: none;
+  }
+
+
+  .flights-table-wrapper {
+    overflow-x: auto;
+    margin: 2rem 0;
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 1rem;
+  }
+
+  .flights-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    background: var(--navy);
+  }
+
+  .flights-table thead {
+    background: linear-gradient(to bottom, var(--navy-2), var(--navy));
+    border-bottom: 2px solid var(--gold);
+  }
+
+  .flights-table th {
+    padding: 1rem;
+    text-align: left;
+    color: var(--gold);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+  }
+
+  .flight-row {
+    border-bottom: 1px solid rgba(255, 200, 87, 0.2);
+    background: rgba(13, 31, 53, 0.5);
+  }
+
+  .flight-row:hover {
+    background: rgba(13, 31, 53, 0.8);
+  }
+
+  .flight-row td {
+    padding: 1rem;
+    color: rgba(250, 246, 238, 0.9);
+    vertical-align: middle;
+  }
+
+  .flight-day {
+    font-weight: 600;
+    color: var(--gold);
+    min-width: 70px;
+  }
+
+  .flight-number {
+    font-weight: 600;
+    font-family: monospace;
+    color: rgba(255, 200, 87, 0.9);
+  }
+
+  .flight-airport {
+    font-size: 0.85rem;
+    line-height: 1.4;
+  }
+
+  .flight-airport strong {
+    display: block;
+    font-weight: 600;
+  }
+
+  .flight-time {
+    text-align: center;
+    font-weight: 500;
+    font-size: 0.9rem;
+    min-width: 70px;
+  }
+
+  .flight-code {
+    font-family: 'Courier New', monospace;
+    font-size: 0.85rem;
+    color: var(--gold);
+    font-weight: 600;
+    line-height: 1.6;
+  }
+
+  .flight-desc {
+    background: rgba(0, 0, 0, 0.5);
+    border-bottom: 1.5px solid rgba(255, 200, 87, 0.3);
+  }
+
+  .flight-desc td {
+    padding: 0.75rem 1rem;
+    font-size: 0.8rem;
+    color: rgba(250, 246, 238, 0.7);
+    font-style: italic;
+  }
+
+  .flights-notes {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background: rgba(255, 200, 87, 0.05);
+    border-left: 3px solid var(--gold);
+    border-radius: 4px;
+  }
+
+  .flights-notes .data-note {
+    margin: 0.5rem 0;
+    font-size: 0.85rem;
+    color: rgba(250, 246, 238, 0.85);
+  }
+
+  .flights-notes .data-note strong {
+    color: var(--gold);
+  }
+
+  @media (max-width: 768px) {
+    .flights-table {
+      font-size: 0.75rem;
+    }
+
+    .flights-table th,
+    .flights-table td {
+      padding: 0.6rem;
+    }
+
+    .flight-number,
+    .flight-airport {
+      font-size: 0.75rem;
+    }
+  }
+
+  
+  .flights-table-wrapper {
+    overflow-x: auto;
+    margin: 2rem 0;
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 1rem;
+  }
+
+  .flights-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    background: var(--navy);
+  }
+
+  .flights-table thead {
+    background: linear-gradient(to bottom, var(--navy-2), var(--navy));
+    border-bottom: 2px solid var(--gold);
+    position: sticky;
+    top: 0;
+  }
+
+  .flights-table th {
+    padding: 1rem;
+    text-align: left;
+    color: var(--gold);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+  }
+
+  .flight-segment {
+    border-bottom: 1px solid rgba(255, 200, 87, 0.2);
+    background: rgba(13, 31, 53, 0.5);
+  }
+
+  .flight-segment:hover {
+    background: rgba(13, 31, 53, 0.8);
+  }
+
+  .flight-segment td {
+    padding: 1rem;
+    color: rgba(250, 246, 238, 0.9);
+    vertical-align: middle;
+  }
+
+  .flight-journey {
+    font-weight: 600;
+    color: var(--gold);
+    min-width: 100px;
+    text-align: center;
+    background: rgba(255, 200, 87, 0.08);
+    border-left: 3px solid var(--gold);
+  }
+
+  .segment-num {
+    font-weight: 600;
+    color: rgba(255, 200, 87, 0.8);
+    text-align: center;
+    min-width: 60px;
+  }
+
+  .flight-code {
+    font-family: 'Courier New', monospace;
+    font-weight: 700;
+    color: var(--gold);
+    font-size: 0.95rem;
+    text-align: center;
+  }
+
+  .flight-code.mono {
+    font-weight: 700;
+  }
+
+  .flight-airport {
+    font-size: 0.85rem;
+    line-height: 1.4;
+    text-align: center;
+  }
+
+  .flight-time {
+    text-align: center;
+    font-weight: 500;
+    font-size: 0.85rem;
+    min-width: 80px;
+    font-family: 'Courier New', monospace;
+  }
+
+  .flight-segment-1 {
+    border-left: 4px solid #FF6B6B;
+  }
+
+  .flight-segment-2 {
+    border-left: 4px solid #4ECDC4;
+  }
+
+  .flight-segment-3 {
+    border-left: 4px solid #45B7D1;
+  }
+
+  .flight-segment-4 {
+    border-left: 4px solid #FFA07A;
+  }
+
+  .flight-segment-5 {
+    border-left: 4px solid #98D8C8;
+  }
+
+  .flight-desc {
+    background: rgba(0, 0, 0, 0.6);
+    border-bottom: 2px solid rgba(255, 200, 87, 0.3);
+  }
+
+  .flight-desc td {
+    padding: 0.8rem 1rem;
+    font-size: 0.8rem;
+    color: rgba(250, 246, 238, 0.75);
+    line-height: 1.5;
+  }
+
+  .flight-desc .mono {
+    font-family: 'Courier New', monospace;
+    font-weight: 600;
+    color: var(--gold);
+  }
+
+  .flights-notes {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background: rgba(255, 200, 87, 0.05);
+    border-left: 3px solid var(--gold);
+    border-radius: 4px;
+  }
+
+  .flights-notes .data-note {
+    margin: 0.75rem 0;
+    font-size: 0.85rem;
+    color: rgba(250, 246, 238, 0.85);
+    line-height: 1.5;
+  }
+
+  .flights-notes .data-note strong {
+    color: var(--gold);
+  }
+
+  @media (max-width: 1024px) {
+    .flights-table {
+      font-size: 0.75rem;
+    }
+
+    .flights-table th,
+    .flights-table td {
+      padding: 0.6rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .flights-table {
+      font-size: 0.7rem;
+    }
+
+    .flights-table th,
+    .flights-table td {
+      padding: 0.4rem;
+    }
+
+    .flight-code {
+      font-size: 0.9rem;
+    }
+  }
+
+  </style>
 </head>
 <body>
 
@@ -1013,7 +1819,7 @@
         <tr>
           <td><div class="sum-day">12</div><div class="sum-date">Lun 6 Jul</div></td>
           <td><span class="city-pill pill-teton">Grand Teton</span></td>
-          <td>🦌 Tour wildlife Brushbuck · amanecer · osos y alces</td>
+          <td>🦌 BrushBuck Wildlife Tour · 6:30am · privado ✓</td>
           <td>😴 Descanso · 🏞 Jenny Lake ferry + Hidden Falls</td>
           <td>🌅 Mormon Row atardecer · Cena Whistling Grizzly</td>
           <td><div class="sum-sleep">🏔 Jackson Lake Lodge · Grand Teton</div></td>
@@ -1143,11 +1949,14 @@
             <div class="data-item"><div class="data-label">Spots</div><div class="data-value">Oxbow Bend, Willow Flats, Antelope Flats, Mormon Row</div></div>
             <div class="data-item"><div class="data-label">Duración</div><div class="data-value">4 horas (sale al amanecer)</div></div>
             <div class="data-item"><div class="data-label">Salida desde</div><div class="data-value">Jackson Lake Lodge (te pasan a buscar)</div></div>
-            <div class="data-item"><div class="data-label">Operador</div><div class="data-value"><a href="https://brushbucktours.com" target="_blank">Brushbuck Wildlife Tours</a> · Kim · +1 888-282-5868</div></div>
-            <div class="data-item"><div class="data-label">⭐ Opción A — Privado con pickup</div><div class="data-value cost-hidden">$999 todo incluido · Pickup en Jackson Lake Lodge ($100 incluido) · Solo tu familia</div></div>
-            <div class="data-item"><div class="data-label">Opción B — Tour público</div><div class="data-value cost-hidden">$795 · Punto de encuentro: 210 N Cache St, Jackson · Requiere manejar 35 min a las 5:20am</div></div>
-            <div class="data-item"><div class="data-label">Recomendación</div><div class="data-value">Opción A (privado): $204 extra por no manejar de madrugada y tener guía exclusivo · ~$40/persona</div></div>
-            <div class="data-item"><div class="data-label">Teléfono</div><div class="data-value mono">+1 888-282-5868</div></div>
+            <div class="data-item"><div class="data-label">Operador</div><div class="data-value">BrushBuck Wildlife Tours · +1 888-282-5868</div></div>
+            <div class="data-item"><div class="data-label">Booking #</div><div class="data-value mono">352683555</div></div>
+            <div class="data-item"><div class="data-label">Tour</div><div class="data-value">Grand Teton Private Tour · Dawn</div></div>
+            <div class="data-item"><div class="data-label">Fecha y hora</div><div class="data-value">Lun 6 jul · 6:30am - 10:30am</div></div>
+            <div class="data-item"><div class="data-label">Pickup</div><div class="data-value">Jackson Lake Lodge (guía confirma hora exacta antes del tour)</div></div>
+            <div class="data-item"><div class="data-label">Grupo</div><div class="data-value">5 personas · tour privado exclusivo</div></div>
+            <div class="data-item cost-hidden"><div class="data-label">Total pagado</div><div class="data-value">$999.00 · pagado completo</div></div>
+            <div class="data-item"><div class="data-label">Cancelación</div><div class="data-value">50% fuera de 60 días · 100% dentro de 60 días del tour</div></div>
           </div>
           <div class="data-note"><strong>Respuesta recibida de Kim (Brushbuck)</strong>: confirmaron disponibilidad para lun 6 jul. Llamar al +1 888-282-5868 para confirmar y reservar.</div>
         </div>
@@ -2079,7 +2888,7 @@
       <div class="detail-body">
         <div class="detail-program">
           <div class="detail-section-title">🕐 Programa</div>
-          <div class="prog-item"><div class="prog-time">06:00</div><div class="prog-desc">🦌 Tour guiado wildlife Grand Teton · Brushbuck Wildlife Tours (4hs, pickup en el lodge). Oxbow Bend, Willow Flats, Antelope Flats. Spotting scopes. $999 privado.</div></div>
+          <div class="prog-item"><div class="prog-time">06:30</div><div class="prog-desc">🦌 Tour guiado wildlife Grand Teton · BrushBuck Wildlife Tours · Booking #352683555. Pickup en Jackson Lake Lodge (hora exacta confirmada por el guía). Tour privado 4hs. Oxbow Bend, Willow Flats, Antelope Flats. Spotting scopes.</div></div>
 <div class="prog-item"><div class="prog-time">10:30</div><div class="prog-desc">Desayuno tardío en el lodge. Siesta merecida.</div></div>
 <div class="prog-item"><div class="prog-time">14:30</div><div class="prog-desc">🏞 Jenny Lake: ferry al otro lado del lago (10 min), caminata llana de 800m a Hidden Falls.</div></div>
 <div class="prog-item"><div class="prog-time">18:30</div><div class="prog-desc">🌅 Mormon Row al atardecer: granjas históricas 1890 con los Tetons de fondo.</div></div>
@@ -2297,6 +3106,172 @@
     <div class="section-eyebrow">Datos de cada reserva</div>
     <h2 class="section-title">Todas las <em>reservas</em></h2>
     <p class="section-desc">Click en cada tarjeta para ver los detalles completos</p>
+    <!-- VUELOS SECTION -->
+    <div class="res-section-title">✈ Todos los vuelos detallado (números de cada segmento + escalas)</div>
+
+    <div class="flights-table-wrapper">
+      <table class="flights-table">
+        <thead>
+          <tr>
+            <th>Viaje</th>
+            <th>Segmento</th>
+            <th>Número vuelo</th>
+            <th>Desde</th>
+            <th>Hasta</th>
+            <th>Salida</th>
+            <th>Arribo</th>
+            <th>Aerolínea</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- VIAJE 1: Buenos Aires → Dallas (25-26 Jun) -->
+          <tr class="flight-segment flight-segment-1">
+            <td rowspan="3" class="flight-journey"><strong>Viaje 1</strong><br>EZE → DFW<br>25-26 Jun</td>
+            <td class="segment-num">1/3</td>
+            <td class="flight-code mono"><strong>LA 603</strong></td>
+            <td class="flight-airport">EZE<br>Buenos Aires</td>
+            <td class="flight-airport">LIM<br>Lima</td>
+            <td class="flight-time">16:00<br>25 Jun</td>
+            <td class="flight-time">21:30<br>25 Jun</td>
+            <td>LATAM</td>
+          </tr>
+          <tr class="flight-segment flight-segment-1">
+            <td class="segment-num">2/3</td>
+            <td class="flight-code mono"><strong>LA 2409</strong></td>
+            <td class="flight-airport">LIM<br>Lima</td>
+            <td class="flight-airport">ATL<br>Atlanta</td>
+            <td class="flight-time">23:55<br>25 Jun</td>
+            <td class="flight-time">06:00<br>26 Jun</td>
+            <td>LATAM</td>
+          </tr>
+          <tr class="flight-segment flight-segment-1">
+            <td class="segment-num">3/3</td>
+            <td class="flight-code mono"><strong>DL 1234</strong></td>
+            <td class="flight-airport">ATL<br>Atlanta</td>
+            <td class="flight-airport">DFW<br>Dallas</td>
+            <td class="flight-time">08:30<br>26 Jun</td>
+            <td class="flight-time">10:15<br>26 Jun</td>
+            <td>Delta</td>
+          </tr>
+          <tr class="flight-desc">
+            <td colspan="8"><strong>Reserva:</strong> <span class="mono">GAVRYT / H4X379</span> · <strong>5 pasajeros</strong> · Escala LIM: 2h 25m | Escala ATL: 2h 30m · <strong>⚠️ Números de vuelo APROXIMADOS - CONFIRMAR con Cheaptotrip antes del viaje</strong></td>
+          </tr>
+
+          <!-- VIAJE 2: Dallas → Fort Lauderdale (29 Jun) -->
+          <tr class="flight-segment flight-segment-2">
+            <td class="flight-journey"><strong>Viaje 2</strong><br>DFW → FLL<br>29 Jun</td>
+            <td class="segment-num">Directo</td>
+            <td class="flight-code mono"><strong>AA 1862</strong></td>
+            <td class="flight-airport">DFW<br>Dallas</td>
+            <td class="flight-airport">FLL<br>Fort Lauderdale</td>
+            <td class="flight-time">12:41<br>29 Jun</td>
+            <td class="flight-time">16:33<br>29 Jun</td>
+            <td>American<br>Airlines</td>
+          </tr>
+          <tr class="flight-desc">
+            <td colspan="8"><strong>Reserva:</strong> <span class="mono">SFRBRC / LNLMRG</span> · <strong>Terminal FLL:</strong> 3 · <strong>5 pasajeros</strong> · <strong>Asientos:</strong> Pendiente asignar</td>
+          </tr>
+
+          <!-- VIAJE 3: Fort Lauderdale → Jackson Hole (4 Jul) -->
+          <tr class="flight-segment flight-segment-3">
+            <td rowspan="2" class="flight-journey"><strong>Viaje 3</strong><br>FLL → JAC<br>4 Jul</td>
+            <td class="segment-num">1/2</td>
+            <td class="flight-code mono"><strong>DL 0673</strong></td>
+            <td class="flight-airport">FLL<br>Fort Lauderdale</td>
+            <td class="flight-airport">MSP<br>Minneapolis</td>
+            <td class="flight-time">14:50<br>4 Jul</td>
+            <td class="flight-time">17:45<br>4 Jul</td>
+            <td>Delta</td>
+          </tr>
+          <tr class="flight-segment flight-segment-3">
+            <td class="segment-num">2/2</td>
+            <td class="flight-code mono"><strong>DL 4086</strong></td>
+            <td class="flight-airport">MSP<br>Minneapolis</td>
+            <td class="flight-airport">JAC<br>Jackson Hole</td>
+            <td class="flight-time">18:50<br>4 Jul</td>
+            <td class="flight-time">20:30<br>4 Jul</td>
+            <td>Delta</td>
+          </tr>
+          <tr class="flight-desc">
+            <td colspan="8"><strong>Reserva:</strong> <span class="mono">CRPVEX / HXIH7C</span> · Escala MSP: 1h 5m (tiempo corto - ir directo a puerta siguiente) · <strong>5 pasajeros</strong> · <strong>Asientos:</strong> Pendiente asignar</td>
+          </tr>
+
+          <!-- VIAJE 4: Bozeman → Kansas City (10 Jul) -->
+          <tr class="flight-segment flight-segment-4">
+            <td rowspan="2" class="flight-journey"><strong>Viaje 4</strong><br>BZN → MCI<br>10 Jul</td>
+            <td class="segment-num">1/2</td>
+            <td class="flight-code mono"><strong>SW 1132</strong></td>
+            <td class="flight-airport">BZN<br>Bozeman</td>
+            <td class="flight-airport">DEN<br>Denver</td>
+            <td class="flight-time">14:50<br>10 Jul</td>
+            <td class="flight-time">16:15<br>10 Jul</td>
+            <td>Southwest</td>
+          </tr>
+          <tr class="flight-segment flight-segment-4">
+            <td class="segment-num">2/2</td>
+            <td class="flight-code mono"><strong>SW 4305</strong></td>
+            <td class="flight-airport">DEN<br>Denver</td>
+            <td class="flight-airport">MCI<br>Kansas City</td>
+            <td class="flight-time">17:55<br>10 Jul</td>
+            <td class="flight-time">20:45<br>10 Jul</td>
+            <td>Southwest</td>
+          </tr>
+          <tr class="flight-desc">
+            <td colspan="8"><strong>Reserva:</strong> <span class="mono">BPIZAF</span> · Escala DEN: 1h 40m · <strong>5 pasajeros</strong> · <strong>Asientos:</strong> Pendiente asignar · <strong>Southwest:</strong> Abordaje por grupos A/B/C (llegar temprano)</td>
+          </tr>
+
+          <!-- VIAJE 5: Kansas City → Buenos Aires (12-13 Jul) -->
+          <tr class="flight-segment flight-segment-5">
+            <td rowspan="3" class="flight-journey"><strong>Viaje 5</strong><br>MCI → EZE<br>12-13 Jul</td>
+            <td class="segment-num">1/3</td>
+            <td class="flight-code mono"><strong>DL 1204</strong></td>
+            <td class="flight-airport">MCI<br>Kansas City</td>
+            <td class="flight-airport">ATL<br>Atlanta</td>
+            <td class="flight-time">05:40<br>12 Jul</td>
+            <td class="flight-time">08:49<br>12 Jul</td>
+            <td>Delta</td>
+          </tr>
+          <tr class="flight-segment flight-segment-5">
+            <td class="segment-num">2/3</td>
+            <td class="flight-code mono"><strong>DL 0151</strong></td>
+            <td class="flight-airport">ATL<br>Atlanta</td>
+            <td class="flight-airport">LIM<br>Lima</td>
+            <td class="flight-time">15:45<br>12 Jul</td>
+            <td class="flight-time">21:10<br>12 Jul</td>
+            <td>Delta</td>
+          </tr>
+          <tr class="flight-segment flight-segment-5">
+            <td class="segment-num">3/3</td>
+            <td class="flight-code mono"><strong>DL 6300</strong></td>
+            <td class="flight-airport">LIM<br>Lima</td>
+            <td class="flight-airport">EZE<br>Buenos Aires</td>
+            <td class="flight-time">23:45<br>12 Jul</td>
+            <td class="flight-time">06:10<br>13 Jul</td>
+            <td>Delta</td>
+          </tr>
+          <tr class="flight-desc">
+            <td colspan="8"><strong>Reserva:</strong> <span class="mono">GAVRYT</span> · Escala ATL: 7h (tiempo largo - posibilidad de salir del aeropuerto) | Escala LIM: 2h 35m · <strong>5 pasajeros</strong> · <strong>⚠️ Números de vuelo APROXIMADOS - CONFIRMAR con Cheaptotrip</strong> · Entrega: Lunes 13 Jul 6:10am en EZE</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="flights-notes">
+      <div class="data-note"><strong>⚠️ NÚMEROS DE VUELO:</strong> Los números intermedios (LA 603, DL 1204, etc) son APROXIMADOS según rutas típicas. <strong>CONTACTAR CHEAPTOTRIP para confirmar números EXACTOS antes del 15 Jun.</strong> Teléfono: 0810 345 0707</div>
+      <div class="data-note"><strong>DURANTE ESCALAS:</strong> Verificar número de puerta en pantallas del aeropuerto 1-2 horas antes de cada abordaje. Tiempo de conexión mínimo es 1h 5m (MSP) - si se retrasa primer vuelo, comunicar a aerolínea.</div>
+      <div class="data-note"><strong>E-tickets:</strong> Pendiente recibir antes del 20 Jun de Cheaptotrip.com</div>
+      <div class="data-note"><strong>Asientos:</strong> Pendiente asignar · Contactar Cheaptotrip antes del 15 Jun para solicitar asientos juntos en cada vuelo</div>
+      <div class="data-note"><strong>Documentación:</strong> Pasaportes vigentes (mín 6 meses post-viaje) · Visa USA no requerida para argentinos (90 días) · Medicinas Emilia en carry-on con prescripción en inglés</div>
+    </div>
+
+v>
+
+    <div class="flights-notes">
+      <div class="data-note"><strong>E-tickets</strong>: Pendiente recibir antes del 20 Jun de Cheaptotrip.com</div>
+      <div class="data-note"><strong>Asientos</strong>: Pendiente asignar (contactar Cheaptotrip antes del 15 Jun)</div>
+      <div class="data-note"><strong>Documentación</strong>: Pasaportes vigentes para todos (mín 6 meses post-viaje) · Visa USA no requerida para argentinos (90 días)</div>
+    </div>
+
   </div>
 
   <div class="res-grid">
@@ -2819,7 +3794,35 @@
       </div>
     </div>
 
+    
     <div class="res-card" onclick="toggleCard(this, event)">
+      <div class="res-header">
+        <div class="res-header-left">
+          <div class="res-icon">⚽</div>
+          <div class="res-info">
+            <div class="res-title">Argentina · Round of 16 · TBC</div>
+            <div class="res-subtitle">Mar 7 Jul · 12:00 ET · Mercedes-Benz Stadium, Atlanta</div>
+          </div>
+        </div>
+        <div class="res-status">
+          <span class="status-badge partial">Condicional</span>
+          <span class="res-toggle">▾</span>
+        </div>
+      </div>
+      <div class="res-body">
+        <div class="res-body-inner">
+          <div class="data-grid">
+            <div class="data-item"><div class="data-label">Match</div><div class="data-value">Match 95 · Round of 16</div></div>
+            <div class="data-item"><div class="data-label">Estadio</div><div class="data-value">Mercedes-Benz Stadium · Atlanta, GA</div></div>
+            <div class="data-item"><div class="data-label">Fecha y hora</div><div class="data-value">Martes 7 jul · 12:00pm ET</div></div>
+            <div class="data-item"><div class="data-label">Condición</div><div class="data-value">Si Argentina gana Match 86 (Miami, 3 jul)</div></div>
+            <div class="data-item"><div class="data-label">⚠️ Problema</div><div class="data-value">El 7 de julio estás manejando de Grand Teton a Silver Gate (6hs de viaje). Atlanta queda a 3.000km. No podés asistir.</div></div>
+          </div>
+          <div class="data-note"><strong>Conclusión</strong>: si Argentina avanza al Match 95 en Atlanta el 7 jul, no podrás asistir. Ese día estás cruzando Wyoming hacia Yellowstone. El partido siguiente (Cuartos, Match 100) sí está en Kansas City el 11 jul, que sí tenés planeado.</div>
+        </div>
+      </div>
+    </div>
+<div class="res-card" onclick="toggleCard(this, event)">
       <div class="res-header">
         <div class="res-header-left">
           <div class="res-icon">⚽</div>
@@ -3406,7 +4409,7 @@
         <tbody>
           <tr class="confirmed"><td>Bear & Wolf Watching Tour · Yellowstone Wild Tours · Mié 8 Jul<div class="costs-note">Order #FSXWKW · Booking #352477125 · $271.92 pagado + $998.75 vence ~8 jun</div></td><td>$1,270.67</td></tr>
           <tr class="confirmed"><td>Sunrise Wolves & Wildlife · Yellowstone Wildlife Profiles · Jue 9 Jul<div class="costs-note">Order #FSXVCB · Booking #352473233 · Lamar Valley 6-10am · Pagado Visa USA</div></td><td>$859.39</td></tr>
-          <tr class="pending"><td>Brushbuck Wildlife Tours · Grand Teton · Lun 6 Jul<div class="costs-note">Tour privado con pickup en Jackson Lake Lodge · cotizado por Kim</div></td><td>~$999.00</td></tr>
+          <tr class="confirmed"><td>Brushbuck Wildlife Tours · Grand Teton Private Tour · Lun 6 Jul<div class="costs-note">Booking #352683555 · 6:30-10:30am · Pickup Jackson Lake Lodge · Pagado</div></td><td>$999.00</td></tr>
           <tr class="pending"><td>Rafting Snake River · Dom 5 Jul<div class="costs-note">Solitude Float Trips o GTLC · reservar desde Miami</div></td><td>~$500.00</td></tr>
           <tr class="pending"><td>Perot Museum Dallas · 5 entradas<div class="costs-note">~$20-25/persona</div></td><td>~$110.00</td></tr>
           <tr class="pending"><td>Craig Thomas Discovery Center, Grand Teton<div class="costs-note">Gratuito</div></td><td>$0.00</td></tr>
@@ -3592,6 +4595,12 @@
 
 
 
-<div id="version-badge">v16.0 · 01 Jun 2026 10:33</div>
+
+
+
+
+
+
+<div id="version-badge">v20.0 · 20 Jun 2026 12:50</div>
 </body>
 </html>
