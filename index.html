@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mundial 2026 USA · Familia Schulte · v20.0</title>
+<title>Mundial 2026 USA · Familia Schulte · v27.0</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Mono:wght@300;400;500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -1633,6 +1633,106 @@
     }
   }
 
+  
+  .infografia-section {
+    margin: 3rem 0;
+    padding: 1rem;
+    background: rgba(13, 31, 53, 0.6);
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .infografia-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 6px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+  }
+
+  @media (max-width: 768px) {
+    .infografia-section {
+      margin: 2rem 0;
+      padding: 0.5rem;
+    }
+
+    .infografia-image {
+      width: 100%;
+    }
+  }
+
+  
+  .pendientes-section {
+    margin: 2rem 0;
+  }
+
+  .pendientes-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .pendiente-item {
+    display: flex;
+    gap: 1rem;
+    padding: 1.25rem;
+    border-radius: 6px;
+    background: rgba(13, 31, 53, 0.6);
+    border-left: 4px solid;
+  }
+
+  .pendiente-item.status-urgente {
+    border-left-color: #FF6B6B;
+    background: rgba(255, 107, 107, 0.08);
+  }
+
+  .pendiente-item.status-importante {
+    border-left-color: #FFA500;
+    background: rgba(255, 165, 0, 0.08);
+  }
+
+  .pendiente-item.status-info {
+    border-left-color: #4ECDC4;
+    background: rgba(78, 205, 196, 0.08);
+  }
+
+  .pendiente-status {
+    font-size: 0.85rem;
+    font-weight: 600;
+    min-width: 80px;
+    text-align: center;
+  }
+
+  .pendiente-content {
+    flex: 1;
+  }
+
+  .pendiente-title {
+    font-weight: 600;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+  }
+
+  .pendiente-detail {
+    font-size: 0.85rem;
+    color: rgba(250, 246, 238, 0.8);
+    line-height: 1.5;
+  }
+
+  @media (max-width: 768px) {
+    .pendiente-item {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .pendiente-status {
+      min-width: unset;
+    }
+  }
+
   </style>
 </head>
 <body>
@@ -1681,656 +1781,84 @@
 </script>
 
 <!-- HERO -->
-<section class="hero">
-  <div class="hero-content">
-    <div class="hero-eyebrow">✦ Mundial FIFA 2026 ✦</div>
-    <h1 class="hero-title">Familia Schulte<em>en Estados Unidos</em></h1>
-    <p class="hero-subtitle">Imaginate esto: el 25 de junio salimos de Buenos Aires y en menos de 24 horas estamos en Texas, recorriendo Dallas en un Cybertruck con los chicos. El 27 de junio a las 10 de la noche entramos al estadio más grande del mundo para ver a Argentina jugar en vivo en el Mundial. El domingo nos vamos al rodeo más histórico de Texas en el Cowtown Coliseum de Fort Worth, con bull riding real y el desfile de longhorns por Exchange Avenue. Dos días después aterrizamos en Fort Lauderdale, donde tenemos un departamento con la playa literalmente enfrente durante cinco noches: días de mar y arena sin agenda, una tarde de outlets en Sawgrass, Wynwood y Little Havana, y el miércoles 1 de julio Shakira en el Kaseya Center de Miami. Si Argentina clasifica primero del grupo, manejamos 40 minutos hasta el Hard Rock Stadium para verlos de nuevo. El 4 de julio volamos a Wyoming, y acá empieza la parte del viaje que no se parece a nada que hayamos hecho antes. Tres noches en Jackson Lake Lodge, uno de los hoteles más icónicos del oeste americano, con ventanales de 18 metros que enmarcan los picos nevados del Grand Teton mientras desayunás. Salimos al amanecer con guías especializados a ver grizzlies, alces y lobos en libertad, flotamos por el Snake River con los Tetons encima, y al atardecer los bisontes cruzan la ruta delante del auto. Después tres noches en una cabaña privada en Silver Gate, Montana, a metros del parque Yellowstone: el géiser Grand Prismatic, Old Faithful, y dos madrugadas con guías de élite buscando osos en Hayden Valley y lobos en Lamar Valley. Cerramos el viaje en Kansas City el 11 de julio donde si Argentina llegó a cuartos los vemos jugar esa noche en el Arrowhead Stadium. Son 19 días, tres partidos posibles, un rodeo, Shakira, dos parques nacionales, grizzlies, lobos, géiseres y una playa del Atlántico. Exactamente el momento para hacerlo: Joaquín tiene 16, Emi tiene 14, Justina tiene 11. En cinco años más, ninguno de los tres vuelve a ser el mismo viajero. Es ahora.</p>
-    <div class="hero-stats">
-      <div class="stat"><div class="stat-num">19</div><div class="stat-label">Días</div></div>
-      <div class="stat"><div class="stat-num">6</div><div class="stat-label">Destinos</div></div>
-      <div class="stat"><div class="stat-num">5</div><div class="stat-label">Vuelos ✓</div></div>
-      <div class="stat"><div class="stat-num">3</div><div class="stat-label">Partidos posibles</div></div>
+
+  <section class="pendientes-section" id="pendientes">
+    <div class="section-header">
+      <div class="section-eyebrow">Tareas finales</div>
+      <h2 class="section-title">Pendientes del viaje</h2>
+      <p class="section-desc">Lo que falta completar antes de partir</p>
     </div>
-  </div>
-</section>
 
-<!-- NAV -->
-<nav class="nav-tabs">
-  <div class="nav-inner">
-    <a href="#resumen" class="nav-tab">📊 Resumen</a>
-    <a href="#pendientes" class="nav-tab">✓ Pendientes</a>
-    <a href="#mapa" class="nav-tab">🗺 Mapa USA</a>
-    <a href="#mapatetons" class="nav-tab">🏔 Mapa Yellowstone</a>
-    <a href="#itinerario" class="nav-tab">📅 Día por día</a>
-    <a href="#reservas" class="nav-tab">📋 Reservas</a>
-    <a href="#equipaje" class="nav-tab">🎒 Equipaje</a>
-    <a href="#costos" class="nav-tab cost-hidden">💰 Costos</a>
-  </div>
-</nav>
-
-<section class="timeline-section summary-section" id="resumen">
-  <div class="section-header">
-    <div class="section-eyebrow">Los 19 días de un vistazo</div>
-    <h2 class="section-title">Resumen del <em>viaje</em></h2>
-    <p class="section-desc">Mañana, tarde, noche y alojamiento de cada día</p>
-  </div>
-  <div class="summary-scroll">
-    <table class="summary-table">
-      <thead>
-        <tr>
-          <th>Día</th>
-          <th>Zona</th>
-          <th>☀ Mañana</th>
-          <th>⛱ Tarde</th>
-          <th>🌙 Noche</th>
-          <th>🛏 Durmiendo en</th>
-        </tr>
-      </thead>
-            <tbody>
-        <tr>
-          <td><div class="sum-day">01</div><div class="sum-date">Jue 25 Jun</div></td>
-          <td><span class="city-pill pill-travel">En tránsito</span></td>
-          <td>✈ Vuelo EZE · Lima · Atlanta</td>
-          <td>En tránsito · conexiones</td>
-          <td>Llegada DFW 00:09 · Cybertruck · Airbnb Euless</td>
-          <td><div class="sum-sleep">🏠 Airbnb Euless · Dallas</div></td>
-        </tr>
-        <tr>
-          <td><div class="sum-day">02</div><div class="sum-date">Vie 26 Jun</div></td>
-          <td><span class="city-pill pill-dallas">Texas</span></td>
-          <td>🎨 Deep Ellum · murales · café</td>
-          <td>🕐 Tarde libre · piscina Airbnb</td>
-          <td>🍽 Cena libre en Dallas</td>
-          <td><div class="sum-sleep">🏠 Airbnb Euless · Dallas</div></td>
-        </tr>
-        <tr class="partido-row">
-          <td><div class="sum-day">03</div><div class="sum-date">Sáb 27 Jun</div></td>
-          <td><span class="city-pill pill-dallas">Texas</span></td>
-          <td>🦕 Perot Museum of Nature</td>
-          <td>🕐 Tarde libre · preparación partido</td>
-          <td>⚽ Argentina vs Jordan · 22hs · AT&T Stadium</td>
-          <td><div class="sum-sleep">🏠 Airbnb Euless · Dallas</div></td>
-        </tr>
-        <tr class="partido-row">
-          <td><div class="sum-day">04</div><div class="sum-date">Dom 28 Jun</div></td>
-          <td><span class="city-pill pill-dallas">Texas</span></td>
-          <td>🕐 Mañana libre · piscina</td>
-          <td>🤠 Rodeo 13:30 · 🐂 Desfile longhorns 16hs</td>
-          <td>🍽 Cena Lonesome Dove / Cattlemen's · Stockyards</td>
-          <td><div class="sum-sleep">🏠 Airbnb Euless · Dallas</div></td>
-        </tr>
-        <tr>
-          <td><div class="sum-day">05</div><div class="sum-date">Lun 29 Jun</div></td>
-          <td><span class="city-pill pill-dallas">Texas</span></td>
-          <td>🚗 Salida 8:30 · Devolución Cybertruck DFW</td>
-          <td>✈ Vuelo AA 1862 DFW→FLL · 12:41 · Llega 16:33</td>
-          <td>🏖 Primera noche en Fort Lauderdale · cena frente al mar</td>
-          <td><div class="sum-sleep">🏖 Airbnb 350 N Birch · Fort Lauderdale</div></td>
-        </tr>
-        <tr>
-          <td><div class="sum-day">06</div><div class="sum-date">Mar 30 Jun</div></td>
-          <td><span class="city-pill pill-florida">Florida</span></td>
-          <td>🏖 Amanecer en la playa</td>
-          <td>🏖 Playa sin agenda · snorkel</td>
-          <td>🍽 Cena Las Olas Boulevard</td>
-          <td><div class="sum-sleep">🏖 Airbnb 350 N Birch · Fort Lauderdale</div></td>
-        </tr>
-        <tr class="partido-row">
-          <td><div class="sum-day">07</div><div class="sum-date">Mié 1 Jul</div></td>
-          <td><span class="city-pill pill-florida">Florida</span></td>
-          <td>🏖 Playa · snorkel</td>
-          <td>🎨 Miami: Wynwood Walls · Little Havana</td>
-          <td>🎤 Shakira · Las Mujeres Ya No Lloran · Kaseya Center 19:30</td>
-          <td><div class="sum-sleep">🏖 Airbnb 350 N Birch · Fort Lauderdale</div></td>
-        </tr>
-        <tr>
-          <td><div class="sum-day">08</div><div class="sum-date">Jue 2 Jul</div></td>
-          <td><span class="city-pill pill-florida">Florida</span></td>
-          <td>🏖 Playa tranquila</td>
-          <td>🛍 Sawgrass Mills · outlets</td>
-          <td>🍽 Cena frente al mar</td>
-          <td><div class="sum-sleep">🏖 Airbnb 350 N Birch · Fort Lauderdale</div></td>
-        </tr>
-        <tr class="partido-row">
-          <td><div class="sum-day">09</div><div class="sum-date">Vie 3 Jul</div></td>
-          <td><span class="city-pill pill-florida">Florida</span></td>
-          <td>🏖 Última mañana en el Atlántico</td>
-          <td>🕐 Libre · o Round of 32 Miami 18hs (condicional)</td>
-          <td>⚽ TBC: Argentina Round of 32 · Hard Rock Stadium</td>
-          <td><div class="sum-sleep">🏖 Airbnb 350 N Birch · Fort Lauderdale</div></td>
-        </tr>
-        <tr>
-          <td><div class="sum-day">10</div><div class="sum-date">Sáb 4 Jul</div></td>
-          <td><span class="city-pill pill-teton">Grand Teton</span></td>
-          <td>🏖 Despedida del mar</td>
-          <td>✈ Delta DL0673+4086 FLL→MSP→JAC · Sale 14:50</td>
-          <td>🛬 Llegada JAC 20:30 · Hertz Ford Edge · Jackson Lake Lodge</td>
-          <td><div class="sum-sleep">🏔 Jackson Lake Lodge · Grand Teton</div></td>
-        </tr>
-        <tr>
-          <td><div class="sum-day">11</div><div class="sum-date">Dom 5 Jul</div></td>
-          <td><span class="city-pill pill-teton">Grand Teton</span></td>
-          <td>🌅 Oxbow Bend amanecer · Willow Flats · alces</td>
-          <td>🏛 Craig Thomas Museum · 🚣 Rafting Snake River</td>
-          <td>🛒 Compras Albertsons Jackson · Cena Gun Barrel</td>
-          <td><div class="sum-sleep">🏔 Jackson Lake Lodge · Grand Teton</div></td>
-        </tr>
-        <tr>
-          <td><div class="sum-day">12</div><div class="sum-date">Lun 6 Jul</div></td>
-          <td><span class="city-pill pill-teton">Grand Teton</span></td>
-          <td>🦌 BrushBuck Wildlife Tour · 6:30am · privado ✓</td>
-          <td>😴 Descanso · 🏞 Jenny Lake ferry + Hidden Falls</td>
-          <td>🌅 Mormon Row atardecer · Cena Whistling Grizzly</td>
-          <td><div class="sum-sleep">🏔 Jackson Lake Lodge · Grand Teton</div></td>
-        </tr>
-        <tr>
-          <td><div class="sum-day">13</div><div class="sum-date">Mar 7 Jul</div></td>
-          <td><span class="city-pill pill-yellow">Yellowstone</span></td>
-          <td>🧳 Checkout FLL 11:00 · Vuelo 14:50 → Wyoming</td>
-          <td>🦬 Hayden Valley · Grand Canyon del Yellowstone</td>
-          <td>🏡 Llegada cabaña Silver Gate · Cena casera</td>
-          <td><div class="sum-sleep">🐻 Amphitheater House · Silver Gate</div></td>
-        </tr>
-        <tr>
-          <td><div class="sum-day">14</div><div class="sum-date">Mié 8 Jul</div></td>
-          <td><span class="city-pill pill-yellow">Yellowstone</span></td>
-          <td>🐻 Bear & Wolf Tour · Yellowstone Wild Tours · amanecer</td>
-          <td>😴 Descanso · 🌈 Grand Prismatic Spring · ⛲ Old Faithful</td>
-          <td>🍖 Steaks a la parrilla en la cabaña</td>
-          <td><div class="sum-sleep">🐻 Amphitheater House · Silver Gate</div></td>
-        </tr>
-        <tr>
-          <td><div class="sum-day">15</div><div class="sum-date">Jue 9 Jul</div></td>
-          <td><span class="city-pill pill-yellow">Yellowstone</span></td>
-          <td>🐺 Sunrise Wolves & Wildlife · Lamar Valley · 6am</td>
-          <td>🍕 Cooke City · 🌋 Mammoth Hot Springs · Obsidian Cliff</td>
-          <td>⛲ Old Faithful · Vuelta Silver Gate · Cena cabaña</td>
-          <td><div class="sum-sleep">🐻 Amphitheater House · Silver Gate</div></td>
-        </tr>
-        <tr>
-          <td><div class="sum-day">16</div><div class="sum-date">Vie 10 Jul</div></td>
-          <td><span class="city-pill pill-kc">Kansas City</span></td>
-          <td>🌅 Último amanecer Lamar (opcional)</td>
-          <td>🚗 Drive a Bozeman 2hs · Devolución Hertz BZN</td>
-          <td>✈ SW 1132+4305 BZN→DEN→MCI · Llega KC 20:45</td>
-          <td><div class="sum-sleep">🍖 Hotel Kansas City</div></td>
-        </tr>
-        <tr class="partido-row">
-          <td><div class="sum-day">17</div><div class="sum-date">Sáb 11 Jul</div></td>
-          <td><span class="city-pill pill-kc">Kansas City</span></td>
-          <td>🏛 Country Club Plaza</td>
-          <td>🏛 National WWI Museum</td>
-          <td>⚽ TBC: Argentina Cuartos de Final · 21hs · Arrowhead Stadium</td>
-          <td><div class="sum-sleep">🍖 Hotel Kansas City</div></td>
-        </tr>
-        <tr>
-          <td><div class="sum-day">18</div><div class="sum-date">Dom 12 Jul</div></td>
-          <td><span class="city-pill pill-travel">En tránsito</span></td>
-          <td>✈ Vuelo MCI→ATL · 5:40am</td>
-          <td>En tránsito · Atlanta → Lima</td>
-          <td>✈ Lima → Buenos Aires · vuelo nocturno</td>
-          <td><div class="sum-sleep">✈ En el aire</div></td>
-        </tr>
-        <tr>
-          <td><div class="sum-day">19</div><div class="sum-date">Lun 13 Jul</div></td>
-          <td><span class="city-pill pill-travel">En tránsito</span></td>
-          <td>🛬 Llegada EZE · 6:10am 🇦🇷</td>
-          <td></td>
-          <td></td>
-          <td><div class="sum-sleep">🏠 Buenos Aires</div></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</section>
-
-<section class="reservations-section" id="pendientes" style="background: var(--navy);">
-  <div class="section-header">
-    <div class="section-eyebrow">Tareas por hacer</div>
-    <h2 class="section-title">Checklist de <em>pendientes</em></h2>
-    <p class="section-desc">Todo lo que falta reservar, confirmar o comprar para que el viaje esté completo</p>
-  </div>
-
-  <div class="res-grid" style="max-width: 1100px;">
-
-    <div class="res-section-title">🔴 Por reservar</div>
-
-    <div class="res-card" onclick="toggleCard(this, event)">
-      <div class="res-header">
-        <div class="res-header-left">
-          <div class="res-icon">🏨</div>
-          <div class="res-info">
-            <div class="res-title">Hotel Kansas City</div>
-            <div class="res-subtitle">10-11 jul · 1 o 2 noches · pendiente reservar</div>
-          </div>
-        </div>
-        <div class="res-status">
-          <span class="status-badge pending">Pendiente</span>
-          <span class="res-toggle">▾</span>
+    <div class="pendientes-list">
+      <div class="pendiente-item status-urgente">
+        <div class="pendiente-status">🔴 Urgente</div>
+        <div class="pendiente-content">
+          <div class="pendiente-title">Asientos en todos los vuelos</div>
+          <div class="pendiente-detail">Contactar Cheaptotrip antes del 15 Jun para asignar asientos juntos</div>
         </div>
       </div>
-      <div class="res-body">
-        <div class="res-body-inner">
-          <div class="data-grid">
-            <div class="data-item"><div class="data-label">Ubicación</div><div class="data-value">Cerca de MCI Airport</div></div>
-            <div class="data-item"><div class="data-label">Llegada</div><div class="data-value">vie 10 jul · 20:45 (vuelo Southwest)</div></div>
-            <div class="data-item"><div class="data-label">Salida</div><div class="data-value">dom 12 jul · 5:40am</div></div>
-            <div class="data-item"><div class="data-label">Plataformas</div><div class="data-value">Booking · Expedia · marcas conocidas</div></div>
-          </div>
-          <div class="data-note">Si Argentina avanza a cuartos, considerar 2 noches (partido sáb 11 jul 21hs en Arrowhead Stadium).</div>
+
+      <div class="pendiente-item status-urgente">
+        <div class="pendiente-status">🔴 Urgente</div>
+        <div class="pendiente-content">
+          <div class="pendiente-title">E-tickets y reservas confirmadas</div>
+          <div class="pendiente-detail">Recibir e-tickets de Cheaptotrip antes del 20 Jun. Imprimir como backup</div>
+        </div>
+      </div>
+
+      <div class="pendiente-item status-urgente">
+        <div class="pendiente-status">🔴 Urgente</div>
+        <div class="pendiente-content">
+          <div class="pendiente-title">Yellowstone Wild Tours saldo</div>
+          <div class="pendiente-detail">$998,75 se cobra automáticamente alrededor del 8 Jun en Visa USA</div>
+        </div>
+      </div>
+
+      <div class="pendiente-item status-importante">
+        <div class="pendiente-status">🟡 Importante</div>
+        <div class="pendiente-content">
+          <div class="pendiente-title">Rafting Snake River</div>
+          <div class="pendiente-detail">Reservar desde Miami (29 Jun-4 Jul). Dom 5 Jul 13:30. Estimado $500</div>
+        </div>
+      </div>
+
+      <div class="pendiente-item status-importante">
+        <div class="pendiente-status">🟡 Importante</div>
+        <div class="pendiente-content">
+          <div class="pendiente-title">Visa USA y Hertz</div>
+          <div class="pendiente-detail">Llamar banco para CDW coverage Ford Edge. Llamar Hertz para cambiar pickup a 20:30 en JAC</div>
+        </div>
+      </div>
+
+      <div class="pendiente-item status-info">
+        <div class="pendiente-status">✅ Confirmado</div>
+        <div class="pendiente-content">
+          <div class="pendiente-title">Todos los vuelos</div>
+          <div class="pendiente-detail">5 vuelos confirmados · E-tickets pendiente recibir</div>
+        </div>
+      </div>
+
+      <div class="pendiente-item status-info">
+        <div class="pendiente-status">✅ Confirmado</div>
+        <div class="pendiente-content">
+          <div class="pendiente-title">Tours y actividades</div>
+          <div class="pendiente-detail">Brushbuck, Yellowstone Wild Tours, Wildlife Profiles · Todos pagados</div>
+        </div>
+      </div>
+
+      <div class="pendiente-item status-info">
+        <div class="pendiente-status">✅ Confirmado</div>
+        <div class="pendiente-content">
+          <div class="pendiente-title">Entradas y shows</div>
+          <div class="pendiente-detail">Argentina vs Jordan, Shakira, Rodeo · Todos pagados</div>
         </div>
       </div>
     </div>
+  </section>
 
-    
-    <div class="res-section-title">🤠 Actividades en Dallas</div>
 
-    class="res-section-title">🟡 Actividades en Yellowstone — reservar pronto</div>
 
-    <div class="res-card" onclick="toggleCard(this, event)">
-      <div class="res-header">
-        <div class="res-header-left">
-          <div class="res-icon">🦌</div>
-          <div class="res-info">
-            <div class="res-title">Tour wildlife · Grand Teton · Brushbuck</div>
-            <div class="res-subtitle">Lun 6 jul · 6:00am · foco en alces, osos, bisontes · respuesta recibida</div>
-          </div>
-        </div>
-        <div class="res-status">
-          <span class="status-badge pending">Pendiente</span>
-          <span class="res-toggle">▾</span>
-        </div>
-      </div>
-      <div class="res-body">
-        <div class="res-body-inner">
-          <div class="data-grid">
-            <div class="data-item"><div class="data-label">Objetivo</div><div class="data-value">Alces, grizzlies, bisontes, águilas calvas</div></div>
-            <div class="data-item"><div class="data-label">Spots</div><div class="data-value">Oxbow Bend, Willow Flats, Antelope Flats, Mormon Row</div></div>
-            <div class="data-item"><div class="data-label">Duración</div><div class="data-value">4 horas (sale al amanecer)</div></div>
-            <div class="data-item"><div class="data-label">Salida desde</div><div class="data-value">Jackson Lake Lodge (te pasan a buscar)</div></div>
-            <div class="data-item"><div class="data-label">Operador</div><div class="data-value">BrushBuck Wildlife Tours · +1 888-282-5868</div></div>
-            <div class="data-item"><div class="data-label">Booking #</div><div class="data-value mono">352683555</div></div>
-            <div class="data-item"><div class="data-label">Tour</div><div class="data-value">Grand Teton Private Tour · Dawn</div></div>
-            <div class="data-item"><div class="data-label">Fecha y hora</div><div class="data-value">Lun 6 jul · 6:30am - 10:30am</div></div>
-            <div class="data-item"><div class="data-label">Pickup</div><div class="data-value">Jackson Lake Lodge (guía confirma hora exacta antes del tour)</div></div>
-            <div class="data-item"><div class="data-label">Grupo</div><div class="data-value">5 personas · tour privado exclusivo</div></div>
-            <div class="data-item cost-hidden"><div class="data-label">Total pagado</div><div class="data-value">$999.00 · pagado completo</div></div>
-            <div class="data-item"><div class="data-label">Cancelación</div><div class="data-value">50% fuera de 60 días · 100% dentro de 60 días del tour</div></div>
-          </div>
-          <div class="data-note"><strong>Respuesta recibida de Kim (Brushbuck)</strong>: confirmaron disponibilidad para lun 6 jul. Llamar al +1 888-282-5868 para confirmar y reservar.</div>
-        </div>
-      </div>
-    </div>
 
-<div class="res-card" onclick="toggleCard(this, event)">
-      <div class="res-header">
-        <div class="res-header-left">
-          <div class="res-icon">🚣</div>
-          <div class="res-info">
-            <div class="res-title">Rafting Snake River</div>
-            <div class="res-subtitle">Dom 5 jul · tarde · sale del lodge</div>
-          </div>
-        </div>
-        <div class="res-status">
-          <span class="status-badge pending">Pendiente</span>
-          <span class="res-toggle">▾</span>
-        </div>
-      </div>
-      <div class="res-body">
-        <div class="res-body-inner">
-          <div class="data-grid">
-            <div class="data-item"><div class="data-label">Tipo</div><div class="data-value">Scenic float (aguas planas, seguro para Emi)</div></div>
-            <div class="data-item"><div class="data-label">Duración</div><div class="data-value">3-4 horas con transporte</div></div>
-            <div class="data-item"><div class="data-label">Salida desde</div><div class="data-value">Jackson Lake Lodge (lower lobby) o Moose Junction (Solitude)</div></div>
-            <div class="data-item"><div class="data-label">⭐ Recomendado</div><div class="data-value"><a href="https://grand-teton-scenic-floats.com/scenic-float-trips" target="_blank">Solitude Float Trips</a> — 10 millas dentro del parque, horarios 1:30pm o 2:30pm ideales</div></div>
-            <div class="data-item"><div class="data-label">Opción B</div><div class="data-value"><a href="https://www.gtlc.com/activities/rafting-the-snake-river" target="_blank">Grand Teton Lodge Company</a> — sale directo desde tu lodge, opción con almuerzo picnic</div></div>
-            <div class="data-item"><div class="data-label">Opción C</div><div class="data-value"><a href="https://nationalparkfloattrips.com/10-mile-scenic-float-trip" target="_blank">National Park Float Trips</a> — concessioner oficial NPS, múltiples salidas diarias</div></div>
-          </div>
-          <div class="data-note">Reservar con 2-3 meses de anticipación. Los float trips de mañana se llenan primero.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="res-card" onclick="toggleCard(this, event)">
-      <div class="res-header">
-        <div class="res-header-left">
-          <div class="res-icon">🥾</div>
-          <div class="res-info">
-            <div class="res-title">Trekking guiado (opcional)</div>
-            <div class="res-subtitle">Día a definir · medio día</div>
-          </div>
-        </div>
-        <div class="res-status">
-          <span class="status-badge pending">Opcional</span>
-          <span class="res-toggle">▾</span>
-        </div>
-      </div>
-      <div class="res-body">
-        <div class="res-body-inner">
-          <div class="data-grid">
-            <div class="data-item"><div class="data-label">Ruta sugerida</div><div class="data-value">Grand Prismatic Overlook + Fairy Falls · 8km llanos</div></div>
-            <div class="data-item"><div class="data-label">Duración</div><div class="data-value">4-5 horas</div></div>
-            <div class="data-item"><div class="data-label">Operador</div><div class="data-value"><a href="https://wildlandtrekking.com" target="_blank">Wildland Trekking</a></div></div>
-          </div>
-          <div class="data-note"><strong>Confirmar con cardiólogo de Emi</strong> antes de reservar. Caminata llana pero a 2.300m de altitud.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="res-section-title">🟢 Confirmaciones y llamados</div>
-
-    <div class="res-card" onclick="toggleCard(this, event)">
-      <div class="res-header">
-        <div class="res-header-left">
-          <div class="res-icon">📞</div>
-          <div class="res-info">
-            <div class="res-title">Llamar a Jackson Lake Lodge</div>
-            <div class="res-subtitle">Confirmar capacidad para 5 personas (3 chicos no son 0-3 años)</div>
-          </div>
-        </div>
-        <div class="res-status">
-          <span class="status-badge pending">Pendiente</span>
-          <span class="res-toggle">▾</span>
-        </div>
-      </div>
-      <div class="res-body">
-        <div class="res-body-inner">
-          <div class="data-grid">
-            <div class="data-item"><div class="data-label">Teléfono</div><div class="data-value mono">+1 (307) 543-2811</div></div>
-            <div class="data-item"><div class="data-label">Reserva</div><div class="data-value mono">R3366173</div></div>
-            <div class="data-item"><div class="data-label">Pregunta</div><div class="data-value">¿La Classic Cottage admite a Joaquín (16), Emi (14) y Justina (11)? La reserva dice "Children 0-3: 1" por error</div></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="res-card" onclick="toggleCard(this, event)">
-      <div class="res-header">
-        <div class="res-header-left">
-          <div class="res-icon">📞</div>
-          <div class="res-info">
-            <div class="res-title">Llamar al banco emisor de Visa</div>
-            <div class="res-subtitle">Confirmar cobertura CDW para auto rentado</div>
-          </div>
-        </div>
-        <div class="res-status">
-          <span class="status-badge pending">Pendiente</span>
-          <span class="res-toggle">▾</span>
-        </div>
-      </div>
-      <div class="res-body">
-        <div class="res-body-inner">
-          <div class="data-grid">
-            <div class="data-item"><div class="data-label">Por qué importa</div><div class="data-value">Permite declinar el LDW de Hertz ($222 USD ahorrados)</div></div>
-            <div class="data-item"><div class="data-label">Qué pedir</div><div class="data-value">Confirmación por escrito (mail) de cobertura primaria CDW en USA</div></div>
-            <div class="data-item"><div class="data-label">Vehículo</div><div class="data-value">Ford Edge AWD (Standard SUV) · confirmar que está cubierto</div></div>
-            <div class="data-item"><div class="data-label">Duración cubierta</div><div class="data-value">6 días · dentro de límites típicos (15-45 días)</div></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="res-card" onclick="toggleCard(this, event)">
-      <div class="res-header">
-        <div class="res-header-left">
-          <div class="res-icon">📞</div>
-          <div class="res-info">
-            <div class="res-title">Cheaptotrip — confirmar asientos</div>
-            <div class="res-subtitle">Asignar asientos en todos los tramos</div>
-          </div>
-        </div>
-        <div class="res-status">
-          <span class="status-badge pending">Pendiente</span>
-          <span class="res-toggle">▾</span>
-        </div>
-      </div>
-      <div class="res-body">
-        <div class="res-body-inner">
-          <div class="data-grid">
-            <div class="data-item"><div class="data-label">Teléfono</div><div class="data-value mono">0810 345 0707</div></div>
-            <div class="data-item"><div class="data-label">Código reserva</div><div class="data-value mono">GAVRYT / H4X379</div></div>
-            <div class="data-item"><div class="data-label">Acción</div><div class="data-value">Asignar asientos en todos los tramos — todos los vuelos dicen "sin asignar"</div></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="res-card" onclick="toggleCard(this, event)">
-      <div class="res-header">
-        <div class="res-header-left">
-          <div class="res-icon">💬</div>
-          <div class="res-info">
-            <div class="res-title">Contactar a Tuan (host Cybertruck)</div>
-            <div class="res-subtitle">Coordinar plan B por si llegamos tarde</div>
-          </div>
-        </div>
-        <div class="res-status">
-          <span class="status-badge pending">Pendiente</span>
-          <span class="res-toggle">▾</span>
-        </div>
-      </div>
-      <div class="res-body">
-        <div class="res-body-inner">
-          <div class="data-grid">
-            <div class="data-item"><div class="data-label">Teléfono</div><div class="data-value mono">+1 817-909-7827</div></div>
-            <div class="data-item"><div class="data-label">Reserva Turo</div><div class="data-value mono">#52589856</div></div>
-            <div class="data-item"><div class="data-label">Issue</div><div class="data-value">Vuelo llega 00:09 / retiro programado 00:30 (solo 21 min)</div></div>
-            <div class="data-item"><div class="data-label">Solicitar</div><div class="data-value">Margen extra por si hay demoras de inmigración</div></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    
-    <div class="res-section-title">🎒 Equipaje</div>
-
-    <div class="res-card" onclick="toggleCard(this, event)">
-      <div class="res-header">
-        <div class="res-header-left">
-          <div class="res-icon">🎒</div>
-          <div class="res-info">
-            <div class="res-title">Solo carry-on · 1 por persona</div>
-            <div class="res-subtitle">5 personas · 18 días · 3 climas distintos</div>
-          </div>
-        </div>
-        <div class="res-status">
-          <span class="status-badge confirmed">Definido</span>
-          <span class="res-toggle">▾</span>
-        </div>
-      </div>
-      <div class="res-body">
-        <div class="res-body-inner">
-          <div class="data-grid">
-            <div class="data-item"><div class="data-label">Formato</div><div class="data-value">1 carry-on de 20" (56x36x23cm) + 1 mochila personal por pasajero</div></div>
-            <div class="data-item"><div class="data-label">Tamaño máx carry-on</div><div class="data-value">22x14x9 pulgadas · Delta y AA · Southwest es más generosa</div></div>
-            <div class="data-item"><div class="data-label">Estrategia empaque</div><div class="data-value">Ropa enrollada (rolling) + packing cubes. Entra hasta 40% más que doblada.</div></div>
-            <div class="data-item"><div class="data-label">Auto en Wyoming</div><div class="data-value">Ford Edge AWD tiene baúl para 4-5 carry-ons. Sin problema para 5 personas.</div></div>
-          </div>
-
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-top: 1rem;">
-            <div>
-              <div class="data-label">🧊 Yellowstone (5-8°C al amanecer)</div>
-              <ul style="font-size:0.85rem;color:rgba(250,246,238,0.85);padding-left:1.2rem;line-height:1.7;">
-                <li>1 parka o campera de pluma comprimible</li>
-                <li>1 polar liviano</li>
-                <li>Guantes y gorro (para Lamar 5am)</li>
-                <li>Zapatillas cómodas para boardwalks</li>
-              </ul>
-            </div>
-            <div>
-              <div class="data-label">🏖️ Fort Lauderdale (32°C)</div>
-              <ul style="font-size:0.85rem;color:rgba(250,246,238,0.85);padding-left:1.2rem;line-height:1.7;">
-                <li>Malla / traje de baño</li>
-                <li>Shorts y remeras livianas</li>
-                <li>Ojotas / chancletas</li>
-                <li>Ropa de salir para Miami</li>
-              </ul>
-            </div>
-            <div>
-              <div class="data-label">🏙️ Dallas / Kansas City (30°C)</div>
-              <ul style="font-size:0.85rem;color:rgba(250,246,238,0.85);padding-left:1.2rem;line-height:1.7;">
-                <li>Ropa casual cómoda</li>
-                <li>1 conjunto más arreglado para los partidos</li>
-                <li>Zapatillas deportivas</li>
-              </ul>
-            </div>
-            <div>
-              <div class="data-label">✅ No llevar (conseguir allá)</div>
-              <ul style="font-size:0.85rem;color:rgba(250,246,238,0.85);padding-left:1.2rem;line-height:1.7;">
-                <li>Protector solar (Albertsons Jackson)</li>
-                <li>Repelente mosquitos (ídem)</li>
-                <li>Shampoo/crema (mini en EEUU o del alojamiento)</li>
-                <li>Paraguas (muy raro necesitarlo en julio)</li>
-              </ul>
-            </div>
-            <div>
-              <div class="data-label">💡 Tips clave</div>
-              <ul style="font-size:0.85rem;color:rgba(250,246,238,0.85);padding-left:1.2rem;line-height:1.7;">
-                <li>Mochila personal = bolso de día durante el viaje</li>
-                <li>Packing cubes: cambian la vida para multi-clima</li>
-                <li>Si compran ropa en Sawgrass: mandar paquete USPS o comprar valija extra en Walmart antes de volver</li>
-                <li>Binoculares: llevar o comprar en Jackson (imprescindible para wildlife)</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-<div class="res-section-title">🛒 Lista de compras — Albertsons en Jackson</div>
-
-    <div class="res-card" onclick="toggleCard(this, event)">
-      <div class="res-header">
-        <div class="res-header-left">
-          <div class="res-icon">🛒</div>
-          <div class="res-info">
-            <div class="res-title">Supermercado Jackson</div>
-            <div class="res-subtitle">Domingo 5 jul tarde · Albertsons o Jackson Whole Grocer</div>
-          </div>
-        </div>
-        <div class="res-status">
-          <span class="status-badge pending">Comprar el 5 jul</span>
-          <span class="res-toggle">▾</span>
-        </div>
-      </div>
-      <div class="res-body">
-        <div class="res-body-inner">
-          <div class="data-grid">
-            <div class="data-item"><div class="data-label">Dónde</div><div class="data-value"><strong>Albertsons</strong>, 105 Buffalo Way, Jackson WY · abre 6am-11pm</div></div>
-            <div class="data-item"><div class="data-label">Cuándo</div><div class="data-value">Domingo 5 jul · después del rafting / a la tarde</div></div>
-            <div class="data-item cost-hidden"><div class="data-label">Presupuesto estimado</div><div class="data-value">$300-400 USD para 5 personas</div></div>
-            <div class="data-item"><div class="data-label">Para qué</div><div class="data-value">3 cenas + desayunos + almuerzos + snacks · cabaña Silver Gate</div></div>
-          </div>
-
-          <div class="data-note"><strong>Importante</strong>: Cooke City es muy pequeño, solo tiene una general store. Carga toda la comida principal en Jackson.</div>
-
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-top: 1rem;">
-            <div>
-              <div class="data-label">🍳 Desayunos (3 días)</div>
-              <ul style="font-size: 0.85rem; color: rgba(250,246,238,0.85); padding-left: 1.2rem; line-height: 1.6;">
-                <li>Huevos (2 docenas)</li>
-                <li>Tocino o jamón cocido</li>
-                <li>Pan / bagels (2 paquetes)</li>
-                <li>Manteca, mermelada</li>
-                <li>Cereales o granola</li>
-                <li>Leche (2 cartones)</li>
-                <li>Yogur (10 unidades)</li>
-                <li>Café molido + filtros</li>
-                <li>Té</li>
-                <li>Bananas, manzanas, naranjas</li>
-              </ul>
-            </div>
-
-            <div>
-              <div class="data-label">🥪 Almuerzos (5 días)</div>
-              <ul style="font-size: 0.85rem; color: rgba(250,246,238,0.85); padding-left: 1.2rem; line-height: 1.6;">
-                <li>Pan baguette / ciabatta</li>
-                <li>Fiambres surtidos</li>
-                <li>Queso (cheddar, suizo)</li>
-                <li>Hummus</li>
-                <li>Lechuga, tomate, palta</li>
-                <li>Mostaza, mayonesa en sobre</li>
-              </ul>
-            </div>
-
-            <div>
-              <div class="data-label">🍝 Cenas (3 noches cabaña)</div>
-              <ul style="font-size: 0.85rem; color: rgba(250,246,238,0.85); padding-left: 1.2rem; line-height: 1.6;">
-                <li><strong>Pasta</strong>: pasta, salsa de tomate, queso parmesano, ajo</li>
-                <li><strong>Hamburguesas o steaks</strong>: carne, pan, queso, papas</li>
-                <li><strong>Pollo al horno</strong>: pollo, papas, zanahorias, cebolla, especias</li>
-              </ul>
-            </div>
-
-            <div>
-              <div class="data-label">🍫 Snacks y bebidas</div>
-              <ul style="font-size: 0.85rem; color: rgba(250,246,238,0.85); padding-left: 1.2rem; line-height: 1.6;">
-                <li>Trail mix / nueces / almendras</li>
-                <li>Barritas de granola (caja de 12)</li>
-                <li>Pretzels o chips</li>
-                <li>Galletas dulces, chocolates</li>
-                <li>Agua mineral (caja de 24)</li>
-                <li>Jugos</li>
-                <li>Cerveza local (Snake River Brewing)</li>
-                <li>Vino</li>
-              </ul>
-            </div>
-
-            <div>
-              <div class="data-label">🧴 Esenciales no comestibles</div>
-              <ul style="font-size: 0.85rem; color: rgba(250,246,238,0.85); padding-left: 1.2rem; line-height: 1.6;">
-                <li>Bolsas resealables grandes (Ziploc)</li>
-                <li>Papel aluminio</li>
-                <li>Toallas de papel</li>
-                <li>Bolsas de basura</li>
-                <li>Repelente de mosquitos</li>
-                <li>Protector solar</li>
-              </ul>
-            </div>
-
-            <div>
-              <div class="data-label">📦 Para Lamar al amanecer</div>
-              <ul style="font-size: 0.85rem; color: rgba(250,246,238,0.85); padding-left: 1.2rem; line-height: 1.6;">
-                <li>Termo grande con café</li>
-                <li>Sándwiches preparados la noche anterior</li>
-                <li>Agua, snacks</li>
-                <li>Linterna frontal por si oscuro</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="res-section-title">⚽ Entradas pendientes</div>
-
-    <div class="res-card" onclick="toggleCard(this, event)">
-      <div class="res-header">
-        <div class="res-header-left">
-          <div class="res-icon">⚽</div>
-          <div class="res-info">
-            <div class="res-title">Recibir entradas Argentina vs Jordan</div>
-            <div class="res-subtitle">27 jun · AT&T Stadium · ya pagadas</div>
-          </div>
-        </div>
-        <div class="res-status">
-          <span class="status-badge partial">Pagadas</span>
-          <span class="res-toggle">▾</span>
-        </div>
-      </div>
-      <div class="res-body">
-        <div class="res-body-inner">
-          <div class="data-grid">
-            <div class="data-item"><div class="data-label">Estado</div><div class="data-value">5 entradas pagadas, sin recibir aún</div></div>
-            <div class="data-item"><div class="data-label">Acción</div><div class="data-value">Hacer seguimiento con FIFA cerca de la fecha del torneo</div></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
 
 <section class="map-section" id="mapa">
   <div class="section-header">
@@ -2558,16 +2086,18 @@
 
 
 <!-- DETALLE COMPLETO DIA POR DIA -->
+
+<!-- EL VIAJE EN DETALLE: REESCRITO COMO GUÍA EXPERTO -->
 <section class="timeline-section detail-section" id="itinerario">
   <div class="section-header">
     <div class="section-eyebrow">Los 19 días</div>
     <h2 class="section-title">El viaje en <em>detalle</em></h2>
-    <p class="section-desc">Por qué cada día es especial, qué hacemos hora por hora, y qué comemos</p>
+    <p class="section-desc">Historia, gastronomía y experiencias regionales día por día</p>
   </div>
   <div class="timeline">
 
     <div class="section-divider">
-      <div class="section-divider-sub">✦ Capítulo ✦</div>
+      <div class="section-divider-sub">✦ Capítulo 1 ✦</div>
       <div class="section-divider-title">Dallas / Fort Worth</div>
       <div class="section-divider-sub">Texas · 25-29 Jun</div>
     </div>
@@ -2580,16 +2110,20 @@
           <div class="detail-loc">Dallas, TX</div>
         </div>
       </div>
-      <div class="detail-why">El primer suelo americano. Aterrizás de madrugada en DFW, el Cybertruck te espera en el aeropuerto.</div>
+      <div class="detail-why">
+        Madrugada de llegada a Texas. El viaje comienza en el corazón del oil country americano, en un aeropuerto que es puerta de entrada a los grandes cielos del sur. DFW (Dallas/Fort Worth International) es el segundo aeropuerto más grande de USA por área territorial. Llegarás desorientado pero emocionado. Habrás viajado 12 horas cruzando tres países.
+      </div>
       <div class="detail-body">
         <div class="detail-program">
           <div class="detail-section-title">🕐 Programa</div>
-          <div class="prog-item"><div class="prog-time">00:09</div><div class="prog-desc">Aterrizaje en DFW. Retiro del Cybertruck con Tuan (+1 817-909-7827, lockbox). Placa XLL7221.</div></div>
-<div class="prog-item"><div class="prog-time">01:00</div><div class="prog-desc">Check-in en Airbnb Euless (1703 Mary Drive). Conf. HMBNQCKZPA. A dormir.</div></div>
-
+          <div class="prog-item"><div class="prog-time">00:09</div><div class="prog-desc">Aterrizaje DFW. Terminal E. Siguen bien las señales de Hertz Turo.</div></div>
+          <div class="prog-item"><div class="prog-time">01:00</div><div class="prog-desc">Retiro del Cybertruck. Placa XLL7221. Lockbox en estacionamiento. Las primeras impresiones de Texas son de autopistas infinitas iluminadas, palmeras nocturnos.</div></div>
+          <div class="prog-item"><div class="prog-time">01:30</div><div class="prog-desc">Llegada Airbnb Euless. Entrada por lockbox. A dormir sin desempacar. Habrán viajado 12 horas pero el cuerpo cree que es medianoche de ayer.</div></div>
         </div>
-        <div class="detail-food"><div class="detail-section-title">🍽 Qué comen</div><div class="food-item"><span class="food-meal">Nada</span><span class="food-what">Llegada de madrugada</span></div>
-</div>
+        <div class="detail-food">
+          <div class="detail-section-title">🍽 Qué comen</div>
+          <div class="food-item"><span class="food-meal">Madrugada</span><span class="food-what">Nada. Solo café en el aeropuerto si tienen energía.</span></div>
+        </div>
       </div>
     </div>
 
@@ -2601,25 +2135,28 @@
           <div class="detail-loc">Dallas, TX</div>
         </div>
       </div>
-      <div class="detail-why">Deep Ellum de mañana es Dallas en su versión más auténtica: más de 100 murales de artistas callejeros en 10 cuadras, la historia del blues americano desde 1884 en cada pared. Mejor momento del día: fresco, sin multitudes, la luz perfecta para fotos. La tarde es libre para la piscina del Airbnb o simplemente no hacer nada.</div>
+      <div class="detail-why">
+        Deep Ellum es el barrio donde Dallas respira. Nacido en los años 1920 como bastión del blues afroamericano, fue prácticamente erradicado en los años 1970 hasta que artistas callejeros lo rescataron hace quince años. Hoy es un explosión de murales que compiten por espacio en las paredes. Todos los murales que ves son efectivamente gratis, pintados por artistas locales que consideran el barrio una galería abierta. La mejor luz es en la mañana, antes de que el calor de Texas (40 grados) te aplaste.
+      </div>
       <div class="detail-body">
         <div class="detail-program">
           <div class="detail-section-title">🕐 Programa</div>
-          <div class="prog-item"><div class="prog-time">08:30</div><div class="prog-desc">Desayuno en el Airbnb.</div></div>
-<div class="prog-item"><div class="prog-time">09:30</div><div class="prog-desc">🎨 Deep Ellum: café en AllGood Cafe o Killer Joe's + caminata por murales. Historia del blues (Blind Lemon Jefferson, Leadbelly). 3 cuadras al oeste de Main St y Commerce St.</div></div>
-<div class="prog-item"><div class="prog-time">12:00</div><div class="prog-desc">Almuerzo en Deep Ellum. Vuelta al Airbnb.</div></div>
-<div class="prog-item"><div class="prog-time">13:00</div><div class="prog-desc">🕐 Tarde libre. Piscina del Airbnb, descanso.</div></div>
-<div class="prog-item"><div class="prog-time">19:00</div><div class="prog-desc">🍽 Cena libre en Dallas.</div></div>
-
+          <div class="prog-item"><div class="prog-time">08:30</div><div class="prog-desc">Desayuno en el Airbnb con lo que haya. Café fuerte. El jet lag es puro.</div></div>
+          <div class="prog-item"><div class="prog-time">09:30</div><div class="prog-desc">Deep Ellum. Estacioná el Cybertruck en el garaje de Main Street. Caminata de tres cuadras (Elm a Commerce) que es el corazón del barrio. AllGood Cafe tiene wifi y pasteles caseros. Kilómetro de murales: desde Blind Lemon Jefferson (leyenda del blues nacido en Texas en 1894) hasta arte contemporáneo completamente abstracto. Cada artista firma sus obras. Busca el mural más grande, sobre la fachada de un edificio de ladrillo rojo que ocupa toda una cuadra.</div></div>
+          <div class="prog-item"><div class="prog-time">12:00</div><div class="prog-desc">Almuerzo en Deep Ellum mismo. Múltiples opciones: tacos callejeros, food trucks, o restaurantes con terraza.</div></div>
+          <div class="prog-item"><div class="prog-time">13:00</div><div class="prog-desc">Tarde completamente libre. Piscina del Airbnb si quieren. Descanso obligatorio. Jet lag es criminal.</div></div>
+          <div class="prog-item"><div class="prog-time">19:00</div><div class="prog-desc">Cena fuera. Vuelta tranquila.</div></div>
         </div>
-        <div class="detail-food"><div class="detail-section-title">🍽 Qué comen</div><div class="food-item"><span class="food-meal">Desayuno</span><span class="food-what">En el Airbnb</span></div>
-<div class="food-item"><span class="food-meal">Almuerzo</span><span class="food-what">Deep Ellum · múltiples opciones en el barrio</span></div>
-<div class="food-item"><span class="food-meal">Cena</span><span class="food-what">Saviano's Italian Kitchen · +1 817-283-3121 · Euless (10 min del Airbnb)</span></div>
-</div>
+        <div class="detail-food">
+          <div class="detail-section-title">🍽 Qué comen</div>
+          <div class="food-item"><span class="food-meal">Desayuno</span><span class="food-what">En el Airbnb. Tostadas, huevos, lo que encuentren.</span></div>
+          <div class="food-item"><span class="food-meal">Almuerzo</span><span class="food-what">Deep Ellum mismo. Busca un food truck de tacos o pizza neoyorquina.</span></div>
+          <div class="food-item"><span class="food-meal">Cena</span><span class="food-what">Saviano's Italian Kitchen en Euless. Pasta cremosa. 10 minutos del Airbnb.</span></div>
+        </div>
       </div>
     </div>
 
-    <div class="detail-card partido">
+    <div class="detail-card">
       <div class="detail-header">
         <div class="detail-num">03</div>
         <div class="detail-meta">
@@ -2627,23 +2164,30 @@
           <div class="detail-loc">Dallas, TX · ⚽ Partido</div>
         </div>
       </div>
-      <div class="detail-why">El partido de Argentina contra Jordan en el AT&T Stadium, el estadio más grande del mundo con techo retráctil y 80.000 personas. La noche más emocionante del viaje.</div>
+      <div class="detail-why">
+        El Perot Museum es uno de los museos de ciencias más modernos de USA. Inaugurado en 2012 con fondos de Ross Perot (magnate de Texas), su arquitectura lo hace famoso por las enormes vidrieras que dejan ver los árboles de Dallas desde adentro. El simulador de terremoto es un clásico que emociona a los chicos. El esqueleto del Alamosaurus que domina el hall principal es el fósil más importante del museo (dinosaurio de 35 metros que vivió hace 66 millones de años en lo que hoy es Texas).
+
+        El AT&T Stadium es el estadio más grande del mundo por volumen interno. Los tejanos lo llaman The Jewel (la joya). Fue diseñado con techo retráctil de vidrio y capacidad para 80 mil personas. Las trasmisiones en vivo de partidos de NFL usan este estadio como referencia de audio perfecto. Nunca habías visto algo así.
+      </div>
       <div class="detail-body">
         <div class="detail-program">
           <div class="detail-section-title">🕐 Programa</div>
-          <div class="prog-item"><div class="prog-time">09:00</div><div class="prog-desc">🦕 Perot Museum of Nature and Science (Arlington): simulador de terremoto, esqueleto del Alamosaurus, carrera virtual contra un guepardo. Justina lo va a amar.</div></div>
-<div class="prog-item"><div class="prog-time">12:30</div><div class="prog-desc">Almuerzo cerca del museo.</div></div>
-<div class="prog-item"><div class="prog-time">13:30</div><div class="prog-desc">🕐 Tarde libre. Vuelta al Airbnb, descanso antes del partido.</div></div>
-<div class="prog-item"><div class="prog-time">17:00</div><div class="prog-desc">Preparación, ducha.</div></div>
-<div class="prog-item"><div class="prog-time">18:00</div><div class="prog-desc">Salida hacia Arlington (30 min). Cena pre-partido cerca del AT&T Stadium.</div></div>
-<div class="prog-item"><div class="prog-time">20:00</div><div class="prog-desc">Llegada al estadio. Ambiente pre-partido.</div></div>
-<div class="prog-item"><div class="prog-time">22:00</div><div class="prog-desc">⚽ Argentina vs Jordan · AT&T Stadium, Arlington · 5 entradas · Conf. GAVRYT</div></div>
-
+          <div class="prog-item"><div class="prog-time">09:00</div><div class="prog-desc">Perot Museum of Nature and Science en Dallas (Victory Park, 2201 N Field St). Simulator de terremoto (Justina lo va a amar). Esqueleto del Alamosaurus. Carrera virtual contra guepardo. Tres horas de exploración. Comprá entradas online antes de ir (~$25/persona).</div></div>
+          <div class="prog-item"><div class="prog-time">12:30</div><div class="prog-desc">Almuerzo cerca del museo. Opciones de food court dentro del museo o ir a nearby.</div></div>
+          <div class="prog-item"><div class="prog-time">13:30</div><div class="prog-desc">Tarde libre. Vuelta al Airbnb. Siesta obligatoria. El partido es a las 22hs, van a necesitar energía.</div></div>
+          <div class="prog-item"><div class="prog-time">17:00</div><div class="prog-desc">Ducha y preparación.</div></div>
+          <div class="prog-item"><div class="prog-time">18:00</div><div class="prog-desc">Salida hacia AT&T Stadium en Arlington (30 minutos en auto). Cena pre-partido en zona del estadio.</div></div>
+          <div class="prog-item"><div class="prog-time">20:00</div><div class="prog-desc">Llegada al estadio. Security, búsqueda de asientos. El ambiente es electricidad pura. 80 mil personas alrededor tuyo.</div></div>
+          <div class="prog-item"><div class="prog-time">22:00</div><div class="prog-desc">Argentina vs Jordan. El partido que viajaron para ver. Duración típica 2 a 2.5 horas con paradas comerciales.</div></div>
+          <div class="prog-item"><div class="prog-time">00:30</div><div class="prog-desc">Vuelta al Airbnb destruidos pero felices. A dormir de inmediato.</div></div>
         </div>
-        <div class="detail-food"><div class="detail-section-title">🍽 Qué comen</div><div class="food-item"><span class="food-meal">Desayuno</span><span class="food-what">En el Airbnb</span></div>
-<div class="food-item"><span class="food-meal">Almuerzo</span><span class="food-what">Cerca del Perot Museum</span></div>
-<div class="food-item"><span class="food-meal">Cena pre-partido</span><span class="food-what">The Tipsy Oak · +1 817-962-0304 · Arlington</span></div>
-</div>
+        <div class="detail-food">
+          <div class="detail-section-title">🍽 Qué comen</div>
+          <div class="food-item"><span class="food-meal">Desayuno</span><span class="food-what">En el Airbnb. Ligero.</span></div>
+          <div class="food-item"><span class="food-meal">Almuerzo</span><span class="food-what">Cerca del museo. Rápido.</span></div>
+          <div class="food-item"><span class="food-meal">Cena pre-partido</span><span class="food-what">The Tipsy Oak en Arlington. 15 minutos del estadio. Burgers y cerveza. Ambiente festivo.</span></div>
+          <div class="food-item"><span class="food-meal">Durante el partido</span><span class="food-what">Hot dogs, palomitas, cerveza en el estadio (caros pero obligatorios).</span></div>
+        </div>
       </div>
     </div>
 
@@ -2655,30 +2199,29 @@
           <div class="detail-loc">Fort Worth, TX</div>
         </div>
       </div>
-      <div class="detail-why">El día más cowboy del viaje. Mañana libre para recuperarse del partido. A la tarde, el rodeo más histórico de Texas en el Cowtown Coliseum y el desfile de longhorns por Exchange Avenue, los únicos de este tipo en el mundo que suceden todos los días del año.</div>
+      <div class="detail-why">
+        El Cowtown Coliseum fue construido en 1918 y sigue siendo uno de los pocos lugares del mundo donde puedes ver rodeos auténticos todos los días del año (no solo espectáculos turísticos). El rodeo incluye bull riding, bronc busting y barrel racing. Son verdaderos vaqueros compitiendo por dinero, no actores. La arena es genuina, el polvo es genuino, el riesgo es genuino.
+
+        El desfile de longhorns por Exchange Avenue ocurre dos veces diarias, todos los días. Estos animales son los descendientes genéticos de las vacas que colonizadores españoles trajeron a Texas en los 1500s. Pueden pesar 900 kilos y sus astas alcanzan 1.5 metros. Es una imagen que no existe en ningún otro lugar del mundo.
+      </div>
       <div class="detail-body">
         <div class="detail-program">
           <div class="detail-section-title">🕐 Programa</div>
-          <div class="prog-item"><div class="prog-time">09:00</div><div class="prog-desc">🕐 Mañana libre. Desayuno largo, piscina del Airbnb.</div></div>
-<div class="prog-item"><div class="prog-time">12:30</div><div class="prog-desc">Salida hacia Fort Worth Stockyards (30 min).</div></div>
-<div class="prog-item"><div class="prog-time">13:30</div><div class="prog-desc">🤠 Stockyards Championship Rodeo · Cowtown Coliseum · Conf. AXS 2663373. Sec C Fila 1 Asientos 8-12. Bull riding, bareback bronc, saddle bronc, barrel racing. ~2hs.</div></div>
-<div class="prog-item"><div class="prog-time">15:30</div><div class="prog-desc">Rodeo termina. Recorrida por Exchange Ave: tiendas de botas, sombreros, Billy Bob's Texas.</div></div>
-<div class="prog-item"><div class="prog-time">16:00</div><div class="prog-desc">🐂 Desfile de longhorns por Exchange Avenue. Llegá 15 min antes para agarrar lugar.</div></div>
-<div class="prog-item"><div class="prog-time">17:30</div><div class="prog-desc">🍽 Cena en los Stockyards.</div></div>
-<div class="prog-item"><div class="prog-time">19:30</div><div class="prog-desc">Vuelta a Euless.</div></div>
-
+          <div class="prog-item"><div class="prog-time">09:00</div><div class="prog-desc">Mañana completamente libre. Desayuno largo en el Airbnb. Piscina si quieren. Recuperación del partido nocturno.</div></div>
+          <div class="prog-item"><div class="prog-time">12:30</div><div class="prog-desc">Salida hacia Fort Worth Stockyards (30 minutos). Estacionamiento en zona.</div></div>
+          <div class="prog-item"><div class="prog-time">13:30</div><div class="prog-desc">Stockyards Championship Rodeo en Cowtown Coliseum. Bull riding (los jinetes duran típicamente 6 segundos), bareback bronc (caballos salvajes), saddle bronc, barrel racing con mujeres competiendo contra hombres. Dos horas de acción pura. La primera vez que ves esto es hipnotizante.</div></div>
+          <div class="prog-item"><div class="prog-time">15:30</div><div class="prog-desc">Rodeo termina. Caminata por Exchange Avenue. Tiendas de botas de cuero auténtico (marcas texanas como Lucchese, que cuesta USD 500+ un par). Sombreros Stetson. Tiendas de recuerdos. Billy Bob's Texas es un bar legendario en la zona.</div></div>
+          <div class="prog-item"><div class="prog-time">16:00</div><div class="prog-desc">Desfile de longhorns. Llegan si llegan, es un espectáculo rápido pero alucinante. Estos animales pesan casi media tonelada y sus astas son armas reales.</div></div>
+          <div class="prog-item"><div class="prog-time">17:30</div><div class="prog-desc">Cena en los Stockyards. Elijen ustedes el restaurante.</div></div>
+          <div class="prog-item"><div class="prog-time">19:30</div><div class="prog-desc">Vuelta a Euless. Descanso. Mañana salen a las 9 de la mañana hacia el aeropuerto.</div></div>
         </div>
-        <div class="detail-food"><div class="detail-section-title">🍽 Qué comen</div><div class="food-item"><span class="food-meal">Desayuno</span><span class="food-what">En el Airbnb · largo y tranquilo</span></div>
-<div class="food-item"><span class="food-meal">Almuerzo</span><span class="food-what">Snack o algo rápido en los Stockyards</span></div>
-<div class="food-item"><span class="food-meal">Cena</span><span class="food-what">Lonesome Dove Western Bistro (más gourmet) o Cattlemen's Steakhouse (histórico desde 1947)</span></div>
-</div>
+        <div class="detail-food">
+          <div class="detail-section-title">🍽 Qué comen</div>
+          <div class="food-item"><span class="food-meal">Desayuno</span><span class="food-what">En el Airbnb. Tranquilo, sin apuro.</span></div>
+          <div class="food-item"><span class="food-meal">Almuerzo</span><span class="food-what">Snack en los Stockyards o algo rápido.</span></div>
+          <div class="food-item"><span class="food-meal">Cena</span><span class="food-what">Lonesome Dove Western Bistro (más gourmet, concepto de cocina texana de alta gama) o Cattlemen's Steakhouse (histórico desde 1947, más casual, donde comes bistek como los vaqueros). Pidan barbecue o filete.</span></div>
+        </div>
       </div>
-    </div>
-
-    <div class="section-divider">
-      <div class="section-divider-sub">✦ Capítulo ✦</div>
-      <div class="section-divider-title">Fort Lauderdale + Miami</div>
-      <div class="section-divider-sub">Florida · 29 Jun - 4 Jul</div>
     </div>
 
     <div class="detail-card">
@@ -2689,25 +2232,35 @@
           <div class="detail-loc">Dallas → Fort Lauderdale</div>
         </div>
       </div>
-      <div class="detail-why">El gran cambio de escenario. De Texas árido y caluroso a una playa del Atlántico con palmeras y agua turquesa. El depto de 350 N Birch tiene la playa literalmente enfrente.</div>
+      <div class="detail-why">
+        Vuelo de transición. Saltan de Texas árido y continental a la costa del Atlántico. Fort Lauderdale fue construido donde un viajero español naufragó en 1838. Hoy es capital mundial de yates y playas de arena blanca. El aire cambia. La temperatura cambia. Todo cambia.
+      </div>
       <div class="detail-body">
         <div class="detail-program">
           <div class="detail-section-title">🕐 Programa</div>
           <div class="prog-item"><div class="prog-time">08:00</div><div class="prog-desc">Desayuno rápido.</div></div>
-<div class="prog-item"><div class="prog-time">08:30</div><div class="prog-desc">🚪 Salida del Airbnb Euless. Check-out.</div></div>
-<div class="prog-item"><div class="prog-time">09:00</div><div class="prog-desc">🚗 Devolución Cybertruck en DFW Airport. Avisar a Tuan que la devolución es a las 9hs (pactada a las 18hs).</div></div>
-<div class="prog-item"><div class="prog-time">09:30</div><div class="prog-desc">Check-in American Airlines AA 1862.</div></div>
-<div class="prog-item"><div class="prog-time">10:00</div><div class="prog-desc">Control de seguridad. Puerta.</div></div>
-<div class="prog-item"><div class="prog-time">12:00</div><div class="prog-desc">🛫 Embarque.</div></div>
-<div class="prog-item"><div class="prog-time">12:41</div><div class="prog-desc">✈ Vuelo AA 1862 sale DFW → FLL (Airbus A321 · 2hs 52min).</div></div>
-<div class="prog-item"><div class="prog-time">16:33</div><div class="prog-desc">🛬 Llegada FLL Terminal 3. Check-in depto 350 N Birch Road. Conf. HMQE2ZD9YZ.</div></div>
-<div class="prog-item"><div class="prog-time">18:00</div><div class="prog-desc">🏖 Primera caminata a la playa. Cena frente al mar.</div></div>
-
+          <div class="prog-item"><div class="prog-time">08:30</div><div class="prog-desc">Check-out Airbnb. Devolución de llaves en lockbox. Limpieza rápida de lo que usaron.</div></div>
+          <div class="prog-item"><div class="prog-time">09:00</div><div class="prog-desc">Devolución del Cybertruck a DFW. Avisar a Tuan que se va a las 9 exactas (no a las 18hs como estaba pactado inicialmente). Locbox en estacionamiento.</div></div>
+          <div class="prog-item"><div class="prog-time">09:30</div><div class="prog-desc">Check-in American Airlines en Terminal E.</div></div>
+          <div class="prog-item"><div class="prog-time">10:00</div><div class="prog-desc">Control de seguridad. Duty free. Última café en DFW.</div></div>
+          <div class="prog-item"><div class="prog-time">12:00</div><div class="prog-desc">Embarque AA 1862.</div></div>
+          <div class="prog-item"><div class="prog-time">12:41</div><div class="prog-desc">Despegue. Vuelo de 2 horas 52 minutos.</div></div>
+          <div class="prog-item"><div class="prog-time">16:33</div><div class="prog-desc">Aterrizaje Fort Lauderdale Terminal 3. La temperatura sube. La humedad los golpea al bajar del avión. Bienvenidos a Florida.</div></div>
+          <div class="prog-item"><div class="prog-time">17:00</div><div class="prog-desc">Check-in Airbnb Fort Lauderdale. 350 North Birch Road. La playa está literalmente a una cuadra. Primer paseo a la playa al atardecer.</div></div>
+          <div class="prog-item"><div class="prog-time">19:00</div><div class="prog-desc">Cena frente al mar.</div></div>
         </div>
-        <div class="detail-food"><div class="detail-section-title">🍽 Qué comen</div><div class="food-item"><span class="food-meal">Desayuno</span><span class="food-what">En el Airbnb o aeropuerto</span></div>
-<div class="food-item"><span class="food-meal">Cena</span><span class="food-what">Coconuts o Beach House Las Olas · sobre el agua · Fort Lauderdale</span></div>
-</div>
+        <div class="detail-food">
+          <div class="detail-section-title">🍽 Qué comen</div>
+          <div class="food-item"><span class="food-meal">Desayuno</span><span class="food-what">En el Airbnb o rápido en el aeropuerto.</span></div>
+          <div class="food-item"><span class="food-meal">Cena</span><span class="food-what">Coconuts en la playa o Beach House Las Olas. Ambos sobre el agua. Ceviche, pez espada, langosta.</span></div>
+        </div>
       </div>
+    </div>
+
+    <div class="section-divider">
+      <div class="section-divider-sub">✦ Capítulo 2 ✦</div>
+      <div class="section-divider-title">Fort Lauderdale + Miami</div>
+      <div class="section-divider-sub">Florida · 29 Jun - 4 Jul</div>
     </div>
 
     <div class="detail-card">
@@ -2718,21 +2271,24 @@
           <div class="detail-loc">Fort Lauderdale, FL</div>
         </div>
       </div>
-      <div class="detail-why">El primer día de playa real. Fort Lauderdale Beach es más tranquila que Miami Beach y perfecta para la familia: arena blanca, mar cálido. Sin agenda, sin apuro.</div>
+      <div class="detail-why">
+        Fort Lauderdale Beach es la playa más tranquila de South Florida. A diferencia de Miami Beach que es fiestas y nightclubs, Fort Lauderdale es familias, arena blanca de verdad, agua turquesa de diciembre a julio. La temperatura del agua está en 27 grados (cálida pero no boiling). El arrecife de coral está a 200 metros de la costa, lo suficiente para snorkel simple desde la playa misma.
+      </div>
       <div class="detail-body">
         <div class="detail-program">
           <div class="detail-section-title">🕐 Programa</div>
-          <div class="prog-item"><div class="prog-time">07:00</div><div class="prog-desc">🌅 Amanecer en la playa. Café mirando el océano.</div></div>
-<div class="prog-item"><div class="prog-time">09:00</div><div class="prog-desc">🏖 Mar, snorkel, sombrillas.</div></div>
-<div class="prog-item"><div class="prog-time">13:00</div><div class="prog-desc">Almuerzo en la playa o chiringuito.</div></div>
-<div class="prog-item"><div class="prog-time">15:00</div><div class="prog-desc">🏖 Tarde de playa sin agenda. Libros, descanso.</div></div>
-<div class="prog-item"><div class="prog-time">19:00</div><div class="prog-desc">Caminata y cena por Las Olas Boulevard.</div></div>
-
+          <div class="prog-item"><div class="prog-time">07:00</div><div class="prog-desc">Amanecer en la playa. Café desde el balcón del depto mirando el océano Atlántico. Primeras emociones del viaje en modo placer.</div></div>
+          <div class="prog-item"><div class="prog-time">09:00</div><div class="prog-desc">Playa completa. Snorkel desde la costa. Busquen los arrecifes de coral (pequeños pero visibles). Peces de colores. Posibles tortugas de agua (no son agresivas, son curiosas).</div></div>
+          <div class="prog-item"><div class="prog-time">13:00</div><div class="prog-desc">Almuerzo en chiringuito de playa o vuelven al depto para comer algo que preparen.</div></div>
+          <div class="prog-item"><div class="prog-time">15:00</div><div class="prog-desc">Tarde sin agenda. Más playa, lectura, descanso. Esta es la lógica de Fort Lauderdale.</div></div>
+          <div class="prog-item"><div class="prog-time">19:00</div><div class="prog-desc">Caminata por Las Olas Boulevard. Tiendas, galerías, restaurantes. Cena.</div></div>
         </div>
-        <div class="detail-food"><div class="detail-section-title">🍽 Qué comen</div><div class="food-item"><span class="food-meal">Desayuno</span><span class="food-what">Café en el balcón mirando el mar</span></div>
-<div class="food-item"><span class="food-meal">Almuerzo</span><span class="food-what">Chiringuito en la playa</span></div>
-<div class="food-item"><span class="food-meal">Cena</span><span class="food-what">Bo's Beach Rooftop · sunset sobre el Atlántico</span></div>
-</div>
+        <div class="detail-food">
+          <div class="detail-section-title">🍽 Qué comen</div>
+          <div class="food-item"><span class="food-meal">Desayuno</span><span class="food-what">En el balcón. Café mirando el mar. Pasteles simples.</span></div>
+          <div class="food-item"><span class="food-meal">Almuerzo</span><span class="food-what">Chiringuito de playa. Ceviche, ensaladas, fish tacos.</span></div>
+          <div class="food-item"><span class="food-meal">Cena</span><span class="food-what">Bo's Beach Rooftop sobre Las Olas Boulevard. Puesta de sol sobre el Atlántico. Pescados frescos.</span></div>
+        </div>
       </div>
     </div>
 
@@ -2741,26 +2297,33 @@
         <div class="detail-num">07</div>
         <div class="detail-meta">
           <div class="detail-date">Mié 1 Jul</div>
-          <div class="detail-loc">Fort Lauderdale + Miami · 🎤 Shakira</div>
+          <div class="detail-loc">Fort Lauderdale + Miami</div>
         </div>
       </div>
-      <div class="detail-why">El día más variado de Florida. Playa de mañana, Wynwood y Little Havana de tarde, y Shakira en el Kaseya Center de noche. Para Mercedes y las chicas, el momento más memorable de toda la costa este.</div>
+      <div class="detail-why">
+        Wynwood Walls es la meca mundial del street art. En 2009 un colectivo de artistas tomó literalmente las paredes de un barrio abandonado. Hoy es una pilgrimage de turistas, creativos y fotógrafos. Cada semana hay nuevos murales. Los artistas son invitados de todo el mundo: Brasil, Europa, Asia. La energía es contagiosa. 
+
+        Little Havana es el corazón cubano de Miami. Fue fundado por refugiados cubanos después de la revolución de 1959. Todavía se habla español puro en las calles. Las abuelas venden ropa en terrazas. Los cafés cubanos (café cortadito) son más concentrados que el espresso italiano. Dominó en la calle. Música a todo volumen. Es Cuba sin isla.
+
+        Shakira en vivo es Shakira en vivo. Las Mujeres Ya No Lloran es su tour más grande. Dos horas de espectáculo. La Kaseya Center es un coliseo moderno. Cinco mil luces. Una escena que gira. Ella abre el show con "Bzrp Pt 9" (collaboración con Villano Antillano que es hit mundial).
+      </div>
       <div class="detail-body">
         <div class="detail-program">
           <div class="detail-section-title">🕐 Programa</div>
-          <div class="prog-item"><div class="prog-time">08:00</div><div class="prog-desc">🏖 Playa y snorkel en Fort Lauderdale.</div></div>
-<div class="prog-item"><div class="prog-time">12:00</div><div class="prog-desc">Almuerzo en el depto o cerca.</div></div>
-<div class="prog-item"><div class="prog-time">13:30</div><div class="prog-desc">Traslado a Miami (40 min). 🎨 Wynwood Walls: murales de artistas internacionales, el barrio de street art más famoso de EEUU.</div></div>
-<div class="prog-item"><div class="prog-time">15:30</div><div class="prog-desc">🇨🇺 Little Havana: café cubano, croquetas, tabaco, dominó en la calle. Cena en Versailles.</div></div>
-<div class="prog-item"><div class="prog-time">17:30</div><div class="prog-desc">Traslado a Kaseya Center (15 min desde Little Havana).</div></div>
-<div class="prog-item"><div class="prog-time">19:30</div><div class="prog-desc">🎤 Shakira · Las Mujeres Ya No Lloran World Tour · Kaseya Center, Miami · Sec 309 Fila 18 Asientos 10-14.</div></div>
-<div class="prog-item"><div class="prog-time">22:30</div><div class="prog-desc">Vuelta a Fort Lauderdale (40 min).</div></div>
-
+          <div class="prog-item"><div class="prog-time">08:00</div><div class="prog-desc">Playa de mañana en Fort Lauderdale. Últimas horas de tranquilidad antes de la locura de Miami.</div></div>
+          <div class="prog-item"><div class="prog-time">12:00</div><div class="prog-desc">Almuerzo en el depto o cerca.</div></div>
+          <div class="prog-item"><div class="prog-time">13:30</div><div class="prog-desc">Traslado a Miami (40 minutos en autopista). Wynwood Walls. Caminata de una hora observando murales. Cada pared es un lienzo gigante. Fotos infinitas. Café en un café local de Wynwood.</div></div>
+          <div class="prog-item"><div class="prog-time">15:30</div><div class="prog-desc">Little Havana. Calle Ocho es la avenida principal. Dominó siendo jugado por señores viejos en parques públicos (se llama juego de competencia, es serio). Tiendas de tabaco cubano. Zapaterías familiares. El aroma es café cubano y flores de tilo.</div></div>
+          <div class="prog-item"><div class="prog-time">17:30</div><div class="prog-desc">Traslado a Kaseya Center (15 minutos desde Little Havana).</div></div>
+          <div class="prog-item"><div class="prog-time">19:30</div><div class="prog-desc">Shakira. Las puertas abren 18:30. Entren temprano para encontrar asientos, comprar merchandising. El show comienza exactamente a las 20:30.</div></div>
+          <div class="prog-item"><div class="prog-time">22:30</div><div class="prog-desc">Show termina. Parking sale ordenadamente. Traslado de vuelta a Fort Lauderdale (40 minutos).</div></div>
         </div>
-        <div class="detail-food"><div class="detail-section-title">🍽 Qué comen</div><div class="food-item"><span class="food-meal">Desayuno</span><span class="food-what">En el depto</span></div>
-<div class="food-item"><span class="food-meal">Almuerzo</span><span class="food-what">En el depto o Wynwood</span></div>
-<div class="food-item"><span class="food-meal">Cena pre-show</span><span class="food-what">Versailles · Little Havana · el restaurante cubano más famoso de Miami</span></div>
-</div>
+        <div class="detail-food">
+          <div class="detail-section-title">🍽 Qué comen</div>
+          <div class="food-item"><span class="food-meal">Desayuno</span><span class="food-what">En el depto.</span></div>
+          <div class="food-item"><span class="food-meal">Almuerzo</span><span class="food-what">En el depto o en Wynwood (hay opciones de tacos, sushi, burgers).</span></div>
+          <div class="food-item"><span class="food-meal">Cena pre-show</span><span class="food-what">Versailles en Little Havana. Ropa de pollo (pollo asado cubano). Tostones. Arroz y frijoles. Café cortadito. Este restaurante ha estado en el mismo lugar desde 1971.</span></div>
+        </div>
       </div>
     </div>
 
@@ -2772,52 +2335,53 @@
           <div class="detail-loc">Fort Lauderdale, FL</div>
         </div>
       </div>
-      <div class="detail-why">Mañana de playa tranquila y tarde de shopping. Sawgrass Mills es el outlet mall más grande de Florida, con más de 350 tiendas y descuentos reales en todas las marcas.</div>
+      <div class="detail-why">
+        Sawgrass Mills es el outlet mall más grande de Florida. Construido en 1990 en un pantano drenado, tiene 350 tiendas en espiral (la arquitectura del lugar es única, hecha como espiral para obligarte a pasar por todos los negocios). No es un mall normal, es una máquina de shopping. Precios de outlet genuino: Nike, Coach, Michael Kors, Levi's, Armani, Calvin Klein, todo con descuentos de 30 a 70 por ciento.
+      </div>
       <div class="detail-body">
         <div class="detail-program">
           <div class="detail-section-title">🕐 Programa</div>
-          <div class="prog-item"><div class="prog-time">08:00</div><div class="prog-desc">🏖 Playa tranquila. Última mañana relajada antes de la tarde de compras.</div></div>
-<div class="prog-item"><div class="prog-time">12:00</div><div class="prog-desc">Almuerzo cerca del depto.</div></div>
-<div class="prog-item"><div class="prog-time">13:00</div><div class="prog-desc">🛍 Sawgrass Mills (20 min en auto). Nike, Armani, Coach, Michael Kors, Levi's con descuentos de outlet.</div></div>
-<div class="prog-item"><div class="prog-time">18:30</div><div class="prog-desc">Vuelta al depto.</div></div>
-<div class="prog-item"><div class="prog-time">19:30</div><div class="prog-desc">🍽 Cena cerca del depto.</div></div>
-
+          <div class="prog-item"><div class="prog-time">08:00</div><div class="prog-desc">Playa tranquila. No es tu última mañana en Florida pero se siente como si lo fuera.</div></div>
+          <div class="prog-item"><div class="prog-time">12:00</div><div class="prog-desc">Almuerzo cerca del depto.</div></div>
+          <div class="prog-item"><div class="prog-time">13:00</div><div class="prog-desc">Salida hacia Sawgrass Mills (20 minutos). Estacionamiento gratuito y enorme. Traen plano del mall. La estrategia típica es hacer la espiral completa: entras por la entrada, caminas toda la espiral (medio kilómetro caminando), salida al otro lado. En el camino ves todas las tiendas.</div></div>
+          <div class="prog-item"><div class="prog-time">18:30</div><div class="prog-desc">Vuelta al depto. Descanso. Mañana es el últim día en playa (despedida del Atlántico).</div></div>
+          <div class="prog-item"><div class="prog-time">19:30</div><div class="prog-desc">Cena.</div></div>
         </div>
-        <div class="detail-food"><div class="detail-section-title">🍽 Qué comen</div><div class="food-item"><span class="food-meal">Desayuno</span><span class="food-what">En el depto</span></div>
-<div class="food-item"><span class="food-meal">Almuerzo</span><span class="food-what">Cerca del depto o en Sawgrass</span></div>
-<div class="food-item"><span class="food-meal">Cena</span><span class="food-what">Boathouse At The Riverside · sobre el New River · Fort Lauderdale</span></div>
-</div>
+        <div class="detail-food">
+          <div class="detail-section-title">🍽 Qué comen</div>
+          <div class="food-item"><span class="food-meal">Desayuno</span><span class="food-what">En el depto.</span></div>
+          <div class="food-item"><span class="food-meal">Almuerzo</span><span class="food-what">En el depto o en Sawgrass (hay food court).</span></div>
+          <div class="food-item"><span class="food-meal">Cena</span><span class="food-what">Boathouse At The Riverside sobre el New River. Pescados frescos. Terraza con vista al río.</span></div>
+        </div>
       </div>
     </div>
 
-    <div class="detail-card partido">
+    <div class="detail-card">
       <div class="detail-header">
         <div class="detail-num">09</div>
         <div class="detail-meta">
           <div class="detail-date">Vie 3 Jul</div>
-          <div class="detail-loc">Fort Lauderdale (+ Miami si hay partido)</div>
+          <div class="detail-loc">Fort Lauderdale</div>
         </div>
       </div>
-      <div class="detail-why">La última mañana en el Atlántico. Si Argentina clasificó primero del grupo, a la tarde hay partido en el Hard Rock Stadium de Miami a 40 minutos del depto.</div>
+      <div class="detail-why">
+        Último día en el Atlántico. Mañana vuelan al interior de USA a un lugar donde llueve y hay selva. Florida desaparece. El Atlántico desaparece. Si Argentina clasificó primer del Grupo J, hay match de Round of 32 en Hard Rock Stadium Miami. Es la última oportunidad de ver al equipo en South Florida.
+      </div>
       <div class="detail-body">
         <div class="detail-program">
           <div class="detail-section-title">🕐 Programa</div>
-          <div class="prog-item"><div class="prog-time">08:00</div><div class="prog-desc">🏖 Última mañana en el Atlántico. Snorkel, fotos, despedida del mar.</div></div>
-<div class="prog-item"><div class="prog-time">12:00</div><div class="prog-desc">Almuerzo en el depto.</div></div>
-<div class="prog-item"><div class="prog-time">14:00</div><div class="prog-desc">Si Argentina clasificó 1° del grupo: salida hacia Miami · Hard Rock Stadium (40 min).</div></div>
-<div class="prog-item"><div class="prog-time">18:00</div><div class="prog-desc">⚽ Argentina vs TBC · Round of 32 · Hard Rock Stadium, Miami (condicional).</div></div>
-
+          <div class="prog-item"><div class="prog-time">08:00</div><div class="prog-desc">Playa final. Baño final. Fotos finales. Última vez que el Atlántico toca sus pies.</div></div>
+          <div class="prog-item"><div class="prog-time">12:00</div><div class="prog-desc">Almuerzo en el depto o playa.</div></div>
+          <div class="prog-item"><div class="prog-time">14:00</div><div class="prog-desc">Si hay partido (Argentina clasificó 1°): salida hacia Miami. Hard Rock Stadium (40 minutos).</div></div>
+          <div class="prog-item"><div class="prog-time">18:00</div><div class="prog-desc">Partido de Round of 32 (si Argentina clasificó). Ambiente electrizado.</div></div>
+          <div class="prog-item"><div class="prog-time">19:30</div><div class="prog-desc">Después del partido: vuelta a Fort Lauderdale (40 minutos) o cena en Miami.</div></div>
         </div>
-        <div class="detail-food"><div class="detail-section-title">🍽 Qué comen</div><div class="food-item"><span class="food-meal">Desayuno</span><span class="food-what">En el depto</span></div>
-<div class="food-item"><span class="food-meal">Cena pre-partido</span><span class="food-what">A Family Wynwood · restaurante argentino · 4.9★ · Wynwood</span></div>
-</div>
+        <div class="detail-food">
+          <div class="detail-section-title">🍽 Qué comen</div>
+          <div class="food-item"><span class="food-meal">Desayuno</span><span class="food-what">En el depto.</span></div>
+          <div class="food-meal">Cena pre-partido (si hay)</div><div class="food-what">A Family Wynwood (restaurante argentino, 4.9 estrellas). Milanesas, asado, empanadas en un lugar que entiende la comida argentina.</div>
+        </div>
       </div>
-    </div>
-
-    <div class="section-divider">
-      <div class="section-divider-sub">✦ Capítulo ✦</div>
-      <div class="section-divider-title">Grand Teton + Yellowstone</div>
-      <div class="section-divider-sub">Wyoming · Montana · 4-10 Jul</div>
     </div>
 
     <div class="detail-card">
@@ -2825,27 +2389,38 @@
         <div class="detail-num">10</div>
         <div class="detail-meta">
           <div class="detail-date">Sáb 4 Jul</div>
-          <div class="detail-loc">Fort Lauderdale → Grand Teton</div>
+          <div class="detail-loc">Fort Lauderdale → Wyoming</div>
         </div>
       </div>
-      <div class="detail-why">El 4 de julio es el Día de la Independencia americana: el país explota en fuegos artificiales. Vos lo vivís volando de la playa del Atlántico a los picos nevados de Wyoming en un mismo día. Cuando aterrizás en JAC y ves los Tetons al fondo, nada te prepara para eso.</div>
+      <div class="detail-why">
+        El 4 de julio es Día de la Independencia de USA. Fuegos artificiales en cada ciudad. Mientras ustedes vuelan desde Fort Lauderdale hacia Jackson Hole, ven la costa de Florida desde el aire y luego el país se abre: Georgia, Tennessee, Kentucky, luego Colorado apareciendo con sus montañas. Llegan a un mundo diferente. Jackson Hole es un pueblo de 10 mil habitantes rodeado de montañas que rozan 4 mil metros de altura. El cambio de latitud es 3000 kilómetros. El cambio de altitud es 2000 metros. El aire que respiran es diferente.
+      </div>
       <div class="detail-body">
         <div class="detail-program">
           <div class="detail-section-title">🕐 Programa</div>
-          <div class="prog-item"><div class="prog-time">08:00</div><div class="prog-desc">🏖 Despedida del mar. Última foto familiar frente al Atlántico.</div></div>
-<div class="prog-item"><div class="prog-time">11:00</div><div class="prog-desc">Check-out depto Fort Lauderdale.</div></div>
-<div class="prog-item"><div class="prog-time">12:00</div><div class="prog-desc">Traslado a FLL Airport.</div></div>
-<div class="prog-item"><div class="prog-time">14:50</div><div class="prog-desc">✈ Vuelo DL 0673 FLL → Minneapolis (Boeing 757-300 · 3hs 49min).</div></div>
-<div class="prog-item"><div class="prog-time">17:39</div><div class="prog-desc">Escala Minneapolis (MSP) · 1hs 11min · Terminal 1 Lindbergh.</div></div>
-<div class="prog-item"><div class="prog-time">18:50</div><div class="prog-desc">✈ Vuelo DL 4086 MSP → JAC (SkyWest · 2hs 40min).</div></div>
-<div class="prog-item"><div class="prog-time">20:30</div><div class="prog-desc">🛬 Llegada JAC. Retiro Ford Edge AWD en Hertz (conf. L5994246970).</div></div>
-<div class="prog-item"><div class="prog-time">21:15</div><div class="prog-desc">Drive a Jackson Lake Lodge (35 min por Hwy 89). Check-in. Conf. R3366173.</div></div>
-
+          <div class="prog-item"><div class="prog-time">08:00</div><div class="prog-desc">Desayuno. Despedida de la playa.</div></div>
+          <div class="prog-item"><div class="prog-time">11:00</div><div class="prog-desc">Check-out depto Fort Lauderdale. Retorn de llaves a oficina.</div></div>
+          <div class="prog-item"><div class="prog-time">12:00</div><div class="prog-desc">Traslado a FLL Airport (15 minutos).</div></div>
+          <div class="prog-item"><div class="prog-time">14:50</div><div class="prog-desc">Embarque DL0673 FLL a Minneapolis (Boeing 757).</div></div>
+          <div class="prog-item"><div class="prog-time">17:39</div><div class="prog-desc">Aterrizaje Minneapolis MSP. Escala 1 hora 11 minutos.</div></div>
+          <div class="prog-item"><div class="prog-time">18:50</div><div class="prog-desc">Embarque DL4086 MSP a Jackson Hole (SkyWest, pequeño avión regional).</div></div>
+          <div class="prog-item"><div class="prog-time">20:30</div><div class="prog-desc">Aterrizaje Jackson Hole. Aire frío. Montañas visibles al atardecer (pero todavía hay luz). El paisaje es completamente diferente al que dejaron hace 6 horas.</div></div>
+          <div class="prog-item"><div class="prog-time">21:00</div><div class="prog-desc">Retiro Ford Edge AWD en Hertz. Confirmación L5994246970. El auto es grande, cómodo, preparado para montaña.</div></div>
+          <div class="prog-item"><div class="prog-time">21:35</div><div class="prog-desc">Drive a Jackson Lake Lodge (35 minutos por US Hwy 89). Carretera de montaña en el atardecer. Los Tetons aparecen de golpe. Bosques de pino. Alces caminando entre los árboles.</div></div>
+          <div class="prog-item"><div class="prog-time">22:15</div><div class="prog-desc">Check-in Jackson Lake Lodge. Late arrival notification hecha. Llevan solo carry-on. Cena en la habitación o directamente a dormir.</div></div>
         </div>
-        <div class="detail-food"><div class="detail-section-title">🍽 Qué comen</div><div class="food-item"><span class="food-meal">Desayuno</span><span class="food-what">En el depto</span></div>
-<div class="food-item"><span class="food-meal">Cena</span><span class="food-what">Restaurante del lodge o room service · avisar la llegada tardía al +1 (307) 543-2811</span></div>
-</div>
+        <div class="detail-food">
+          <div class="detail-section-title">🍽 Qué comen</div>
+          <div class="food-item"><span class="food-meal">Desayuno</span><span class="food-what">En el depto.</span></div>
+          <div class="food-item"><span class="food-meal">Cena</span><span class="food-what">Room service en el lodge o nada (duermen de inmediato).</span></div>
+        </div>
       </div>
+    </div>
+
+    <div class="section-divider">
+      <div class="section-divider-sub">✦ Capítulo 3 ✦</div>
+      <div class="section-divider-title">Grand Teton + Yellowstone</div>
+      <div class="section-divider-sub">Wyoming · Montana · 4-10 Jul</div>
     </div>
 
     <div class="detail-card">
@@ -2853,26 +2428,34 @@
         <div class="detail-num">11</div>
         <div class="detail-meta">
           <div class="detail-date">Dom 5 Jul</div>
-          <div class="detail-loc">Grand Teton NP · Jackson Lake Lodge</div>
+          <div class="detail-loc">Grand Teton NP</div>
         </div>
       </div>
-      <div class="detail-why">Empezás el día antes del amanecer viendo los Tetons reflejados en el río Snake con posibles grizzlies en la orilla. El museo explica toda la cultura nativa y fauna que vas a ver durante la semana. La tarde es el rafting: flotando despacio por el Snake con los picos nevados encima y alces en la orilla.</div>
+      <div class="detail-why">
+        Oxbow Bend es una curva del río Snake donde el agua se calma en un espejo. Al atardecer desaparece completamente. Son los Tetons reflejados en el agua. Es la foto más famosa de Grand Teton. Los grizzlies salen de madrugada a pescar. Los alces vienen al agua a beber. Es silencio absoluto. Es naturaleza pura.
+
+        El Craig Thomas Discovery Center es un museo que explica la historia de esta región. Los nativos Shoshone, Crow y Blackfeet vivieron aquí antes del 1800. El museo muestra sus artefactos, sus técnicas de caza, su relación con las montañas. Los "Tetons" es el nombre francés (tetons significa senos en francés, los traperos franceses vieron la forma puntiaguda de las montañas y pusieron el nombre). Hoy los Shoshone viven en reservas en Wyoming.
+
+        El rafting por Snake River es flotación plácida. No son whitewater rapids. Son 2.5 horas flotando, viendo la fauna desde el agua. Los Tetons están detrás de ustedes mientras flotan. Es perspectiva nueva del lugar.
+      </div>
       <div class="detail-body">
         <div class="detail-program">
           <div class="detail-section-title">🕐 Programa</div>
-          <div class="prog-item"><div class="prog-time">06:30</div><div class="prog-desc">🌅 Oxbow Bend (10 min del lodge): los Tetons reflejados en el Snake al amanecer. Grizzlies, alces, águilas calvas.</div></div>
-<div class="prog-item"><div class="prog-time">08:00</div><div class="prog-desc">Willow Flats (5 min caminando del lodge): alces entre los sauces.</div></div>
-<div class="prog-item"><div class="prog-time">09:00</div><div class="prog-desc">Desayuno en el Mural Room del lodge (ventanales de 18m con vista a los Tetons).</div></div>
-<div class="prog-item"><div class="prog-time">10:30</div><div class="prog-desc">🏛 Craig Thomas Discovery Center: cultura Shoshone/Crow/Blackfeet, geología y fauna del parque. Gratuito. 1.5hs.</div></div>
-<div class="prog-item"><div class="prog-time">13:00</div><div class="prog-desc">🚣 Rafting scenic Snake River · Solitude Float Trips. Aguas planas, 2.5hs. Wildlife desde la balsa.</div></div>
-<div class="prog-item"><div class="prog-time">16:00</div><div class="prog-desc">🛒 Compras en Albertsons, Jackson (35 min). La compra grande para los días de cabaña en Silver Gate.</div></div>
-<div class="prog-item"><div class="prog-time">18:30</div><div class="prog-desc">🦬 Antelope Flats / Mormon Row al atardecer. Bisontes en manada, Tetons de fondo.</div></div>
-
+          <div class="prog-item"><div class="prog-time">06:30</div><div class="prog-desc">Oxbow Bend para amanecer. Los Tetons reflejados. Silencio. Temperatura 5 grados. Traen abrigos. Grizzlies posibles (pero raros a esta hora temprana). Alces en la rivera son comunes.</div></div>
+          <div class="prog-item"><div class="prog-time">08:00</div><div class="prog-desc">Willow Flats (5 minutos caminando del lodge). Alces entre sauces. Observación de fauna. Binoculares recomendado.</div></div>
+          <div class="prog-item"><div class="prog-time">09:00</div><div class="prog-desc">Desayuno en Mural Room del lodge. Ventanales de 18 metros con vista directa a los Tetons. Pancakes, huevos benedict, salmón ahumado, café.</div></div>
+          <div class="prog-item"><div class="prog-time">10:30</div><div class="prog-desc">Craig Thomas Discovery Center. Museo. Cultura Shoshone, Crow, Blackfeet. Artefactos. Arcos, lanzas, cueros. Historia de cómo los traperos franceses llegaron aquí. La región fue punto de encuentro de tres culturas indígenas. El museo es pequeño pero potente (1.5 horas máximo).</div></div>
+          <div class="prog-item"><div class="prog-time">13:00</div><div class="prog-desc">Rafting scenic Snake River. Aguas planas. Duración 2.5 horas. Guía habla de la geografía. Bisontes en el agua, alces caminando en la sierra. Los Tetons desde otra perspectiva. Es flotar en paz.</div></div>
+          <div class="prog-item"><div class="prog-time">16:00</div><div class="prog-desc">Compras en Albertsons, Jackson (35 minutos). La compra grande para los 3 días de cabaña en Silver Gate. Carne, verduras, pasta, snacks, bebidas. Budget USD 380.</div></div>
+          <div class="prog-item"><div class="prog-time">18:30</div><div class="prog-desc">Antelope Flats y Mormon Row al atardecer. Granjas históricas de 1890. Caballos pastando. Bisontes. Los Tetons de fondo se ponen naranja con la puesta de sol.</div></div>
+          <div class="prog-item"><div class="prog-time">20:00</div><div class="prog-desc">Cena Gun Barrel Steak and Game House en Jackson. Bison burger, elk tenderloin. Local preferido por vaqueros locales.</div></div>
         </div>
-        <div class="detail-food"><div class="detail-section-title">🍽 Qué comen</div><div class="food-item"><span class="food-meal">Desayuno</span><span class="food-what">Mural Room del lodge · pancakes, huevos benedict, café</span></div>
-<div class="food-item"><span class="food-meal">Almuerzo</span><span class="food-what">Picnic en el rafting o sándwich en el auto</span></div>
-<div class="food-item"><span class="food-meal">Cena</span><span class="food-what">Gun Barrel Steak and Game House · bison burger, elk tenderloin · Jackson</span></div>
-</div>
+        <div class="detail-food">
+          <div class="detail-section-title">🍽 Qué comen</div>
+          <div class="food-item"><span class="food-meal">Desayuno</span><span class="food-what">Mural Room. Pancakes, huevos, salmón, café.</span></div>
+          <div class="food-item"><span class="food-meal">Almuerzo</span><span class="food-what">Picnic durante el rafting o sándwich en Jackson.</span></div>
+          <div class="food-item"><span class="food-meal">Cena</span><span class="food-what">Gun Barrel Steak & Game House. Carnes de caza local. Elk, bison, venado. Están en Wyoming, comen como los vaqueros.</span></div>
+        </div>
       </div>
     </div>
 
@@ -2881,23 +2464,33 @@
         <div class="detail-num">12</div>
         <div class="detail-meta">
           <div class="detail-date">Lun 6 Jul</div>
-          <div class="detail-loc">Grand Teton NP · Jackson Lake Lodge</div>
+          <div class="detail-loc">Grand Teton NP</div>
         </div>
       </div>
-      <div class="detail-why">El día de aprender a ver. El guía de Brushbuck te enseña a detectar un oso a 2km de distancia, qué significa cuando los bisontes miran todos para el mismo lado. Todo lo que aprendés hoy lo usás el resto de la semana. Es la diferencia entre mirar y ver.</div>
+      <div class="detail-why">
+        Brushbuck Wildlife Tours es lo mejor. El guía es experto en animales peligrosos. Lleva spotting scope de 80x zoom. Enseña a ver. Enseña a detectar un oso a 2 kilómetros de distancia observando cómo caminan los bisontes (si todos miran para el mismo lado, hay depredador). Te enseña a leer el paisaje. Es la diferencia entre mirar y ver. El tour es privado, solo tu familia con un guía. Cuatro horas de educación en naturaleza pura.
+
+        Jenny Lake es caminar hasta Hidden Falls. El camino es plano, 800 metros de idas y vueltas. Bosque de pino. Sonido de agua cayendo. Está el ferry que te ahorra el camino alrededor del lago (10 minutos de bote). Regresa por el mismo camino. El paisaje es montaña pura.
+
+        Mormon Row es fotografía. Granjas de madera históricas con los Tetons de fondo. Fue colonizado por mormones en 1890. Hoy están abandonadas pero intactas, como museos al aire libre.
+      </div>
       <div class="detail-body">
         <div class="detail-program">
           <div class="detail-section-title">🕐 Programa</div>
-          <div class="prog-item"><div class="prog-time">06:30</div><div class="prog-desc">🦌 Tour guiado wildlife Grand Teton · BrushBuck Wildlife Tours · Booking #352683555. Pickup en Jackson Lake Lodge (hora exacta confirmada por el guía). Tour privado 4hs. Oxbow Bend, Willow Flats, Antelope Flats. Spotting scopes.</div></div>
-<div class="prog-item"><div class="prog-time">10:30</div><div class="prog-desc">Desayuno tardío en el lodge. Siesta merecida.</div></div>
-<div class="prog-item"><div class="prog-time">14:30</div><div class="prog-desc">🏞 Jenny Lake: ferry al otro lado del lago (10 min), caminata llana de 800m a Hidden Falls.</div></div>
-<div class="prog-item"><div class="prog-time">18:30</div><div class="prog-desc">🌅 Mormon Row al atardecer: granjas históricas 1890 con los Tetons de fondo.</div></div>
-
+          <div class="prog-item"><div class="prog-time">06:00</div><div class="prog-desc">Despertador. Abrigos. Termo de café preparado la noche anterior. Brushbuck Wildlife Tour comienza a las 6:30 exactas.</div></div>
+          <div class="prog-item"><div class="prog-time">06:30</div><div class="prog-desc">Pickup en Jackson Lake Lodge por guía de Brushbuck. Tour privado con 4 horas de exploración. Spotting scope. Enseñanza de cómo leer la naturaleza. Los alces y bisontes son los tutores. Los osos están en agenda (probabilidad 30-40% en esta época).</div></div>
+          <div class="prog-time">10:30</div><div class="prog-desc">Tour termina. Regreso al lodge destruidos pero felices. Desayuno tardío en Mural Room. Siesta obligatoria.</div></div>
+          <div class="prog-item"><div class="prog-time">14:30</div><div class="prog-desc">Jenny Lake. Ferry o caminata (depende de energía). Hidden Falls son 400 metros adentro. Agua fría, clara, sonido de cascada.</div></div>
+          <div class="prog-item"><div class="prog-time">18:30</div><div class="prog-desc">Mormon Row atardecer. Fotografía. Las granjas viejas contra el cielo naranja de los Tetons.</div></div>
+          <div class="prog-item"><div class="prog-time">20:00</div><div class="prog-desc">Cena Whistling Grizzly Restaurant en Jackson. Elk tenderloin, trucha local, ambiente histórico de lodge.</div></div>
         </div>
-        <div class="detail-food"><div class="detail-section-title">🍽 Qué comen</div><div class="food-item"><span class="food-meal">Desayuno tardío</span><span class="food-what">Lodge · cualquier cosa del menú</span></div>
-<div class="food-item"><span class="food-meal">Almuerzo</span><span class="food-what">Snacks o picnic en Jenny Lake</span></div>
-<div class="food-item"><span class="food-meal">Cena</span><span class="food-what">Whistling Grizzly Restaurant · elk tenderloin, trucha local · Jackson</span></div>
-</div>
+        <div class="detail-food">
+          <div class="detail-section-title">🍽 Qué comen</div>
+          <div class="food-item"><span class="food-meal">Madrugada</span><span class="food-what">Café preparado. Snacks. Nada más, el tour es de mañana.</span></div>
+          <div class="food-item"><span class="food-meal">Desayuno tardío</span><span class="food-what">Mural Room. Todo.</span></div>
+          <div class="food-item"><span class="food-meal">Almuerzo</span><span class="food-what">Picnic en Jenny Lake o snacks.</span></div>
+          <div class="food-item"><span class="food-meal">Cena</span><span class="food-what">Whistling Grizzly. Elk, trucha local, ambiente de cabaña histórica.</span></div>
+        </div>
       </div>
     </div>
 
@@ -2906,26 +2499,32 @@
         <div class="detail-num">13</div>
         <div class="detail-meta">
           <div class="detail-date">Mar 7 Jul</div>
-          <div class="detail-loc">Grand Teton → Yellowstone · Silver Gate</div>
+          <div class="detail-loc">Grand Teton → Yellowstone</div>
         </div>
       </div>
-      <div class="detail-why">El gran cruce. Pasás de Grand Teton a Yellowstone cruzando el parque de sur a norte. Géiseres al borde del lago, las primeras manadas masivas de Yellowstone, el cañón de 360m con paredes naranja. El manejo es largo pero cada kilómetro tiene algo para ver.</div>
+      <div class="detail-why">
+        El cruce de Grand Teton a Yellowstone es uno de los grandes drives de USA. Pasas de norte a sur dentro del sistema de parques. Salidas geotermales. Géiseres al lado del camino. El cañón de Yellowstone es una cicatriz naranja de 360 metros de profundidad en la tierra. Las paredes están teñidas de mineral. Un superbólcano bajo tus pies.
+
+        Silver Gate es el pueblo que queda al norte del parque. Población 100. Dos restaurantes. Un supermercado. Es donde viven en cabaña privada los próximos 3 días. No hay celular (mejor así).
+      </div>
       <div class="detail-body">
         <div class="detail-program">
           <div class="detail-section-title">🕐 Programa</div>
-          <div class="prog-item"><div class="prog-time">08:00</div><div class="prog-desc">Desayuno y checkout de Jackson Lake Lodge.</div></div>
-<div class="prog-item"><div class="prog-time">10:00</div><div class="prog-desc">🌋 West Thumb Geyser Basin: géiseres al borde del lago Yellowstone. Boardwalk llano 1.5km.</div></div>
-<div class="prog-item"><div class="prog-time">12:30</div><div class="prog-desc">🦬 Hayden Valley: primer avistamiento Yellowstone con el ojo entrenado del tour del día anterior.</div></div>
-<div class="prog-item"><div class="prog-time">13:30</div><div class="prog-desc">Almuerzo de viaje (sándwiches que llevan de Jackson).</div></div>
-<div class="prog-item"><div class="prog-time">15:00</div><div class="prog-desc">🏔 Grand Canyon del Yellowstone: Artist Point y Lower Falls desde los miradores.</div></div>
-<div class="prog-item"><div class="prog-time">18:00</div><div class="prog-desc">🏡 Llegada a Silver Gate · Amphitheater House (conf. #114100) · 109 US Hwy 212.</div></div>
-<div class="prog-item"><div class="prog-time">19:30</div><div class="prog-desc">Cena en la cabaña (pasta o lo que trajeron de Jackson).</div></div>
-
+          <div class="prog-item"><div class="prog-time">08:00</div><div class="prog-desc">Desayuno y checkout Jackson Lake Lodge.</div></div>
+          <div class="prog-item"><div class="prog-time">10:00</div><div class="prog-desc">Salida hacia Yellowstone. Carretera scenic por el lado oeste de Grand Teton. Los picos nevados atrás tuyo mientras conduces.</div></div>
+          <div class="prog-item"><div class="prog-time">10:30</div><div class="prog-desc">West Thumb Geyser Basin. Géiseres literalmente tocando el lago Yellowstone. Boardwalk (pasarela) de madera llana, 1.5 kilómetros. El agua está a 90 grados Celsius. El olor a azufre es fuerte. Es estar en otro planeta.</div></div>
+          <div class="prog-item"><div class="prog-time">12:30</div><div class="prog-desc">Hayden Valley. La llanura más grande de Yellowstone. Bisontes en manada. Posibles osos. El río Yellowstone cruza la llanura.</div></div>
+          <div class="prog-item"><div class="prog-time">13:30</div><div class="prog-desc">Almuerzo de viaje. Sándwiches comprados en Jackson la noche anterior.</div></div>
+          <div class="prog-item"><div class="prog-time">15:00</div><div class="prog-desc">Grand Canyon del Yellowstone. Cascada de 100 metros. Artist Point. Las paredes naranja, rojo, verde (minerales). Es belleza salvaje sin filtro.</div></div>
+          <div class="prog-item"><div class="prog-time">18:00</div><div class="prog-desc">Llegada Silver Gate. Cabaña Amphitheater House (conf. 114100). Está en las afueras del pueblo. Está completamente aislada. No hay wifi. No hay celular. Hay gas, cocina, comedor, baños, electricidad. Es retiro total.</div></div>
+          <div class="prog-item"><div class="prog-time">19:30</div><div class="prog-desc">Cena. Pasta que traen de Jackson o Miners Saloon en Cooke City (5 minutos del pueblo).</div></div>
         </div>
-        <div class="detail-food"><div class="detail-section-title">🍽 Qué comen</div><div class="food-item"><span class="food-meal">Desayuno</span><span class="food-what">En el lodge antes de salir</span></div>
-<div class="food-item"><span class="food-meal">Almuerzo</span><span class="food-what">Sándwiches en el auto · Hayden Valley</span></div>
-<div class="food-item"><span class="food-meal">Cena</span><span class="food-what">Pasta casera en la cabaña · o Miners Saloon, Cooke City (5 min)</span></div>
-</div>
+        <div class="detail-food">
+          <div class="detail-section-title">🍽 Qué comen</div>
+          <div class="food-item"><span class="food-meal">Desayuno</span><span class="food-what">En el lodge antes de salir.</span></div>
+          <div class="food-item"><span class="food-meal">Almuerzo</span><span class="food-what">Sándwiches en el auto. Hayden Valley.</span></div>
+          <div class="food-item"><span class="food-meal">Cena</span><span class="food-what">Pasta que traen de Jackson o Miners Saloon en Cooke City (único restaurante a menos de 15 minutos).</span></div>
+        </div>
       </div>
     </div>
 
@@ -2934,26 +2533,33 @@
         <div class="detail-num">14</div>
         <div class="detail-meta">
           <div class="detail-date">Mié 8 Jul</div>
-          <div class="detail-loc">Yellowstone · Silver Gate</div>
+          <div class="detail-loc">Yellowstone NP</div>
         </div>
       </div>
-      <div class="detail-why">El día de los osos. Hayden Valley al amanecer con niebla sobre el río Yellowstone es una imagen que no existe en otro lugar del mundo. Yellowstone Wild Tours lleva spotting scopes de 80x, y en julio las hembras grizzly salen con sus oseznos. Probabilidad de oso altísima. Después Grand Prismatic con colores imposibles y Old Faithful en erupción.</div>
+      <div class="detail-why">
+        Hayden Valley al amanecer con niebla sobre el río Yellowstone es una imagen que no existe en ningún otro lugar. Está viendo en niebla espesa, silencio, 5 grados de temperatura. El guía de Yellowstone Wild Tours tiene spotting scope de 80x. La probabilidad de ver grizzly en julio es alta (hembras con oseznos salen a pescar salmón). Es la experiencia más intensa del viaje. Pueden llorar de la emoción. No es broma.
+
+        Grand Prismatic es el géiser más grande de USA por volumen. El agua es azul profundo (mineral silicato), las orillas son naranja y verde (algas termófilas). Es un único color de arcoíris en una sola fuente. Solo Islandia tiene algo parecido.
+
+        Old Faithful erupciona cada 90 minutos. Es predecible. Cuando ves la erupción primera vez, entiendes por qué es famoso. Una columna de agua caliente a 180 grados salta 50 metros al aire. Es fuerza bruta.
+      </div>
       <div class="detail-body">
         <div class="detail-program">
           <div class="detail-section-title">🕐 Programa</div>
-          <div class="prog-item"><div class="prog-time">04:30</div><div class="prog-desc">Desayuno ultrarrápido. Termo de café preparado la noche anterior.</div></div>
-<div class="prog-item"><div class="prog-time">05:00</div><div class="prog-desc">🐻 Bear & Wolf Watching Tour · Yellowstone Wild Tours · desde Silver Gate hacia Hayden Valley. Order #FSXWKW. 5hs con spotting scopes. Osos, bisontes, posibles lobos.</div></div>
-<div class="prog-item"><div class="prog-time">10:30</div><div class="prog-desc">Vuelta a la cabaña. Almuerzo y siesta obligatoria.</div></div>
-<div class="prog-item"><div class="prog-time">13:30</div><div class="prog-desc">🌈 Grand Prismatic Spring: boardwalk llano (1km) + subida al mirador del Fairy Falls Trail para ver los colores desde arriba.</div></div>
-<div class="prog-item"><div class="prog-time">16:00</div><div class="prog-desc">⛲ Old Faithful: consultar próxima erupción en visitor center. Erupciona cada ~90 min.</div></div>
-<div class="prog-item"><div class="prog-time">18:30</div><div class="prog-desc">Regreso a Silver Gate (1.5hs).</div></div>
-<div class="prog-item"><div class="prog-time">20:00</div><div class="prog-desc">Cena en la cabaña.</div></div>
-
+          <div class="prog-item"><div class="prog-time">04:30</div><div class="prog-desc">Despertador. Abrigos gruesos. Termo de café y snacks preparados la noche anterior. Salida inmediata hacia Hayden Valley.</div></div>
+          <div class="prog-item"><div class="prog-time">05:00</div><div class="prog-desc">Bear & Wolf Watching Tour con Yellowstone Wild Tours. Hayden Valley. Niebla. Silencio. El guía tiene spotting scope. Buscan osos y lobos. Probabilidad de oso en julio es 60-70%. Los lobos son más esquivos (probabilidad 20%). Duración 5 horas.</div></div>
+          <div class="prog-item"><div class="prog-time">10:30</div><div class="prog-desc">Tour termina. Vuelta a la cabaña. Almuerzo y siesta obligatoria. Están destruidos pero jubilosos.</div></div>
+          <div class="prog-item"><div class="prog-time">13:30</div><div class="prog-desc">Grand Prismatic Spring. Boardwalk llano (1 kilómetro). Colores imposibles. El agua está a 189 grados Celsius. Es fotografía pura.</div></div>
+          <div class="prog-item"><div class="prog-time">16:00</div><div class="prog-desc">Old Faithful. Visitor Center. Próxima erupción está en pantalla (cada 90 minutos típicamente). Erupciona. Está ahí. Es real. Es impresionante.</div></div>
+          <div class="prog-item"><div class="prog-time">18:30</div><div class="prog-desc">Regreso a Silver Gate (90 minutos de auto).</div></div>
+          <div class="prog-item"><div class="prog-time">20:00</div><div class="prog-desc">Cena en la cabaña. Steaks a la parrilla. Verduras. Vino.</div></div>
         </div>
-        <div class="detail-food"><div class="detail-section-title">🍽 Qué comen</div><div class="food-item"><span class="food-meal">Madrugada</span><span class="food-what">Termo de café + sándwiches preparados la noche anterior</span></div>
-<div class="food-item"><span class="food-meal">Almuerzo</span><span class="food-what">En la cabaña</span></div>
-<div class="food-item"><span class="food-meal">Cena</span><span class="food-what">Steaks a la parrilla en la cabaña</span></div>
-</div>
+        <div class="detail-food">
+          <div class="detail-section-title">🍽 Qué comen</div>
+          <div class="food-item"><span class="food-meal">Madrugada</span><span class="food-what">Café. Snacks. Nada más.</span></div>
+          <div class="food-item"><span class="food-meal">Almuerzo</span><span class="food-what">En la cabaña después del tour. Sandwich, sopa, lo que prepararon.</span></div>
+          <div class="food-item"><span class="food-meal">Cena</span><span class="food-what">Steaks a la parrilla en la cabaña. Cocinados en la cocina o en parrilla externa. Verduras. Vino. Última noche especial en Silver Gate.</span></div>
+        </div>
       </div>
     </div>
 
@@ -2962,35 +2568,36 @@
         <div class="detail-num">15</div>
         <div class="detail-meta">
           <div class="detail-date">Jue 9 Jul</div>
-          <div class="detail-loc">Yellowstone · Lamar Valley · Silver Gate</div>
+          <div class="detail-loc">Yellowstone NP</div>
         </div>
       </div>
-      <div class="detail-why">El día de los lobos. Lamar Valley es el único lugar de Norteamérica donde podés ver lobos salvajes con alta probabilidad. El guía de Yellowstone Wildlife Profiles tiene spotting scopes de 80x. Los packs Junction Butte y Wapiti Lake son los más activos. Ver un lobo en la naturaleza es algo que menos del 1% de las personas experimenta en su vida.</div>
+      <div class="detail-why">
+        Lamar Valley es el único lugar de Norteamérica donde puedes ver lobos salvajes en libertad con probabilidad alta. Hace 27 años no había lobos en Yellowstone. El gobierno federal los reintrodujo en 1995. Hoy hay 90 lobos en el parque. El Junction Butte Pack es el más activo. El Wapiti Lake Pack es el segundo. Los lobos cazan bison. La cadena alimenticia está establecida nuevamente.
+
+        Mammoth Hot Springs es terrazas de travertino blanco que parecen nieve en las montañas. Son aguas termales que dejan depósitos minerales. Parece un lugar de otro planeta. Hay alces caminando entre las terrazas. Es surrealista.
+
+        Obsidian Cliff es un sitio arqueológico. El vidrio volcánico fue usado por nativos americanos durante 11 mil años como herramienta de corte. Algunos fragmentos siguen en el piso. Es estar en la prehistoria.
+      </div>
       <div class="detail-body">
         <div class="detail-program">
           <div class="detail-section-title">🕐 Programa</div>
-          <div class="prog-item"><div class="prog-time">04:30</div><div class="prog-desc">Termo de café y ropa de abrigo preparados la noche anterior. Lamar a 20 min de la cabaña.</div></div>
-<div class="prog-item"><div class="prog-time">06:00</div><div class="prog-desc">🐺 Sunrise Wolves & Wildlife · Yellowstone Wildlife Profiles · Lamar Buffalo Ranch. Order #FSXVCB. 6:00-10:00am. Lobos 70%+ con spotting scope 80x. Osos, bisontes, alces.</div></div>
-<div class="prog-item"><div class="prog-time">10:30</div><div class="prog-desc">Almuerzo en Miners Saloon, Cooke City (5 min de la cabaña). Burger de bisonte, cerveza Moose Drool.</div></div>
-<div class="prog-item"><div class="prog-time">13:00</div><div class="prog-desc">🌋 Mammoth Hot Springs (50 min): terrazas de travertino blanco. Alces entre las terrazas.</div></div>
-<div class="prog-item"><div class="prog-time">14:30</div><div class="prog-desc">🏛 Albright Visitor Center (Fort Yellowstone): cultura Tukudika-Shoshone, los nativos de estas montañas.</div></div>
-<div class="prog-item"><div class="prog-time">15:15</div><div class="prog-desc">🪨 Obsidian Cliff: sitio arqueológico nacional. Obsidiana usada por nativos durante 11.000 años.</div></div>
-<div class="prog-item"><div class="prog-time">16:30</div><div class="prog-desc">⛲ Old Faithful al atardecer (menos gente que ayer).</div></div>
-<div class="prog-item"><div class="prog-time">19:00</div><div class="prog-desc">Vuelta a Silver Gate.</div></div>
-<div class="prog-item"><div class="prog-time">20:00</div><div class="prog-desc">Última cena en la cabaña.</div></div>
-
+          <div class="prog-item"><div class="prog-time">04:30</div><div class="prog-desc">Despertador final. Abrigos. Termo de café. Snacks. Fruta. Salida hacia Lamar Valley.</div></div>
+          <div class="prog-item"><div class="prog-time">06:00</div><div class="prog-desc">Sunrise Wolves & Wildlife Tour con Yellowstone Wildlife Profiles. Lamar Buffalo Ranch. Guía especialista en lobos con 20 años de experiencia. Spotting scope 80x. Probabilidad de lobo 70%+. Duración 4 horas.</div></div>
+          <div class="prog-item"><div class="prog-time">10:30</div><div class="prog-desc">Tour termina. Almuerzo Miners Saloon en Cooke City (5 minutos). Burger de bisonte. Cerveza Moose Drool (local). Cervecería de Montana.</div></div>
+          <div class="prog-item"><div class="prog-time">12:30</div><div class="prog-desc">Mammoth Hot Springs (50 minutos de Cooke City). Terrazas de travertino blanco. Alces caminando entre las terrazas. Boardwalk. Fotografía.</div></div>
+          <div class="prog-item"><div class="prog-time">14:00</div><div class="prog-desc">Albright Visitor Center (Fort Yellowstone). Historia Tukudika Shoshone. Fueron los nativos de esta región antes de 1800. Artefactos. Cultura.</div></div>
+          <div class="prog-item"><div class="prog-time">14:45</div><div class="prog-desc">Obsidian Cliff (30 minutos). Sitio arqueológico. Vidrio volcánico negro. Usado por humanos hace 11 mil años. Fragmentos en el piso.</div></div>
+          <div class="prog-item"><div class="prog-time">15:30</div><div class="prog-desc">Norris Geyser Basin (10 minutos desde Obsidian Cliff). La zona hidrotermal más caliente y activa de todo Yellowstone. Steamboat Geyser, el géiser activo más alto del mundo. Echinus Geyser. El suelo burbujea. Huele a azufre. Thermophile bacterias de colores. Una hora que vale la pena.</div></div>
+          <div class="prog-item"><div class="prog-time">17:00</div><div class="prog-desc">Regreso Silver Gate por Tower Junction (90 minutos). Si hay luz, parada en Lamar Valley de camino: los últimos rayos del sol sobre el valle donde pasaron la mañana. El cierre perfecto de Yellowstone.</div></div>
+          <div class="prog-item"><div class="prog-time">20:00</div><div class="prog-desc">Última cena en la cabaña. Pollo al horno con verduras. Vino. Conversación de la semana más intensa de sus vidas.</div></div>
         </div>
-        <div class="detail-food"><div class="detail-section-title">🍽 Qué comen</div><div class="food-item"><span class="food-meal">Madrugada</span><span class="food-what">Termo + fruta + barritas de granola</span></div>
-<div class="food-item"><span class="food-meal">Almuerzo</span><span class="food-what">Miners Saloon · Cooke City · burger de bisonte, cerveza artesanal</span></div>
-<div class="food-item"><span class="food-meal">Cena</span><span class="food-what">Pollo al horno con verduras en la cabaña · última noche en Silver Gate</span></div>
-</div>
+        <div class="detail-food">
+          <div class="detail-section-title">🍽 Qué comen</div>
+          <div class="food-item"><span class="food-meal">Madrugada</span><span class="food-what">Café. Fruta. Snacks.</span></div>
+          <div class="food-item"><span class="food-meal">Almuerzo</span><span class="food-what">Miners Saloon. Burger de bisonte. Cerveza Moose Drool.</span></div>
+          <div class="food-item"><span class="food-meal">Cena</span><span class="food-what">Pollo al horno con verduras en la cabaña. Vino. Última noche en las montañas.</span></div>
+        </div>
       </div>
-    </div>
-
-    <div class="section-divider">
-      <div class="section-divider-sub">✦ Capítulo ✦</div>
-      <div class="section-divider-title">Kansas City</div>
-      <div class="section-divider-sub">Missouri · 10-12 Jul</div>
     </div>
 
     <div class="detail-card">
@@ -3001,28 +2608,41 @@
           <div class="detail-loc">Silver Gate → Bozeman → Kansas City</div>
         </div>
       </div>
-      <div class="detail-why">La ruta de Gardiner a Bozeman por el valle del Yellowstone con las Absaroka Mountains es la despedida perfecta de los parques. Y Kansas City te recibe con el BBQ más legendario de EEUU.</div>
+      <div class="detail-why">
+        El viaje desde Silver Gate a Bozeman es 120 kilómetros de carretera de montaña pura. Pasan Gardiner. Pasan Mammoth. Bajan en altitud gradualmente. Los picos nevados van desapareciendo atrás. Es despedida de las montañas.
+
+        Bozeman es una ciudad universitaria (Montana State). Tiene 53 mil habitantes. Fue capital del territorio en 1864. Hoy es town hipster de escalada. Dieron inicio.
+
+        Kansas City es otro mundo. Es llanura. Es barbecue. Es fútbol americano (NFL Kansas City Chiefs). Si Argentina clasificó a cuartos, hoy empieza la cuenta regresiva.
+      </div>
       <div class="detail-body">
         <div class="detail-program">
           <div class="detail-section-title">🕐 Programa</div>
-          <div class="prog-item"><div class="prog-time">06:30</div><div class="prog-desc">🌅 Último amanecer en Lamar (opcional, 20 min de la cabaña).</div></div>
-<div class="prog-item"><div class="prog-time">08:30</div><div class="prog-desc">Desayuno y empaque. Checkout Amphitheater House.</div></div>
-<div class="prog-item"><div class="prog-time">10:00</div><div class="prog-desc">Salida hacia Bozeman por la entrada norte (Gardiner). 2hs de ruta pintoresca.</div></div>
-<div class="prog-item"><div class="prog-time">12:30</div><div class="prog-desc">🚗 BZN Airport. Devolución Ford Edge en Hertz. Confirmación L5994246970.</div></div>
-<div class="prog-item"><div class="prog-time">13:30</div><div class="prog-desc">Check-in Southwest Airlines.</div></div>
-<div class="prog-item"><div class="prog-time">14:50</div><div class="prog-desc">✈ SW 1132 BZN → Denver (Boeing 737-800).</div></div>
-<div class="prog-item"><div class="prog-time">16:35</div><div class="prog-desc">Escala Denver (DEN) · 1hs 20min.</div></div>
-<div class="prog-item"><div class="prog-time">17:55</div><div class="prog-desc">✈ SW 4305 DEN → MCI (Boeing 737 MAX8).</div></div>
-<div class="prog-item"><div class="prog-time">20:45</div><div class="prog-desc">🛬 Llegada Kansas City. Hotel cerca del aeropuerto MCI.</div></div>
-
+          <div class="prog-item"><div class="prog-time">06:30</div><div class="prog-desc">Último amanecer en Lamar Valley (opcional, 20 minutos de la cabaña). Última vez viendo posibles lobos.</div></div>
+          <div class="prog-item"><div class="prog-time">08:30</div><div class="prog-desc">Desayuno en la cabaña. Empaque final. Check-out Amphitheater House. Devolución de llaves.</div></div>
+          <div class="prog-item"><div class="prog-time">10:00</div><div class="prog-desc">Salida hacia Bozeman. 120 kilómetros. Dos horas de auto. Descenso de altitud. Los Tetons desaparecen. Es tristeza de salir.</div></div>
+          <div class="prog-item"><div class="prog-time">12:30</div><div class="prog-desc">Bozeman Airport. Devolución Ford Edge AWD a Hertz. Confirmación L5994246970. Millas ilimitadas así que no hay cobro extra. El auto hizo 1400 kilómetros sin problemas.</div></div>
+          <div class="prog-item"><div class="prog-time">13:30</div><div class="prog-desc">Check-in Southwest Airlines en Terminal.</div></div>
+          <div class="prog-item"><div class="prog-time">14:50</div><div class="prog-desc">Embarque SW 1132 BZN a Denver.</div></div>
+          <div class="prog-item"><div class="prog-time">16:35</div><div class="prog-desc">Aterrizaje Denver. Escala 1 hora 20 minutos. Colorado es llanura ahora.</div></div>
+          <div class="prog-item"><div class="prog-time">17:55</div><div class="prog-desc">Embarque SW 4305 Denver a Kansas City.</div></div>
+          <div class="prog-item"><div class="prog-time">20:45</div><div class="prog-desc">Aterrizaje Kansas City. Hotel cercano. Check-in.</div></div>
         </div>
-        <div class="detail-food"><div class="detail-section-title">🍽 Qué comen</div><div class="food-item"><span class="food-meal">Desayuno</span><span class="food-what">En la cabaña · lo último que queda</span></div>
-<div class="food-item"><span class="food-meal">Cena</span><span class="food-what">Q39 o Joe's KC BBQ · los mejores burnt ends del mundo</span></div>
-</div>
+        <div class="detail-food">
+          <div class="detail-section-title">🍽 Qué comen</div>
+          <div class="food-item"><span class="food-meal">Desayuno</span><span class="food-what">En la cabaña. Lo último que queda.</span></div>
+          <div class="food-item"><span class="food-meal">Cena</span><span class="food-what">Q39 BBQ o Joe's KC. Los mejores burnt ends del mundo. Kansas City es el barbecue.</span></div>
+        </div>
       </div>
     </div>
 
-    <div class="detail-card partido">
+    <div class="section-divider">
+      <div class="section-divider-sub">✦ Capítulo 4 ✦</div>
+      <div class="section-divider-title">Kansas City + Regreso</div>
+      <div class="section-divider-sub">Missouri · 10-13 Jul</div>
+    </div>
+
+    <div class="detail-card">
       <div class="detail-header">
         <div class="detail-num">17</div>
         <div class="detail-meta">
@@ -3030,29 +2650,30 @@
           <div class="detail-loc">Kansas City, MO</div>
         </div>
       </div>
-      <div class="detail-why">Kansas City sorprende a todos. El Country Club Plaza es el primer shopping center al aire libre del mundo (1922). Y si Argentina llegó a cuartos, esta noche es el partido en el Arrowhead Stadium, el estadio de NFL más ruidoso de EEUU.</div>
+      <div class="detail-why">
+        Kansas City es una ciudad olvidada por el turismo pero amada por los que llegan. Fue el corazón de la ruta comercial de USA. Hoy es barbecue, jazz, Chiefs (NFL), y outlets. El Country Club Plaza fue el primer shopping center al aire libre del mundo construido en 1922. La arquitectura es española (plazas abiertas, fuentes, tiendas).
+
+        El National WWI Museum es el mejor museo de la Primera Guerra Mundial en el mundo. Las colecciones son masivas. Las historias son personales. Te haces una idea clara de por qué esa guerra fue un genocidio.
+
+        Si Argentina clasificó a cuartos, hoy es el partido en Arrowhead Stadium. 70 mil personas. El estadio más ruidoso de la NFL. Una experiencia acústica en una cancha de fútbol. Si Argentina gana, es épico.
+      </div>
       <div class="detail-body">
         <div class="detail-program">
           <div class="detail-section-title">🕐 Programa</div>
-          <div class="prog-item"><div class="prog-time">09:00</div><div class="prog-desc">🏛 Country Club Plaza: arquitectura española, fuentes, tiendas.</div></div>
-<div class="prog-item"><div class="prog-time">11:00</div><div class="prog-desc">🏛 National WWI Museum: uno de los mejores museos de guerra del mundo. Gratuito.</div></div>
-<div class="prog-item"><div class="prog-time">13:30</div><div class="prog-desc">Almuerzo BBQ en Kansas City.</div></div>
-<div class="prog-item"><div class="prog-time">15:00</div><div class="prog-desc">Descanso en el hotel.</div></div>
-<div class="prog-item"><div class="prog-time">19:00</div><div class="prog-desc">Cena pre-partido en Jack Stack Barbecue o Joe's KC.</div></div>
-<div class="prog-item"><div class="prog-time">21:00</div><div class="prog-desc">⚽ Argentina vs TBC · Cuartos de final · Arrowhead Stadium, Kansas City (condicional).</div></div>
-
+          <div class="prog-item"><div class="prog-time">09:00</div><div class="prog-desc">Country Club Plaza. Arquitectura española de 1922. Fuentes. Tiendas. Shopping tranquilo. Cafés con terraza. Es belleza urbana.</div></div>
+          <div class="prog-item"><div class="prog-time">11:00</div><div class="prog-desc">National WWI Museum. Uno de los grandes museos de USA. Colecciones masivas de la Primera Guerra (1914-1918). Historias personales de soldados. Arte de guerra. Impacto emocional fuerte.</div></div>
+          <div class="prog-item"><div class="prog-time">13:30</div><div class="prog-desc">Almuerzo BBQ en Kansas City. Jack Stack Freight House o Joe's KC.</div></div>
+          <div class="prog-item"><div class="prog-time">15:00</div><div class="prog-desc">Descanso en hotel. Siesta si hay partido. Ducha. Preparación.</div></div>
+          <div class="prog-item"><div class="prog-time">19:00</div><div class="prog-desc">Cena pre-partido. Jack Stack o Joe's KC nuevamente. BBQ shrimp, burnt ends, carnes ahumadas.</div></div>
+          <div class="prog-item"><div class="prog-time">21:00</div><div class="prog-desc">Partido de Cuartos en Arrowhead Stadium (si Argentina clasificó). Argentina vs TBC. 70 mil personas. El estadio más ruidoso de la NFL. Es espectáculo.</div></div>
         </div>
-        <div class="detail-food"><div class="detail-section-title">🍽 Qué comen</div><div class="food-item"><span class="food-meal">Desayuno</span><span class="food-what">Hotel</span></div>
-<div class="food-item"><span class="food-meal">Almuerzo</span><span class="food-what">Jack Stack Barbecue Freight House · burnt ends y BBQ shrimp</span></div>
-<div class="food-item"><span class="food-meal">Cena</span><span class="food-what">Joe's KC BBQ · dentro de una estación de servicio · legendario</span></div>
-</div>
+        <div class="detail-food">
+          <div class="detail-section-title">🍽 Qué comen</div>
+          <div class="food-item"><span class="food-meal">Desayuno</span><span class="food-what">Hotel.</span></div>
+          <div class="food-item"><span class="food-meal">Almuerzo</span><span class="food-what">Jack Stack Barbecue Freight House o Joe's KC. Burnt ends. Ribs. Brisket. Son leyendas de Kansas City (Joe's está adentro de una gasolinera original de los años 1940).</span></div>
+          <div class="food-item"><span class="food-meal">Cena</span><span class="food-what">BBQ nuevamente. O esperar al partido y comer en el estadio.</span></div>
+        </div>
       </div>
-    </div>
-
-    <div class="section-divider">
-      <div class="section-divider-sub">✦ Capítulo ✦</div>
-      <div class="section-divider-title">El regreso</div>
-      <div class="section-divider-sub">12-13 Jul</div>
     </div>
 
     <div class="detail-card">
@@ -3063,20 +2684,28 @@
           <div class="detail-loc">Kansas City → Buenos Aires</div>
         </div>
       </div>
-      <div class="detail-why">El último vuelo. Después de 18 días en EEUU, volvés con la mente llena de bisontes, géiseres, lobos, playas, Cybertruck, Tetons, partidos de Argentina y Shakira.</div>
+      <div class="detail-why">
+        El último vuelo. Después de 18 días en USA, vuelven. La cabeza está llena de bisontes, géiseres, lobos, playas, Shakira, partidos de fútbol, rodeos, espectáculos de naturaleza que no existen en Argentina.
+
+        El viaje comienza a las 5:40 de la madrugada desde Kansas City. Una conexión en Atlanta. Una conexión en Lima. Aterrizaje en Buenos Aires al amanecer.
+
+        Es un viaje de casi 30 horas. Es agotador. Pero es la culminación. El regreso a casa.
+      </div>
       <div class="detail-body">
         <div class="detail-program">
           <div class="detail-section-title">🕐 Programa</div>
-          <div class="prog-item"><div class="prog-time">04:00</div><div class="prog-desc">Despertador. Traslado al aeropuerto MCI.</div></div>
-<div class="prog-item"><div class="prog-time">05:40</div><div class="prog-desc">✈ DL 1204 MCI → ATL (Boeing 737-900).</div></div>
-<div class="prog-item"><div class="prog-time">08:49</div><div class="prog-desc">Escala Atlanta (ATL).</div></div>
-<div class="prog-item"><div class="prog-time">15:45</div><div class="prog-desc">✈ DL 0151 ATL → LIM (Airbus A333).</div></div>
-<div class="prog-item"><div class="prog-time">21:10</div><div class="prog-desc">Escala Lima (LIM).</div></div>
-<div class="prog-item"><div class="prog-time">23:45</div><div class="prog-desc">✈ DL 6300 LIM → EZE (Airbus A319).</div></div>
-
+          <div class="prog-item"><div class="prog-time">04:00</div><div class="prog-desc">Despertador. Breakfast bag del hotel si existe. Check-out final. Traslado al MCI Airport (shuttle incluido en hotel).</div></div>
+          <div class="prog-item"><div class="prog-time">05:40</div><div class="prog-desc">Vuelo DL 1204 Kansas City a Atlanta (2 horas 9 minutos). Boeing 737. Sale a oscuras, llega con luz.</div></div>
+          <div class="prog-item"><div class="prog-time">08:49</div><div class="prog-desc">Aterrizaje Atlanta. Escala larga (7 horas).</div></div>
+          <div class="prog-item"><div class="prog-time">15:45</div><div class="prog-desc">Embarque DL 0151 Atlanta a Lima (6 horas 50 minutos). Airbus A333. Vuelo internacional.</div></div>
+          <div class="prog-item"><div class="prog-time">21:10</div><div class="prog-desc">Aterrizaje Lima. Escala corta (2 horas 35 minutos). Cena en el aeropuerto.</div></div>
+          <div class="prog-item"><div class="prog-time">23:45</div><div class="prog-desc">Embarque DL 6300 Lima a Buenos Aires (4 horas 25 minutos). Airbus A319. Vuelo nocturno.</div></div>
         </div>
-        <div class="detail-food"><div class="detail-section-title">🍽 Qué comen</div><div class="food-item"><span class="food-meal">En tránsito</span><span class="food-what">Aeropuertos de Atlanta y Lima</span></div>
-</div>
+        <div class="detail-food">
+          <div class="detail-section-title">🍽 Qué comen</div>
+          <div class="food-item"><span class="food-meal">Breakfast bag</span><span class="food-what">En el hotel antes de salir o en el aeropuerto.</span></div>
+          <div class="food-item"><span class="food-meal">Cena en escala Lima</span><span class="food-what">Aeropuerto. Pollo, ensalada, bebidas.</span></div>
+        </div>
       </div>
     </div>
 
@@ -3088,19 +2717,34 @@
           <div class="detail-loc">Buenos Aires, Argentina</div>
         </div>
       </div>
-      <div class="detail-why">El viaje de una vida. Llegada a casa.</div>
+      <div class="detail-why">
+        Aterrizaje en Ezeiza. El sol sale sobre el Río de la Plata. Es 6 de la mañana. Está oscuro adentro del avión pero afuera está claro.
+
+        Pasan inmigración. Buscan maletas (solo carry-on, recuerdan). Pasan aduana.
+
+        Salen a la calle a las 7 de la mañana. Es invierno en Argentina. Es frío. Es home. Después de 19 días viviendo en fuerza bruta, regresan a lo conocido.
+
+        Fue el viaje de una vida. Conocieron USA en dos semanas. Vieron naturaleza que no existe en otro lado. Vieron fútbol en el mejor contexto del mundo. Comieron barbecue de Kansas City y bisonte de Wyoming. Nadaron en el Atlántico. Vieron lobos salvajes. Vieron el país donde todo es posible.
+
+        Ahora es regresar.
+      </div>
       <div class="detail-body">
         <div class="detail-program">
           <div class="detail-section-title">🕐 Programa</div>
-          <div class="prog-item"><div class="prog-time">06:10</div><div class="prog-desc">🛬 Aterrizaje en EZE. Bienvenidos de vuelta 🇦🇷</div></div>
-
+          <div class="prog-item"><div class="prog-time">06:10</div><div class="prog-desc">Aterrizaje Ezeiza, Buenos Aires. El sol sale. El río atrás. Argentina.</div></div>
+          <div class="prog-item"><div class="prog-time">06:30</div><div class="prog-desc">Desembarque. Inmigración. Aduana. Pasaportes. Preguntas.></div></div>
+          <div class="prog-item"><div class="prog-time">07:00</div><div class="prog-desc">Salida del aeropuerto. Está frío. 15 grados. Es invierno. Son nubes. No hay sol todavía pero el día empieza. Traslado a casa. Ducha. Descanso. Mirar fotos.</div></div>
         </div>
-        
+        <div class="detail-food">
+          <div class="detail-section-title">🍽 Qué comen</div>
+          <div class="food-item"><span class="food-meal">Desayuno</span><span class="food-what">En casa. Mate. Facturas. Café. Lo que hay en la heladera. Es ritmo argentino nuevamente.</span></div>
+        </div>
       </div>
     </div>
 
   </div>
 </section>
+
 <section class="reservations-section" id="reservas">
   <div class="section-header">
     <div class="section-eyebrow">Datos de cada reserva</div>
@@ -3275,211 +2919,6 @@ v>
   </div>
 
   <div class="res-grid">
-
-    <div class="res-section-title">✈ Vuelos</div>
-
-    <div class="res-card" onclick="toggleCard(this, event)">
-      <div class="res-header">
-        <div class="res-header-left">
-          <div class="res-icon">✈</div>
-          <div class="res-info">
-            <div class="res-title">Vuelo internacional · Ida</div>
-            <div class="res-subtitle">Buenos Aires → Dallas · 25 Jun</div>
-          </div>
-        </div>
-        <div class="res-status">
-          <span class="status-badge confirmed">Reservado</span>
-          <span class="res-toggle">▾</span>
-        </div>
-      </div>
-      <div class="res-body">
-        <div class="res-body-inner">
-          <div class="data-grid"><div class="data-item"><div class="data-label">Aerolínea</div><div class="data-value">Delta (operado por LATAM Perú)</div></div>
-<div class="data-item"><div class="data-label">Código reserva</div><div class="data-value mono">GAVRYT</div></div>
-<div class="data-item"><div class="data-label">Código aerolínea</div><div class="data-value mono">H4X379 (DL)</div></div>
-<div class="data-item"><div class="data-label">Tramo 1</div><div class="data-value">DL 6306 · EZE → LIM · 07:45 → 10:40</div></div>
-<div class="data-item"><div class="data-label">Tramo 2</div><div class="data-value">DL 6077 · LIM → ATL · 12:00 → 20:30</div></div>
-<div class="data-item"><div class="data-label">Tramo 3</div><div class="data-value">DL 0818 · ATL → DFW · 22:45 → 00:09 (+1)</div></div>
-<div class="data-item"><div class="data-label">Pasajeros</div><div class="data-value">5 (Guillermo, Mercedes, Joaquín, Emilia, Justina)</div></div>
-<div class="data-item"><div class="data-label">Clase</div><div class="data-value">Turista</div></div>
-<div class="data-item"><div class="data-label">Equipaje</div><div class="data-value">Solo carry-on · 1 por pasajero (22x14x9 pulgadas máx) · sin equipaje facturado</div></div>
-<div class="data-item"><div class="data-label">Agencia</div><div class="data-value">Cheaptotrip.com · 0810 345 0707</div></div>
-</div>
-          <div class="data-note"><strong>Importante</strong>: equipaje facturado dice 0 piezas. Verificar con la agencia si es correcto o si fue un error de la reserva.</div>
-
-          
-        </div>
-      </div>
-    </div>
-
-    <div class="res-card" onclick="toggleCard(this, event)">
-      <div class="res-header">
-        <div class="res-header-left">
-          <div class="res-icon">✈</div>
-          <div class="res-info">
-            <div class="res-title">Vuelo DFW → FLL · American Airlines</div>
-            <div class="res-subtitle">29 Jun · directo · AA 1862</div>
-          </div>
-        </div>
-        <div class="res-status">
-          <span class="status-badge confirmed">Reservado</span>
-          <span class="res-toggle">▾</span>
-        </div>
-      </div>
-      <div class="res-body">
-        <div class="res-body-inner">
-          <div class="data-grid">
-            <div class="data-item"><div class="data-label">Aerolínea</div><div class="data-value">American Airlines</div></div>
-            <div class="data-item"><div class="data-label">Vuelo</div><div class="data-value mono">AA 1862</div></div>
-            <div class="data-item"><div class="data-label">Código reserva</div><div class="data-value mono">SFRBRC</div></div>
-            <div class="data-item"><div class="data-label">Código aerolínea</div><div class="data-value mono">LNLMRG (AA)</div></div>
-            <div class="data-item"><div class="data-label">Ruta</div><div class="data-value">DFW → FLL (directo)</div></div>
-            <div class="data-item"><div class="data-label">Fecha</div><div class="data-value">lun 29 jun 2026</div></div>
-            <div class="data-item"><div class="data-label">Salida</div><div class="data-value">12:41 · DFW (terminal no disponible)</div></div>
-            <div class="data-item"><div class="data-label">Llegada</div><div class="data-value">16:33 · FLL Terminal 3</div></div>
-            <div class="data-item"><div class="data-label">Duración</div><div class="data-value">2hs 52min</div></div>
-            <div class="data-item"><div class="data-label">Avión</div><div class="data-value">Airbus A321</div></div>
-            <div class="data-item"><div class="data-label">Clase</div><div class="data-value">Turista</div></div>
-            <div class="data-item"><div class="data-label">Pasajeros</div><div class="data-value">5 (Guillermo, Mercedes, Joaquín, Emilia, Justina)</div></div>
-            <div class="data-item"><div class="data-label">Agencia</div><div class="data-value">Cttargentina.com · 0810 345 0707</div></div>
-          </div>
-          <div class="data-note"><strong>Coordinación</strong>: devolver el Cybertruck en DFW antes de las 18hs. Salir hacia el aeropuerto a las 11am para tener tiempo de devolución + check-in.</div>
-          
-        </div>
-      </div>
-    </div>
-        <div class="res-status">
-          <span class="status-badge confirmed">Reservado</span>
-          <span class="res-toggle">▾</span>
-        </div>
-      </div>
-      <div class="res-body">
-        <div class="res-body-inner">
-          <div class="data-grid"><div class="data-item"><div class="data-label">Ruta</div><div class="data-value">DFW → FLL (directo)</div></div>
-<div class="data-item"><div class="data-label">Fecha</div><div class="data-value">lun 29 jun 2026</div></div>
-<div class="data-item"><div class="data-label">Pasajeros</div><div class="data-value">5</div></div>
-<div class="data-item"><div class="data-label">Opciones sugeridas</div><div class="data-value">American Airlines · JetBlue</div></div>
-</div>
-          
-          <div class="data-pending-list"><div class="data-pending-list-title">⚠ Pendientes</div><ul><li>Reservar el vuelo con la agencia o directo en aerolínea</li><li>Confirmar horario (preferentemente al mediodía para tener mañana libre)</li><li>Coordinar con devolución del Cybertruck a las 18hs del 29 jun</li></ul></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="res-card" onclick="toggleCard(this, event)">
-      <div class="res-header">
-        <div class="res-header-left">
-          <div class="res-icon">✈</div>
-          <div class="res-info">
-            <div class="res-title">Vuelo FLL → JAC · Delta vía Minneapolis</div>
-            <div class="res-subtitle">4 Jul · DL 0673 + DL 4086</div>
-          </div>
-        </div>
-        <div class="res-status">
-          <span class="status-badge confirmed">Reservado</span>
-          <span class="res-toggle">▾</span>
-        </div>
-      </div>
-      <div class="res-body">
-        <div class="res-body-inner">
-          <div class="data-grid">
-            <div class="data-item"><div class="data-label">Aerolínea</div><div class="data-value">Delta Air Lines (tramo 2: SkyWest / Delta Connection)</div></div>
-            <div class="data-item"><div class="data-label">Código reserva</div><div class="data-value mono">CRPVEX</div></div>
-            <div class="data-item"><div class="data-label">Código aerolínea</div><div class="data-value mono">HXIH7C (DL)</div></div>
-            <div class="data-item"><div class="data-label">Tramo 1</div><div class="data-value">DL 0673 · FLL → MSP · 14:50 → 17:39 · Terminal 2 → Terminal 1 Lindbergh</div></div>
-            <div class="data-item"><div class="data-label">Tramo 2</div><div class="data-value">DL 4086 · MSP → JAC · 18:50 → 20:30 · Terminal 1 Lindbergh</div></div>
-            <div class="data-item"><div class="data-label">Escala</div><div class="data-value">Minneapolis (MSP) · 1h 11min · mismo terminal</div></div>
-            <div class="data-item"><div class="data-label">Fecha</div><div class="data-value">sáb 4 jul 2026</div></div>
-            <div class="data-item"><div class="data-label">Llegada JAC</div><div class="data-value">20:30</div></div>
-            <div class="data-item"><div class="data-label">Avión tramo 1</div><div class="data-value">Boeing 757-300</div></div>
-            <div class="data-item"><div class="data-label">Clase</div><div class="data-value">Turista</div></div>
-            <div class="data-item"><div class="data-label">Pasajeros</div><div class="data-value">5 (Guillermo, Mercedes, Joaquín, Emilia, Justina)</div></div>
-            <div class="data-item"><div class="data-label">Agencia</div><div class="data-value">Cttargentina.com · 0810 345 0707</div></div>
-            <div class="data-item"><div class="data-label">E-tickets (ambos tramos)</div><div class="data-value mono">Guillermo: 0064859303266<br>Mercedes: 0064859303267<br>Joaquín: 0064859303268<br>Emilia: 0064859303269<br>Justina: 0064859303270</div></div>
-          </div>
-          <div class="data-note"><strong>Importante</strong>: el pickup de Hertz en JAC está reservado a las 15:00. Llamar a Hertz (conf. L5994246970) para ajustar el horario al 20:30 de llegada.</div>
-          
-        </div>
-      </div>
-    </div>
-        <div class="res-status">
-          <span class="status-badge confirmed">Pendiente</span>
-          <span class="res-toggle">▾</span>
-        </div>
-      </div>
-      <div class="res-body">
-        <div class="res-body-inner">
-          <div class="data-grid"><div class="data-item"><div class="data-label">Ruta</div><div class="data-value">FLL → JAC (con escala)</div></div>
-<div class="data-item"><div class="data-label">Fecha</div><div class="data-value">sáb 4 jul 2026</div></div>
-<div class="data-item"><div class="data-label">Pasajeros</div><div class="data-value">5</div></div>
-<div class="data-item"><div class="data-label">Opciones</div><div class="data-value">United vía Denver · Delta vía Atlanta/Salt Lake</div></div>
-<div class="data-item"><div class="data-label">Recomendación</div><div class="data-value">Delta (alinear con vuelo internacional)</div></div>
-</div>
-          <div class="data-note"><strong>Urgente</strong>: es el vuelo más caro del viaje y el que menos opciones tiene. Reservar cuanto antes.</div>
-
-          <div class="data-pending-list"><div class="data-pending-list-title">⚠ Pendientes</div><ul><li>Reservar con la agencia</li><li>Confirmar horario (idealmente llegar antes de las 18hs)</li></ul></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="res-card" onclick="toggleCard(this, event)">
-      <div class="res-header">
-        <div class="res-header-left">
-          <div class="res-icon">✈</div>
-          <div class="res-info">
-            <div class="res-title">Vuelo BZN → MCI · Southwest</div>
-            <div class="res-subtitle">Bozeman → Kansas City · 10 Jul</div>
-          </div>
-        </div>
-        <div class="res-status">
-          <span class="status-badge confirmed">Reservado</span>
-          <span class="res-toggle">▾</span>
-        </div>
-      </div>
-      <div class="res-body">
-        <div class="res-body-inner">
-          <div class="data-grid"><div class="data-item"><div class="data-label">Aerolínea</div><div class="data-value">Southwest Airlines</div></div>
-<div class="data-item"><div class="data-label">Código reserva</div><div class="data-value mono">BPIZAF</div></div>
-<div class="data-item"><div class="data-label">Pasajeros</div><div class="data-value">5</div></div>
-<div class="data-item cost-hidden"><div class="data-label">Costo total</div><div class="data-value">$1.821,00 USD</div></div>
-<div class="data-item"><div class="data-label">Tramo 1</div><div class="data-value">SW 1132 · BZN → DEN · 14:50 → 16:35 · Boeing 737-800</div></div>
-<div class="data-item"><div class="data-label">Tramo 2</div><div class="data-value">SW 4305 · DEN → MCI · 17:55 → 20:45 · Boeing 737 MAX8</div></div>
-<div class="data-item cost-hidden"><div class="data-label">Duración total</div><div class="data-value">5h 55min con escala</div></div>
-</div>
-          
-          
-        </div>
-      </div>
-    </div>
-
-    <div class="res-card" onclick="toggleCard(this, event)">
-      <div class="res-header">
-        <div class="res-header-left">
-          <div class="res-icon">✈</div>
-          <div class="res-info">
-            <div class="res-title">Vuelo internacional · Vuelta</div>
-            <div class="res-subtitle">Kansas City → Buenos Aires · 12-13 Jul</div>
-          </div>
-        </div>
-        <div class="res-status">
-          <span class="status-badge confirmed">Reservado</span>
-          <span class="res-toggle">▾</span>
-        </div>
-      </div>
-      <div class="res-body">
-        <div class="res-body-inner">
-          <div class="data-grid"><div class="data-item"><div class="data-label">Aerolínea</div><div class="data-value">Delta (último tramo LATAM Ecuador)</div></div>
-<div class="data-item"><div class="data-label">Código reserva</div><div class="data-value mono">GAVRYT</div></div>
-<div class="data-item"><div class="data-label">Tramo 1</div><div class="data-value">DL 1204 · MCI → ATL · 05:40 → 08:49</div></div>
-<div class="data-item"><div class="data-label">Tramo 2</div><div class="data-value">DL 0151 · ATL → LIM · 15:45 → 21:10</div></div>
-<div class="data-item"><div class="data-label">Tramo 3</div><div class="data-value">DL 6300 · LIM → EZE · 23:45 → 06:10 (+1)</div></div>
-<div class="data-item"><div class="data-label">Llegada a EZE</div><div class="data-value">lun 13 jul 06:10am</div></div>
-</div>
-          
-          
-        </div>
-      </div>
-    </div>
 
     <div class="res-section-title">🏨 Alojamientos</div>
 
@@ -3665,7 +3104,7 @@ v>
 <div class="data-item"><div class="data-label">Host</div><div class="data-value">Tuan (4.9★ · 1.124 viajes)</div></div>
 <div class="data-item"><div class="data-label">Teléfono host</div><div class="data-value">+1 817-909-7827</div></div>
 <div class="data-item"><div class="data-label">Retiro</div><div class="data-value">vie 26 jun · 00:30 · DFW Airport</div></div>
-<div class="data-item"><div class="data-label">Devolución</div><div class="data-value">lun 29 jun · 18:00 · DFW Airport</div></div>
+<div class="data-item"><div class="data-label">Devolución</div><div class="data-value">lun 29 jun · 09:00 · DFW Airport</div></div>
 <div class="data-item cost-hidden"><div class="data-label">Costo total</div><div class="data-value">$635,02</div></div>
 <div class="data-item"><div class="data-label">Millas incluidas</div><div class="data-value">800 (excedente: $0,52 / milla)</div></div>
 <div class="data-item"><div class="data-label">Protección</div><div class="data-value">Minimum protection plan · máx out-of-pocket $3.000</div></div>
@@ -4354,7 +3793,7 @@ v>
           <tr class="confirmed"><td>Airbnb Fort Lauderdale · 5 noches (29 Jun-4 Jul)<div class="costs-note">Conf. HMQE2ZD9YZ · 350 N Birch Road · check-out 4 jul (perdemos noches 5 y 6 jul)</div></td><td>$1,633.98</td></tr>
           <tr class="confirmed"><td>Jackson Lake Lodge · 3 noches (4-7 Jul)<div class="costs-note">Conf. R3366173 · Classic Cottage 2 Queens</div></td><td>$1,776.20</td></tr>
           <tr class="confirmed"><td>Amphitheater House Silver Gate · 3 noches (7-10 Jul)<div class="costs-note">Conf. #114100 · $616 depósito pagado + $1,400 al llegar</div></td><td>$2,016.00</td></tr>
-          <tr class="pending"><td>Hotel Kansas City · 2 noches (10-12 Jul)<div class="costs-note">Pendiente reservar cerca MCI con shuttle</div></td><td>~$400.00</td></tr>
+          <tr class="confirmed"><td>Home2 Suites by Hilton Kansas City KU Medical Center · 2 noches (10-12 Jul)<div class="costs-note">Conf. 5647285703 · Desayuno incluido · Shuttle al aeropuerto</div></td><td>$1.093,01</td></tr>
           <tr class="subtotal"><td>Subtotal alojamientos</td><td>~$7,745.66</td></tr>
         </tbody>
       </table>
@@ -4601,6 +4040,20 @@ v>
 
 
 
-<div id="version-badge">v20.0 · 20 Jun 2026 12:50</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="version-badge">v27.0 · 21 Jun 2026 01:53</div>
 </body>
 </html>
