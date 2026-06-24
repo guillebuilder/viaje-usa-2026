@@ -1752,6 +1752,12 @@
 
 <script>
   const ACCESS_CODE = "19021981";
+
+  function toggleCard(card, event) {
+    if (event && event.target && event.target.tagName === 'A') return;
+    card.classList.toggle('open');
+  }
+
   function checkPassword() {
     const input = document.getElementById("gate-input").value.trim();
     const errorEl = document.getElementById("gate-error");
@@ -1810,24 +1816,8 @@
       <div class="pendiente-item status-urgente">
         <div class="pendiente-status">🔴 Urgente</div>
         <div class="pendiente-content">
-          <div class="pendiente-title">E-tickets · Cheaptotrip</div>
-          <div class="pendiente-detail">Recibir e-tickets de Cheaptotrip (GAVRYT). Guardar en teléfono y como backup impreso antes del 25 Jun</div>
-        </div>
-      </div>
-
-      <div class="pendiente-item status-urgente">
-        <div class="pendiente-status">🔴 Urgente</div>
-        <div class="pendiente-content">
-          <div class="pendiente-title">Tickets digitales Argentina vs Jordan</div>
-          <div class="pendiente-detail">Pendiente recibir. El partido es el 27 Jun. Deben estar en el teléfono antes de embarcar el 25 Jun</div>
-        </div>
-      </div>
-
-      <div class="pendiente-item status-info">
-        <div class="pendiente-status">✅ Resuelto</div>
-        <div class="pendiente-content">
-          <div class="pendiente-title">Yellowstone Wild Tours · saldo</div>
-          <div class="pendiente-detail">Cobrado el 9 Jun · $1.420,61 total procesado en Visa 2952</div>
+          <div class="pendiente-title">E-ticket EZE→LIM · Cheaptotrip</div>
+          <div class="pendiente-detail">Falta e-ticket del segmento LA 1436 Buenos Aires→Lima. Llamar Cheaptotrip: 0810 345 0707. Los demás segmentos ya están confirmados.</div>
         </div>
       </div>
 
@@ -1835,39 +1825,23 @@
         <div class="pendiente-status">🟡 Importante</div>
         <div class="pendiente-content">
           <div class="pendiente-title">Rafting Snake River</div>
-          <div class="pendiente-detail">Reservar desde Miami (29 Jun-4 Jul). Dom 5 Jul 13:30. Estimado $500</div>
+          <div class="pendiente-detail">Reservar desde Miami (29 Jun-4 Jul). Dom 5 Jul 13:30. Solitude Float Trips +1 307-733-2871. Estimado $500</div>
         </div>
       </div>
 
       <div class="pendiente-item status-importante">
         <div class="pendiente-status">🟡 Importante</div>
         <div class="pendiente-content">
-          <div class="pendiente-title">Visa USA y Hertz</div>
-          <div class="pendiente-detail">Llamar banco para CDW coverage Ford Edge. Llamar Hertz para cambiar pickup a 20:30 en JAC</div>
+          <div class="pendiente-title">Visa USA y Hertz · JAC</div>
+          <div class="pendiente-detail">Llamar banco para confirmar CDW coverage Ford Edge. Llamar Hertz para confirmar pickup a las 20:30 en JAC.</div>
         </div>
       </div>
 
-      <div class="pendiente-item status-info">
-        <div class="pendiente-status">✅ Confirmado</div>
+      <div class="pendiente-item status-importante">
+        <div class="pendiente-status">🟡 Importante</div>
         <div class="pendiente-content">
-          <div class="pendiente-title">Todos los vuelos</div>
-          <div class="pendiente-detail">5 vuelos confirmados · E-tickets pendiente recibir</div>
-        </div>
-      </div>
-
-      <div class="pendiente-item status-info">
-        <div class="pendiente-status">✅ Confirmado</div>
-        <div class="pendiente-content">
-          <div class="pendiente-title">Tours y actividades</div>
-          <div class="pendiente-detail">Brushbuck, Yellowstone Wild Tours, Wildlife Profiles · Todos pagados</div>
-        </div>
-      </div>
-
-      <div class="pendiente-item status-info">
-        <div class="pendiente-status">✅ Confirmado</div>
-        <div class="pendiente-content">
-          <div class="pendiente-title">Entradas y shows</div>
-          <div class="pendiente-detail">Argentina vs Jordan, Shakira, Rodeo · Todos pagados</div>
+          <div class="pendiente-title">Cybertruck · Tuan</div>
+          <div class="pendiente-detail">Contactar al host (Turo) para avisar llegada a las 00:19 con solo 11 min hasta el lockbox (00:30). Pedir margen extra por si hay demoras en inmigración.</div>
         </div>
       </div>
     </div>
@@ -2161,14 +2135,15 @@
           <div class="prog-item"><div class="prog-time">08:30</div><div class="prog-desc">Desayuno en el Airbnb con lo que haya. Café fuerte. El jet lag es puro.</div></div>
           <div class="prog-item"><div class="prog-time">09:30</div><div class="prog-desc">Deep Ellum. Estacioná el Cybertruck en el garaje de Main Street. Caminata de tres cuadras (Elm a Commerce) que es el corazón del barrio. AllGood Cafe tiene wifi y pasteles caseros. Kilómetro de murales: desde Blind Lemon Jefferson (leyenda del blues nacido en Texas en 1894) hasta arte contemporáneo completamente abstracto. Cada artista firma sus obras. Busca el mural más grande, sobre la fachada de un edificio de ladrillo rojo que ocupa toda una cuadra.</div></div>
           <div class="prog-item"><div class="prog-time">12:00</div><div class="prog-desc">Almuerzo en Deep Ellum mismo. Múltiples opciones: tacos callejeros, food trucks, o restaurantes con terraza.</div></div>
-          <div class="prog-item"><div class="prog-time">13:00</div><div class="prog-desc">Tarde completamente libre. Piscina del Airbnb si quieren. Descanso obligatorio. Jet lag es criminal.</div></div>
-          <div class="prog-item"><div class="prog-time">19:00</div><div class="prog-desc">Cena fuera. Vuelta tranquila.</div></div>
+          <div class="prog-item"><div class="prog-time">13:00</div><div class="prog-desc">Tarde libre. Piscina del Airbnb si quieren. Descanso obligatorio. Jet lag es criminal.</div></div>
+          <div class="prog-item"><div class="prog-time">17:00</div><div class="prog-desc">🔀 Guillermo sale solo a cenar con amigos en Plano. · Mercedes, Joaquín, Emilia y Justina: banderazo argentino (a confirmar punto de encuentro).</div></div>
         </div>
         <div class="detail-food">
           <div class="detail-section-title">🍽 Qué comen</div>
           <div class="food-item"><span class="food-meal">Desayuno</span><span class="food-what">En el Airbnb. Tostadas, huevos, lo que encuentren.</span></div>
           <div class="food-item"><span class="food-meal">Almuerzo</span><span class="food-what">Deep Ellum mismo. Busca un food truck de tacos o pizza neoyorquina.</span></div>
-          <div class="food-item"><span class="food-meal">Cena</span><span class="food-what">Saviano's Italian Kitchen en Euless. Pasta cremosa. 10 minutos del Airbnb.</span></div>
+          <div class="food-item"><span class="food-meal">Cena (Guillermo)</span><span class="food-what">Cena con amigos indios en zona de Plano.</span></div>
+          <div class="food-item"><span class="food-meal">Cena (familia)</span><span class="food-what">Banderazo. Lo que encuentren por la zona.</span></div>
         </div>
       </div>
     </div>
